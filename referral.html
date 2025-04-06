@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Kuzana Referral Link</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      max-width: 600px;
+      margin: 2em auto;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: var(--background);
+      color: var(--text);
+    }
+    p {
+      font-size: 1.1em;
+      padding: 0.8em;
+      margin-bottom: 1.5em;
+    }
+    h2 {
+      color: var(--tertiary);
+    }
+    label {
+      display: block;
+      margin-bottom: 1em;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 0.5em 1em;
+      margin-top: 1em;
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: var(--primary);
+    }
+    #shareSection a {
+      margin-right: 1em;
+      color: var(--tertiary);
+      text-decoration: none;
+    }
+    #shareSection a:hover {
+      text-decoration: underline;
+    }
+    .small-text {
+      font-size: 0.8em;
+      color: #555;
+    }
+  </style>
+  <script>
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function validatePhone(phone) {
+      return /^\+?[0-9 ()-]*$/.test(phone);
+    }
+
+    function generateLink() {
+      const nameField = document.getElementById("name");
+      const emailField = document.getElementById("email");
+      const phoneField = document.getElementById("phone");
+
+      const name = encodeURIComponent(nameField.value.trim());
+      const email = emailField.value.trim();
+      const phone = phoneField.value.trim();
+
+      if (email && !validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      if (phone && !validatePhone(phone)) {
+        alert("Please enter a valid phone number (digits, spaces, parentheses, dashes, and optional leading + only).");
+        return;
+      }
+
+      const combined = `${name}%2C${encodeURIComponent(email)}%2C${encodeURIComponent(phone)}`;
+      const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform?usp=pp_url&entry.1087974569=";
+      const fullUrl = baseUrl + combined;
+
+      document.getElementById("result").value = fullUrl;
+
+      const whatsappMsg = `Hey Friend, Are you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\nUse this link to show that I vouched for you: ${fullUrl}`;
+      const linkedinMsg = `Hey Friends. I found this funding opportunity for startups in Kenya and wanted to share with my network.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\n${fullUrl}`;
+      const emailMsg = `Hey Friend!\n\nAre you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\nUse this link to show that I vouched for you: ${fullUrl}`;
+
+      document.getElementById("whatsapp").href = `https://wa.me/?text=${encodeURIComponent(whatsappMsg)}`;
+      document.getElementById("linkedin").href = `linkedin://shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent('Kuzana Funding Opportunity')}&summary=${encodeURIComponent(linkedinMsg)}`;
+      document.getElementById("emailShare").href = `mailto:?subject=Check this out&body=${encodeURIComponent(emailMsg)}`;
+
+      document.getElementById("shareSection").style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <p>
+    <strong>Want to Promote a friend's company?</strong>
+    <p>We'll offer up to <strong>Ksh50,000</strong>* if we invest.</p>
+  </p>
+  <h2>Generate Your Custom Kuzana Link</h2>
+
+  <label>Your Name:<br>
+    <input type="text" id="name">
+  </label>
+  <label>Your Email:<br>
+    <input type="email" id="email">
+  </label>
+  <label>Your WhatsApp Number:<br>
+    <input type="text" id="phone">
+  </label>
+
+  <button onclick="generateLink()">Generate Link</button>
+
+  <div id="shareSection" style="margin-top: 2em; display: none;">
+    <h3>Your Link:</h3>
+    <input type="text" id="result" readonly>
+
+    <h3>Share:</h3>
+    <a id="whatsapp" target="_blank">Share on WhatsApp</a>
+    <a id="linkedin" target="_blank">Share on LinkedIn</a>
+    <a id="emailShare" target="_blank">Share by Email</a>
+  </div>
+  <p class="small-text">*<a href="terms.html" target="_blank" text="tertiary">Terms and conditions apply</a></p>
+</body>
+</html>
