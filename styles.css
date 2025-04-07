@@ -409,15 +409,15 @@ body {
 
 img.image-placeholder {
     display: block;
-    margin: 20px auto; /* Center images horizontally */
+    margin: 0 auto;
     width: 100%;
-    max-width: 600px;
+    max-width: 6in;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(74, 98, 141, 0.3);
 }
 
 .main-content {
-    padding: 0 16.66vw; /* Set padding to 1/6th of the viewport width on each side */
+    padding: 0 16.66vw;
 }
 
 .nav-link {
@@ -462,4 +462,17 @@ a:hover {
 
 .quote {
     font-style: italic;
+}
+
+.text-content {
+    padding: 0 16.66vw;
+}
+
+img.image-placeholder {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 6in;
+    height: auto;
+    border-radius: 10px;
 } 
