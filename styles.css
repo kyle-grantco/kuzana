@@ -465,7 +465,7 @@ a:hover {
 }
 
 .text-content {
-    padding: 0 16.66vw;
+    padding: 0 3mm;
 }
 
 img.image-placeholder {
@@ -475,4 +475,43 @@ img.image-placeholder {
     max-width: 6in;
     height: auto;
     border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .text-content {
+        padding: 1mm;
+        margin: 1mm;
+        border: 1mm solid transparent;
+    }
+}
+
+footer {
+    background-color: var(--primary);
+    color: var(--background);
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .social-links li a {
+    color: var(--background);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-links li a:hover {
+    color: var(--secondary);
+    transform: scale(1.1);
+}
+
+footer .social-links li a:active {
+    color: var(--tertiary);
 } 
