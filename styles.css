@@ -417,8 +417,7 @@ a:hover {
 }
 
 #eligibility ul {
-    list-style-type: disc;
-    padding-left: 00px;
+    list-style-type: none;
 }
 
 .quote {
