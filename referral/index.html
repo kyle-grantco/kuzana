@@ -11,8 +11,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Generate Kuzana Referral Link</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="Kuzana - Investing in Kenyan SMEs">
+  <meta property="og:description" content="mint 1,000 more millionaires">
+  <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -115,31 +122,57 @@
   </script>
 </head>
 <body>
-  <p><strong>Want to Promote a friend's company?</strong></p>
-  <p>We'll offer up to <strong>Ksh50,000</strong>* if we invest.</p>
-  <h2>Generate Your Custom Kuzana Link</h2>
+  <div class="content-wrapper">
+    <p><strong>Want to Promote a friend's company?</strong></p>
+    <p>We'll offer up to <strong>Ksh50,000</strong>* if we invest.</p>
+    <h2>Generate Your Custom Kuzana Link</h2>
 
-  <label>Your Name:<br>
-    <input type="text" id="name">
-  </label>
-  <label>Your Email:<br>
-    <input type="email" id="email">
-  </label>
-  <label>Your WhatsApp Number:<br>
-    <input type="text" id="phone">
-  </label>
+    <label>Your Name:<br>
+      <input type="text" id="name">
+    </label>
+    <label>Your Email:<br>
+      <input type="email" id="email">
+    </label>
+    <label>Your WhatsApp Number:<br>
+      <input type="text" id="phone">
+    </label>
 
-  <button onclick="generateLink()">Generate Link</button>
+    <button onclick="generateLink()">Generate Link</button>
 
-  <div id="shareSection" style="margin-top: 2em; display: none;">
-    <h3>Your Link:</h3>
-    <input type="text" id="result" readonly>
+    <div id="shareSection" style="margin-top: 2em; display: none;">
+      <h3>Your Link:</h3>
+      <input type="text" id="result" readonly>
 
-    <h3>Share:</h3>
-    <a id="whatsapp" target="_blank">Share on WhatsApp</a>
-    <a id="linkedin" target="_blank">Share on LinkedIn</a>
-    <a id="emailShare" target="_blank">Share by Email</a>
+      <h3>Share:</h3>
+      <a id="whatsapp" target="_blank">Share on WhatsApp</a>
+      <a id="linkedin" target="_blank">Share on LinkedIn</a>
+      <a id="emailShare" target="_blank">Share by Email</a>
+    </div>
+    <p class="small-text">*<a href="terms.html" target="_blank" text="tertiary">Terms and conditions apply</a></p>
   </div>
-  <p class="small-text">*<a href="terms.html" target="_blank" text="tertiary">Terms and conditions apply</a></p>
+
+  <footer>
+    <div class="footer-content">
+      <div class="newsletter">
+        <h3>Stay Updated</h3>
+        <p>
+          <iframe src="https://kuzana.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+        </p>
+      </div>
+      <div class="address">
+        <p>Spring Valley Rd, Nairobi, Kenya</p>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.linkedin.com/company/kuzana" target="_blank">LinkedIn</a></li>
+        <li><a href="https://kuzana.substack.com" target="_blank">Substack</a></li>
+        <li><a href="https://www.tiktok.com/@kuzana.co" target="_blank">TikTok</a></li>
+        <li><a href="https://x.com/kuzana_co" target="_blank">X</a></li>
+        <li><a href="https://www.facebook.com/kuzana" target="_blank">Facebook</a></li>
+        <li><a href="mailto:kyle+website@kuzana.co">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
 </body>
-</html
+</html>
