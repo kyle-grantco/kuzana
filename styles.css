@@ -49,15 +49,16 @@ body {
     border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     display: inline-block;
     margin: 1rem 0;
     align-self: center;
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    background: var(--primary);
+    color: var(--secondary);
+    background: white;
+    border: 1px solid var(--secondary);
 }
 
 .hero {
@@ -180,12 +181,24 @@ body {
     color: var(--primary);
 }
 
-/* Logo Animation Styles */
+/* Logo Styles */
 .logo {
     position: relative;
     width: 150px;
     height: 50px;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.logo a {
+    display: block;
+    width: 100%;
 }
 
 .sunrise-text {
@@ -230,8 +243,6 @@ body {
         background-position: 0% 100%;
     }
 }
-
-
 
 /* Hamburger Menu Styles */
 .menu-toggle {
@@ -436,8 +447,6 @@ img.image-placeholder {
     height: auto;
     border-radius: 10px;
 }
-
-
 
 footer {
     background-color: var(--primary);
