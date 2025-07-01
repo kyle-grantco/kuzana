@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Kuzana Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <meta property="og:title" content="Access Kuzana Deck">
+    <meta property="og:description" content="Request access to the Kuzana pitch deck.">
+    <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <style>
+        .deck-form-container {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .deck-form {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 2.5em 2em 2em 2em;
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+        .deck-form label {
+            font-weight: 500;
+            color: var(--tertiary);
+            margin-bottom: 0.5em;
+        }
+        .deck-form input[type="email"] {
+            padding: 0.8em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .deck-form button {
+            margin-top: 1em;
+            padding: 0.8em 1.5em;
+            border-radius: 4px;
+            border: none;
+            background: var(--secondary);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .deck-form button:hover {
+            background: #fff;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="https://kuzana.co">
+                <img src="../images/logo.png" class="image-placeholder">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="/referral/" class="nav-link">Referral</a></li>
+            <li><a href="https://docs.google.com/document/d/1mf1JSx2NbAAx4Zk3xf-Ge50tIaJWtCNT_IhJYm8Xx4U/edit?tab=t.0" class="nav-link">FAQ</a></li>
+            <li><a href="https://kuzana.substack.com" class="nav-link">Blog</a></li>
+            <li><a href="/jobs/" class="nav-link">Jobs</a></li>
+            <li><a href="/library/" class="nav-link">Library</a></li>
+            <li><a href="/resources/" class="nav-link">Resources</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform" class="cta-button">Apply Now</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="deck-form-container">
+            <form class="deck-form" id="deckAccessForm">
+                <label for="email">Enter your email to access the Kuzana Deck:</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email">
+                <button type="submit">Access Kuzana Deck</button>
+                <div id="form-message" style="margin-top:1em;color:var(--secondary);"></div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="newsletter">
+                <h3>Stay Updated</h3>
+                <p>
+                    <iframe src="https://kuzana.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+                </p>
+            </div>
+            <div class="address">
+                <p>Spring Valley Rd, Nairobi, Kenya</p>
+            </div>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/company/kuzana" target="_blank">LinkedIn</a></li>
+                <li><a href="https://kuzana.substack.com" target="_blank">Substack</a></li>
+                <li><a href="https://www.tiktok.com/@kuzana.co" target="_blank">TikTok</a></li>
+                <li><a href="https://x.com/kuzana_co" target="_blank">X</a></li>
+                <li><a href="https://www.facebook.com/kuzana" target="_blank">Facebook</a></li>
+                <li><a href="mailto:info+website@kuzana.co">Email</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+    <script>
+    document.getElementById('deckAccessForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const messageDiv = document.getElementById('form-message');
+        messageDiv.textContent = 'Submitting...';
+        try {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbz63f0X6SX3AgTsC5-WWscokSsYvaMXXY6jt06SBrf8keoZWKVMbS1Dih3E4vpRomSWaA/exec', {
+                method: 'POST',
+                body: JSON.stringify({email}),
+                headers: {'Content-Type': 'application/json'}
+            });
+            const result = await response.json();
+            if(result.status === 'success') {
+                messageDiv.textContent = 'Check your email for access to the deck!';
+            } else {
+                messageDiv.textContent = 'There was an error. Please try again.';
+            }
+        } catch (err) {
+            messageDiv.textContent = 'There was an error. Please try again.';
+        }
+    });
+    </script>
+</body>
+</html> 
