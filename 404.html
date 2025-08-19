@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting…</title>
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://docs.google.com" crossorigin>
+    <script>
+        (function() {
+            var pathname = window.location.pathname || "/";
+            var segment = pathname.replace(/^\/+|\/+$/g, "").split("/")[0];
+            var ignored = ["", "index.html", "index.htm", "favicon.ico", "robots.txt"];
+            if (ignored.indexOf(segment) !== -1) {
+                window.location.replace("/");
+                return;
+            }
+            var base = "https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform?usp=pp_url&entry.1087974569=";
+            var target = base + encodeURIComponent(segment);
+            window.location.replace(target);
+        })();
+    </script>
+    <style>
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; color: #333; }
+        a { color: #ff6f74; }
+    </style>
+</head>
+<body>
+    <p>Redirecting you to the application form… If you are not redirected, continue to the
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform">application</a>.
+    </p>
+</body>
+</html>
+
