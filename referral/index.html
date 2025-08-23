@@ -80,41 +80,25 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    function validatePhone(phone) {
-      return /^\+?[0-9 ()-]*$/.test(phone);
-    }
-
     function generateLink() {
-      const nameField = document.getElementById("name");
       const emailField = document.getElementById("email");
-      const phoneField = document.getElementById("phone");
-
-      const name = encodeURIComponent(nameField.value.trim());
-      const email = emailField.value.trim();
-      const phone = phoneField.value.trim();
+      const email = emailField.value.trim().toLowerCase();
 
       if (email && !validateEmail(email)) {
         alert("Please enter a valid email address.");
         return;
       }
 
-      if (phone && !validatePhone(phone)) {
-        alert("Please enter a valid phone number (digits, spaces, parentheses, dashes, and optional leading + only).");
-        return;
-      }
+      const shortUrl = `${window.location.origin}/${encodeURIComponent(email)}`;
 
-      const combined = `${name}%2C${encodeURIComponent(email)}%2C${encodeURIComponent(phone)}`;
-      const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform?usp=pp_url&entry.1087974569=";
-      const fullUrl = baseUrl + combined;
+      document.getElementById("result").value = shortUrl;
 
-      document.getElementById("result").value = fullUrl;
-
-      const whatsappMsg = `Hey Friend, Are you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\nUse this link to show that I promoted you: ${fullUrl}`;
-      const linkedinMsg = `Hey Friends. I found this funding opportunity for startups in Kenya and wanted to share with my network.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\n${fullUrl}`;
-      const emailMsg = `Hey Friend!\n\nAre you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\nUse this link to show that I promoted you: ${fullUrl}`;
+      const whatsappMsg = `Hey Friend, Are you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\nUse this link to show that I promoted you: ${shortUrl}`;
+      const linkedinMsg = `Hey Friends. I found this funding opportunity for startups in Kenya and wanted to share with my network.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\n${shortUrl}`;
+      const emailMsg = `Hey Friend!\n\nAre you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\nUse this link to show that I promoted you: ${shortUrl}`;
 
       document.getElementById("whatsapp").href = `https://wa.me/?text=${encodeURIComponent(whatsappMsg)}`;
-      document.getElementById("linkedin").href = `linkedin://shareArticle?mini=true&url=${encodeURIComponent(fullUrl)}&title=${encodeURIComponent('Kuzana Funding Opportunity')}&summary=${encodeURIComponent(linkedinMsg)}`;
+      document.getElementById("linkedin").href = `linkedin://shareArticle?mini=true&url=${encodeURIComponent(shortUrl)}&title=${encodeURIComponent('Kuzana Funding Opportunity')}&summary=${encodeURIComponent(linkedinMsg)}`;
       document.getElementById("emailShare").href = `mailto:?subject=Check this out&body=${encodeURIComponent(emailMsg)}`;
 
       document.getElementById("shareSection").style.display = 'block';
@@ -126,15 +110,10 @@
     <p><strong>Want to Promote a friend's company?</strong></p>
     <p>We'll offer up to <strong>Ksh50,000</strong>* if we invest.</p>
     <h2>Generate Your Custom Kuzana Link</h2>
+    <p>Your referral link format is <code>kuzana.co/[email]</code>. Share this link with founders so your referral is tracked automatically.</p>
 
-    <label>Your Name:<br>
-      <input type="text" id="name">
-    </label>
     <label>Your Email:<br>
       <input type="email" id="email">
-    </label>
-    <label>Your WhatsApp Number:<br>
-      <input type="text" id="phone">
     </label>
 
     <button onclick="generateLink()">Generate Link</button>

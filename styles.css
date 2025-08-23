@@ -362,6 +362,9 @@ body {
     .hamburger-menu {
         display: block;
     }
+    .hero-content { padding: 1.5rem; margin-top: 10rem; }
+    .main-content { padding: 0 4vw; }
+    .cta-button { padding: 0.7rem 1.2rem; }
 }
 
 /* Active states for menu */
