@@ -89,7 +89,7 @@
         return;
       }
 
-      const shortUrl = `${window.location.origin}/${encodeURIComponent(email)}`;
+      const shortUrl = `${window.location.origin}/${email}`;
       const displayUrl = `Kuzana.co/${email}`;
 
       document.getElementById("result").value = displayUrl;
@@ -99,10 +99,35 @@
       const emailMsg = `Hey Friend!\n\nAre you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 300k+ monthly revenue.\n\nUse this link to show that I promoted you: ${shortUrl}`;
 
       document.getElementById("whatsapp").href = `https://wa.me/?text=${encodeURIComponent(whatsappMsg)}`;
-      document.getElementById("linkedin").href = `linkedin://shareArticle?mini=true&url=${encodeURIComponent(shortUrl)}&title=${encodeURIComponent('Kuzana Funding Opportunity')}&summary=${encodeURIComponent(linkedinMsg)}`;
+      document.getElementById("linkedin").href = `linkedin://shareArticle?mini=true&url=${shortUrl}&title=${encodeURIComponent('Kuzana Funding Opportunity')}&summary=${encodeURIComponent(linkedinMsg)}`;
       document.getElementById("emailShare").href = `mailto:?subject=Check this out&body=${encodeURIComponent(emailMsg)}`;
 
       document.getElementById("shareSection").style.display = 'block';
+    }
+
+    function copyLink() {
+      const resultField = document.getElementById("result");
+      const value = resultField.value;
+      if (!value) { alert("Generate a link first."); return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function(){
+          
+        }).catch(function(){
+          const ta = document.createElement('textarea');
+          ta.value = value;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        });
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = value;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
     }
   </script>
 </head>
@@ -121,6 +146,7 @@
     <div id="shareSection" style="margin-top: 2em; display: none;">
       <h3>Your Link:</h3>
       <input type="text" id="result" readonly>
+      <button type="button" onclick="copyLink()">Copy</button>
 
       <h3>Share:</h3>
       <a id="whatsapp" target="_blank">Share on WhatsApp</a>
