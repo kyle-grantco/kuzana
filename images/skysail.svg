@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-label="Skysail logo placeholder">
+  <rect width="400" height="200" fill="#ffffff"/>
+  <path d="M60 130 L200 40 L340 130" fill="none" stroke="#1976d2" stroke-width="16" stroke-linecap="round"/>
+  <path d="M90 130 L200 60 L310 130" fill="none" stroke="#1976d2" stroke-width="12" stroke-linecap="round"/>
+  <text x="200" y="170" font-family="Roboto, Arial, sans-serif" font-size="36" fill="#1976d2" text-anchor="middle">Skysail</text>
+</svg>
+
