@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-label="Bellfeeds logo placeholder">
-  <rect width="400" height="200" fill="#ffffff"/>
-  <circle cx="90" cy="100" r="40" fill="#2E3192"/>
-  <circle cx="130" cy="120" r="10" fill="#F58220"/>
-  <text x="220" y="115" font-family="Roboto, Arial, sans-serif" font-size="38" fill="#2E3192" text-anchor="middle">BELLFEEDS</text>
-</svg>
-

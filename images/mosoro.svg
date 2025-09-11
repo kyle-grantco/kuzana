@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-label="Mosoro logo placeholder">
-  <rect width="400" height="200" fill="#ffffff"/>
-  <polyline points="50,140 120,60 180,140 240,60 300,140" fill="none" stroke="#00A65A" stroke-width="12" stroke-linecap="round"/>
-  <circle cx="300" cy="140" r="6" fill="#00A65A"/>
-  <text x="200" y="180" font-family="Roboto, Arial, sans-serif" font-size="34" fill="#00A65A" text-anchor="middle">Mosoro</text>
-</svg>
-

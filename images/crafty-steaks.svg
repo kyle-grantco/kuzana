@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-label="Crafty Steaks logo placeholder">
-  <rect width="400" height="200" fill="#ffffff"/>
-  <path d="M60 140 h60 v-50 h-20 v-20 h-20 v20 h-20z" fill="#C62828"/>
-  <text x="240" y="110" font-family="Roboto, Arial, sans-serif" font-size="40" fill="#2E7D32" text-anchor="middle">Crafty</text>
-  <text x="240" y="150" font-family="Roboto, Arial, sans-serif" font-size="32" fill="#C62828" text-anchor="middle">STEAKS</text>
-</svg>
-
