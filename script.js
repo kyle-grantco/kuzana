@@ -32,3 +32,12 @@ document.addEventListener('mouseleave', function(e) {
         exitIntentShown = true;
     }
 }); 
+
+// Ensure clicking the top-left Kuzana logo goes to the normal homepage without redirect
+// by appending ?no_redirect=1 to the root link. Applied site-wide.
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        var logoAnchor = document.querySelector('.logo a');
+        if (logoAnchor) logoAnchor.setAttribute('href', '/?no_redirect=1');
+    } catch (e) {}
+});

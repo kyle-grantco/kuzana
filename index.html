@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=/batch2final/">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -26,9 +25,14 @@
         (function(){
             try {
                 var target = '/batch2final/';
-                if (location.pathname === '/' || location.pathname === '/index.html') {
-                    window.location.replace(target);
-                }
+                // Stop redirecting after 2025-10-07 21:00 Africa/Nairobi (EAT = UTC+3)
+                // UTC equivalent: 2025-10-07T18:00:00Z
+                var redirectEndUtcMs = Date.parse('2025-10-07T18:00:00Z');
+                var nowUtcMs = Date.now();
+                var beforeEndWindow = nowUtcMs < redirectEndUtcMs;
+                var params = new URLSearchParams(window.location.search);
+                var noRedirect = params.has('no_redirect');
+                if (beforeEndWindow && !noRedirect && (location.pathname === '/' || location.pathname === '/index.html')) window.location.replace(target);
             } catch (e) {}
         })();
     </script>
@@ -61,7 +65,7 @@
             <div class="sunrise-text">Kuzana</div>
         </div>
         <div class="hero-content">
-            <h1>Education for Kenya's Top 1% Entrepreneurs</h1>
+            <h1>Education & Investment for Kenya's Top 1% Entrepreneurs</h1>
             <p>Every Friday workshop for 12 weeks. So far, every company has 2x'd revenue in 12 weeks.</p>
             <p class="sector-preferences">agri-processing, real estate/construction, manufacturing, fintech, retail, logistics</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform" class="cta-button">Apply to the 12-week Program</a>
