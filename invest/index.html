@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuzana – Invest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <style>
+    body { padding-top: 90px; }
+    .invest-hero { padding: 6rem 1rem 2rem; text-align: center; }
+    .invest-hero h1 { color: var(--tertiary); }
+    .form-card { max-width: 560px; margin: 1rem auto 2rem; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 1.25rem; }
+    .form-row { display: flex; gap: .5rem; align-items: center; }
+    .form-row input[type=email] { flex: 1; padding: .85rem 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+    .error { color: #b00020; font-size: .95rem; margin-top: .5rem; display: none; }
+    .success { color: #0a7a38; font-size: .95rem; margin-top: .5rem; display: none; }
+    .deck-note { max-width: 720px; margin: 0 auto; text-align: center; }
+  </style>
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="logo">
+      <a href="/">
+        <img src="../images/logo.png" class="image-placeholder" loading="eager" decoding="async">
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
+      <li><a href="/referral/" class="nav-link">Referral</a></li>
+      <li><a href="https://kuzana.substack.com" class="nav-link">Blog</a></li>
+      <li><a href="/jobs/" class="nav-link">Jobs</a></li>
+      <li><a href="/library/" class="nav-link">Library</a></li>
+      <li><a href="/resources/" class="nav-link">Resources</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform" class="cta-button">Apply Now</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <section class="invest-hero">
+      <h1>Invest with Kuzana</h1>
+      <p>Enter your work email to receive the deck and notify our team.</p>
+    </section>
+
+    <section class="form-card">
+      <form id="investForm" novalidate>
+        <div class="form-row">
+          <input id="email" name="email" type="email" placeholder="name@company.com" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" aria-label="Email address">
+          <button class="cta-button" type="submit">View Deck</button>
+        </div>
+        <p class="error" id="errorMsg">Please enter a valid email like abc@abc.abc</p>
+        <p class="success" id="successMsg">Check your inbox for the deck. Opening now…</p>
+      </form>
+    </section>
+
+    <p class="deck-note">We will send the deck link to your email and notify our CEO so we can follow up with any questions.</p>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="newsletter">
+        <h3>Stay Updated</h3>
+        <p>
+          <iframe src="https://kuzana.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+        </p>
+      </div>
+      <div class="address">
+        <p>Spring Valley Rd, Nairobi, Kenya</p>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.linkedin.com/company/kuzana" target="_blank">LinkedIn</a></li>
+        <li><a href="https://kuzana.substack.com" target="_blank">Substack</a></li>
+        <li><a href="https://www.tiktok.com/@kuzana.co" target="_blank">TikTok</a></li>
+        <li><a href="https://x.com/kuzana_co" target="_blank">X</a></li>
+        <li><a href="https://www.facebook.com/kuzana" target="_blank">Facebook</a></li>
+        <li><a href="mailto:info+website@kuzana.co">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    (function(){
+      /**
+       * Validate email against a simple pattern requiring a dot in the domain
+       */
+      function isValidEmail(email){
+        var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return pattern.test(String(email).toLowerCase());
+      }
+
+      var form = document.getElementById('investForm');
+      var emailInput = document.getElementById('email');
+      var err = document.getElementById('errorMsg');
+      var ok = document.getElementById('successMsg');
+      var deckUrl = 'https://docs.google.com/presentation/d/1JmAZx8-Xn2RiYaf2zFdluSwWno6XM6sNaq99fTgoCf8/view';
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        err.style.display = 'none';
+        ok.style.display = 'none';
+        var email = emailInput.value.trim();
+        if(!isValidEmail(email)) { err.style.display = 'block'; return; }
+
+        // Replace with your deployed Apps Script Web App URL
+        var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyZfwwHYuDu3YNqqNdXH1qVF0Gx6qujdfoc5OLkbmqQF6LUXl_OvBXqUENjkBfu4JMg/exec';
+
+        fetch(GAS_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, deckUrl: deckUrl })
+        }).catch(function(){ /* ignore network visibility due to no-cors */ });
+
+        ok.style.display = 'block';
+        window.open(deckUrl, '_blank', 'noopener');
+      });
+    })();
+  </script>
+  <script>function loadScript(a){var b=document.getElementsByTagName('head')[0],c=document.createElement('script');c.type='text/javascript',c.src='https://tracker.metricool.com/resources/be.js',c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:'9603f19a26c8b1c3cf17c17d49cca24e'})});</script>
+</body>
+</html>
+
+
