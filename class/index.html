@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Kuzana Class: Minimalist landing page embedding the Google Form for class signups. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuzana – Class</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://docs.google.com" crossorigin>
+    <style>
+        :root { --background:#fafafa; --text:#222; --primary:#0f172a; }
+        html, body { height: 100%; }
+        body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--background); }
+        .wrap { max-width: 920px; margin: 0 auto; padding: 24px; }
+        .header { display: flex; align-items: center; justify-content: center; padding: 12px 0 8px; }
+        .logo { height: 36px; width: auto; display: block; }
+        h1 { margin: 12px 0 20px; font-size: 1.5rem; font-weight: 600; text-align: center; color: var(--primary); }
+        .card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+        .embed { width: 100%; height: 2400px; border: 0; }
+        @media (max-width: 640px) { .wrap { padding: 16px; } .embed { height: 2600px; } }
+        .footer { text-align: center; opacity: .7; font-size: .9rem; padding: 20px 0 8px; }
+        .footer a { color: inherit; text-decoration: underline; }
+    </style>
+    <meta property="og:title" content="Kuzana – Class">
+    <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+    <meta name="description" content="Register your interest for the Kuzana Class.">
+</head>
+<body>
+    <main class="wrap" role="main">
+        <div class="header">
+            <a href="/" aria-label="Kuzana Home">
+                <img src="/images/logo.png" alt="Kuzana" class="logo" loading="eager" decoding="async" fetchpriority="high">
+            </a>
+        </div>
+        <h1>Kuzana Class</h1>
+        <section class="card">
+            <iframe class="embed" src="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </section>
+        <p class="footer">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
+    </main>
+</body>
+</html>
+
+
