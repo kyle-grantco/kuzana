@@ -22,6 +22,8 @@
         .toc ol { margin: 0; padding-left: 18px; }
         .toc a { color: var(--primary); text-decoration: none; }
         .toc a:hover { text-decoration: underline; }
+        .lead { font-size: 1.05rem; line-height: 1.55; }
+        .lead p { margin: 0 0 10px; }
         .video-placeholder { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #eee; border: 1px dashed #ccc; border-radius: 8px; display: grid; place-items: center; color: #666; font-weight: 500; }
         .embed-slides { width: 100%; height: 839px; border: 0; }
         .embed-template { width: 100%; height: 900px; border: 0; }
@@ -45,20 +47,57 @@
             </a>
         </div>
         <h1>Kuzana Class</h1>
-        <nav class="card toc" aria-label="Table of contents">
-            <strong>Contents</strong>
+        <section class="card" id="intro" aria-labelledby="intro-heading">
+            <h2 id="intro-heading">What are the REAL questions founders/CEOs/business owners have?</h2>
+            <div class="lead">
+                <p>In this weekly on-line course we will answer the following.</p>
+            </div>
+        </section>
+
+        <nav class="card toc" aria-label="Weekly topics">
+            <strong>Weekly topics</strong>
             <ol>
-                <li><a href="#video">Video</a></li>
-                <li><a href="#kahoot">Test yourself (Kahoot)</a></li>
-                <li><a href="#class1">Class1: What's your biz worth?</a></li>
-                <li><a href="#template">Create the BOSSmode Finance for Founders template</a></li>
-                <li><a href="#signup">Sign up for the class</a></li>
+                <li><a href="#week1">Week1: 🤑 What’s my business worth? (so your mom stops telling you to get a "real job")</a></li>
+                <li>Week2: 🤖 ChatGPT to advise your biz decisions</li>
+                <li>Week3: 🔍 Which product makes the most profit?</li>
+                <li>Week4:  📣 Should you spend more mapesa on marketing?</li>
+                <li>Week5: 🏦 Should I get a loan now or wait?</li>
+                <li>Week6: 🥷 Stop employee theft/wastage before it happens</li>
+                <li>Week7: 📉 How to avoid taxes (legally)</li>
+                <li>Week8: 🍾 What's your business's bottleneck</li>
+                <li>Week9: 🔄 Make more sales or retain more customers?</li>
             </ol>
         </nav>
 
-        <section id="video" class="card" aria-labelledby="video-heading">
-            <h2 id="video-heading">Video</h2>
-            <div class="video-placeholder">Video coming soon</div>
+        <section class="card" id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About this cohort</h2>
+            <div class="lead">
+                <p>In the future, this class will be $2,000 but this first one (Nov-Dec 2025) is FREE 🆓. My only ask is that, if you love ❤️ it, please write a review so others can also benefit.</p>
+                <p>In this class we WON'T talk about double entry accounting, debits, credits, none of that. You don't need to know those kinds of things as a CEO. You can delegate that.</p>
+                <p>The important things are big picture controls.</p>
+                <p>Enter BOSS MODE.</p>
+            </div>
+        </section>
+
+        <section id="signup" class="card" aria-labelledby="signup-heading">
+            <h2 id="signup-heading">Sign up for the class</h2>
+            <iframe class="embed-form" src="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </section>
+
+        <section id="instructor" class="card" aria-labelledby="instructor-heading">
+            <h2 id="instructor-heading">Your instructor</h2>
+            <div class="lead">
+                <p>Kyle will lead this course for 9 weeks. He previously raised $20m in Kenya and helped 10 companies 2x in 12 weeks with 1/2 the stress. See his LinkedIn here <a href="https://linkedin.com/in/kyleschutter" target="_blank" rel="noopener">linkedin.com/in/kyleschutter</a>.</p>
+            </div>
+        </section>
+
+        <section id="week1" class="card" aria-labelledby="week1-heading">
+            <h2 id="week1-heading">Week1: 🤑 What’s my business worth? (so your mom stops telling you to get a "real job")</h2>
+            <ul>
+                <li><a href="https://kahoot.it/challenge/?quiz-id=bd8f1153-b2f7-475c-8a99-2da732c8db40&single-player=true" target="_blank" rel="noopener">test yourself (click here)</a></li>
+                <li><a href="#template">Download Learning Template (Google Apps Script)</a></li>
+                <li><a href="#class1">Presentation</a></li>
+            </ul>
         </section>
 
         <section id="kahoot" class="card" aria-labelledby="kahoot-heading">
@@ -70,12 +109,6 @@
                 <figcaption>test yourself</figcaption>
             </figure>
         </section>
-
-        <section id="class1" class="card" aria-labelledby="class1-heading">
-            <h2 id="class1-heading">Class1: What's your biz worth?</h2>
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaf5i1EvLrfCU4QFyeGRcOwkAvBVbhUMbfYuctkdggTm7iE0_o8yjizg2dqh3zdILvsZ2DLimA-uPe/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        </section>
-
         <section id="template" class="card" aria-labelledby="template-heading">
             <h2 id="template-heading">Create the BOSSmode Finance for Founders learning template for yourself</h2>
             <iframe
@@ -88,10 +121,11 @@
             </iframe>
         </section>
 
-        <section id="signup" class="card" aria-labelledby="signup-heading">
-            <h2 id="signup-heading">Sign up for the class</h2>
-            <iframe class="embed-form" src="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <section id="class1" class="card" aria-labelledby="class1-heading">
+            <h2 id="class1-heading">Class1: What's your biz worth?</h2>
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaf5i1EvLrfCU4QFyeGRcOwkAvBVbhUMbfYuctkdggTm7iE0_o8yjizg2dqh3zdILvsZ2DLimA-uPe/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         </section>
+
         <p class="footer">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
     </main>
 </body>
