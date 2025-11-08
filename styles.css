@@ -485,13 +485,13 @@ footer .social-links li a:active {
 
 .video-section {
     width: 100%;
-    max-width: 8in;       /* matches your content width */
-    margin: 2rem auto;    /* space around the block */
+    max-width: 8in;
+    margin: 2rem auto;
   }
   
   .video-section h2 {
     color: var(--tertiary);
-    margin: 0 0 1rem;     /* puts the title above the video */
+    margin: 0 0 1rem; 
     text-align: left;
   }
   
@@ -512,5 +512,4 @@ footer .social-links li a:active {
     display: block;
     border-radius: 10px;
   }
-  
   
