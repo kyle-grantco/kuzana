@@ -7,13 +7,13 @@
     --spacing: 2rem;
 }
 
-/* global reset — safe and minimal */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
 }
 
 body {
@@ -108,52 +108,46 @@ body {
 }
 
 .large-logo .sunrise-text {
-    font-size: clamp(2.5rem, 18vw, 8rem);
-    opacity: 0.35;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    pointer-events: none;
+    font-size: min(20vw, 35vh);
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
+    width: 100%;
     letter-spacing: -0.05em;
     line-height: 0.9;
     background: linear-gradient(
-      to bottom,
-      #2c3e50, /* Night */
-      #2c3e50, /* Night */
-      #3b5998, /* Dawn */
-      var(--secondary), /* Sunrise */
-      var(--primary), /* Mid-morning */
-      var(--primary), /* Noon */
-      var(--primary), /* Noon */
-      var(--secondary), /* Afternoon */
-      var(--secondary), /* Sunset */
-      var(--tertiary), /* Dusk */
-      #2c3e50, /* Back to Night */
-      #2c3e50, /* Night */
-      #2c3e50, /* Night */
-      #3b5998, /* Dawn */
-      var(--secondary), /* Sunrise */
-      var(--primary) /* Mid-morning */
+        to bottom,
+        #2c3e50, /* Night */
+        #2c3e50, /* Night */
+        #3b5998, /* Dawn */
+        var(--secondary), /* Sunrise */
+        var(--primary), /* Mid-morning */
+        var(--primary), /* Noon */
+        var(--primary), /* Noon */
+        var(--secondary), /* Afternoon */
+        var(--secondary), /* Sunset */
+        var(--tertiary), /* Dusk */
+        #2c3e50, /* Back to Night */
+        #2c3e50, /* Night */
+        #2c3e50, /* Night */
+        #3b5998, /* Dawn */
+        var(--secondary), /* Sunrise */
+        var(--primary) /* Mid-morning */
     );
     background-size: 100% 300%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    opacity: 0.5;
+    white-space: nowrap;
     animation: gradientScroll 30s ease-in-out infinite;
-  }  
+}
 
-/* HERO: responsive type + safer large logo */
 .hero h1 {
-    font-size: clamp(1.6rem, 5.5vw, 3.2rem); /* mobile-first scaling */
-    margin: 0.5rem 0;
-    line-height: 1.05;
+    font-size: 3.5rem;
+    margin-bottom: 0;
+    text-shadow: none;
     color: var(--tertiary);
-    text-align: center;
 }
 
 .sector-preferences {
