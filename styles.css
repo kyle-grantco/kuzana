@@ -21,6 +21,39 @@ body {
     line-height: 1.6;
     color: var(--text);
     background: var(--background);
+    font-size: 1rem; /* Base font size */
+}
+
+/* Base Typography - Desktop */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--tertiary);
+}
+
+h2 {
+    padding-top: 2rem; /* Add padding before h2 elements */
+    margin-bottom: 1.5rem;
+    color: var(--tertiary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    color: var(--tertiary);
+}
+
+p {
+    margin-bottom: 1rem; /* Add padding after each paragraph */
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .main-nav {
@@ -34,6 +67,12 @@ body {
     align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 0.75rem 1rem;
+    }
 }
 
 .nav-links {
@@ -51,7 +90,7 @@ body {
     font-weight: 700;
     transition: all 0.3s ease;
     display: inline-block;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     align-self: center;
 }
 
@@ -143,8 +182,8 @@ body {
     animation: gradientScroll 30s ease-in-out infinite;
 }
 
+/* Hero h1 overrides base h1 styles */
 .hero h1 {
-    font-size: 3.5rem;
     margin-bottom: 0;
     text-shadow: none;
     color: var(--tertiary);
@@ -188,6 +227,20 @@ body {
     height: 50px;
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 120px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 100px;
+        height: 35px;
+    }
 }
 
 .logo img {
@@ -270,24 +323,60 @@ body {
         display: block;
     }
 
-    .nav-links {
-        display: none;
+    /* Body overlay when menu is open */
+    body.menu-open::before {
+        content: '';
         position: fixed;
         top: 0;
-        right: -250px;
+        left: 0;
+        width: 100vw;
         height: 100vh;
-        width: 250px;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -280px;
+        height: 100vh;
+        width: 280px;
+        max-width: 85vw;
         background: white;
-        padding: 80px 2rem 2rem;
+        padding: 80px 1.5rem 2rem;
         flex-direction: column;
-        gap: 1rem;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        gap: 0.75rem;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
         transition: right 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
     }
 
     .nav-links.active {
-        display: flex;
         right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links .nav-link,
+    .nav-links .cta-button {
+        display: block;
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: left;
+        font-size: 1rem;
+        border-radius: 4px;
+    }
+
+    .nav-links .cta-button {
+        margin: 0.5rem 0;
+        text-align: center;
     }
 
     /* Hamburger Animation */
@@ -301,6 +390,20 @@ body {
 
     .menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+/* Extra small mobile - navigation adjustments */
+@media (max-width: 480px) {
+    .nav-links {
+        width: 260px;
+        padding: 70px 1rem 1.5rem;
+    }
+    
+    .nav-links .nav-link,
+    .nav-links .cta-button {
+        padding: 0.65rem 0.75rem;
+        font-size: 0.95rem;
     }
 }
 
@@ -355,21 +458,894 @@ body {
 
 /* Show hamburger on mobile */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
     .hamburger-menu {
         display: block;
     }
-    .hero-content { padding: 1.5rem; margin-top: 10rem; }
-    .main-content { padding: 0 4vw; }
-    .cta-button { padding: 0.7rem 1.2rem; }
+    
+    /* Hero Section Mobile Fixes */
+    .hero {
+        padding: calc(var(--spacing) * 2) 1rem;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        padding: 1.5rem 1rem;
+        margin-top: 5rem;
+        width: 100%;
+        gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+    
+    .sector-preferences {
+        font-size: 1rem;
+    }
+    
+    .large-logo {
+        top: 25%;
+    }
+    
+    .large-logo .sunrise-text {
+        font-size: min(15vw, 20vh);
+        opacity: 0.4;
+    }
+    
+    .main-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    section {
+        margin-bottom: 2rem;
+    }
+    
+    h2 {
+        padding-top: 1.5rem;
+    }
+    
+    img.image-placeholder {
+        margin: 1rem auto;
+    }
+    
+    .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+        margin: 1rem 0;
+    }
+    
+    .video-section {
+        margin: 1.5rem auto 2rem;
+    }
+    
+    .video-section h2 {
+        margin-bottom: 1rem;
+    }
+    
+    .referral-box {
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+    }
+    
+    .investment-overview {
+        margin: 1.5rem 0;
+    }
+    
+    .investment-details {
+        margin: 1.5rem 0;
+    }
+    
+    .benefit-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    .checkmark-list {
+        margin: 0.75rem 0;
+    }
+    
+    .checkmark-list li {
+        margin-bottom: 0.65rem;
+    }
+    
+    .cta-section {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .faq-link,
+    .workshop-cta {
+        margin: 1rem 0;
+        padding: 0.75rem;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .hero {
+        padding: calc(var(--spacing) * 1.5) 0.75rem;
+    }
+    
+    .hero-content {
+        padding: 1rem 0.75rem;
+        margin-top: 4rem;
+        gap: 0.75rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .sector-preferences {
+        font-size: 0.9rem;
+    }
+    
+    .large-logo .sunrise-text {
+        font-size: min(12vw, 15vh);
+    }
+    
+    .investment-range {
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY - Comprehensive
+   ============================================ */
+
+/* Tablets and smaller desktops */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2.25rem;
+    }
+    
+    h3 {
+        font-size: 1.6rem;
+    }
+    
+    .highlight {
+        font-size: 1.1rem;
+    }
+    
+    body {
+        font-size: 0.98rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.25rem;
+        line-height: 1.3;
+        margin-bottom: 0.875rem;
+    }
+    
+    h2 {
+        font-size: 1.875rem;
+        padding-top: 1.5rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.35;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+        line-height: 1.4;
+        margin-bottom: 0.625rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 0.9375rem;
+    }
+    
+    body {
+        font-size: 0.95rem;
+    }
+    
+    .highlight {
+        font-size: 1.05rem;
+    }
+    
+    .philosophy {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+    
+    .benefit-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .benefit-item p {
+        font-size: 0.95rem;
+    }
+    
+    .quote {
+        font-size: 0.9rem;
+    }
+    
+    .referral-box {
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+    }
+    
+    .referral-box p {
+        font-size: 0.95rem;
+    }
+    
+    .investment-overview {
+        margin: 1.5rem 0;
+    }
+    
+    .investment-details {
+        margin: 1.5rem 0;
+    }
+    
+    .investment-overview .support-details {
+        font-size: 1rem;
+    }
+    
+    .checkmark-list li {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .partnership-value h3 {
+        font-size: 1.3rem;
+    }
+    
+    ul li {
+        font-size: 0.95rem;
+    }
+    
+    strong {
+        font-weight: 600;
+    }
+}
+
+/* Medium phones */
+@media (max-width: 600px) {
+    .main-content {
+        padding: 1.25rem 0.875rem;
+    }
+    
+    section {
+        margin-bottom: 1.75rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 0.875rem;
+    }
+    
+    h2 {
+        font-size: 1.65rem;
+        padding-top: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.625rem;
+    }
+    
+    p {
+        font-size: 0.9rem;
+        margin-bottom: 0.875rem;
+    }
+    
+    .highlight {
+        font-size: 1rem;
+    }
+    
+    .philosophy {
+        font-size: 0.95rem;
+    }
+    
+    .benefit-item {
+        margin-bottom: 1.35rem;
+    }
+    
+    .benefit-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .quote {
+        font-size: 0.85rem;
+    }
+    
+    img.image-placeholder {
+        margin: 0.875rem auto;
+    }
+    
+    .cta-button {
+        margin: 0.875rem 0;
+    }
+    
+    .referral-box {
+        padding: 1.125rem;
+        margin: 1.35rem 0;
+    }
+    
+    .investment-overview {
+        margin: 1.35rem 0;
+    }
+    
+    .investment-details {
+        margin: 1.35rem 0;
+    }
+    
+    .video-section {
+        margin: 1.35rem auto 1.75rem;
+    }
+    
+    .cta-section {
+        margin-top: 1.75rem;
+        padding: 1.35rem 0;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 1rem 0.75rem;
+    }
+    
+    section {
+        margin-bottom: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1.25;
+        margin-bottom: 0.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        padding-top: 1rem;
+        margin-bottom: 0.875rem;
+        line-height: 1.4;
+    }
+    
+    h3 {
+        font-size: 1.15rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+    }
+    
+    p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 0.875rem;
+    }
+    
+    body {
+        font-size: 0.9rem;
+    }
+    
+    .highlight {
+        font-size: 0.95rem;
+    }
+    
+    .philosophy {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+    
+    .benefit-item {
+        margin-bottom: 1.25rem;
+    }
+    
+    .benefit-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .benefit-item p {
+        font-size: 0.9rem;
+        margin-bottom: 0.65rem;
+    }
+    
+    .quote {
+        font-size: 0.85rem;
+    }
+    
+    img.image-placeholder {
+        margin: 0.75rem auto;
+    }
+    
+    .cta-button {
+        padding: 0.65rem 1rem;
+        margin: 0.875rem 0;
+    }
+    
+    .referral-box {
+        padding: 1rem;
+        margin: 1.25rem 0;
+        border-radius: 6px;
+    }
+    
+    .referral-box p {
+        font-size: 0.9rem;
+    }
+    
+    .investment-overview {
+        margin: 1.25rem 0;
+    }
+    
+    .investment-details {
+        margin: 1.25rem 0;
+    }
+    
+    .investment-overview .support-details {
+        font-size: 0.95rem;
+        margin-top: 0.875rem;
+    }
+    
+    .checkmark-list {
+        margin: 0.75rem 0;
+    }
+    
+    .checkmark-list li {
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.6;
+    }
+    
+    .partnership-value h3 {
+        font-size: 1.1rem;
+        margin-top: 0.875rem;
+    }
+    
+    ul li {
+        font-size: 0.9rem;
+    }
+    
+    .video-section {
+        margin: 1.25rem auto 1.5rem;
+    }
+    
+    .video-section h2 {
+        margin-bottom: 0.875rem;
+    }
+    
+    .cta-section {
+        margin-top: 1.5rem;
+        padding: 1.25rem 0;
+    }
+    
+    .faq-link,
+    .workshop-cta {
+        margin: 0.875rem 0;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .main-content {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    section {
+        margin-bottom: 1.25rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.65rem;
+    }
+    
+    h2 {
+        font-size: 1.35rem;
+        padding-top: 0.875rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    p {
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .highlight {
+        font-size: 0.9rem;
+    }
+    
+    .benefit-item {
+        margin-bottom: 1rem;
+    }
+    
+    .benefit-item h3 {
+        font-size: 1.05rem;
+    }
+    
+    .quote {
+        font-size: 0.8rem;
+    }
+    
+    img.image-placeholder {
+        margin: 0.5rem auto;
+    }
+    
+    .cta-button {
+        padding: 0.6rem 0.9rem;
+        margin: 0.75rem 0;
+        font-size: 0.9rem;
+    }
+    
+    .referral-box {
+        padding: 0.875rem;
+        margin: 1rem 0;
+    }
+    
+    .investment-overview {
+        margin: 1rem 0;
+    }
+    
+    .investment-details {
+        margin: 1rem 0;
+    }
+    
+    .checkmark-list {
+        margin: 0.65rem 0;
+    }
+    
+    .checkmark-list li {
+        margin-bottom: 0.55rem;
+    }
+    
+    .video-section {
+        margin: 1rem auto 1.25rem;
+    }
+    
+    .cta-section {
+        margin-top: 1.25rem;
+        padding: 1rem 0;
+    }
+    
+    .faq-link,
+    .workshop-cta {
+        margin: 0.75rem 0;
+        padding: 0.65rem;
+        font-size: 0.875rem;
+    }
 }
 
 /* Active states for menu */
 .mobile-menu.active {
     display: block;
+}
+
+/* ============================================
+   POPUP STYLES - Exit Intent Popup
+   ============================================ */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.popup.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.popup-content {
+    position: relative;
+    background-color: var(--background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 10001;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.popup.active .popup-content {
+    transform: scale(1);
+}
+
+.close-x {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    z-index: 10002;
+    padding: 0;
+    line-height: 1;
+}
+
+.close-x:hover {
+    background: #f0f0f0;
+    color: var(--secondary);
+}
+
+.close-x:active {
+    transform: scale(0.9);
+}
+
+.popup-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    display: block;
+}
+
+.popup-title {
+    color: var(--primary);
+    font-size: 1.75rem;
+    margin: 1rem 0 0.75rem;
+    font-weight: 700;
+}
+
+.popup-description {
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.popup-cta-button {
+    background-color: var(--secondary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1rem 0;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.popup-cta-button:hover {
+    background-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.popup-cta-button:active {
+    transform: translateY(0);
+}
+
+.popup-footer {
+    color: #666;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+/* Popup Mobile Styles */
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 1.5rem;
+        width: 95%;
+        max-height: 85vh;
+        border-radius: 10px;
+    }
+    
+    .close-x {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.25rem;
+    }
+    
+    .popup-title {
+        font-size: 1.5rem;
+        margin: 0.75rem 0 0.5rem;
+    }
+    
+    .popup-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .popup-cta-button {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.95rem;
+        margin: 0.875rem 0;
+    }
+    
+    .popup-footer {
+        font-size: 0.8rem;
+        margin-top: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 1.25rem;
+        width: 95%;
+        max-height: 90vh;
+        border-radius: 8px;
+    }
+    
+    .close-x {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .popup-image {
+        margin-bottom: 0.75rem;
+    }
+    
+    .popup-title {
+        font-size: 1.3rem;
+        margin: 0.5rem 0 0.5rem;
+    }
+    
+    .popup-description {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .popup-cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        margin: 0.75rem 0;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .popup-footer {
+        font-size: 0.75rem;
+        margin-top: 0.75rem;
+        padding: 0 0.5rem;
+    }
+}
+
+/* ============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================ */
+
+.whatsapp-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 0.875rem 1.25rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.whatsapp-link:hover {
+    background-color: #20BA5A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+.whatsapp-link:active {
+    transform: translateY(0);
+}
+
+.whatsapp-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.whatsapp-text {
+    white-space: nowrap;
+}
+
+/* WhatsApp Button Mobile Styles */
+@media (max-width: 768px) {
+    .whatsapp-link {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        border-radius: 45px;
+    }
+    
+    .whatsapp-icon {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-link {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.7rem 0.9rem;
+        font-size: 0.8rem;
+        border-radius: 40px;
+        box-shadow: 0 3px 10px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-icon {
+        font-size: 1rem;
+    }
+    
+    .whatsapp-text {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .whatsapp-link {
+        bottom: 12px;
+        right: 12px;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 10px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-text {
+        display: none; /* Hide text on very small screens, show only icon */
+    }
+    
+    .whatsapp-icon {
+        font-size: 1.1rem;
+    }
 }
 
 .hamburger.active .bar:nth-child(1) {
@@ -389,10 +1365,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 1vw;
+    padding: 2rem var(--spacing);
     max-width: 8in;
     margin: 0 auto;
     text-align: left;
+}
+
+/* Section spacing */
+section {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+section:last-child {
+    margin-bottom: 0;
 }
 
 .nav-link {
@@ -407,8 +1393,104 @@ body {
     color: var(--primary);
 }
 
-h2 {
-    padding-top: 2rem; /* Add padding before h2 elements */
+/* h2 styles are now defined above in base typography */
+
+/* Special Text Elements */
+.highlight {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--tertiary);
+}
+
+.benefit-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.benefit-item p {
+    margin-bottom: 0.75rem;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.philosophy {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.partnership-value h3 {
+    margin-top: 1rem;
+}
+
+.referral-box {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.referral-box p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.investment-overview {
+    margin: 2rem 0;
+}
+
+.investment-details {
+    margin: 2rem 0;
+}
+
+.benefit-item {
+    margin-bottom: 2rem;
+}
+
+.benefit-item:last-child {
+    margin-bottom: 0;
+}
+
+.investment-overview .support-details {
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.checkmark-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.checkmark-list li {
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.cta-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.faq-link,
+.workshop-cta {
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+/* Team Section Specific Styling */
+#team.about-us {
+    padding: 2rem 0;
+    width: 100%;
+}
+
+#team.about-us h2 {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 ul {
@@ -416,9 +1498,7 @@ ul {
     padding-left: 0; /* Remove default padding */
 }
 
-p {
-    margin-bottom: 1rem; /* Add padding after each paragraph */
-}
+/* p styles are now defined above in base typography */
 
 a {
     color: var(--secondary);
@@ -434,9 +1514,7 @@ a:hover {
     list-style-type: none;
 }
 
-.quote {
-    font-style: italic;
-}
+/* .quote styles are now defined above in Special Text Elements */
 
 .text-content {
     padding: 0 3mm;
@@ -444,7 +1522,7 @@ a:hover {
 
 img.image-placeholder {
     display: block;
-    margin: 0 auto;
+    margin: 1.5rem auto;
     width: 100%;
     max-width: 8in;
     height: auto;
@@ -458,6 +1536,54 @@ footer {
     text-align: center;
 }
 
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.newsletter {
+    width: 100%;
+    max-width: 600px;
+}
+
+.newsletter h3 {
+    margin-bottom: 1rem;
+    color: var(--background);
+}
+
+.newsletter-iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 66.67%; /* 320/480 = 0.6667 = 66.67% (maintains 3:2 aspect ratio) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.newsletter-iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #EEE;
+    background: white;
+}
+
+.address {
+    margin: 1rem 0;
+}
+
+.address p {
+    color: var(--background);
+    margin: 0;
+}
+
 footer .social-links {
     list-style: none;
     padding: 0;
@@ -465,6 +1591,7 @@ footer .social-links {
     justify-content: center;
     gap: 20px;
     padding-bottom: 1cm;
+    flex-wrap: wrap;
 }
 
 footer .social-links li a {
@@ -483,17 +1610,81 @@ footer .social-links li a:active {
     color: var(--tertiary);
 }
 
+/* Footer Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+    
+    .newsletter {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .newsletter h3 {
+        font-size: 1.2rem;
+    }
+    
+    .newsletter-iframe-wrapper {
+        padding-bottom: 100%; /* More vertical space on mobile for better readability */
+    }
+    
+    footer .social-links {
+        gap: 15px;
+        padding-bottom: 2rem;
+    }
+    
+    footer .social-links li a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 15px 0;
+    }
+    
+    .footer-content {
+        padding: 0 0.75rem;
+        gap: 1rem;
+    }
+    
+    .newsletter h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .newsletter-iframe-wrapper {
+        padding-bottom: 110%; /* Even more vertical space on small phones */
+    }
+    
+    footer .social-links {
+        gap: 10px;
+        padding-bottom: 1.5rem;
+    }
+    
+    footer .social-links li a {
+        font-size: 0.85rem;
+        padding: 0.25rem;
+    }
+    
+    .address p {
+        font-size: 0.9rem;
+    }
+}
+
 .video-section {
     width: 100%;
     max-width: 8in;
-    margin: 2rem auto;
-  }
-  
-  .video-section h2 {
+    margin: 2rem auto 3rem;
+}
+
+.video-section h2 {
     color: var(--tertiary);
-    margin: 0 0 1rem; 
+    margin: 0 0 1.5rem; 
     text-align: left;
-  }
+}
   
   .video-wrapper {
     position: relative;
@@ -512,4 +1703,240 @@ footer .social-links li a:active {
     display: block;
     border-radius: 10px;
   }
+
+/* Team Grid Styles */
+.team-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.team-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fff;
+    min-width: 0; /* Prevents overflow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.team-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 0.5rem;
+    border: 2px solid var(--primary);
+    flex-shrink: 0;
+}
+
+.team-name {
+    margin: 0.25rem 0;
+    color: var(--tertiary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.team-title {
+    margin: 0;
+    color: var(--text);
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+.team-links {
+    margin-top: 0.5rem;
+    word-wrap: break-word;
+}
+
+.team-links a {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.team-links a:hover {
+    color: var(--primary);
+}
+
+/* Team Grid Responsive - More granular breakpoints */
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+    .team-grid-cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+        padding: 0 1.5rem;
+    }
+    
+    .team-avatar {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .team-grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 2rem;
+    }
+    
+    .team-card {
+        padding: 1.5rem 1.25rem;
+    }
+    
+    .team-avatar {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Large phones and small tablets (landscape) */
+@media (max-width: 768px) {
+    .team-grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        padding: 0 1rem;
+    }
+    
+    .team-card {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .team-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .team-name {
+        font-size: 1rem;
+    }
+    
+    .team-title {
+        font-size: 0.9rem;
+    }
+    
+    .team-links {
+        font-size: 0.9rem;
+    }
+}
+
+/* Medium phones */
+@media (max-width: 600px) {
+    .team-grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 0.75rem;
+    }
+    
+    .team-card {
+        padding: 1rem 0.5rem;
+    }
+    
+    .team-avatar {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .team-name {
+        font-size: 0.95rem;
+    }
+    
+    .team-title {
+        font-size: 0.85rem;
+    }
+    
+    .team-links {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small phones - single column */
+@media (max-width: 480px) {
+    #team.about-us {
+        padding: 1.5rem 0;
+    }
+    
+    #team.about-us h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+    
+    .team-grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+        max-width: 350px;
+    }
+    
+    .team-card {
+        padding: 1.5rem 1rem;
+        max-width: 100%;
+    }
+    
+    .team-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .team-name {
+        font-size: 1rem;
+    }
+    
+    .team-title {
+        font-size: 0.9rem;
+    }
+    
+    .team-links {
+        font-size: 0.9rem;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    #team.about-us {
+        padding: 1rem 0;
+    }
+    
+    #team.about-us h2 {
+        margin-bottom: 1.25rem;
+        font-size: 1.3rem;
+    }
+    
+    .team-grid-cards {
+        padding: 0 0.5rem;
+        gap: 1.25rem;
+        max-width: 100%;
+    }
+    
+    .team-card {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .team-avatar {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .team-name {
+        font-size: 0.95rem;
+    }
+}
   
