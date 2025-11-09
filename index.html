@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17711325036"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17711325036');
+</script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -83,6 +93,19 @@
 
         </section>
 
+        <section class="video-section">
+            <h2>What Happened at the Batch 2 Event</h2>
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/zjZXd--TooU"
+                title="Kuzana Batch 2 Event"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </section>                 
+
         <section class="how-it-works" id="how-it-works">
             <h2>How it works</h2>
             <div class="investment-overview">
@@ -156,9 +179,7 @@
                 <p class="quote">The cheetah🐆 that chases 2 gazelle🦌🦌 catches none.</p>
             </div>
 
-
-
-            <img src="images/image5.png"Graph Picture" class="image-placeholder" loading="lazy" decoding="async">
+            <img src="images/image5.png" alt="Graph Picture" class="image-placeholder" loading="lazy" decoding="async">
         </section>
         <p></p>
 
@@ -177,7 +198,7 @@
 
         <section id="team" class="about-us">
             <h2>Team</h2>
-            <div class="team-grid-cards" style="overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem;">
+            <div class="team-grid-cards">
                 <article class="team-card">
                     <img src="images/kyle profile pic.png" alt="Kyle Schutter" class="team-avatar">
                     <h3 class="team-name">Kyle Schutter</h3>
@@ -212,14 +233,6 @@
                     </p>
                 </article>
             </div>
-            <style>
-                .team-grid-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-                .team-card { text-align: center; padding: 1rem; border: 1px solid #eee; border-radius: 10px; background: #fff; }
-                .team-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 0.5rem; border: 2px solid var(--primary); }
-                .team-name { margin: 0.25rem 0; color: var(--tertiary); }
-                .team-title { margin: 0; color: var(--text); opacity: 0.8; font-size: 0.95rem; }
-                .team-links a { color: var(--secondary); font-weight: 700; }
-            </style>
         </section>
 
         <section class="cta-section">
@@ -237,9 +250,9 @@
         <div class="footer-content">
             <div class="newsletter">
                 <h3>Stay Updated</h3>
-                <p>
-                    <iframe src="https://kuzana.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
-                </p>
+                <div class="newsletter-iframe-wrapper">
+                    <iframe src="https://kuzana.substack.com/embed" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+                </div>
             </div>
             <div class="address">
                 <p>Spring Valley Rd, Nairobi, Kenya</p>
@@ -256,17 +269,23 @@
     </footer>
 
     <!-- Exit Intent Popup -->
-    <div class="popup" id="exitPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 95%; max-width: 600px; background-color: var(--background); padding: 30px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); border-radius: 8px; text-align: center; z-index: 1000;">
-        <span class="close-x" onclick="closePopup()" style="cursor: pointer; position: absolute; top: 10px; right: 10px; font-size: 18px;">✖</span>
-        <img src="images/whatsapp_community.jpg" alt="Kuzana Community Photo" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 5px;">
-        <h2 style="color: var(--primary);">Kuzana WhatsApp Community</h2>
-        <p style="color: var(--text);">Attend workshops and make new friends</p>
-        <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="cta-button" style="background-color: var(--secondary); color: white; padding: 15px 25px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px;">Join Kuzana Community</a>
-        <p style="color: #666; font-size: 0.9em; margin-top: 10px;">Must be a leader, investor or service provider of Kenyan SMEs to join.</p>
+    <div class="popup" id="exitPopup">
+        <div class="popup-overlay" onclick="closePopup()"></div>
+        <div class="popup-content">
+            <button class="close-x" onclick="closePopup()" aria-label="Close popup">✖</button>
+            <img src="images/whatsapp_community.jpg" alt="Kuzana Community Photo" class="popup-image">
+            <h2 class="popup-title">Kuzana WhatsApp Community</h2>
+            <p class="popup-description">Attend workshops and make new friends</p>
+            <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="popup-cta-button" target="_blank">Join Kuzana Community</a>
+            <p class="popup-footer">Must be a leader, investor or service provider of Kenyan SMEs to join.</p>
+        </div>
     </div>
 
     <!-- WhatsApp Community Floating Link -->
-    <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="whatsapp-link" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: var(--tertiary); color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; z-index: 1000;">Join WhatsApp Community</a>
+    <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="whatsapp-link" target="_blank" aria-label="Join WhatsApp Community">
+        <span class="whatsapp-text">Join WhatsApp</span>
+        <span class="whatsapp-icon">💬</span>
+    </a>
 
     <script src="script.js"></script>
     <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"9603f19a26c8b1c3cf17c17d49cca24e"})});</script>
