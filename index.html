@@ -11,6 +11,25 @@
   gtag('config', 'AW-17711325036');
 </script>
 
+    <!-- Event snippet for Submit lead form conversion page -->
+<script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17711325036/VmQXCJHb1LsbEOy-tf1B',
+          'value': 1.0,
+          'currency': 'USD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+    
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -66,7 +85,12 @@
             <li><a href="/library/" class="nav-link">Library</a></li>
             <li><a href="#team" class="nav-link">Team</a></li>
             <li><a href="/resources/" class="nav-link">Resources</a></li>
-            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform" class="cta-button">Apply Now</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform"
+                class="cta-button"
+                onclick="return gtag_report_conversion(this.href);">
+                Apply Now
+             </a>
+             </li>
         </ul>
     </nav>
 
@@ -78,7 +102,11 @@
             <h1>Education & Investment for Kenya's Top 1% Entrepreneurs</h1>
             <p>Every Friday workshop for 12 weeks. So far, every company has 2x'd revenue in 12 weeks.</p>
             <p class="sector-preferences">agri-processing, real estate/construction, manufacturing, fintech, retail, logistics</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform" class="cta-button">Apply to the 12-week Program</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform"
+   class="cta-button"
+   onclick="return gtag_report_conversion(this.href);">
+   Apply to the 12-week Program
+</a>
             <p class="investment-range">Education includes a $20k equity investment + $100k working capital.</p>
         </div>
     </header>
