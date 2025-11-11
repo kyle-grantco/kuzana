@@ -12,22 +12,31 @@
 </script>
 
     <!-- Event snippet for Submit lead form conversion page -->
-<script>
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
+    <script>
+        function gtag_report_conversion(url) {
+          // If gtag exists, fire conversion and delay nav just a bit for the callback.
+          if (typeof window.gtag === 'function') {
+            var navigated = false;
+            var go = function () {
+              if (navigated) return;
+              navigated = true;
+              if (url) window.location.href = url;
+            };
+            window.gtag('event', 'conversion', {
+              send_to: 'AW-17711325036/VmQXCJHb1LsbEOy-tf1B',
+              value: 1.0,
+              currency: 'USD',
+              event_callback: go
+            });
+            // Fallback in case the callback never fires
+            setTimeout(go, 500);
+            return false; // prevent default so we can wait for callback/timeout
+          }
+      
+          // If gtag is blocked/missing, just let the click behave normally.
+          return true;
         }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17711325036/VmQXCJHb1LsbEOy-tf1B',
-          'value': 1.0,
-          'currency': 'USD',
-          'event_callback': callback
-      });
-      return false;
-    }
-    </script>
+      </script>      
     
 
     <!-- Google Tag Manager -->
