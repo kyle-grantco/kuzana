@@ -1940,3 +1940,30 @@ footer .social-links li a:active {
     }
 }
   
+/* fix: center sunrise text and keep it behind hero content on small screens */
+.large-logo { z-index: 1; }               /* ensure logo is behind hero-content */
+.hero-content { z-index: 2; position: relative; } /* make sure hero content sits above */
+
+.large-logo .sunrise-text,
+.sunrise-text {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;     /* ensure positioning relative to .large-logo */
+  text-align: center;
+}
+
+/* on small screens shrink and nudge it higher so it doesn't overlap H1 */
+@media (max-width: 768px) {
+  .large-logo { top: 18%; }               /* raise background mark so it clears the heading */
+  .large-logo .sunrise-text {
+    font-size: min(15vw, 20vh);           /* keep your responsive sizing */
+    opacity: 0.35;                        /* reduce visual weight on small screens */
+    pointer-events: none;                 /* avoid intercepting taps */
+  }
+}
+
+/* extra protection on very small phones */
+@media (max-width: 480px) {
+  .large-logo { top: 14%; }
+  .large-logo .sunrise-text { font-size: min(12vw, 15vh); opacity: 0.3; }
+}
