@@ -72,6 +72,45 @@
     </script>
     <!-- TikTok Pixel Code End -->
 
+    <!-- Combined Google & TikTok Conversion Handler -->
+<script>
+    function handleApplyClick(url) {
+      // Fire TikTok event
+      if (typeof ttq !== 'undefined') {
+        ttq.track('ClickButton', {
+          contents: [
+            {
+              content_type: "application",
+              content_name: "Apply Now"
+            }
+          ]
+        });
+      }
+  
+      // Fire Google Ads conversion
+      if (typeof gtag === 'function') {
+        var navigated = false;
+        var go = function () {
+          if (navigated) return;
+          navigated = true;
+          if (url) window.location.href = url;
+        };
+        gtag('event', 'conversion', {
+          send_to: 'AW-17711325036/VmQXCJHb1LsbEOy-tf1B',
+          value: 1.0,
+          currency: 'USD',
+          event_callback: go
+        });
+        setTimeout(go, 500);
+        return false;
+      }
+  
+      // If gtag or ttq are blocked, just follow the link
+      return true;
+    }
+  </script>
+  
+
 </head>
 <body>
     <script>
@@ -111,7 +150,7 @@
             <li><a href="/resources/" class="nav-link">Resources</a></li>
             <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform"
                 class="cta-button"
-                onclick="return gtag_report_conversion(this.href);">
+                onclick="return handleApplyClick(this.href);">
                 Apply Now
              </a>
              </li>
@@ -127,10 +166,11 @@
             <p>Every Friday workshop for 12 weeks. So far, every company has 2x'd revenue in 12 weeks.</p>
             <p class="sector-preferences">agri-processing, real estate/construction, manufacturing, fintech, retail, logistics</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform"
-   class="cta-button"
-   onclick="return gtag_report_conversion(this.href);">
-   Apply to the 12-week Program
-</a>
+                class="cta-button"
+                onclick="return handleApplyClick(this.href);">
+                Apply to the 12-week Program
+            </a>
+
             <p class="investment-range">Education includes a $20k equity investment + $100k working capital.</p>
         </div>
     </header>
