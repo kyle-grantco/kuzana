@@ -93,7 +93,7 @@
         var go = function () {
           if (navigated) return;
           navigated = true;
-          if (url) window.location.href = url;
+          if (url) window.open(url, '_blank', 'noopener');
         };
         gtag('event', 'conversion', {
           send_to: 'AW-17711325036/VmQXCJHb1LsbEOy-tf1B',
@@ -150,6 +150,8 @@
             <li><a href="/resources/" class="nav-link">Resources</a></li>
             <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfL7NVbp5Nw2xWvhzQNgX9N4gWE3dsVvIefawrRSp0p7xXCSQ/viewform"
                 class="cta-button"
+                target="_blank"
+                rel="noopener"
                 onclick="return handleApplyClick(this.href);">
                 Apply Now
              </a>

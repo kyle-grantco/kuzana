@@ -49,22 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
             closeMenu();
         }
     });
-    // Trigger WhatsApp popup only when clicking a signup/apply link (no exit intent)
-    try {
-        var signupSelectors = [
-            'a.cta-button',                              // header/nav CTA
-            'a[href*=\"docs.google.com/forms\"]'         // any Google Form links
-        ];
-        var signupLinks = document.querySelectorAll(signupSelectors.join(','));
-        signupLinks.forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                // Show popup instead of immediate navigation
-                if (typeof showPopup === 'function') showPopup();
-                e.preventDefault();
-                e.stopImmediatePropagation();
-            }, { capture: true });
-        });
-    } catch (e) {}
+
+    // Allow signup/apply links to navigate normally; no popup interception
 });
 
 function closePopup() {
@@ -85,17 +71,10 @@ function showPopup() {
     }
 }
 
-// Allow exit-intent to show once
-let exitIntentShown = false;
+// Disable exit-intent
+let exitIntentShown = true;
 
-// Only show exit intent on desktop (not mobile)
-// Exit-intent: desktop only, fire once
-document.addEventListener('mouseleave', function(e) {
-    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (!isMobile && e.clientY <= 0 && !exitIntentShown) {
-        showPopup();
-    }
-});
+// Exit-intent disabled
 
 // Close popup on Escape key
 document.addEventListener('keydown', function(event) {
