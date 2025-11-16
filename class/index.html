@@ -95,15 +95,7 @@
             </noscript>
         </section>
 
-        <div id="signup-modal" class="modal-overlay" role="none" hidden>
-            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
-                <header>
-                    <h2 id="signup-modal-title" style="margin: 0;">Sign up for the next LIVE class</h2>
-                    <button class="modal-close" type="button" aria-label="Close">×</button>
-                </header>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform?embedded=true"></iframe>
-            </div>
-        </div>
+
         <section id="template" class="card" aria-labelledby="template-heading">
             <h2 id="template-heading">Create your own BOSSmode template</h2>
             <iframe
@@ -169,15 +161,23 @@
     </main>
     <script>
         (function () {
-            var openBtn = document.getElementById('open-signup');
             var modal = document.getElementById('signup-modal');
-            if (!openBtn || !modal) return;
+            if (!modal) return;
+            var openBtn = document.getElementById('open-signup');
             var closeBtn = modal.querySelector('.modal-close');
             var onKey = function (e) { if (e.key === 'Escape') hide(); };
-            function show() { modal.hidden = false; document.addEventListener('keydown', onKey); }
-            function hide() { modal.hidden = true; document.removeEventListener('keydown', onKey); }
-            openBtn.addEventListener('click', show);
-            closeBtn.addEventListener('click', hide);
+            function show() {
+                modal.hidden = false;
+                modal.setAttribute('aria-hidden', 'false');
+                document.addEventListener('keydown', onKey);
+            }
+            function hide() {
+                modal.hidden = true;
+                modal.setAttribute('aria-hidden', 'true');
+                document.removeEventListener('keydown', onKey);
+            }
+            if (openBtn) openBtn.addEventListener('click', show);
+            if (closeBtn) closeBtn.addEventListener('click', hide);
             modal.addEventListener('click', function (e) { if (e.target === modal) hide(); });
         }());
     </script>

@@ -71,10 +71,16 @@ function showPopup() {
     }
 }
 
-// Disable exit-intent
-let exitIntentShown = true;
+// Allow exit-intent (show once)
+let exitIntentShown = false;
 
-// Exit-intent disabled
+// Exit-intent: desktop only, fire once
+document.addEventListener('mouseleave', function(e) {
+    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (!isMobile && e.clientY <= 0 && !exitIntentShown) {
+        showPopup();
+    }
+});
 
 // Close popup on Escape key
 document.addEventListener('keydown', function(event) {
