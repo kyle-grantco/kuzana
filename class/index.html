@@ -67,7 +67,7 @@
             <ol>
                 <li><a href="#class1-toc">Week1: 🤑 What’s my business worth? (so your mom stops telling you to get a "real job")</a></li>
                 <li><a href="#class2-toc">Week2: Debt Trap (and how founders avoid it)</a></li>
-                <li>Week3: 🔍 Which product makes the most profit?</li>
+                <li><a href="#class3-toc">Week3: #3 Sales Channel – this one is 10x better for your biz</a></li>
                 <li>Week4:  📣 Should you spend more mapesa on marketing?</li>
                 <li>Week5: 🏦 Should I get a loan now or wait?</li>
                 <li>Week6: 🥷 Stop employee theft/wastage before it happens</li>
@@ -89,10 +89,7 @@
 
         <section id="signup" class="card" aria-labelledby="signup-heading">
             <h2 id="signup-heading">Sign up for the next LIVE class</h2>
-            <button id="open-signup" class="btn" type="button" aria-haspopup="dialog" aria-controls="signup-modal">Open signup form</button>
-            <noscript>
-                <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform" target="_blank" rel="noopener">Open the signup form</a></p>
-            </noscript>
+            <a id="open-signup" class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform" target="_blank" rel="noopener">Open signup form</a>
         </section>
 
 
@@ -157,30 +154,32 @@
                 </a>
             </figure>
         </section>
+        
+        <section id="class3-toc" class="card" aria-labelledby="class3-heading">
+            <h1 id="class3-heading">Class 3: #3 Sales Channel — this one is 10x better for your biz</h1>
+        </section>
+
+        <section id="class3-video" class="card" aria-labelledby="class3-video-heading">
+            <h2 id="class3-video-heading">YouTube</h2>
+            <iframe width="100%" height="550" src="https://www.youtube.com/embed/UuzT1tQ7wnA" title="Class 3: Sales Channel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <section id="class3-slides" class="card" aria-labelledby="class3-slides-heading">
+            <h2 id="class3-slides-heading">Presentation</h2>
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQPGAOqKf-1n2J2_dfKzhAw9Di7Tt63SqN0a8jmFDCiT_LDo0omAMlT5quY6_n9Exx2ZMEueqqs_syo/pubembed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </section>
+
+        <section id="class3-kahoot" class="card" aria-labelledby="kahoot3-heading">
+            <h2 id="kahoot3-heading">Test yourself</h2>
+            <figure class="kahoot-figure">
+                <a href="https://kahoot.it/solo/?quizId=d0300e8d-23fa-42fd-b823-b1a1337b7307" target="_blank" rel="noopener noreferrer" aria-label="Open Class 3 Kahoot in a new tab">
+                    <img src="/images/3 Sales Channel Kahoot.png" alt="Class 3 Kahoot cover">
+                </a>
+            </figure>
+        </section>
         <p class="footer">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
     </main>
-    <script>
-        (function () {
-            var modal = document.getElementById('signup-modal');
-            if (!modal) return;
-            var openBtn = document.getElementById('open-signup');
-            var closeBtn = modal.querySelector('.modal-close');
-            var onKey = function (e) { if (e.key === 'Escape') hide(); };
-            function show() {
-                modal.hidden = false;
-                modal.setAttribute('aria-hidden', 'false');
-                document.addEventListener('keydown', onKey);
-            }
-            function hide() {
-                modal.hidden = true;
-                modal.setAttribute('aria-hidden', 'true');
-                document.removeEventListener('keydown', onKey);
-            }
-            if (openBtn) openBtn.addEventListener('click', show);
-            if (closeBtn) closeBtn.addEventListener('click', hide);
-            modal.addEventListener('click', function (e) { if (e.target === modal) hide(); });
-        }());
-    </script>
+    <script></script>
 </body>
 </html>
 
