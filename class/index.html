@@ -8,13 +8,13 @@
     <link rel="icon" href="/images/favicon.png" type="image/png">
     <link rel="preconnect" href="https://docs.google.com" crossorigin>
     <style>
-        :root { --background:#fafafa; --text:#222; --primary:#0f172a; }
+        :root { --background:#fafafa; --text:#222; --primary:#0f172a; --secondary:#ff6f74; }
         html, body { height: 100%; }
         body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--background); }
         .wrap { max-width: 920px; margin: 0 auto; padding: 24px; }
-        .header { display: flex; align-items: center; justify-content: center; padding: 12px 0 8px; }
+        .header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0 8px; }
         .logo { height: 36px; width: auto; display: block; }
-        h1 { margin: 12px 0 20px; font-size: 1.5rem; font-weight: 600; text-align: center; color: var(--primary); }
+        h1 { margin: 12px 0 20px; font-size: 1.5rem; font-weight: 600; text-align: left; color: var(--primary); }
         h2 { margin: 0 0 12px; font-size: 1.25rem; font-weight: 600; color: var(--primary); }
         .card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
         .toc { margin-bottom: 16px; }
@@ -33,6 +33,8 @@
         .kahoot-figure figcaption { text-align: center; margin-top: 8px; font-weight: 600; color: var(--primary); }
         .btn { display: inline-block; padding: 10px 14px; border-radius: 8px; border: 1px solid #e5e5e5; background: #0f172a; color: #fff; font-weight: 600; cursor: pointer; }
         .btn:hover { filter: brightness(1.05); }
+        .cta-signup { display:inline-block; background: var(--secondary); color:#fff; padding:10px 14px; border-radius:8px; text-decoration:none; font-weight:600; }
+        .cta-signup:hover { filter: brightness(1.05); }
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: grid; place-items: center; z-index: 50; }
         .modal { width: min(960px, 96vw); background: #fff; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.2); padding: 12px; border: 1px solid #eee; }
         .modal header { display: flex; align-items: center; justify-content: space-between; }
@@ -53,31 +55,30 @@
             <a href="/" aria-label="Kuzana Home">
                 <img src="/images/logo.png" alt="Kuzana" class="logo" loading="eager" decoding="async" fetchpriority="high">
             </a>
+            <a class="cta-signup" href="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform" target="_blank" rel="noopener">Sign Up for Class</a>
         </div>
         <h1>💰BOSSmode: 📈 Finance for Founders Class</h1>
-        <section class="card" id="intro" aria-labelledby="intro-heading">
+        <section class="card" id="overview" aria-labelledby="intro-heading">
             <h2 id="intro-heading">What are the REAL questions founders/CEOs/business owners have?</h2>
             <div class="lead">
                 <p>In this weekly on-line course we will answer the following.</p>
             </div>
-        </section>
 
-        <nav class="card toc" aria-label="Weekly topics">
-            <strong>Weekly topics</strong>
-            <ol>
-                <li><a href="#class1-toc">🤑 What’s my business worth? (so your mom stops telling you to get a "real job")</a></li>
-                <li><a href="#class2-toc">🕳️ Debt Trap (and how founders avoid it)</a></li>
-                <li><a href="#class3-toc">💪 Sales Channels – this one is 10x better for your biz</a></li>
-                <li>📣 Should you spend more mapesa on marketing?</li>
-                <li>🏦 Should I get a loan now or wait?</li>
-                <li>🥷 Stop employee theft/wastage before it happens</li>
-                <li>📉 How to avoid taxes (legally)</li>
-                <li>🍾 What's your business's bottleneck</li>
-                <li>🔄 Make more sales or retain more customers?</li>
-            </ol>
-        </nav>
+            <nav class="toc" aria-label="Weekly topics">
+                <strong>Weekly topics</strong>
+                <ol>
+                    <li><a href="#class1">🤑 What’s my business worth? (so your mom stops telling you to get a "real job")</a></li>
+                    <li><a href="#class2">🕳️ Debt Trap (and how founders avoid it)</a></li>
+                    <li><a href="#class3">💪 Sales Channels – this one is 10x better for your biz</a></li>
+                    <li>📣 Should you spend more mapesa on marketing?</li>
+                    <li>🏦 Should I get a loan now or wait?</li>
+                    <li>🥷 Stop employee theft/wastage before it happens</li>
+                    <li>📉 How to avoid taxes (legally)</li>
+                    <li>🍾 What's your business's bottleneck</li>
+                    <li>🔄 Make more sales or retain more customers?</li>
+                </ol>
+            </nav>
 
-        <section class="card" id="about" aria-labelledby="about-heading">
             <h2 id="about-heading">About this cohort</h2>
             <div class="lead">
                 <p>In the future, this class will be $2,000 but this first one (Nov-Dec 2025) is FREE 🆓. My only ask is that, if you love ❤️ it, please write a review so others can also benefit.</p>
@@ -85,71 +86,44 @@
                 <p>The important things are big picture controls.</p>
                 <p>Enter BOSS MODE.</p>
             </div>
-        </section>
 
-        <section id="signup" class="card" aria-labelledby="signup-heading">
-            <h2 id="signup-heading">Sign up for the next LIVE class</h2>
-            <a id="open-signup" class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform" target="_blank" rel="noopener">Open signup form</a>
-        </section>
+            <!-- Signup CTA is in the header (top-right) -->
 
-
-        <section id="template" class="card" aria-labelledby="template-heading">
+            <h2 id="template-heading">Create your own BOSSmode template</h2>
             <iframe
               id="template-frame"
               class="embed-template"
               src="https://script.google.com/macros/s/AKfycbxYNtuHpLiY1MWrpVXFlTV6MqysTBi0nlLf7JI9NltHB0nhc0DSMMkX7kbjazURS6px7w/exec"
-              allow="popups; popups-to-escape-sandbox; clipboard-write"
               frameborder="0"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
 
-        </section>
-
-        <section id="instructor" class="card" aria-labelledby="instructor-heading">
             <h2 id="instructor-heading">Your instructor</h2>
             <div class="lead">
                 <p>Kyle will lead this course for 9 weeks. He previously raised $20m in Kenya and helped 10 companies 2x in 12 weeks with 1/2 the stress. See his <a href="https://linkedin.com/in/kyleschutter" target="_blank" rel="noopener">LinkedIn</a>.</p>
             </div>
         </section>
 
-        <section id="class1-toc" class="card" aria-labelledby="week1-heading">
-            <h1 id="week1-heading">Class 1: 🤑 What’s my business worth?</h1>
-
-        </section>
-
-        <section id="class1-kahoot" class="card" aria-labelledby="kahoot-heading">
-            <h2 id="kahoot-heading">Test yourself</h2>
+        <section id="class1" class="card" aria-labelledby="class1-title">
+            <h1 id="class1-title">Class 1: 🤑 What’s my business worth?</h1>
+            <h2>Presentation</h2>
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaf5i1EvLrfCU4QFyeGRcOwkAvBVbhUMbfYuctkdggTm7iE0_o8yjizg2dqh3zdILvsZ2DLimA-uPe/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <h2>Test yourself</h2>
             <figure class="kahoot-figure">
                 <a href="https://kahoot.it/challenge/?quiz-id=bd8f1153-b2f7-475c-8a99-2da732c8db40&single-player=true" target="_blank" rel="noopener noreferrer" aria-label="Open Kahoot quiz in a new tab">
                     <img src="/images/kahoot-screenshot.png" alt="Kahoot quiz screenshot">
                 </a>
             </figure>
         </section>
-        
 
-        <section id="class1-slides" class="card" aria-labelledby="class1-heading">
-            <h2 id="class1-heading">Presentation</h2>
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaf5i1EvLrfCU4QFyeGRcOwkAvBVbhUMbfYuctkdggTm7iE0_o8yjizg2dqh3zdILvsZ2DLimA-uPe/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        </section>
-
-        <section id="class2-toc" class="card" aria-labelledby="class2-heading">
-            <h1 id="class2-heading">Class 2: Debt Trap (and how founders avoid it)</h1>
-
-        </section>
-
-        <section id="class2-video" class="card" aria-labelledby="class2-video-heading">
-            <h2 id="class2-video-heading">YouTube</h2>
+        <section id="class2" class="card" aria-labelledby="class2-title">
+            <h1 id="class2-title">Class 2: Debt Trap (and how founders avoid it)</h1>
+            <h2>YouTube</h2>
             <iframe width="100%" height="550" src="https://www.youtube.com/embed/lXpvjV95P_w" title="Class 2: Debt Trap" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
-
-        <section id="class2-slides" class="card" aria-labelledby="class2-slides-heading">
-            <h2 id="class2-slides-heading">Presentation</h2>
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRL9upx7_KU6IHm1mhYW8qOJlpMu7e70zQvS2tP4oASAwx2hkwbtu96CWMgs9xeY-aw8FORy9OiFNAh/pubembed?start=false&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        </section>
-
-        <section id="class2-kahoot" class="card" aria-labelledby="kahoot2-heading">
-            <h2 id="kahoot2-heading">Test yourself</h2>
+            <h2>Presentation</h2>
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRL9upx7_KU6IHm1mhYW8qOJlpMu7e70zQvS2tP4oASAwx2hkwbtu96CWMgs9xeY-aw8FORy9OiFNAh/pubembed?start=false&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <h2>Test yourself</h2>
             <figure class="kahoot-figure">
                 <a href="https://kahoot.it/solo/?quizId=3d5131ce-29b2-4727-8335-f9f39fedd7b4" target="_blank" rel="noopener noreferrer" aria-label="Open Class 2 Kahoot in a new tab">
                     <img src="/images/Class2.png" alt="Class 2 Kahoot quiz screenshot">
@@ -157,22 +131,13 @@
             </figure>
         </section>
         
-        <section id="class3-toc" class="card" aria-labelledby="class3-heading">
-            <h1 id="class3-heading">Class 3: Sales Channels — this one is 10x better for your biz</h1>
-        </section>
-
-        <section id="class3-video" class="card" aria-labelledby="class3-video-heading">
-            <h2 id="class3-video-heading">YouTube</h2>
+        <section id="class3" class="card" aria-labelledby="class3-title">
+            <h1 id="class3-title">Class 3: Sales Channels — this one is 10x better for your biz</h1>
+            <h2>YouTube</h2>
             <iframe width="100%" height="550" src="https://www.youtube.com/embed/UuzT1tQ7wnA" title="Class 3: Sales Channel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
-
-        <section id="class3-slides" class="card" aria-labelledby="class3-slides-heading">
-            <h2 id="class3-slides-heading">Presentation</h2>
+            <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQPGAOqKf-1n2J2_dfKzhAw9Di7Tt63SqN0a8jmFDCiT_LDo0omAMlT5quY6_n9Exx2ZMEueqqs_syo/pubembed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        </section>
-
-        <section id="class3-kahoot" class="card" aria-labelledby="kahoot3-heading">
-            <h2 id="kahoot3-heading">Test yourself</h2>
+            <h2>Test yourself</h2>
             <figure class="kahoot-figure">
                 <a href="https://kahoot.it/solo/?quizId=d0300e8d-23fa-42fd-b823-b1a1337b7307" target="_blank" rel="noopener noreferrer" aria-label="Open Class 3 Kahoot in a new tab">
                     <img src="/images/Sales Channel Kahoot.png" alt="Class 3 Kahoot cover">
