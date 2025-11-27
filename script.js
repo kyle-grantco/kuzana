@@ -1,78 +1,84 @@
+/*
+ * Improved JS: defensive checks, ARIA updates, consolidated handlers,
+ * and focus management for the exit-intent popup.
+ */
+
+let exitIntentShown = false;
+let lastFocusedElement = null;
+let hamburger = null;
+let mobileMenu = null;
+let body = null;
+
+function closeMenu() {
+    if (!hamburger || !mobileMenu || !body) return;
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    body.classList.remove('menu-open');
+    body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
+}
+
+function openMenu() {
+    if (!hamburger || !mobileMenu || !body) return;
+    hamburger.classList.add('active');
+    mobileMenu.classList.add('active');
+    body.classList.add('menu-open');
+    body.style.overflow = 'hidden';
+    hamburger.setAttribute('aria-expanded', 'true');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.menu-toggle');
-    const mobileMenu = document.querySelector('.nav-links');
-    const body = document.body;
+    body = document.body;
+    hamburger = document.querySelector('.menu-toggle');
+    mobileMenu = document.querySelector('.nav-links');
 
-    function closeMenu() {
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        body.classList.remove('menu-open');
-        body.style.overflow = ''; // Restore scrolling
-    }
-
-    function openMenu() {
-        hamburger.classList.add('active');
-        mobileMenu.classList.add('active');
-        body.classList.add('menu-open');
-        body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-
-    hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (mobileMenu.classList.contains('active')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-
-    // Close menu when clicking on nav links
-    const navLinks = mobileMenu.querySelectorAll('a');
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            closeMenu();
+    if (hamburger) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-controls', 'main-navigation');
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (mobileMenu && mobileMenu.classList.contains('active')) closeMenu();
+            else openMenu();
         });
-    });
+    }
 
-    // Close menu when clicking outside (on overlay/background)
-    document.addEventListener('click', function(event) {
-        if (mobileMenu.classList.contains('active')) {
-            if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+    if (mobileMenu) {
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
                 closeMenu();
-            }
-        }
-    });
+            });
+        });
+    }
 
-    // Close menu on Escape key
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            closeMenu();
-        }
-    });
-
-    // Allow signup/apply links to navigate normally; no popup interception
+    // Ensure clicking the top-left Kuzana logo goes to the normal homepage without redirect
+    try {
+        var logoAnchor = document.querySelector('.logo a');
+        if (logoAnchor) logoAnchor.setAttribute('href', '/?no_redirect=1');
+    } catch (e) {}
 });
 
 function closePopup() {
     const popup = document.getElementById('exitPopup');
     if (popup) {
         popup.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = '';
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
     }
 }
 
 function showPopup() {
     const popup = document.getElementById('exitPopup');
-    if (popup) {
+    if (popup && !exitIntentShown) {
+        lastFocusedElement = document.activeElement;
         popup.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        // Mark as shown so exit-intent won't fire again
+        document.body.style.overflow = 'hidden';
         exitIntentShown = true;
+        // Move focus to the close button for accessibility
+        const closeBtn = popup.querySelector('.close-x');
+        if (closeBtn) closeBtn.focus();
     }
 }
-
-// Allow exit-intent (show once)
-let exitIntentShown = false;
 
 // Exit-intent: desktop only, fire once
 document.addEventListener('mouseleave', function(e) {
@@ -82,18 +88,26 @@ document.addEventListener('mouseleave', function(e) {
     }
 });
 
-// Close popup on Escape key
+// Global click handler to close menu when clicking outside
+document.addEventListener('click', function(event) {
+    if (mobileMenu && mobileMenu.classList.contains('active')) {
+        if (!hamburger || !mobileMenu) return;
+        if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+            closeMenu();
+        }
+    }
+});
+
+// Unified Escape key handler: close popup first, then menu
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-        closePopup();
+        const popup = document.getElementById('exitPopup');
+        if (popup && popup.classList.contains('active')) {
+            closePopup();
+            return;
+        }
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMenu();
+        }
     }
-}); 
-
-// Ensure clicking the top-left Kuzana logo goes to the normal homepage without redirect
-// by appending ?no_redirect=1 to the root link. Applied site-wide.
-document.addEventListener('DOMContentLoaded', function() {
-    try {
-        var logoAnchor = document.querySelector('.logo a');
-        if (logoAnchor) logoAnchor.setAttribute('href', '/?no_redirect=1');
-    } catch (e) {}
 });

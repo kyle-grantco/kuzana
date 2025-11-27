@@ -1,45 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17711325036"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17711325036');
-</script>
-
-    <!-- Event snippet for Submit lead form conversion page -->
-    <script>
-        function gtag_report_conversion(url) {
-          // If gtag exists, fire conversion and delay nav just a bit for the callback.
-          if (typeof window.gtag === 'function') {
-            var navigated = false;
-            var go = function () {
-              if (navigated) return;
-              navigated = true;
-              if (url) window.location.href = url;
-            };
-            window.gtag('event', 'conversion', {
-              send_to: 'AW-17711325036/VmQXCJHb1LsbEOy-tf1B',
-              value: 1.0,
-              currency: 'USD',
-              event_callback: go
-            });
-            // Fallback in case the callback never fires
-            setTimeout(go, 500);
-            return false; // prevent default so we can wait for callback/timeout
-          }
-      
-          // If gtag is blocked/missing, just let the click behave normally.
-          return true;
-        }
-      </script>      
-    
-
-    <!-- Google Tag Manager -->
+        <!-- Google Tag Manager (single source of truth for analytics) -->
+        <!--
+                 NOTE: We use GTM as the primary container. Configure Google Ads, TikTok,
+                 Metricool, and other pixels inside this GTM container and trigger them
+                 on the `dataLayer` events pushed below (e.g. `apply_click`). This avoids
+                 duplicate events and double-counting coming from multiple inline pixels.
+        -->
+        <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -48,6 +17,7 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Kuzana: 12-week education and investment program for Kenya's top entrepreneurs. $20k equity + $100k working capital.">
     <title>Kuzana – Education for Kenya's Top 1% Entrepreneurs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,61 +28,30 @@
     <meta property="og:image" content="https://kuzana.co/images/favicon.png">
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
 
-    <!-- TikTok Pixel Code Start -->
-    <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-    
-    
-      ttq.load('D4BFOPJC77U5N735VIC0');
-      ttq.page();
-    }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
-
-    <!-- Combined Google & TikTok Conversion Handler -->
-<script>
-    function handleApplyClick(url) {
-      // Fire TikTok event
-      if (typeof ttq !== 'undefined') {
-        ttq.track('ClickButton', {
-          contents: [
-            {
-              content_type: "application",
-              content_name: "Apply Now"
+        <!-- Combined conversion handler: push to dataLayer so GTM fires tags -->
+        <script>
+        function handleApplyClick(url) {
+            try {
+                window.dataLayer = window.dataLayer || [];
+                // Push a semantic event; configure GTM to listen for `apply_click`.
+                window.dataLayer.push({
+                    event: 'apply_click',
+                    apply_url: url,
+                    apply_value: 1.0,
+                    apply_currency: 'USD'
+                });
+            } catch (e) {
+                // swallow errors — navigation should continue
             }
-          ]
-        });
-      }
-  
-      // Fire Google Ads conversion
-      if (typeof gtag === 'function') {
-        var navigated = false;
-        var go = function () {
-          if (navigated) return;
-          navigated = true;
-          if (url) window.open(url, '_blank', 'noopener');
-        };
-        gtag('event', 'conversion', {
-          send_to: 'AW-17711325036/VmQXCJHb1LsbEOy-tf1B',
-          value: 1.0,
-          currency: 'USD',
-          event_callback: go
-        });
-        setTimeout(go, 500);
-        return false;
-      }
-  
-      // If gtag or ttq are blocked, just follow the link
-      return true;
-    }
-  </script>
+            // Allow the native link behavior (open in new tab if anchor has target)
+            return true;
+        }
+        </script>
   
 
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <script>
         (function(){
             try {
@@ -128,22 +67,22 @@
             } catch (e) {}
         })();
     </script>
-    <nav class="main-nav">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
         <div class="logo">
             <a href="/">
                 <img src="images/logo.png" class="image-placeholder" loading="eager" decoding="async" fetchpriority="high">
             </a>
         </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <ul class="nav-links">
+        <ul class="nav-links" id="main-navigation">
             <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
             <li><a href="/referral/" class="nav-link">Referral</a></li>
             <li><a href="/faq/" class="nav-link">FAQ</a></li>
-            <li><a href="https://kuzana.substack.com" class="nav-link">Blog</a></li>
+                <li><a href="https://kuzana.substack.com" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a></li>
             <li><a href="/jobs/" class="nav-link">Jobs</a></li>
             <li><a href="/library/" class="nav-link">Library</a></li>
             <li><a href="#team" class="nav-link">Team</a></li>
@@ -177,7 +116,7 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <main id="main" class="main-content">
         <section class="testimonials" id="testimonials">
             <h2>In batch1 we helped 4 companies double revenue in 12 weeks</h2>
             <img src="images/4companies.svg" alt="First Cohort Picture" class="image-placeholder" loading="lazy" decoding="async">
@@ -353,10 +292,10 @@
             </div>
             <ul class="social-links">
                 <li><a href="https://www.linkedin.com/company/kuzana" target="_blank">LinkedIn</a></li>
-                <li><a href="https://kuzana.substack.com" target="_blank">Substack</a></li>
-                <li><a href="https://www.tiktok.com/@kuzana.co" target="_blank">TikTok</a></li>
-                <li><a href="https://x.com/kuzana_co" target="_blank">X</a></li>
-                <li><a href="https://www.facebook.com/kuzana" target="_blank">Facebook</a></li>
+                <li><a href="https://kuzana.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <li><a href="https://www.tiktok.com/@kuzana.co" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                <li><a href="https://x.com/kuzana_co" target="_blank" rel="noopener noreferrer">X</a></li>
+                <li><a href="https://www.facebook.com/kuzana" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                 <li><a href="mailto:info+website@kuzana.co">Email</a></li>
             </ul>
         </div>
@@ -370,18 +309,17 @@
             <img src="images/whatsapp_community.jpg" alt="Kuzana Community Photo" class="popup-image">
             <h2 class="popup-title">Kuzana WhatsApp Community</h2>
             <p class="popup-description">Attend workshops and make new friends</p>
-            <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="popup-cta-button" target="_blank">Join Kuzana Community</a>
+            <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="popup-cta-button" target="_blank" rel="noopener noreferrer">Join Kuzana Community</a>
             <p class="popup-footer">Must be a leader, investor or service provider of Kenyan SMEs to join.</p>
         </div>
     </div>
 
     <!-- WhatsApp Community Floating Link -->
-    <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="whatsapp-link" target="_blank" aria-label="Join WhatsApp Community">
+    <a href="https://chat.whatsapp.com/IXG5cERMVVt2NgvH95xhna" class="whatsapp-link" target="_blank" rel="noopener noreferrer" aria-label="Join WhatsApp Community">
         <span class="whatsapp-text">Join WhatsApp</span>
         <span class="whatsapp-icon">💬</span>
     </a>
 
     <script src="script.js"></script>
-    <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"9603f19a26c8b1c3cf17c17d49cca24e"})});</script>
 </body>
 </html> 

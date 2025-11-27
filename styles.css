@@ -5,15 +5,43 @@
     --text: #333333;
     --background: #ffffff;
     --spacing: 2rem;
+    --nav-height: 64px; /* approximate fixed nav height for mobile spacing */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-color: transparent;
+}
+
+/* Visible focus styles for keyboard users */
+a:focus,
+button:focus,
+.menu-toggle:focus {
+    outline: 3px solid rgba(74,98,141,0.16);
+    outline-offset: 2px;
+}
+
+/* Skip link: hidden until focused for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 2000;
 }
 
 body {
@@ -464,7 +492,8 @@ p {
     
     /* Hero Section Mobile Fixes */
     .hero {
-        padding: calc(var(--spacing) * 2) 1rem;
+        /* make room for the fixed header so decorative logo isn't clipped */
+        padding: calc(var(--nav-height) + var(--spacing)) 1rem 1.5rem 1rem;
         min-height: auto;
     }
     
@@ -587,6 +616,16 @@ p {
     
     .investment-range {
         font-size: 0.9rem;
+    }
+
+    /* Ensure the decorative large logo doesn't overlap the main heading on very small screens */
+    .large-logo {
+        top: 18%;
+    }
+
+    .hero-content {
+        /* add a little extra space so the h1 sits comfortably below the large-logo */
+        margin-top: 6.5rem;
     }
 }
 
