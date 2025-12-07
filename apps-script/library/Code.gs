@@ -29,10 +29,7 @@ var LEND_SHEET = 'Lend Offers';
 function doOptions() {
   return ContentService
     .createTextOutput('')
-    .setMimeType(ContentService.MimeType.TEXT)
-    .setHeader('Access-Control-Allow-Origin', '*')
-    .setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
-    .setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    .setMimeType(ContentService.MimeType.TEXT);
 }
 
 /**
@@ -106,9 +103,6 @@ function handleLend(body) {
 function respond(status, data) {
   var out = ContentService.createTextOutput(JSON.stringify(data || {}))
     .setMimeType(ContentService.MimeType.JSON);
-  out.setHeader('Access-Control-Allow-Origin', '*');
-  out.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  out.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   return out;
 }
 
