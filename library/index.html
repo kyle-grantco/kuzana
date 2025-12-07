@@ -18,7 +18,7 @@
     <a class="skip-link" href="#library-main">Skip to content</a>
 
     <main id="library-main" class="main-content" style="max-width: 900px;">
-        <h1>Kuzana Library</h1>
+        <h1>Decentralized Library of Kuzana</h1>
 
         <!-- Section Tabs -->
         <nav aria-label="Library actions" style="width: 100%; margin: 1rem 0 1.5rem;">
@@ -34,7 +34,6 @@
 
         <!-- Borrow Form -->
         <section id="borrow" aria-labelledby="borrow-title">
-            <h2 id="borrow-title">Borrow Books</h2>
             <form id="borrowForm" novalidate style="display: grid; gap: 0.75rem;">
                 <label for="borrowerUrl"><strong>Borrower LinkedIn (or other social) URL</strong></label>
                 <input
@@ -49,7 +48,6 @@
                     style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
                     aria-describedby="borrowerUrlHelp"
                 />
-                <div id="borrowerUrlHelp" style="font-size: 0.9rem; opacity: 0.8;">Examples: LinkedIn, Twitter/X, personal site. Must be a valid URL.</div>
 
                 <label for="bookSelect"><strong>Book</strong></label>
                 <select
@@ -61,7 +59,6 @@
                 >
                     <option value="">Loading books…</option>
                 </select>
-                <div id="bookHelp" style="font-size: 0.9rem; opacity: 0.8;">Populated from the Library sheet’s Book column.</div>
 
                 <button type="submit" class="cta-button" style="align-self: flex-start;">Check Out Book</button>
 
@@ -121,8 +118,17 @@
          * SHEET_ID is the Google Sheet ID for the Library.
          */
         var SHEET_ID = '13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE';
-        var LIBRARY_GID = '0'; // Library tab gid
-        var SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=' + LIBRARY_GID;
+        var LIBRARY_SHEET_NAME = 'Library'; // change if your tab is named differently
+        var LIBRARY_GID = '0'; // adjust if Library tab gid is not 0
+        // Try multiple endpoints in order to avoid CORS / gid mismatches
+        var SHEETS_CSV_URLS = [
+            // 1) gviz by sheet name
+            'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(LIBRARY_SHEET_NAME),
+            // 2) published CSV (requires File → Share → Publish to web)
+            'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/pub?output=csv&gid=' + LIBRARY_GID,
+            // 3) direct export by gid
+            'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=' + LIBRARY_GID
+        ];
         var APPS_SCRIPT_BORROW_URL = 'https://script.google.com/macros/s/AKfycbyqFoz324taaWy9_0wYmdjAP2xiSaO0HtaQ9Dc2b5XfVSksCvt6Zz3-wafkDpc_7MieTw/exec';
         var APPS_SCRIPT_LEND_URL = 'https://script.google.com/macros/s/AKfycbyqFoz324taaWy9_0wYmdjAP2xiSaO0HtaQ9Dc2b5XfVSksCvt6Zz3-wafkDpc_7MieTw/exec';
 
@@ -159,44 +165,60 @@
             if (!select) return;
             select.innerHTML = '<option value=\"\">Loading books…</option>';
 
-            fetch(SHEETS_CSV_URL, { method: 'GET' })
-                .then(function(res) {
-                    if (!res.ok) throw new Error('Failed to fetch Library CSV');
-                    return res.text();
-                })
-                .then(function(text) {
-                    var rows = parseCsvRows(text);
-                    if (rows.length < 2) throw new Error('No rows found');
-                    var header = rows[0];
-                    var bookColIndex = header.findIndex(function(h) { return /^(book)$/i.test(h.trim()); });
-                    if (bookColIndex === -1) throw new Error('Book column not found');
+            tryFetchCsvSequential(SHEETS_CSV_URLS)
+              .then(function(text) {
+                  var rows = parseCsvRows(text);
+                  if (rows.length < 2) throw new Error('No rows found');
+                  var header = rows[0];
+                  var bookColIndex = header.findIndex(function(h) { return /^(book)$/i.test(h.trim()); });
+                  if (bookColIndex === -1) throw new Error('Book column not found');
 
-                    var options = [];
-                    for (var i = 1; i < rows.length; i++) {
-                        var book = (rows[i][bookColIndex] || '').trim();
-                        if (book.length) options.push(book);
-                    }
+                  var options = [];
+                  for (var i = 1; i < rows.length; i++) {
+                      var book = (rows[i][bookColIndex] || '').trim();
+                      if (book.length) options.push(book);
+                  }
 
-                    options = Array.from(new Set(options)); // de-dupe
-                    select.innerHTML = '<option value=\"\">Select a book</option>';
-                    options.forEach(function(b) {
-                        var opt = document.createElement('option');
-                        opt.value = b;
-                        opt.textContent = b;
-                        select.appendChild(opt);
-                    });
-                })
-                .catch(function(err) {
-                    console.error(err);
-                    select.innerHTML = '<option value=\"\">Unable to load books</option>';
-                    var errBox = document.getElementById('borrowError');
-                    if (errBox) {
-                        errBox.style.display = 'block';
-                        errBox.textContent = 'Could not load book list. Open the Library sheet and make sure it is shared “Anyone with the link can view,” then refresh.';
-                    }
-                });
+                  options = Array.from(new Set(options));
+                  select.innerHTML = '<option value=\"\">Select a book</option>';
+                  options.forEach(function(b) {
+                      var opt = document.createElement('option');
+                      opt.value = b;
+                      opt.textContent = b;
+                      select.appendChild(opt);
+                  });
+              })
+              .catch(function(err) {
+                  console.error(err);
+                  select.innerHTML = '<option value=\"\">Unable to load books</option>';
+                  var errBox = document.getElementById('borrowError');
+                  if (errBox) {
+                      errBox.style.display = 'block';
+                      errBox.textContent = 'Could not load book list. Ensure the Library tab exists and is accessible. If needed, publish the sheet to the web (File → Share → Publish to web) and set the correct tab name/gid in the page.';
+                  }
+              });
         }
 
+        /**
+         * Tries a list of URLs sequentially and resolves with the first successful text response.
+         */
+        function tryFetchCsvSequential(urls) {
+            var idx = 0;
+            return new Promise(function(resolve, reject) {
+                function next() {
+                    if (idx >= urls.length) return reject(new Error('All CSV endpoints failed'));
+                    var url = urls[idx++];
+                    fetch(url, { method: 'GET' })
+                      .then(function(res) {
+                          if (!res.ok) throw new Error('HTTP ' + res.status);
+                          return res.text();
+                      })
+                      .then(resolve)
+                      .catch(function() { next(); });
+                }
+                next();
+            });
+        }
         /**
          * handleBorrowSubmit: validates inputs and POSTs to Apps Script.
          * On success, clears the form and shows success message.
