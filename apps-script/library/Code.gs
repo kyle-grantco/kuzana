@@ -22,6 +22,9 @@ var SHEET_ID = '13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE';
 /** Target sheet names */
 var BORROWERS_SHEET = 'Borrowers';
 var LEND_SHEET = 'Lend Offers';
+/** Optional gids for precise targeting (set to numbers or null) */
+var BORROWERS_GID = 717151431; // set if known; else null
+var LEND_GID = 1959113940; // provided by user for Lend Offers tab
 
 /**
  * CORS for preflight
@@ -75,7 +78,7 @@ function handleBorrow(body) {
   if (!book) return respond(400, { error: 'Missing book' });
 
   var ss = SpreadsheetApp.openById(SHEET_ID);
-  var sh = ss.getSheetByName(BORROWERS_SHEET);
+  var sh = getSheetByNameOrId(ss, BORROWERS_SHEET, BORROWERS_GID);
   if (!sh) return respond(500, { error: 'Borrowers sheet not found' });
   sh.appendRow([new Date(), book, borrowerUrl]);
   return respond(200, { ok: true, op: 'borrow' });
@@ -92,7 +95,7 @@ function handleLend(body) {
   if (!bookName) return respond(400, { error: 'Missing bookName' });
 
   var ss = SpreadsheetApp.openById(SHEET_ID);
-  var sh = ss.getSheetByName(LEND_SHEET) || ss.insertSheet(LEND_SHEET);
+  var sh = getSheetByNameOrId(ss, LEND_SHEET, LEND_GID) || ss.getSheetByName(LEND_SHEET) || ss.insertSheet(LEND_SHEET);
   sh.appendRow([new Date(), bookName, lenderUrl]);
   return respond(200, { ok: true, op: 'lend' });
 }
@@ -161,6 +164,23 @@ function isValidEmail(value) {
  */
 function isValidContact(value) {
   return isValidUrl(value) || isValidEmail(value);
+}
+
+/**
+ * Returns sheet by gid if provided and found; otherwise by name.
+ * @param {GoogleAppsScript.Spreadsheet.Spreadsheet} ss
+ * @param {string} name
+ * @param {number?} gid
+ */
+function getSheetByNameOrId(ss, name, gid) {
+  if (gid != null) {
+    var wanted = Number(gid);
+    var sheets = ss.getSheets();
+    for (var i = 0; i < sheets.length; i++) {
+      if (sheets[i].getSheetId() === wanted) return sheets[i];
+    }
+  }
+  return ss.getSheetByName(name);
 }
 
 
