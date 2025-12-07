@@ -2,12 +2,314 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting to Kuzana Library</title>
-    <meta http-equiv="refresh" content="0; url=https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?usp=sharing">
-    <link rel="canonical" href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?usp=sharing"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kuzana Library</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <!--
+      Kuzana Library Page
+      - Top bar with: Search Books, Borrow Books, Lend Books
+      - Borrow form: URL (LinkedIn or other), Book (populated from Google Sheet)
+      - Lend form: URL (LinkedIn), Book Name (free text)
+      - Success messaging on submission
+    -->
 </head>
 <body>
-    <p>If you are not redirected automatically, follow this <a href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?usp=sharing">link to the library</a>.</p>
+    <a class="skip-link" href="#library-main">Skip to content</a>
+
+    <main id="library-main" class="main-content" style="max-width: 900px;">
+        <h1>Kuzana Library</h1>
+
+        <!-- Section Tabs -->
+        <nav aria-label="Library actions" style="width: 100%; margin: 1rem 0 1.5rem;">
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a id="searchBooksLink" class="cta-button" href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?gid=0#gid=0" target="_blank" rel="noopener">Search Books</a>
+                <a class="nav-link" href="#borrow">Borrow Books</a>
+                <a class="nav-link" href="#lend">Lend Books</a>
+            </div>
+        </nav>
+
+        <!-- Info note -->
+        <p class="highlight" style="width: 100%;">Borrowers: paste your LinkedIn (or other public social) profile URL and select a book.</p>
+
+        <!-- Borrow Form -->
+        <section id="borrow" aria-labelledby="borrow-title">
+            <h2 id="borrow-title">Borrow Books</h2>
+            <form id="borrowForm" novalidate style="display: grid; gap: 0.75rem;">
+                <label for="borrowerUrl"><strong>Borrower LinkedIn (or other social) URL</strong></label>
+                <input
+                    id="borrowerUrl"
+                    name="borrowerUrl"
+                    type="url"
+                    placeholder="https://www.linkedin.com/in/your-handle"
+                    inputmode="url"
+                    required
+                    pattern="https?://.*"
+                    title="Please enter a valid URL starting with http or https"
+                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
+                    aria-describedby="borrowerUrlHelp"
+                />
+                <div id="borrowerUrlHelp" style="font-size: 0.9rem; opacity: 0.8;">Examples: LinkedIn, Twitter/X, personal site. Must be a valid URL.</div>
+
+                <label for="bookSelect"><strong>Book</strong></label>
+                <select
+                    id="bookSelect"
+                    name="book"
+                    required
+                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
+                    aria-describedby="bookHelp"
+                >
+                    <option value="">Loading books…</option>
+                </select>
+                <div id="bookHelp" style="font-size: 0.9rem; opacity: 0.8;">Populated from the Library sheet’s Book column.</div>
+
+                <button type="submit" class="cta-button" style="align-self: flex-start;">Check Out Book</button>
+
+                <div id="borrowSuccess" role="status" aria-live="polite" style="display:none; color: #1a7f37; font-weight: 700;">✅ Book successfully checked out</div>
+                <div id="borrowError" role="alert" style="display:none; color: #b00020; font-weight: 700;"></div>
+            </form>
+        </section>
+
+        <!-- Divider -->
+        <hr style="width: 100%; border: none; border-top: 1px solid #eee; margin: 2rem 0;" />
+
+        <!-- Lend Form -->
+        <section id="lend" aria-labelledby="lend-title">
+            <h2 id="lend-title">Lend Books</h2>
+            <form id="lendForm" novalidate style="display: grid; gap: 0.75rem;">
+                <label for="lenderUrl"><strong>Your LinkedIn URL</strong></label>
+                <input
+                    id="lenderUrl"
+                    name="lenderUrl"
+                    type="url"
+                    placeholder="https://www.linkedin.com/in/your-handle"
+                    inputmode="url"
+                    required
+                    pattern="https?://.*"
+                    title="Please enter a valid URL starting with http or https"
+                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
+                />
+
+                <label for="lendBookName"><strong>Book Name</strong></label>
+                <input
+                    id="lendBookName"
+                    name="bookName"
+                    type="text"
+                    placeholder="e.g., Creative Capital"
+                    required
+                    minlength="2"
+                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
+                />
+
+                <button type="submit" class="cta-button" style="align-self: flex-start;">Offer to Lend</button>
+
+                <div id="lendSuccess" role="status" aria-live="polite" style="display:none; color: #1a7f37; font-weight: 700;">✅ Thanks! Book offering recorded</div>
+                <div id="lendError" role="alert" style="display:none; color: #b00020; font-weight: 700;"></div>
+            </form>
+        </section>
+
+        <!-- Fallback links -->
+        <section aria-label="Helpful links" style="margin-top: 2rem;">
+            <p>Having trouble? You can <a href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?gid=0#gid=0" target="_blank" rel="noopener">view the Library list</a> directly.</p>
+        </section>
+    </main>
+
+    <script>
+    (function() {
+        /**
+         * Constants: Replace APPS_SCRIPT_* with your deployed Web App URLs.
+         * SHEET_ID is the Google Sheet ID for the Library.
+         */
+        var SHEET_ID = '13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE';
+        var LIBRARY_GID = '0'; // Library tab gid
+        var SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=' + LIBRARY_GID;
+        var APPS_SCRIPT_BORROW_URL = 'https://script.google.com/macros/s/REPLACE_BORROW_DEPLOY_ID/exec';
+        var APPS_SCRIPT_LEND_URL = 'https://script.google.com/macros/s/REPLACE_LEND_DEPLOY_ID/exec';
+
+        /**
+         * isValidUrl: robust URL validation using the URL constructor.
+         * Returns true only when the URL has a valid protocol and hostname.
+         */
+        function isValidUrl(value) {
+            try {
+                var u = new URL(value);
+                if (!/^https?:$/.test(u.protocol)) return false;
+                return !!u.hostname;
+            } catch (e) { return false; }
+        }
+
+        /**
+         * parseCsvRows: very simple CSV parsing for rows/columns.
+         * Assumes minimal commas within fields. For titles containing commas,
+         * consider switching to Apps Script JSON endpoint instead.
+         */
+        function parseCsvRows(csv) {
+            return csv
+                .split(/\r?\n/)
+                .filter(function(line) { return line.trim().length > 0; })
+                .map(function(line) { return line.split(','); });
+        }
+
+        /**
+         * populateBooks: fetches Library sheet CSV, finds the "Book" column,
+         * and fills the dropdown with non-empty values from row 2..n.
+         */
+        function populateBooks() {
+            var select = document.getElementById('bookSelect');
+            if (!select) return;
+            select.innerHTML = '<option value=\"\">Loading books…</option>';
+
+            fetch(SHEETS_CSV_URL, { method: 'GET' })
+                .then(function(res) {
+                    if (!res.ok) throw new Error('Failed to fetch Library CSV');
+                    return res.text();
+                })
+                .then(function(text) {
+                    var rows = parseCsvRows(text);
+                    if (rows.length < 2) throw new Error('No rows found');
+                    var header = rows[0];
+                    var bookColIndex = header.findIndex(function(h) { return /^(book)$/i.test(h.trim()); });
+                    if (bookColIndex === -1) throw new Error('Book column not found');
+
+                    var options = [];
+                    for (var i = 1; i < rows.length; i++) {
+                        var book = (rows[i][bookColIndex] || '').trim();
+                        if (book.length) options.push(book);
+                    }
+
+                    options = Array.from(new Set(options)); // de-dupe
+                    select.innerHTML = '<option value=\"\">Select a book</option>';
+                    options.forEach(function(b) {
+                        var opt = document.createElement('option');
+                        opt.value = b;
+                        opt.textContent = b;
+                        select.appendChild(opt);
+                    });
+                })
+                .catch(function(err) {
+                    console.error(err);
+                    select.innerHTML = '<option value=\"\">Unable to load books</option>';
+                    var errBox = document.getElementById('borrowError');
+                    if (errBox) {
+                        errBox.style.display = 'block';
+                        errBox.textContent = 'Could not load book list. Open the Library sheet and make sure it is shared “Anyone with the link can view,” then refresh.';
+                    }
+                });
+        }
+
+        /**
+         * handleBorrowSubmit: validates inputs and POSTs to Apps Script.
+         * On success, clears the form and shows success message.
+         */
+        function handleBorrowSubmit(e) {
+            e.preventDefault();
+            var urlInput = document.getElementById('borrowerUrl');
+            var bookSelect = document.getElementById('bookSelect');
+            var success = document.getElementById('borrowSuccess');
+            var error = document.getElementById('borrowError');
+            if (success) success.style.display = 'none';
+            if (error) { error.style.display = 'none'; error.textContent = ''; }
+
+            var borrowerUrl = (urlInput && urlInput.value || '').trim();
+            var book = (bookSelect && bookSelect.value || '').trim();
+            if (!borrowerUrl || !isValidUrl(borrowerUrl)) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Please enter a valid URL (starts with http or https).'; }
+                if (urlInput) urlInput.focus();
+                return;
+            }
+            if (!book) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Please select a book.'; }
+                if (bookSelect) bookSelect.focus();
+                return;
+            }
+            if (/REPLACE_BORROW_DEPLOY_ID/.test(APPS_SCRIPT_BORROW_URL)) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Borrow endpoint not configured. Replace APPS_SCRIPT_BORROW_URL with your Apps Script Web App URL.'; }
+                return;
+            }
+
+            var payload = { borrowerUrl: borrowerUrl, book: book };
+            fetch(APPS_SCRIPT_BORROW_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                mode: 'cors',
+            })
+            .then(function(res) {
+                if (!res.ok) throw new Error('Request failed ' + res.status);
+                return res.json().catch(function(){ return {}; });
+            })
+            .then(function() {
+                if (success) success.style.display = 'block';
+                if (urlInput) urlInput.value = '';
+                if (bookSelect) bookSelect.value = '';
+            })
+            .catch(function(err) {
+                console.error(err);
+                if (error) { error.style.display = 'block'; error.textContent = 'Could not check out book. Please try again.'; }
+            });
+        }
+
+        /**
+         * handleLendSubmit: validates inputs and POSTs to Apps Script.
+         */
+        function handleLendSubmit(e) {
+            e.preventDefault();
+            var urlInput = document.getElementById('lenderUrl');
+            var bookInput = document.getElementById('lendBookName');
+            var success = document.getElementById('lendSuccess');
+            var error = document.getElementById('lendError');
+            if (success) success.style.display = 'none';
+            if (error) { error.style.display = 'none'; error.textContent = ''; }
+
+            var lenderUrl = (urlInput && urlInput.value || '').trim();
+            var bookName = (bookInput && bookInput.value || '').trim();
+            if (!lenderUrl || !isValidUrl(lenderUrl)) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Please enter a valid URL (starts with http or https).'; }
+                if (urlInput) urlInput.focus();
+                return;
+            }
+            if (!bookName) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Please enter a book name.'; }
+                if (bookInput) bookInput.focus();
+                return;
+            }
+            if (/REPLACE_LEND_DEPLOY_ID/.test(APPS_SCRIPT_LEND_URL)) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Lend endpoint not configured. Replace APPS_SCRIPT_LEND_URL with your Apps Script Web App URL.'; }
+                return;
+            }
+
+            var payload = { lenderUrl: lenderUrl, bookName: bookName };
+            fetch(APPS_SCRIPT_LEND_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                mode: 'cors',
+            })
+            .then(function(res) {
+                if (!res.ok) throw new Error('Request failed ' + res.status);
+                return res.json().catch(function(){ return {}; });
+            })
+            .then(function() {
+                if (success) success.style.display = 'block';
+                if (urlInput) urlInput.value = '';
+                if (bookInput) bookInput.value = '';
+            })
+            .catch(function(err) {
+                console.error(err);
+                if (error) { error.style.display = 'block'; error.textContent = 'Could not record the book offering. Please try again.'; }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            populateBooks();
+            var borrowForm = document.getElementById('borrowForm');
+            var lendForm = document.getElementById('lendForm');
+            if (borrowForm) borrowForm.addEventListener('submit', handleBorrowSubmit);
+            if (lendForm) lendForm.addEventListener('submit', handleLendSubmit);
+        });
+    })();
+    </script>
+
     <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"9603f19a26c8b1c3cf17c17d49cca24e"})});</script>
 </body>
 </html>
