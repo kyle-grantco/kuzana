@@ -24,13 +24,12 @@
         <nav aria-label="Library actions" style="width: 100%; margin: 1rem 0 1.5rem;">
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                 <a id="searchBooksLink" class="cta-button" href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?gid=0#gid=0" target="_blank" rel="noopener">Search Books</a>
-                <a class="nav-link" href="#borrow">Borrow Books</a>
-                <a class="nav-link" href="#lend">Lend Books</a>
+
             </div>
         </nav>
 
         <!-- Info note -->
-        <p class="highlight" style="width: 100%;">Borrowers: paste your LinkedIn (or other public social) profile URL and select a book.</p>
+        <p class="highlight" style="width: 100%;">Borrowers: paste your LinkedIn, email (or other public social) profile URL and select a book.</p>
 
         <!-- Borrow Form -->
         <section id="borrow" aria-labelledby="borrow-title">
@@ -59,7 +58,7 @@
                     <option value="">Loading books…</option>
                 </select>
 
-                <button type="submit" class="cta-button" style="align-self: flex-start;">Check Out Book</button>
+                <button id="borrowSubmitBtn" type="submit" class="cta-button" style="align-self: flex-start;">Check Out Book</button>
 
                 <div id="borrowSuccess" role="status" aria-live="polite" style="display:none; color: #1a7f37; font-weight: 700;">✅ Book successfully checked out</div>
                 <div id="borrowError" role="alert" style="display:none; color: #b00020; font-weight: 700;"></div>
@@ -95,7 +94,7 @@
                     style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
                 />
 
-                <button type="submit" class="cta-button" style="align-self: flex-start;">Offer to Lend</button>
+                <button id="lendSubmitBtn" type="submit" class="cta-button" style="align-self: flex-start;">Offer to Lend</button>
 
                 <div id="lendSuccess" role="status" aria-live="polite" style="display:none; color: #1a7f37; font-weight: 700;">✅ Thanks! Book offering recorded</div>
                 <div id="lendError" role="alert" style="display:none; color: #b00020; font-weight: 700;"></div>
@@ -188,7 +187,8 @@
                       if (book.length) options.push(book);
                   }
 
-                  options = Array.from(new Set(options));
+                  options = Array.from(new Set(options))
+                    .sort(function(a, b) { return a.localeCompare(b, undefined, { sensitivity: 'base' }); });
                   select.innerHTML = '<option value=\"\">Select a book</option>';
                   options.forEach(function(b) {
                       var opt = document.createElement('option');
@@ -228,6 +228,28 @@
                 next();
             });
         }
+
+        /**
+         * Button loading helpers
+         */
+        function setButtonWorking(btn) {
+            if (!btn) return;
+            if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent;
+            btn.textContent = 'Working, give me 5 seconds...';
+            btn.disabled = true;
+            btn.setAttribute('aria-busy', 'true');
+            btn.style.opacity = '0.7';
+            btn.style.cursor = 'not-allowed';
+        }
+
+        function clearButtonWorking(btn) {
+            if (!btn) return;
+            btn.textContent = btn.dataset.originalText || btn.textContent;
+            btn.disabled = false;
+            btn.removeAttribute('aria-busy');
+            btn.style.opacity = '';
+            btn.style.cursor = '';
+        }
         /**
          * handleBorrowSubmit: validates inputs and POSTs to Apps Script.
          * On success, clears the form and shows success message.
@@ -236,6 +258,7 @@
             e.preventDefault();
             var urlInput = document.getElementById('borrowerUrl');
             var bookSelect = document.getElementById('bookSelect');
+            var submitBtn = document.getElementById('borrowSubmitBtn');
             var success = document.getElementById('borrowSuccess');
             var error = document.getElementById('borrowError');
             if (success) success.style.display = 'none';
@@ -258,6 +281,7 @@
                 return;
             }
 
+            setButtonWorking(submitBtn);
             var payload = { action: 'borrow', borrowerUrl: borrowerUrl, book: book };
             fetch(APPS_SCRIPT_BORROW_URL, {
                 method: 'POST',
@@ -269,10 +293,12 @@
                 if (success) success.style.display = 'block';
                 if (urlInput) urlInput.value = '';
                 if (bookSelect) bookSelect.value = '';
+                setTimeout(function(){ clearButtonWorking(submitBtn); }, 5000);
             })
             .catch(function(err) {
                 console.error(err);
                 if (error) { error.style.display = 'block'; error.textContent = 'Could not check out book. Please try again.'; }
+                clearButtonWorking(submitBtn);
             });
         }
 
@@ -283,6 +309,7 @@
             e.preventDefault();
             var urlInput = document.getElementById('lenderUrl');
             var bookInput = document.getElementById('lendBookName');
+            var submitBtn = document.getElementById('lendSubmitBtn');
             var success = document.getElementById('lendSuccess');
             var error = document.getElementById('lendError');
             if (success) success.style.display = 'none';
@@ -305,6 +332,7 @@
                 return;
             }
 
+            setButtonWorking(submitBtn);
             var payload = { action: 'lend', lenderUrl: lenderUrl, bookName: bookName };
             fetch(APPS_SCRIPT_LEND_URL, {
                 method: 'POST',
@@ -316,10 +344,12 @@
                 if (success) success.style.display = 'block';
                 if (urlInput) urlInput.value = '';
                 if (bookInput) bookInput.value = '';
+                setTimeout(function(){ clearButtonWorking(submitBtn); }, 5000);
             })
             .catch(function(err) {
                 console.error(err);
                 if (error) { error.style.display = 'block'; error.textContent = 'Could not record the book offering. Please try again.'; }
+                clearButtonWorking(submitBtn);
             });
         }
 
