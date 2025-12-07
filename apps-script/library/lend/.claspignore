@@ -1,7 +1,0 @@
-# Files to ignore when pushing with clasp
-node_modules/
-.git/
-.DS_Store
-**/*.md
-
-
