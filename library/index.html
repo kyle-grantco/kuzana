@@ -39,12 +39,11 @@
                 <input
                     id="borrowerUrl"
                     name="borrowerUrl"
-                    type="url"
-                    placeholder="e.g. LinkedIn: https://www.linkedin.com/in/your-handle"
-                    inputmode="url"
+                    type="text"
+                    placeholder="LinkedIn URL or email (e.g., https://linkedin.com/in/you or you@email.com)"
+                    inputmode="email"
                     required
-                    pattern="https?://.*"
-                    title="Please enter a valid URL starting with http or https"
+                    title="Please enter a valid LinkedIn URL or email address"
                     style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
                     aria-describedby="borrowerUrlHelp"
                 />
@@ -78,12 +77,11 @@
                 <input
                     id="lenderUrl"
                     name="lenderUrl"
-                    type="url"
-                    placeholder="e.g. LinkedIn: https://www.linkedin.com/in/your-handle"
-                    inputmode="url"
+                    type="text"
+                    placeholder="LinkedIn URL or email (e.g., https://linkedin.com/in/you or you@email.com)"
+                    inputmode="email"
                     required
-                    pattern="https?://.*"
-                    title="Please enter a valid URL starting with http or https"
+                    title="Please enter a valid LinkedIn URL or email address"
                     style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
                 />
 
@@ -145,6 +143,14 @@
                 if (!/^https?:$/.test(u.protocol)) return false;
                 return !!u.hostname;
             } catch (e) { return false; }
+        }
+
+        function isValidEmail(value) {
+            return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test((value || '').trim());
+        }
+
+        function isValidContact(value) {
+            return isValidUrl(value) || isValidEmail(value);
         }
 
         /**
@@ -237,8 +243,8 @@
 
             var borrowerUrl = (urlInput && urlInput.value || '').trim();
             var book = (bookSelect && bookSelect.value || '').trim();
-            if (!borrowerUrl || !isValidUrl(borrowerUrl)) {
-                if (error) { error.style.display = 'block'; error.textContent = 'Please enter a valid URL (starts with http or https).'; }
+            if (!borrowerUrl || !isValidContact(borrowerUrl)) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Please enter a valid LinkedIn URL or email address.'; }
                 if (urlInput) urlInput.focus();
                 return;
             }
@@ -284,8 +290,8 @@
 
             var lenderUrl = (urlInput && urlInput.value || '').trim();
             var bookName = (bookInput && bookInput.value || '').trim();
-            if (!lenderUrl || !isValidUrl(lenderUrl)) {
-                if (error) { error.style.display = 'block'; error.textContent = 'Please enter a valid URL (starts with http or https).'; }
+            if (!lenderUrl || !isValidContact(lenderUrl)) {
+                if (error) { error.style.display = 'block'; error.textContent = 'Please enter a valid LinkedIn URL or email address.'; }
                 if (urlInput) urlInput.focus();
                 return;
             }

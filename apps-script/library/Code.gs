@@ -69,9 +69,9 @@ function doGet(e) {
  * Appends [Date, Book, Borrower LinkedIn Address] to "Borrowers".
  */
 function handleBorrow(body) {
-  var borrowerUrl = (body.borrowerUrl || '').trim();
+  var borrowerUrl = (body.borrowerUrl || '').trim(); // can be URL or email
   var book = (body.book || '').trim();
-  if (!borrowerUrl || !isValidUrl(borrowerUrl)) return respond(400, { error: 'Invalid borrowerUrl' });
+  if (!borrowerUrl || !isValidContact(borrowerUrl)) return respond(400, { error: 'Invalid contact' });
   if (!book) return respond(400, { error: 'Missing book' });
 
   var ss = SpreadsheetApp.openById(SHEET_ID);
@@ -86,9 +86,9 @@ function handleBorrow(body) {
  * Appends [Date, Book Name, Lender LinkedIn URL] to "Lend Offers".
  */
 function handleLend(body) {
-  var lenderUrl = (body.lenderUrl || '').trim();
+  var lenderUrl = (body.lenderUrl || '').trim(); // can be URL or email
   var bookName = (body.bookName || '').trim();
-  if (!lenderUrl || !isValidUrl(lenderUrl)) return respond(400, { error: 'Invalid lenderUrl' });
+  if (!lenderUrl || !isValidContact(lenderUrl)) return respond(400, { error: 'Invalid contact' });
   if (!bookName) return respond(400, { error: 'Missing bookName' });
 
   var ss = SpreadsheetApp.openById(SHEET_ID);
@@ -144,6 +144,23 @@ function isValidUrl(value) {
   var host = value.split('://')[1] || '';
   if (!host || host.indexOf('.') === -1) return false;
   return true;
+}
+
+/**
+ * Basic email validation: allows common email formats.
+ */
+function isValidEmail(value) {
+  if (typeof value !== 'string') return false;
+  // Simple RFC5322-ish check without unicode to keep Apps Script regex simple
+  var re = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  return re.test(value.trim());
+}
+
+/**
+ * Accept either a URL (http/https) or an email address.
+ */
+function isValidContact(value) {
+  return isValidUrl(value) || isValidEmail(value);
 }
 
 
