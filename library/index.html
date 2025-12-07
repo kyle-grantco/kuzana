@@ -123,8 +123,8 @@
         var SHEET_ID = '13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE';
         var LIBRARY_GID = '0'; // Library tab gid
         var SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=' + LIBRARY_GID;
-        var APPS_SCRIPT_BORROW_URL = 'https://script.google.com/macros/s/REPLACE_BORROW_DEPLOY_ID/exec';
-        var APPS_SCRIPT_LEND_URL = 'https://script.google.com/macros/s/REPLACE_LEND_DEPLOY_ID/exec';
+        var APPS_SCRIPT_BORROW_URL = 'https://script.google.com/macros/s/AKfycbyqFoz324taaWy9_0wYmdjAP2xiSaO0HtaQ9Dc2b5XfVSksCvt6Zz3-wafkDpc_7MieTw/exec';
+        var APPS_SCRIPT_LEND_URL = 'https://script.google.com/macros/s/AKfycbyqFoz324taaWy9_0wYmdjAP2xiSaO0HtaQ9Dc2b5XfVSksCvt6Zz3-wafkDpc_7MieTw/exec';
 
         /**
          * isValidUrl: robust URL validation using the URL constructor.
@@ -227,7 +227,7 @@
                 return;
             }
 
-            var payload = { borrowerUrl: borrowerUrl, book: book };
+            var payload = { action: 'borrow', borrowerUrl: borrowerUrl, book: book };
             fetch(APPS_SCRIPT_BORROW_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -278,7 +278,7 @@
                 return;
             }
 
-            var payload = { lenderUrl: lenderUrl, bookName: bookName };
+            var payload = { action: 'lend', lenderUrl: lenderUrl, bookName: bookName };
             fetch(APPS_SCRIPT_LEND_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

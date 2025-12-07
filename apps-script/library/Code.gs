@@ -57,6 +57,17 @@ function doPost(e) {
 }
 
 /**
+ * Optional GET handler for health checks and browser visits.
+ */
+function doGet(e) {
+  return respond(200, {
+    ok: true,
+    message: 'Kuzana Library Web App: use POST with action \"borrow\" or \"lend\"',
+    acceptedActions: ['borrow', 'lend']
+  });
+}
+
+/**
  * Borrow handler: expects { borrowerUrl, book }
  * Appends [Date, Book, Borrower LinkedIn Address] to "Borrowers".
  */
