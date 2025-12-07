@@ -35,12 +35,12 @@
         <!-- Borrow Form -->
         <section id="borrow" aria-labelledby="borrow-title">
             <form id="borrowForm" novalidate style="display: grid; gap: 0.75rem;">
-                <label for="borrowerUrl"><strong>Borrower LinkedIn (or other social) URL</strong></label>
+                <label for="borrowerUrl"><strong>How to reach you</strong></label>
                 <input
                     id="borrowerUrl"
                     name="borrowerUrl"
                     type="url"
-                    placeholder="https://www.linkedin.com/in/your-handle"
+                    placeholder="e.g. LinkedIn: https://www.linkedin.com/in/your-handle"
                     inputmode="url"
                     required
                     pattern="https?://.*"
@@ -74,12 +74,12 @@
         <section id="lend" aria-labelledby="lend-title">
             <h2 id="lend-title">Lend Books</h2>
             <form id="lendForm" novalidate style="display: grid; gap: 0.75rem;">
-                <label for="lenderUrl"><strong>Your LinkedIn URL</strong></label>
+                <label for="lenderUrl"><strong>How to reach you</strong></label>
                 <input
                     id="lenderUrl"
                     name="lenderUrl"
                     type="url"
-                    placeholder="https://www.linkedin.com/in/your-handle"
+                    placeholder="e.g. LinkedIn: https://www.linkedin.com/in/your-handle"
                     inputmode="url"
                     required
                     pattern="https?://.*"
@@ -87,12 +87,11 @@
                     style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
                 />
 
-                <label for="lendBookName"><strong>Book Name</strong></label>
                 <input
                     id="lendBookName"
                     name="bookName"
                     type="text"
-                    placeholder="e.g., Creative Capital"
+                    placeholder="Book Name e.g., Creative Capital by Jane Doe"
                     required
                     minlength="2"
                     style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
@@ -118,15 +117,19 @@
          * SHEET_ID is the Google Sheet ID for the Library.
          */
         var SHEET_ID = '13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE';
+        var PUBLISHED_E_ID = '2PACX-1vTzSB5ePznlprqm2jmEH6xAfs8rjU9jb4TQiKwJY6jFoZU2dWWizxxT5b9wXjuV_d-yQ0uhIleD07bd'; // from publish-to-web URL
         var LIBRARY_SHEET_NAME = 'Library'; // change if your tab is named differently
         var LIBRARY_GID = '0'; // adjust if Library tab gid is not 0
         // Try multiple endpoints in order to avoid CORS / gid mismatches
         var SHEETS_CSV_URLS = [
-            // 1) gviz by sheet name
+            // 1) published-to-web CSV (preferred when available)
+            'https://docs.google.com/spreadsheets/d/e/' + PUBLISHED_E_ID + '/pub?output=csv&gid=' + LIBRARY_GID,
+            'https://docs.google.com/spreadsheets/d/e/' + PUBLISHED_E_ID + '/pub?output=csv',
+            // 2) gviz by sheet name (works when sheet is viewable by link)
             'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(LIBRARY_SHEET_NAME),
-            // 2) published CSV (requires File → Share → Publish to web)
+            // 3) published CSV on doc id (requires Publish to web)
             'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/pub?output=csv&gid=' + LIBRARY_GID,
-            // 3) direct export by gid
+            // 4) direct export by gid
             'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv&gid=' + LIBRARY_GID
         ];
         var APPS_SCRIPT_BORROW_URL = 'https://script.google.com/macros/s/AKfycbyqFoz324taaWy9_0wYmdjAP2xiSaO0HtaQ9Dc2b5XfVSksCvt6Zz3-wafkDpc_7MieTw/exec';
