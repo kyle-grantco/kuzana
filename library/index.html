@@ -255,13 +255,9 @@
             var payload = { action: 'borrow', borrowerUrl: borrowerUrl, book: book };
             fetch(APPS_SCRIPT_BORROW_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-                mode: 'cors',
-            })
-            .then(function(res) {
-                if (!res.ok) throw new Error('Request failed ' + res.status);
-                return res.json().catch(function(){ return {}; });
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                body: new URLSearchParams(payload).toString()
             })
             .then(function() {
                 if (success) success.style.display = 'block';
@@ -306,13 +302,9 @@
             var payload = { action: 'lend', lenderUrl: lenderUrl, bookName: bookName };
             fetch(APPS_SCRIPT_LEND_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-                mode: 'cors',
-            })
-            .then(function(res) {
-                if (!res.ok) throw new Error('Request failed ' + res.status);
-                return res.json().catch(function(){ return {}; });
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                body: new URLSearchParams(payload).toString()
             })
             .then(function() {
                 if (success) success.style.display = 'block';

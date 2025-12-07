@@ -38,7 +38,7 @@ function doOptions() {
  */
 function doPost(e) {
   try {
-    var body = parseJsonBody(e);
+    var body = parseBodyJsonOrForm(e);
     var action = (body.action || '').toLowerCase();
 
     if (action === 'borrow' || isBorrowShape(body)) {
@@ -106,13 +106,28 @@ function respond(status, data) {
   return out;
 }
 
-function parseJsonBody(e) {
-  if (!e || !e.postData || !e.postData.contents) throw new Error('Missing request body');
-  try {
-    return JSON.parse(e.postData.contents);
-  } catch (err) {
-    throw new Error('Invalid JSON');
+/**
+ * Attempts to parse JSON body; if not JSON, falls back to URL-encoded form parameters.
+ * Supports application/json, application/x-www-form-urlencoded, multipart/form-data
+ */
+function parseBodyJsonOrForm(e) {
+  if (!e || !e.postData) throw new Error('Missing request body');
+  var type = (e.postData.type || '').toLowerCase();
+  var contents = e.postData.contents || '';
+
+  // JSON path
+  if (type.indexOf('application/json') !== -1) {
+    try { return JSON.parse(contents || '{}'); }
+    catch (err) { throw new Error('Invalid JSON'); }
   }
+
+  // Form path (x-www-form-urlencoded or multipart/form-data)
+  var params = e.parameter || {};
+  var out = {};
+  for (var k in params) if (params.hasOwnProperty(k)) out[k] = params[k];
+  if (Object.keys(out).length > 0) return out;
+
+  throw new Error('Empty body');
 }
 
 function isBorrowShape(b) {
