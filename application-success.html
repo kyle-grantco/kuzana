@@ -27,50 +27,53 @@
 
     h1 {
       font-size: 34px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       font-weight: 700;
       letter-spacing: -0.3px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 0 0 18px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
     }
 
     p {
       font-size: 18px;
       line-height: 1.7;
-      margin-bottom: 22px;
+      margin-bottom: 10px;
       color: #3a3a3a;
     }
 
-    .highlight {
-      margin: 40px auto 0;
-      padding: 28px 32px;
-      background: #ffffff;
-      border-radius: 14px;
-      font-size: 19px;
-      font-weight: 600;
-      max-width: 560px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-      letter-spacing: -0.2px;
-    }
-
     .cta {
-      margin-top: 36px;
+      margin-top: 28px;
     }
 
+    /* Button: filled -> outline on hover */
     .button {
       display: inline-block;
       padding: 16px 34px;
-      background: #1a1a1a;
+      background: #f26d6d;
       color: #ffffff;
       text-decoration: none;
       font-size: 16px;
       font-weight: 600;
-      border-radius: 12px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      border-radius: 10px;
+      border: 2px solid #f26d6d;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
     }
 
     .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-      opacity: 0.95;
+      background: transparent;
+      color: #f26d6d;
+      transform: translateY(-1px);
+    }
+
+    .subtext {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #777;
     }
 
     .footer {
@@ -85,24 +88,25 @@
   <div class="container">
     <img src="images/kuzana-logo.jpg" alt="Kuzana Logo" class="logo" />
 
-    <h1>Application received ✅</h1>
+    <h1>Application Submitted ✅</h1>
+    <h2>You’re done.</h2>
 
-    <p>
-      Thanks for applying to Kuzana. Your submission is confirmed and now under review.
-    </p>
-
-    <p>
-      If you’re selected for the next batch, you’ll hear from us by email with next steps.
-    </p>
-
-    <div class="highlight">
-      We help companies 2× in 12 weeks with half the stress.
-    </div>
+    <p>Thanks, we’ve received your full application.</p>
+    <p>We’ll review it and email you the next steps if you’re selected.</p>
 
     <div class="cta">
-      <a href="https://kuzana.co" class="button">
+      <a
+        href="https://kuzana.co"
+        class="button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Back to Kuzana
       </a>
+
+      <div class="subtext">
+        Please keep an eye on your email.
+      </div>
     </div>
 
     <div class="footer">
