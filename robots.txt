@@ -1,0 +1,9 @@
+# robots.txt for kuzana.co
+# Allow crawling and point crawlers to the sitemap.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://kuzana.co/sitemap.xml
+
+

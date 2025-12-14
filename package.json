@@ -1,0 +1,23 @@
+{
+  "name": "kuzana-website",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyle-grantco/kuzana.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyle-grantco/kuzana/issues"
+  },
+  "homepage": "https://github.com/kyle-grantco/kuzana#readme",
+  "description": "",
+  "dependencies": {
+    "sharp": "^0.33.4"
+  }
+}

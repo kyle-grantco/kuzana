@@ -45,7 +45,7 @@ button:focus,
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: var(--text);
     background: var(--background);
@@ -177,7 +177,7 @@ p {
 .large-logo .sunrise-text {
     font-size: min(20vw, 35vh);
     font-weight: 900;
-    font-family: 'Roboto', sans-serif;
+    font-family: inherit;
     text-transform: uppercase;
     width: 100%;
     letter-spacing: -0.05em;
@@ -285,7 +285,7 @@ p {
 .sunrise-text {
     font-size: 2rem;
     font-weight: 800;
-    font-family: 'Roboto', sans-serif;
+    font-family: inherit;
     text-transform: uppercase;
     background: linear-gradient(
         to bottom,
@@ -1421,7 +1421,7 @@ section:last-child {
 }
 
 .nav-link {
-    font-family: 'Roboto', sans-serif;
+    font-family: inherit;
     color: var(--tertiary);
     text-decoration: none;
     font-weight: 700;

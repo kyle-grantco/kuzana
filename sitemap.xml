@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Kuzana sitemap
+  Purpose: Help search engines discover all public pages. Update when adding new sections.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kuzana.co/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Top-level sections -->
+  <url><loc>https://kuzana.co/portfolio/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kuzana.co/referral/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kuzana.co/faq/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kuzana.co/jobs/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kuzana.co/library/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kuzana.co/resources/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kuzana.co/payment/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://kuzana.co/apply/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kuzana.co/applyli/</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://kuzana.co/batch2final/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://kuzana.co/bizisafari/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kuzana.co/class/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kuzana.co/community/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kuzana.co/deck/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kuzana.co/invest/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kuzana.co/privacypolicy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- Individual HTML pages -->
+  <url><loc>https://kuzana.co/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kuzana.co/application-success.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://kuzana.co/screening-success.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://kuzana.co/referral/terms.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+</urlset>
+
+
