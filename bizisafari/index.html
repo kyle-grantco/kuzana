@@ -43,6 +43,11 @@
       .itinerary-item { grid-template-columns: 1fr; }
       .itinerary-img { height: 200px; }
     }
+    /* Hero overrides: make decorative 'Kuzana' small in top-left and reduce hero height so dates show above the fold */
+    .hero { min-height: auto; padding: 1rem 1rem 0; align-items: flex-start; justify-content: flex-start; }
+    .hero .hero-content { margin-top: 0; padding: 0; gap: .75rem; }
+    .large-logo { position: absolute; top: calc(var(--nav-height, 64px) + 8px); left: 1rem; transform: none; width: auto; text-align: left; }
+    .large-logo .sunrise-text { font-size: 1.5rem; opacity: .55; letter-spacing: -0.02em; white-space: nowrap; }
   </style>
 </head>
 <body>
