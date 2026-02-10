@@ -260,6 +260,31 @@
   </footer>
 
   <script src="../script.js"></script>
+  <script>
+    // Track email CTA clicks for LinkedIn (and optionally GA4) on the Bizisafari page.
+    (function () {
+      var emailCta = document.querySelector('#register .cta-button[href^="mailto:"]');
+      if (!emailCta) return;
+
+      emailCta.addEventListener('click', function () {
+        try {
+          if (window.lintrk) {
+            window.lintrk('track', { conversion_id: 26280729 });
+          }
+        } catch (e) {}
+
+        try {
+          if (window.gtag) {
+            window.gtag('event', 'bizisafari_email_click', {
+              event_category: 'lead',
+              event_label: 'bizisafari_email',
+              value: 1
+            });
+          }
+        } catch (e) {}
+      });
+    })();
+  </script>
 </body>
 </html>
 
