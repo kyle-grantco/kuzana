@@ -122,11 +122,15 @@
         try {
             const response = await fetch('https://script.google.com/macros/s/AKfycbz63f0X6SX3AgTsC5-WWscokSsYvaMXXY6jt06SBrf8keoZWKVMbS1Dih3E4vpRomSWaA/exec', {
                 method: 'POST',
-                body: JSON.stringify({email}),
-                headers: {'Content-Type': 'application/json'}
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    email: email,
+                    context: 'deck_request',
+                    source: 'deck_landing'
+                })
             });
             const result = await response.json();
-            if(result.status === 'success') {
+            if(result.status === 'success' || result.ok) {
                 messageDiv.textContent = 'Check your email for access to the deck!';
             } else {
                 messageDiv.textContent = 'There was an error. Please try again.';
