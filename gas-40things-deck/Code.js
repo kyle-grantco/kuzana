@@ -72,6 +72,18 @@ function logLead_(email, context) {
   sheet.appendRow([new Date(), email, context]);
 }
 
+// Manual tests to verify permissions and behavior
+function testLogLead() {
+  logLead_('test-deck@example.com', 'deck_request');
+  logLead_('test-40things@example.com', '40things_before_deck');
+}
+
+function testEmailSend() {
+  // Sends a test deck email and internal notification to verify Gmail scopes
+  sendDeckToLead_('kyle@kuzana.co', DECK_URL);
+  notifyDeckViewed_('kyle@kuzana.co', DECK_URL);
+}
+
 function notifyDeckViewed_(email, deckUrl) {
   GmailApp.sendEmail(
     'kyle@kuzana.co',
@@ -116,4 +128,9 @@ function parseJson_(e) {
 function json_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+function testLogLead() {
+  // Manually test logging to both tabs
+  logLead_('test-deck@example.com', 'deck_request');
+  logLead_('test-40things@example.com', '40things_before_deck');
 }

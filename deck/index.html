@@ -127,54 +127,54 @@
     </footer>
     <script src="../script.js"></script>
     <script>
-    (function () {
-        var form = document.getElementById('deckAccessForm');
-        var emailInput = document.getElementById('email');
-        var submitButton = document.getElementById('deckSubmitButton');
-        var errorMsg = document.getElementById('deckError');
-        var successMsg = document.getElementById('deckSuccess');
-        var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxXIVLZBH3XplnP4RgTx6OIs5ZNyIkymkPKHRBNXW0YwXDSu0naMkUJjhmHKUHXfVDM/exec';
+        (function () {
+            var form = document.getElementById('deckAccessForm');
+            var emailInput = document.getElementById('email');
+            var submitButton = document.getElementById('deckSubmitButton');
+            var errorMsg = document.getElementById('deckError');
+            var successMsg = document.getElementById('deckSuccess');
+            var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxXIVLZBH3XplnP4RgTx6OIs5ZNyIkymkPKHRBNXW0YwXDSu0naMkUJjhmHKUHXfVDM/exec';
 
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
-        }
-
-        form.addEventListener('submit', function (e) {
-            var email;
-
-            e.preventDefault();
-            errorMsg.style.display = 'none';
-            successMsg.style.display = 'none';
-
-            email = (emailInput.value || '').trim();
-            if (!isValidEmail(email)) {
-                errorMsg.style.display = 'block';
-                return;
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
             }
 
-            submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+            form.addEventListener('submit', function (e) {
+                var email;
 
-            fetch(GAS_ENDPOINT, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    email: email,
-                    context: 'deck_request',
-                    source: 'deck_landing'
-                })
-            }).catch(function () {
-                // Apps Script no-cors responses are opaque; network visibility is limited in the browser.
-            }).finally(function () {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Access Kuzana Deck';
-                successMsg.style.display = 'block';
-                form.reset();
+                e.preventDefault();
+                errorMsg.style.display = 'none';
+                successMsg.style.display = 'none';
+
+                email = (emailInput.value || '').trim();
+                if (!isValidEmail(email)) {
+                    errorMsg.style.display = 'block';
+                    return;
+                }
+
+                submitButton.disabled = true;
+                submitButton.textContent = 'Submitting...';
+
+                fetch(GAS_ENDPOINT, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: email,
+                        context: 'deck_request',
+                        source: 'deck_landing'
+                    })
+                }).catch(function () {
+                    // Apps Script no-cors responses are opaque; network visibility is limited in the browser.
+                }).finally(function () {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Access Kuzana Deck';
+                    successMsg.style.display = 'block';
+                    form.reset();
+                });
             });
-        });
-    })();
-    </script>
+        })();
+        </script>
     <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"9603f19a26c8b1c3cf17c17d49cca24e"})});</script>
 </body>
 </html> 
