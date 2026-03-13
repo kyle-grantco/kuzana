@@ -12,6 +12,12 @@ const THINGS_SHEET_NAME = '40ThingsBeforeTheDeck'; // must match the tab name fo
 
 // --- ENTRYPOINT ---
 
+function doGet(e) {
+  return ContentService
+    .createTextOutput('Kuzana web app is running. Use POST to submit data.')
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
 function doPost(e) {
   try {
     const data = parseJson_(e);
@@ -53,6 +59,7 @@ function isValidEmail_(email) {
 }
 
 function logLead_(email, context) {
+  Logger.log('logLead_ called with email=%s context=%s', email, context);
   const ss = SpreadsheetApp.openById(SHEET_ID);
   const targetSheetName = (context === '40things_before_deck')
     ? THINGS_SHEET_NAME
@@ -60,9 +67,7 @@ function logLead_(email, context) {
 
   const sheet = ss.getSheetByName(targetSheetName);
   if (!sheet) {
-    // Optional: log somewhere else or throw
-    Logger.log('Sheet not found for context %s: %s', context, targetSheetName);
-    return;
+    throw new Error('Sheet not found for context ' + context + ': ' + targetSheetName);
   }
   sheet.appendRow([new Date(), email, context]);
 }
