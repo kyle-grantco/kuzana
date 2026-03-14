@@ -1743,6 +1743,41 @@ footer .social-links li a:active {
     border-radius: 10px;
   }
 
+/* Testimonials using team-card styling */
+.testimonials .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.testimonial-card {
+    align-items: flex-start;
+}
+
+.testimonial-logo {
+    width: 80px;
+    height: auto;
+    margin: 0.5rem 0 0.75rem;
+    object-fit: contain;
+}
+
+.testimonial-logo-nawiri {
+    width: 120px; /* 50% wider than default */
+}
+
+.testimonial-quote {
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .testimonials .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Team Grid Styles */
 .team-grid-cards {
     display: grid;
