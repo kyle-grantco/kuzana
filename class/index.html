@@ -58,7 +58,7 @@
         </div>
         <h1>💰BOSSmode: 📈 Finance for Founders Class</h1>
         <section class="card" id="overview" aria-labelledby="intro-heading">
-            <h2 id="intro-heading">What are the REAL questions founders have?</h2>
+            <h2 id="intro-heading">The REAL questions founders have</h2>
             <div class="lead">
                 <p>In this on-line course we will answer...</p>
             </div>
@@ -66,19 +66,18 @@
             <nav class="toc" aria-label="Weekly topics">
                 <ol>
                     <li><a href="#class1">🤑 What’s my business worth? (so your mom stops telling you to get a "real job")</a></li>
-                    <li><a href="#class2">Can I afford a loan? 🕳️ Debt Trap (and how founders avoid it)</a></li>
-                    <li><a href="#class3">💪 What's my best Sales Channel? – this one is 10x better for your biz</a></li>
-                    <li><a href="#class4">💧 Is my bucket leaking? Customer Retention</a></li>
-                    <li><a href="#class5">🧠 Is GPT better than a $100k Analyst?</a></li>
-                    <li><a href="#class6">📈 Are we actually growing? Month-over-Month Growth</a></li>
+                    <li><a href="#class2">Can I afford a loan?  </a></li>
+                    <li><a href="#class3">💪 What's my best Sales Channel? </a></li>
+                    <li><a href="#class4">🩸 Am I bleeding customers?</a></li>
+                    <li><a href="#class5">🧠 Is GPT better than hiring an Analyst?</a></li>
+                    <li><a href="#class6">📈 Are we actually growing?</a></li>
 
                 </ol>
             </nav>
 
-            <h2 id="about-heading">About</h2>
             <div class="lead">
-                <p>In this class we WON'T talk about double entry accounting, debits, credits, none of that. You don't need to know those kinds of things as a CEO. You can delegate that.</p>
-                <p>The important things are big picture controls.</p>
+                <p>We WON'T talk about double entry accounting. As a CEO you can delegate that.</p>
+                <p>The important things are BIG PICTURE controls.</p>
                 <p>Enter BOSSmode.</p>
             </div>
 
@@ -86,7 +85,7 @@
             <ul style="margin: 0 0 16px; padding-left: 20px;">
                 <li>Computer with 8GB+ RAM (course cannot be taken by phone)</li>
                 <li>Sufficient battery in case the power goes out</li>
-                <li>Basic Proficiency in Google Sheets. Watch this tutorial: <a href="https://www.youtube.com/watch?v=TENAbUa-R-w" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=TENAbUa-R-w</a></li>
+                <li>Basic Google Sheets skills. <a href="https://www.youtube.com/watch?v=TENAbUa-R-w" target="_blank" rel="noopener noreferrer">tutorial</a></li>
                 <li>Gmail or Google Workspace account</li>
             </ul>
 
@@ -102,12 +101,7 @@
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
 
-            <h2 id="instructor-heading">Your instructor</h2>
-            <div class="lead">
-                <p>Kyle previously raised $20m in Kenya and helped 10 companies 2x in 12 weeks with 1/2 the stress. See his <a href="https://linkedin.com/in/kyleschutter" target="_blank" rel="noopener">LinkedIn</a>.</p>
-                <a class="cta-signup" href="https://docs.google.com/forms/d/e/1FAIpQLSc1a44VSXI6OOc7nSETdvu48xhxH4KTU1taJDibTfk4A11Ecg/viewform" target="_blank" rel="noopener">Sign Up for Class</a>
 
-            </div>
         </section>
 
         <section id="class1" class="card" aria-labelledby="class1-title">
@@ -191,19 +185,86 @@
                 </a>
             </figure>
         </section>
+        <h2 id="instructor-heading">Your instructor</h2>
+        <div class="lead">
+            <p>Kyle previously raised $20m in Kenya and helped 10 companies 2x in 12 weeks with 1/2 the stress. <a href="https://linkedin.com/in/kyleschutter" target="_blank" rel="noopener">LinkedIn</a>.</p>
+
+        </div>
         <p class="footer">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
     </main>
     <script>
         (function () {
-            var frame = document.getElementById('template-frame');
-            var resetBtn = document.getElementById('reset-template');
-            if (!frame || !resetBtn) return;
-            var baseUrl = frame.getAttribute('src');
-            function reloadFrame() {
-                var sep = baseUrl.indexOf('?') === -1 ? '?' : '&';
-                frame.src = baseUrl + sep + 'v=' + Date.now();
+            /**
+             * Re-creates the BOSSmode template iframe with a cache-busting query string
+             * so that users can generate a fresh copy without a full page reload.
+             */
+            function initializeTemplateReset() {
+                var frame = document.getElementById('template-frame');
+                var resetBtn = document.getElementById('reset-template');
+                if (!frame || !resetBtn) return;
+                var baseUrl = frame.getAttribute('src');
+                function reloadFrame() {
+                    var separator = baseUrl.indexOf('?') === -1 ? '?' : '&';
+                    frame.src = baseUrl + separator + 'v=' + Date.now();
+                }
+                resetBtn.addEventListener('click', reloadFrame);
             }
-            resetBtn.addEventListener('click', reloadFrame);
+
+            /**
+             * Collapses class sections 2–6 by default and wires up the table-of-contents
+             * links so that clicking a class title reveals that class while hiding the others.
+             */
+            function initializeClassSectionCollapsing() {
+                var classSections = Array.prototype.slice.call(
+                    document.querySelectorAll('section[id^="class"]')
+                );
+                if (!classSections.length) return;
+
+                classSections.forEach(function (section) {
+                    if (section.id !== 'class1') section.setAttribute('hidden', 'hidden');
+                });
+
+                var tocLinks = Array.prototype.slice.call(
+                    document.querySelectorAll('.toc a[href^="#class"]')
+                );
+                if (!tocLinks.length) return;
+
+                function handleTocClick(event) {
+                    var href = this.getAttribute('href');
+                    if (!href || href.charAt(0) !== '#') return;
+
+                    var targetId = href.slice(1);
+                    var targetSection = document.getElementById(targetId);
+                    if (!targetSection) return;
+
+                    event.preventDefault();
+
+                    classSections.forEach(function (section) {
+                        if (section.id === targetId) {
+                            section.removeAttribute('hidden');
+                        } else if (section.id.indexOf('class') === 0) {
+                            section.setAttribute('hidden', 'hidden');
+                        }
+                    });
+
+                    try {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } catch (error) {
+                        targetSection.scrollIntoView(true);
+                    }
+
+                    if (window.history && window.history.replaceState) {
+                        window.history.replaceState(null, '', href);
+                    }
+                }
+
+                tocLinks.forEach(function (link) {
+                    link.addEventListener('click', handleTocClick);
+                });
+            }
+
+            initializeTemplateReset();
+            initializeClassSectionCollapsing();
         }());
     </script>
 </body>
