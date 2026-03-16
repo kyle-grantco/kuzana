@@ -123,9 +123,9 @@ p {
 }
 
 .cta-button:hover {
-    color: var(--secondary);
-    background: white;
-    border: 1px solid var(--secondary);
+    /* Keep same colors on hover; optionally tweak shadow/scale only */
+    background: var(--secondary);
+    color: white;
 }
 
 .hero {
@@ -1187,9 +1187,8 @@ p {
 }
 
 .popup-cta-button:hover {
-    background-color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Keep same colors on hover to avoid contrast issues */
+    background-color: var(--secondary);
 }
 
 .popup-cta-button:active {
