@@ -17,6 +17,8 @@
         h1 { margin: 12px 0 20px; font-size: 1.5rem; font-weight: 600; text-align: left; color: var(--primary); }
         h2 { margin: 0 0 12px; font-size: 1.25rem; font-weight: 600; color: var(--primary); }
         .card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+        .hero-media { margin: 12px 0 16px; }
+        .hero-media img { width: 100%; border-radius: 10px; border: 1px solid #e5e5e5; display: block; }
         .toc { margin-bottom: 16px; }
         .toc strong { display: block; margin-bottom: 6px; }
         .toc ol { margin: 0; padding-left: 18px; }
@@ -44,6 +46,17 @@
         @media (max-width: 640px) { .wrap { padding: 16px; } .embed-form { height: 2600px; } }
         .footer { text-align: center; opacity: .7; font-size: .9rem; padding: 20px 0 8px; }
         .footer a { color: inherit; text-decoration: underline; }
+        .trust-copy { margin-top: 6px; font-size: .85rem; color: #555; }
+        .popup { position: fixed; inset: 0; display: none; z-index: 60; }
+        .popup-visible { display: block; }
+        .popup-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+        .popup-content { position: relative; max-width: 420px; margin: 80px auto; background: #fff; border-radius: 10px; padding: 16px 18px 18px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+        .popup-title { margin: 0 0 8px; font-size: 1.15rem; color: var(--primary); }
+        .popup-body { margin: 0 0 12px; font-size: .95rem; }
+        .popup-cta { display: inline-block; padding: 10px 14px; border-radius: 8px; border: 1px solid #e5e5e5; background: var(--secondary); color: #fff; font-weight: 600; text-decoration: none; }
+        .popup-cta:hover { filter: brightness(1.05); }
+        .popup-footer { margin-top: 8px; font-size: .85rem; opacity: .8; }
+        .popup-close { position: absolute; top: 8px; right: 10px; background: transparent; border: 0; font-size: 18px; cursor: pointer; }
     </style>
     <meta property="og:title" content="Kuzana – Class">
     <meta property="og:image" content="https://kuzana.co/images/favicon.png">
@@ -56,42 +69,17 @@
                 <img src="/images/logo.png" alt="Kuzana" class="logo" loading="eager" decoding="async" fetchpriority="high">
             </a>
         </div>
-        <h1>💰BOSSmode: 📈 Finance for Founders Class</h1>
+        <h1>What’s your business worth?</h1>
         <section class="card" id="overview" aria-labelledby="intro-heading">
-            <h2 id="intro-heading">The REAL questions founders have</h2>
+            <div class="hero-media">
+                <img src="/images/whats-your-business-worth.png" alt="What’s your business worth? illustration">
+            </div>
+            <h2 id="intro-heading">Most founders don’t know. Find out in 10 minutes.</h2>
             <div class="lead">
-                <p>In this on-line course we will answer...</p>
+                <p>So the next time someone asks, you actually have an answer.</p>
             </div>
 
-            <nav class="toc" aria-label="Weekly topics">
-                <ol>
-                    <li><a href="#class1">🤑 What’s my business worth? (so your mom stops telling you to get a "real job")</a></li>
-                    <li><a href="#class2">Can I afford a loan?  </a></li>
-                    <li><a href="#class3">💪 What's my best Sales Channel? </a></li>
-                    <li><a href="#class4">🩸 Am I bleeding customers?</a></li>
-                    <li><a href="#class5">🧠 Is GPT better than hiring an Analyst?</a></li>
-                    <li><a href="#class6">📈 Are we actually growing?</a></li>
-
-                </ol>
-            </nav>
-
-            <div class="lead">
-                <p>We WON'T talk about double entry accounting. As a CEO you can delegate that.</p>
-                <p>The important things are BIG PICTURE controls.</p>
-                <p>Enter BOSSmode.</p>
-            </div>
-
-            <h2 id="prerequisites-heading">Pre-Requisites:</h2>
-            <ul style="margin: 0 0 16px; padding-left: 20px;">
-                <li>Computer with 8GB+ RAM (course cannot be taken by phone)</li>
-                <li>Sufficient battery in case the power goes out</li>
-                <li>Basic Google Sheets skills. <a href="https://www.youtube.com/watch?v=TENAbUa-R-w" target="_blank" rel="noopener noreferrer">tutorial</a></li>
-                <li>Gmail or Google Workspace account</li>
-            </ul>
-
-            <!-- Signup CTA is in the header (top-right) -->
-
-            <h2 id="template-heading">Create your own BOSSmode template</h2>
+            <h2>Enter your email to get your valuation tool + walkthrough</h2>
             <iframe
               id="template-frame"
               class="embed-template"
@@ -100,7 +88,14 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+            <p class="trust-copy">Free. Takes 10 minutes. No finance background needed.</p>
 
+            <div class="lead">
+                <p>Most founders underestimate their business. Some discover they’re already worth millions.</p>
+                <p>Now your mom will stop telling you to "Get a REAL job."</p>
+            </div>
+
+            <h2 id="prerequisites-heading">Pre-Requisites:</h2>
 
         </section>
 
@@ -191,6 +186,18 @@
 
         </div>
         <p class="footer">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
+        <div class="popup" id="exitValuationPopup" aria-hidden="true">
+            <div class="popup-overlay" data-popup-close="true"></div>
+            <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="exit-popup-title">
+                <button class="popup-close" type="button" data-popup-close="true" aria-label="Close popup">✕</button>
+                <h2 class="popup-title" id="exit-popup-title">Before you go…</h2>
+                <p class="popup-body">
+                    Want to know what your business is really worth? Enter your email above to get the valuation Google Sheet + 10-minute walkthrough.
+                </p>
+                <a href="#overview" class="popup-cta">Get my valuation tool</a>
+                <p class="popup-footer">Free. Takes 10 minutes. No finance background needed.</p>
+            </div>
+        </div>
     </main>
     <script>
         (function () {
@@ -265,6 +272,35 @@
 
             initializeTemplateReset();
             initializeClassSectionCollapsing();
+            /**
+             * Shows a one-time exit intent popup that nudges visitors to use the valuation
+             * tool embed before leaving the page.
+             */
+            (function initializeExitIntentPopup() {
+                var popup = document.getElementById('exitValuationPopup');
+                if (!popup) return;
+                var hasShown = false;
+
+                function openPopup() {
+                    if (hasShown) return;
+                    hasShown = true;
+                    popup.classList.add('popup-visible');
+                    popup.setAttribute('aria-hidden', 'false');
+                }
+
+                function closePopup() {
+                    popup.classList.remove('popup-visible');
+                    popup.setAttribute('aria-hidden', 'true');
+                }
+
+                document.addEventListener('mouseout', function handleMouseOut(event) {
+                    if (!event.relatedTarget && event.clientY <= 0) openPopup();
+                });
+
+                popup.addEventListener('click', function handlePopupClick(event) {
+                    if (event.target.hasAttribute('data-popup-close')) closePopup();
+                });
+            }());
         }());
     </script>
 </body>
