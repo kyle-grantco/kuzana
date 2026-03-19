@@ -71,7 +71,10 @@
                 var beforeEndWindow = nowUtcMs < redirectEndUtcMs;
                 var params = new URLSearchParams(window.location.search);
                 var noRedirect = params.has('no_redirect');
-                if (beforeEndWindow && !noRedirect && (location.pathname === '/' || location.pathname === '/index.html')) window.location.replace(target);
+                if (beforeEndWindow && !noRedirect && (location.pathname === '/' || location.pathname === '/index.html')) {
+                    var incomingQuery = window.location.search || '';
+                    window.location.replace(target + incomingQuery);
+                }
             } catch (e) {}
         })();
     </script>

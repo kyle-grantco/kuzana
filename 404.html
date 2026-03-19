@@ -11,13 +11,23 @@
         (function() {
             var pathname = window.location.pathname || "/";
             var segment = pathname.replace(/^\/+|\/+$/g, "").split("/")[0];
+            // "Original part of the URL after kuzana.co" (path + any query string).
+            var originalAfterDomain = pathname.replace(/^\/+/, "").replace(/\/+$/g, "");
+            var search = window.location.search || "";
+            if (search) originalAfterDomain += search;
             var ignored = ["", "index.html", "index.htm", "favicon.ico", "robots.txt"];
             if (ignored.indexOf(segment) !== -1) {
                 window.location.replace("/");
                 return;
             }
             var base = "https://form.kuzana.co/apply?usp=pp_url&entry.1087974569=";
-            var target = base + encodeURIComponent(segment);
+            var target = base + encodeURIComponent(segment) + "&referrer=" + encodeURIComponent(originalAfterDomain);
+            var incomingParams = new URLSearchParams(window.location.search || "");
+            incomingParams.forEach(function(value, key) {
+                if (!target.includes(encodeURIComponent(key) + "=") && value) {
+                    target += "&" + encodeURIComponent(key) + "=" + encodeURIComponent(value);
+                }
+            });
             window.location.replace(target);
         })();
     </script>

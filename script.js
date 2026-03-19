@@ -8,6 +8,125 @@ let lastFocusedElement = null;
 let hamburger = null;
 let mobileMenu = null;
 let body = null;
+const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV1';
+
+/**
+ * Returns true when the provided hostname belongs to Kuzana properties.
+ * @param {string} hostname - Hostname to evaluate.
+ * @returns {boolean}
+ */
+function isKuzanaHostname(hostname) {
+    if (!hostname) return false;
+    return hostname === 'kuzana.co' || hostname.endsWith('.kuzana.co');
+}
+
+/**
+ * Filters search parameters to attribution-related keys we want to persist.
+ * @param {URLSearchParams} searchParams - Input query parameters.
+ * @returns {Object<string, string>}
+ */
+function getAttributionParams(searchParams) {
+    const explicitKeys = new Set([
+        'referrer',
+        'source',
+        'campaign',
+        'gclid',
+        'fbclid',
+        'ttclid',
+        'msclkid'
+    ]);
+    const result = {};
+    searchParams.forEach(function(value, key) {
+        const normalizedKey = String(key || '').toLowerCase();
+        const isUtm = normalizedKey.indexOf('utm_') === 0;
+        if (!isUtm && !explicitKeys.has(normalizedKey)) return;
+        if (value == null || value === '') return;
+        result[key] = value;
+    });
+    return result;
+}
+
+/**
+ * Reads persisted attribution parameters from localStorage.
+ * @returns {Object<string, string>}
+ */
+function getStoredAttributionParams() {
+    try {
+        const rawValue = localStorage.getItem(ATTRIBUTION_STORAGE_KEY);
+        if (!rawValue) return {};
+        const parsedValue = JSON.parse(rawValue);
+        if (!parsedValue || typeof parsedValue !== 'object') return {};
+        return parsedValue;
+    } catch (error) {
+        return {};
+    }
+}
+
+/**
+ * Stores the current page attribution params, merging into existing values.
+ */
+function storeAttributionParamsFromLocation() {
+    const currentParams = getAttributionParams(new URLSearchParams(window.location.search || ''));
+    const currentKeys = Object.keys(currentParams);
+    if (!currentKeys.length) return;
+    const existingParams = getStoredAttributionParams();
+    const mergedParams = Object.assign({}, existingParams, currentParams);
+    try {
+        localStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(mergedParams));
+    } catch (error) {
+        // no-op; attribution still works within current page load where possible
+    }
+}
+
+/**
+ * Appends persisted attribution params to eligible links if missing.
+ * Applies to internal Kuzana links and form.kuzana.co application links.
+ * @param {string} href - Candidate anchor href.
+ * @param {Object<string, string>} storedParams - Persisted attribution map.
+ * @returns {string}
+ */
+function withAttributionParams(href, storedParams) {
+    if (!href) return href;
+    const trimmedHref = href.trim();
+    if (!trimmedHref) return href;
+    if (trimmedHref.charAt(0) === '#') return href;
+    if (/^(mailto:|tel:|javascript:)/i.test(trimmedHref)) return href;
+
+    let parsedUrl;
+    try {
+        parsedUrl = new URL(trimmedHref, window.location.origin);
+    } catch (error) {
+        return href;
+    }
+
+    const isAbsolute = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(trimmedHref);
+    const isSameOrigin = parsedUrl.origin === window.location.origin;
+    const isKuzanaLink = isKuzanaHostname(parsedUrl.hostname);
+    const shouldDecorate = !isAbsolute || isSameOrigin || isKuzanaLink;
+    if (!shouldDecorate) return href;
+
+    Object.keys(storedParams).forEach(function(key) {
+        if (!parsedUrl.searchParams.has(key)) parsedUrl.searchParams.set(key, storedParams[key]);
+    });
+
+    if (!isAbsolute) return parsedUrl.pathname + parsedUrl.search + parsedUrl.hash;
+    return parsedUrl.toString();
+}
+
+/**
+ * Updates navigation and CTA links with stored attribution parameters.
+ * @param {Object<string, string>} storedParams - Persisted attribution map.
+ */
+function decorateAnchorsWithAttribution(storedParams) {
+    if (!storedParams || !Object.keys(storedParams).length) return;
+    const anchors = document.querySelectorAll('a[href]');
+    anchors.forEach(function(anchor) {
+        const originalHref = anchor.getAttribute('href');
+        if (!originalHref) return;
+        const updatedHref = withAttributionParams(originalHref, storedParams);
+        if (updatedHref && updatedHref !== originalHref) anchor.setAttribute('href', updatedHref);
+    });
+}
 
 function closeMenu() {
     if (!hamburger || !mobileMenu || !body) return;
@@ -28,6 +147,10 @@ function openMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    storeAttributionParamsFromLocation();
+    const storedAttributionParams = getStoredAttributionParams();
+    decorateAnchorsWithAttribution(storedAttributionParams);
+
     body = document.body;
     hamburger = document.querySelector('.menu-toggle');
     mobileMenu = document.querySelector('.nav-links');
@@ -54,7 +177,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ensure clicking the top-left Kuzana logo goes to the normal homepage without redirect
     try {
         var logoAnchor = document.querySelector('.logo a');
-        if (logoAnchor) logoAnchor.setAttribute('href', '/?no_redirect=1');
+        if (logoAnchor) {
+            var logoHref = withAttributionParams('/?no_redirect=1', storedAttributionParams);
+            logoAnchor.setAttribute('href', logoHref);
+        }
     } catch (e) {}
 });
 
