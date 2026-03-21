@@ -20,14 +20,7 @@
                 window.location.replace("/");
                 return;
             }
-            var base = "https://form.kuzana.co/apply?usp=pp_url&entry.1087974569=";
-            var target = base + encodeURIComponent(segment) + "&referrer=" + encodeURIComponent(originalAfterDomain);
-            var incomingParams = new URLSearchParams(window.location.search || "");
-            incomingParams.forEach(function(value, key) {
-                if (!target.includes(encodeURIComponent(key) + "=") && value) {
-                    target += "&" + encodeURIComponent(key) + "=" + encodeURIComponent(value);
-                }
-            });
+            var target = "/?referrer=" + encodeURIComponent(originalAfterDomain);
             window.location.replace(target);
         })();
     </script>
