@@ -26,14 +26,47 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Kuzana: 12-week education and investment program for Kenya's top entrepreneurs. $20k equity + $100k working capital.">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Kuzana: 12-week education and investment program for Kenya's top entrepreneurs. $20k equity + $100k working capital.">
     <title>Kuzana – Education for Kenya's Top 1% Entrepreneurs</title>
     <link rel="stylesheet" href="styles.css">
+    <meta property="og:site_name" content="Kuzana">
+    <meta property="og:url" content="https://kuzana.co/">
     <meta property="og:title" content="Kuzana – Education for Kenya's Top 1% Entrepreneurs">
     <meta property="og:description" content="12-week workshops every Friday with $20k equity investment + $100k working capital. Goal: mint 1,000 more millionaires by 2040.">
-    <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/images/kuzana-logo.png">
     <link rel="canonical" href="https://kuzana.co/">
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "Kuzana",
+        "url": "https://kuzana.co/",
+        "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://kuzana.co/{search_term_string}",
+        "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kuzana",
+        "url": "https://kuzana.co/",
+        "logo": "https://kuzana.co/images/logo.png",
+        "sameAs": [
+        "https://www.linkedin.com/company/kuzana",
+        "https://www.facebook.com/kuzana"
+        ]
+    }
+    </script>
 
         <!-- Combined conversion handler: push to dataLayer so GTM fires tags -->
         <script>
@@ -90,21 +123,21 @@
             <span></span>
         </button>
         <ul class="nav-links" id="main-navigation">
-            <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-            <li><a href="/referral/" class="nav-link">Referral</a></li>
-            <li><a href="/faq/" class="nav-link">FAQ</a></li>
+            <li><a href="/Kuzana/kuzana/portfolio/" class="nav-link">Portfolio</a></li>
+            <li><a href="/Kuzana/kuzana/referral/" class="nav-link">Referral</a></li>
+            <li><a href="/Kuzana/kuzana/faq/" class="nav-link">FAQ</a></li>
                 <li><a href="https://kuzana.substack.com" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a></li>
-            <li><a href="/library/" class="nav-link">Library</a></li>
+            <li><a href="/Kuzana/kuzana/library/" class="nav-link">Library</a></li>
             <li><a href="#team" class="nav-link">Team</a></li>
-            <li><a href="/cofounders/" class="nav-link">CoFounders</a></li>
-            <li><a href="/resources/" class="nav-link">Resources</a></li>
+            <li><a href="/Kuzana/kuzana/cofounders/" class="nav-link">CoFounders</a></li>
+            <li><a href="/Kuzana/kuzana/resources/" class="nav-link">Resources</a></li>
             <li><a href="https://form.kuzana.co/apply"
                 class="cta-button"
                 target="_blank"
                 rel="noopener"
                 onclick="return handleApplyClick(this.href);">
                 Apply Now
-             </a>
+             </a>   
              </li>
         </ul>
     </nav>
@@ -359,7 +392,7 @@
             >
                 Send via WhatsApp
             </a>
-            <p class="popup-footer">Your forward could help a founder access capital and serious support</p>
+            <p class="popup-footer">Your forward could help a founder access capital and serious support.</p>
         </div>
     </div>
 

@@ -5,5 +5,8 @@ User-agent: *
 Allow: /
 
 Sitemap: https://kuzana.co/sitemap.xml
-
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
 
