@@ -142,6 +142,12 @@
         </ul>
     </nav>
 
+    <section class="video-section" id="final-event-signup">
+        <h2>Kuzana batch3 Finale Livestream</h2>
+        <p>Sign up below.</p>
+        <iframe data-tally-src="https://tally.so/embed/LZXzvj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="780" frameborder="0" marginheight="0" marginwidth="0" title="Kuzana batch3 Finale"></iframe>
+    </section>
+
     <header class="hero">
         <div class="large-logo">
             <div class="sunrise-text">Kuzana</div>
@@ -162,21 +168,6 @@
     </header>
 
     <main id="main" class="main-content">
-        <section id="final-event-live" class="video-section" style="display:none;" aria-live="polite">
-            <h2 id="final-event-live-title">Final Event Livestream</h2>
-            <p id="final-event-live-copy"></p>
-            <div id="final-event-live-embed-wrap" class="video-wrapper" style="display:none;">
-                <iframe
-                    id="final-event-live-embed"
-                    loading="lazy"
-                    src=""
-                    title="Kuzana Final Event Livestream"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                ></iframe>
-            </div>
-        </section>
         <section class="testimonials" id="testimonials">
             <h2>In batch1 we helped 4 companies double revenue in 12 weeks</h2>
             <img src="images/4companies.svg" alt="First Cohort Picture" class="image-placeholder" loading="lazy" decoding="async">
@@ -418,68 +409,7 @@
     </a>
 
     <script>
-        window.TallyConfig = {
-          "formId": "LZXzvj",
-          "popup": {
-            "width": 500,
-            "emoji": {
-              "text": "👋",
-              "animation": "wave"
-            },
-            "autoClose": 0,
-            "formEventsForwarding": true,
-            "open": {
-              "trigger": "time",
-              "ms": 5000
-            }
-          }
-        };
-    </script>
-        
-    <script async src="https://tally.so/widgets/embed.js"></script>
-
-    <script>
-        (function () {
-            /**
-             * Controls teaser/live visibility for the final event.
-             * Update these constants when scheduling a new event.
-             */
-            var EVENT_DATE_EAT = '2026-04-08'; // YYYY-MM-DD in Africa/Nairobi date
-            var LIVE_START_EAT = EVENT_DATE_EAT + 'T18:00:00+03:00';
-            var LIVE_END_EAT = EVENT_DATE_EAT + 'T22:00:00+03:00';
-            var LIVE_STREAM_EMBED_URL = 'https://www.youtube.com/embed/dq7Oc-cjP6U';
-
-            var nowMs = Date.now();
-            var startMs = Date.parse(LIVE_START_EAT);
-            var endMs = Date.parse(LIVE_END_EAT);
-            if (!isFinite(startMs) || !isFinite(endMs) || endMs <= startMs) return;
-
-            var section = document.getElementById('final-event-live');
-            var copyEl = document.getElementById('final-event-live-copy');
-            var wrapEl = document.getElementById('final-event-live-embed-wrap');
-            var frameEl = document.getElementById('final-event-live-embed');
-            if (!section || !copyEl || !wrapEl || !frameEl) return;
-
-            // Before live start: teaser only.
-            if (nowMs < startMs) {
-                section.style.display = '';
-                copyEl.textContent = 'Join us live at 6:00pm for our final event on YouTube. Come back here to watch the stream.';
-                wrapEl.style.display = 'none';
-                return;
-            }
-
-            // During live window: show stream embed.
-            if (nowMs >= startMs && nowMs < endMs) {
-                section.style.display = '';
-                copyEl.textContent = 'We are live now. Watch the final event here.';
-                wrapEl.style.display = '';
-                frameEl.src = LIVE_STREAM_EMBED_URL;
-                return;
-            }
-
-            // After end time: hide section and keep normal homepage.
-            section.style.display = 'none';
-        })();
+        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
     </script>
     <script src="script.js"></script>
 </body>
