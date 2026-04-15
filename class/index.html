@@ -54,11 +54,15 @@
         .hero-media { position: relative; margin: 12px 0 32px; }
         .hero-media img { width: 100%; border-radius: 10px; border: 1px solid #e5e5e5; display: block; }
         .hero-highlight { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); padding: 12px 14px; background: #fff; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.18); max-width: 560px; width: calc(100% - 32px); }
+        .hero-highlight h1 { margin: 0; font-size: 1.35rem; line-height: 1.2; color: var(--primary); }
+        .hero-highlight h3 { margin: 6px 0 0; font-size: 1rem; line-height: 1.35; font-style: italic; font-weight: 500; color: var(--primary); }
         .path-card { margin-bottom: 14px; }
         .path-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
         .path-option { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px; background: #fff; }
+        .path-option::after { content: ""; display: block; clear: both; }
         .path-option h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--primary); }
         .path-option p { margin: 0; font-size: .95rem; line-height: 1.45; }
+        .path-host { float: right; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #e5e7eb; margin: 2px 0 8px 10px; }
         .mode-tabs { display: flex; gap: 8px; margin-top: 14px; }
         .mode-tab { appearance: none; border: 1px solid #cbd5e1; background: #fff; color: var(--primary); border-radius: 8px; padding: 9px 12px; font-weight: 600; cursor: pointer; }
         .mode-tab[aria-selected="true"] { background: var(--secondary); color: #fff; border-color: var(--secondary); }
@@ -115,6 +119,10 @@
         </div>
         <div class="hero-media">
             <img src="/images/whats your business worth.png" alt="What’s your business worth? illustration">
+            <div class="hero-highlight">
+                <h1>Finance For Founders</h1>
+                <h3>an online class for top 1% entrepreneurs in Kenya</h3>
+            </div>
         </div>
 
         <div class="lead">
@@ -136,15 +144,16 @@
             <h1 id="choose-path-heading">Choose your path</h1>
             <div class="path-grid">
                 <article class="path-option">
-                    <h3>FinanceGuided</h3>
+                    <h3>with Kyle</h3>
+                    <img src="/images/kyle profile pic.png" alt="Kyle Schutter" class="path-host" loading="lazy" decoding="async">
                     <p>Guided support with structured help and follow-through. Sign up to reserve your spot.</p>
-                    <button class="mode-tab" id="tab-finance-guided" type="button" role="tab" aria-selected="true" aria-controls="panel-finance-guided">FinanceGuided</button>
+                    <button class="mode-tab" id="tab-finance-guided" type="button" role="tab" aria-selected="true" aria-controls="panel-finance-guided">with Kyle</button>
 
                 </article>
                 <article class="path-option">
-                    <h3>FinanceNow (free)</h3>
+                    <h3>Self-Serve (free)</h3>
                     <p>Self-serve templates, videos, slides, and quizzes you can use immediately at your own pace.</p>
-                    <button class="mode-tab" id="tab-finance-now" type="button" role="tab" aria-selected="false" aria-controls="panel-finance-now">FinanceNow (free)</button>
+                    <button class="mode-tab" id="tab-finance-now" type="button" role="tab" aria-selected="false" aria-controls="panel-finance-now">Self-Serve (free)</button>
 
                 </article>
             </div>
@@ -263,7 +272,7 @@
         </div>
 
         <section id="panel-finance-guided" class="card mode-panel" role="tabpanel" aria-labelledby="tab-finance-guided">
-            <h2>FinanceGuided</h2>
+            <h2>with Kyle</h2>
             <p class="lead">Sign up below to join the guided version.</p>
             <iframe data-tally-src="https://tally.so/embed/yPv7v0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1695" frameborder="0" marginheight="0" marginwidth="0" title="Finance for Founders - Class"></iframe>
         </section>
