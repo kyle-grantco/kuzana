@@ -86,7 +86,32 @@
         .toc a:hover { text-decoration: underline; }
         .lead { font-size: 1.05rem; line-height: 1.55; }
         .lead p { margin: 0 0 10px; }
-        .video-placeholder { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #eee; border: 1px dashed #ccc; border-radius: 8px; display: grid; place-items: center; color: #666; font-weight: 500; }
+        .youtube-lazy { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; background: #000; }
+        .youtube-lazy-button { width: 100%; height: 100%; padding: 0; border: 0; background: #000; cursor: pointer; position: relative; }
+        .youtube-lazy-button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .youtube-lazy-button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.1) 45%, rgba(0,0,0,.05));
+        }
+        .youtube-lazy-button::after {
+            content: "▶";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 74px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(239, 68, 68, .95);
+            color: #fff;
+            font-size: 1.7rem;
+            line-height: 52px;
+            text-align: center;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .28);
+        }
+        .youtube-lazy iframe { width: 100%; height: 100%; border: 0; display: block; }
         .embed-slides { width: 100%; height: 839px; border: 0; }
         .embed-template { width: 500px; height: 260px; border: 0; display: block; margin: 0 auto; }
         .embed-form { width: 100%; height: 2400px; border: 0; }
@@ -194,7 +219,7 @@
         <section id="class1" class="card" aria-labelledby="class1-title">
             <h1 id="class1-title">Class 1: 🤑 What’s my business worth?</h1>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/aKnmi7k2X7U" title="Class 1: What's my business worth?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="aKnmi7k2X7U" data-video-title="Class 1: What's my business worth?"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaf5i1EvLrfCU4QFyeGRcOwkAvBVbhUMbfYuctkdggTm7iE0_o8yjizg2dqh3zdILvsZ2DLimA-uPe/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -210,7 +235,7 @@
         <section id="class2" class="card" aria-labelledby="class2-title">
             <h1 id="class2-title">Class 2: Debt Trap (and how founders avoid it)</h1>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/lXpvjV95P_w" title="Class 2: Debt Trap" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="lXpvjV95P_w" data-video-title="Class 2: Debt Trap"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRL9upx7_KU6IHm1mhYW8qOJlpMu7e70zQvS2tP4oASAwx2hkwbtu96CWMgs9xeY-aw8FORy9OiFNAh/pubembed?start=false&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -224,7 +249,7 @@
         <section id="class3" class="card" aria-labelledby="class3-title">
             <h1 id="class3-title">Class 3: Sales Channels — this one is 10x better for your biz</h1>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/UuzT1tQ7wnA" title="Class 3: Sales Channel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="UuzT1tQ7wnA" data-video-title="Class 3: Sales Channel"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQPGAOqKf-1n2J2_dfKzhAw9Di7Tt63SqN0a8jmFDCiT_LDo0omAMlT5quY6_n9Exx2ZMEueqqs_syo/pubembed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -237,7 +262,7 @@
         <section id="class4" class="card" aria-labelledby="class4-title">
             <h1 id="class4-title">Class 4: 💧 How Leaky is your bucket? Customer Retention</h1>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/3A8BPuxaH20" title="Class 4: Customer Retention" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="3A8BPuxaH20" data-video-title="Class 4: Customer Retention"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSE8a7CKv3zN5SsU-SVS5QZCYajbfUqj428t0zMsaRdGo1FqDojES2StDyx1onwS2wTU8npdonZts81/pubembed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -251,7 +276,7 @@
         <section id="class5" class="card" aria-labelledby="class5-title">
             <h1 id="class5-title">Class 5: $100k Analyst vs Free GPT</h1>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/-r24Wg1IkJk" title="Class 5: $100k Analyst vs Free GPT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="-r24Wg1IkJk" data-video-title="Class 5: $100k Analyst vs Free GPT"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT-ovYdV--DTfjUhDbbTR2i-OSQKumVqTS6cnmeXwKvt4omdePSIMAHIFDpDq2pDWoeV3rkgIdRzNw8/pubembed?start=false&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -264,7 +289,7 @@
         <section id="class6" class="card" aria-labelledby="class6-title">
             <h1 id="class6-title">Class 6: 📈 Month-over-Month Growth</h1>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/7w85_CksE3s" title="Class 6: Month-over-Month Growth" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="7w85_CksE3s" data-video-title="Class 6: Month-over-Month Growth"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQzi2sfiR0G0SsYpE3vXgEiKpvp1ghfvJOSzpVAJp3PLZRPg_KWabyO9qTolUL7kVxYXg_dHfoLgc4G/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -416,10 +441,56 @@
                 }
             }
 
+            /**
+             * Renders YouTube embeds with max-resolution thumbnails, then swaps to the
+             * player only after click for sharper preview images and faster page load.
+             */
+            function initializeYouTubeEmbeds() {
+                var containers = Array.prototype.slice.call(
+                    document.querySelectorAll('.youtube-lazy[data-video-id]')
+                );
+                if (!containers.length) return;
+
+                containers.forEach(function (container) {
+                    var videoId = container.getAttribute('data-video-id');
+                    var videoTitle = container.getAttribute('data-video-title') || 'Kuzana class video';
+                    if (!videoId) return;
+
+                    var button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'youtube-lazy-button';
+                    button.setAttribute('aria-label', 'Play ' + videoTitle);
+
+                    var image = document.createElement('img');
+                    image.loading = 'lazy';
+                    image.decoding = 'async';
+                    image.alt = videoTitle + ' thumbnail';
+                    image.src = 'https://i.ytimg.com/vi/' + videoId + '/maxresdefault.jpg';
+                    image.addEventListener('error', function handleError() {
+                        image.src = 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg';
+                    }, { once: true });
+
+                    button.appendChild(image);
+                    container.appendChild(button);
+
+                    button.addEventListener('click', function () {
+                        var iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+                        iframe.title = videoTitle;
+                        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+                        iframe.allowFullscreen = true;
+                        iframe.setAttribute('loading', 'lazy');
+                        container.replaceChildren(iframe);
+                    });
+                });
+            }
+
             initializeTemplateReset();
             initializeClassSectionCollapsing();
             initializeModeTabs();
             initializeTallyEmbeds();
+            initializeYouTubeEmbeds();
         }());
     </script>
     <script>
