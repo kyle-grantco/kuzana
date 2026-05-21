@@ -8,7 +8,7 @@ let lastFocusedElement = null;
 let hamburger = null;
 let mobileMenu = null;
 let body = null;
-const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV1';
+const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV2';
 
 /**
  * Returns true when the provided hostname belongs to Kuzana properties.
@@ -27,7 +27,6 @@ function isKuzanaHostname(hostname) {
  */
 function getAttributionParams(searchParams) {
     const explicitKeys = new Set([
-        'referrer',
         'source',
         'campaign',
         'gclid',
@@ -56,10 +55,23 @@ function getStoredAttributionParams() {
         if (!rawValue) return {};
         const parsedValue = JSON.parse(rawValue);
         if (!parsedValue || typeof parsedValue !== 'object') return {};
-        return parsedValue;
+        return stripReferrerQueryParams(parsedValue);
     } catch (error) {
         return {};
     }
+}
+
+/**
+ * Removes legacy `referrer` query propagation (e.g. WhatsApp wagroup) from attribution maps.
+ * @param {Object<string, string>} params - Parsed attribution object.
+ * @returns {Object<string, string>}
+ */
+function stripReferrerQueryParams(params) {
+    const next = Object.assign({}, params);
+    Object.keys(next).forEach(function(key) {
+        if (String(key || '').toLowerCase() === 'referrer') delete next[key];
+    });
+    return next;
 }
 
 /**
@@ -70,7 +82,9 @@ function storeAttributionParamsFromLocation() {
     const currentKeys = Object.keys(currentParams);
     if (!currentKeys.length) return;
     const existingParams = getStoredAttributionParams();
-    const mergedParams = Object.assign({}, existingParams, currentParams);
+    const mergedParams = stripReferrerQueryParams(
+        Object.assign({}, existingParams, currentParams)
+    );
     try {
         localStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(mergedParams));
     } catch (error) {

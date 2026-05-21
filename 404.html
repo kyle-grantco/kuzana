@@ -11,17 +11,12 @@
         (function() {
             var pathname = window.location.pathname || "/";
             var segment = pathname.replace(/^\/+|\/+$/g, "").split("/")[0];
-            // "Original part of the URL after kuzana.co" (path + any query string).
-            var originalAfterDomain = pathname.replace(/^\/+/, "").replace(/\/+$/g, "");
-            var search = window.location.search || "";
-            if (search) originalAfterDomain += search;
             var ignored = ["", "index.html", "index.htm", "favicon.ico", "robots.txt"];
             if (ignored.indexOf(segment) !== -1) {
                 window.location.replace("/");
                 return;
             }
-            var target = "/?referrer=" + encodeURIComponent(originalAfterDomain);
-            window.location.replace(target);
+            window.location.replace("/");
         })();
     </script>
     <style>
