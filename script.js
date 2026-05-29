@@ -8,7 +8,8 @@ let lastFocusedElement = null;
 let hamburger = null;
 let mobileMenu = null;
 let body = null;
-const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV2';
+const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV3';
+const REFERRAL_STORAGE_KEY = 'kuzanaReferralCode';
 
 /**
  * Returns true when the provided hostname belongs to Kuzana properties.
@@ -55,23 +56,50 @@ function getStoredAttributionParams() {
         if (!rawValue) return {};
         const parsedValue = JSON.parse(rawValue);
         if (!parsedValue || typeof parsedValue !== 'object') return {};
-        return stripReferrerQueryParams(parsedValue);
+        return parsedValue;
     } catch (error) {
         return {};
     }
 }
 
 /**
- * Removes legacy `referrer` query propagation (e.g. WhatsApp wagroup) from attribution maps.
- * @param {Object<string, string>} params - Parsed attribution object.
- * @returns {Object<string, string>}
+ * Returns referral code from query string (`referral` preferred; `referrer` legacy).
+ * @param {URLSearchParams} searchParams
+ * @returns {string}
  */
-function stripReferrerQueryParams(params) {
-    const next = Object.assign({}, params);
-    Object.keys(next).forEach(function(key) {
-        if (String(key || '').toLowerCase() === 'referrer') delete next[key];
-    });
-    return next;
+function getReferralFromSearchParams(searchParams) {
+    return (
+        searchParams.get('referral') ||
+        searchParams.get('referrer') ||
+        ''
+    ).trim();
+}
+
+/**
+ * Persists referral code from the current URL for Apply link decoration.
+ */
+function storeReferralFromLocation() {
+    var referral = getReferralFromSearchParams(
+        new URLSearchParams(window.location.search || '')
+    );
+    if (!referral) return;
+    try {
+        localStorage.setItem(REFERRAL_STORAGE_KEY, referral);
+    } catch (error) {
+        // no-op
+    }
+}
+
+/**
+ * Reads persisted referral code.
+ * @returns {string}
+ */
+function getStoredReferralCode() {
+    try {
+        return (localStorage.getItem(REFERRAL_STORAGE_KEY) || '').trim();
+    } catch (error) {
+        return '';
+    }
 }
 
 /**
@@ -82,9 +110,7 @@ function storeAttributionParamsFromLocation() {
     const currentKeys = Object.keys(currentParams);
     if (!currentKeys.length) return;
     const existingParams = getStoredAttributionParams();
-    const mergedParams = stripReferrerQueryParams(
-        Object.assign({}, existingParams, currentParams)
-    );
+    const mergedParams = Object.assign({}, existingParams, currentParams);
     try {
         localStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(mergedParams));
     } catch (error) {
@@ -142,6 +168,41 @@ function decorateAnchorsWithAttribution(storedParams) {
     });
 }
 
+/**
+ * Appends referral code to Kuzana apply form links only (not all internal nav links).
+ * @param {string} referralCode
+ */
+function decorateApplyLinksWithReferral(referralCode) {
+    if (!referralCode) return;
+    document.querySelectorAll('a[href]').forEach(function(anchor) {
+        var originalHref = anchor.getAttribute('href');
+        if (!originalHref || originalHref.indexOf('form.kuzana.co/apply') === -1) return;
+        var updatedHref = withReferralOnApplyHref(originalHref, referralCode);
+        if (updatedHref && updatedHref !== originalHref) anchor.setAttribute('href', updatedHref);
+    });
+}
+
+/**
+ * Adds ?referral= to form.kuzana.co/apply URLs when missing.
+ * @param {string} href
+ * @param {string} referralCode
+ * @returns {string}
+ */
+function withReferralOnApplyHref(href, referralCode) {
+    if (!href || !referralCode) return href;
+    var trimmedHref = href.trim();
+    if (!trimmedHref || trimmedHref.indexOf('form.kuzana.co/apply') === -1) return href;
+    try {
+        var parsedUrl = new URL(trimmedHref, window.location.origin);
+        if (!parsedUrl.searchParams.has('referral')) {
+            parsedUrl.searchParams.set('referral', referralCode);
+        }
+        return parsedUrl.toString();
+    } catch (error) {
+        return href;
+    }
+}
+
 function closeMenu() {
     if (!hamburger || !mobileMenu || !body) return;
     hamburger.classList.remove('active');
@@ -162,8 +223,14 @@ function openMenu() {
 
 document.addEventListener('DOMContentLoaded', function() {
     storeAttributionParamsFromLocation();
+    storeReferralFromLocation();
     const storedAttributionParams = getStoredAttributionParams();
     decorateAnchorsWithAttribution(storedAttributionParams);
+    var referralFromUrl = getReferralFromSearchParams(
+        new URLSearchParams(window.location.search || '')
+    );
+    var referralCode = referralFromUrl || getStoredReferralCode();
+    decorateApplyLinksWithReferral(referralCode);
 
     body = document.body;
     hamburger = document.querySelector('.menu-toggle');

@@ -120,6 +120,26 @@
             height: 22px;
             flex-shrink: 0;
         }
+        .btn-stream {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .btn-stream:hover {
+            background: var(--accent-hover);
+        }
+        .calendar-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+        }
         .topics {
             list-style: none;
             padding: 0;
@@ -173,6 +193,8 @@
         <section class="card" aria-labelledby="stream-heading">
             <h2 id="stream-heading">Join the stream</h2>
             <p class="stream-time">5PM EAT</p>
+            <div class="calendar-actions">
+            <a class="btn-stream" href="https://www.youtube.com/live/5D8EiWWhI_4" target="_blank" rel="noopener noreferrer">Join the YouTube live stream</a>
             <a id="google-calendar-link" class="btn-google" href="#" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
@@ -182,6 +204,7 @@
                 </svg>
                 Add to Google Calendar
             </a>
+            </div>
         </section>
 
         <section class="card" aria-labelledby="discuss-heading">
@@ -197,6 +220,8 @@
     </div>
 
     <script>
+        var BOTTLENECK_STREAM_URL = 'https://www.youtube.com/live/5D8EiWWhI_4';
+
         /**
          * Builds the next occurrence of 5PM EAT (UTC+3) as start/end for Google Calendar.
          * @returns {{ start: string, end: string, label: string }}
@@ -244,7 +269,7 @@
             var windowInfo = getNextBottleneckShowWindow();
             var details = [
                 'The Bottleneck Show with Kuzana.',
-                'We will email and WhatsApp you the stream link before we go live.',
+                'Join the live stream: ' + BOTTLENECK_STREAM_URL,
                 '',
                 'What to prepare:',
                 '- Your biggest blocker',
@@ -262,7 +287,7 @@
                 text: 'The Bottleneck Show – Kuzana',
                 dates: windowInfo.start + '/' + windowInfo.end,
                 details: details,
-                location: 'Online (link via email & WhatsApp)',
+                location: BOTTLENECK_STREAM_URL,
                 ctz: 'Africa/Nairobi'
             });
 
