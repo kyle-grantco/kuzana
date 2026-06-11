@@ -73,7 +73,7 @@
         #tab-finance-guided[aria-selected="true"] { background: var(--secondary); color: #fff; border-color: var(--secondary); }
         #tab-finance-now { border-color: var(--kuzana-blue-light); color: var(--kuzana-blue); }
         #tab-finance-now[aria-selected="true"] { background: var(--kuzana-blue); color: #fff; border-color: var(--kuzana-blue); }
-        #panel-finance-now > .card { border-color: var(--kuzana-blue-light); }
+        #free > .card { border-color: var(--kuzana-blue-light); }
         #panel-finance-guided { border-color: var(--kuzana-red-light); }
         @media (max-width: 640px) {
             .hero-highlight { bottom: 8px; padding: 10px 12px; width: calc(100% - 24px); }
@@ -149,7 +149,7 @@
             <a href="/" aria-label="Kuzana Home">
                 <img src="/images/logo.png" alt="Kuzana" class="logo" loading="eager" decoding="async" fetchpriority="high">
             </a>
-            <a href="https://kuzana.co/class" class="cta-signup" aria-current="page">Class</a>
+            <a href="https://kuzana.co/class#free" class="cta-signup" aria-current="page">Class</a>
         </div>
         <div class="hero-media">
             <img src="/images/whats your business worth.png" alt="What’s your business worth? illustration">
@@ -187,14 +187,14 @@
                 <article class="path-option path-option-selfserve">
                     <h3>Self-Serve (free)</h3>
                     <p>Self-serve templates, videos, slides, and quizzes you can use immediately at your own pace.</p>
-                    <button class="mode-tab" id="tab-finance-now" type="button" role="tab" aria-selected="false" aria-controls="panel-finance-now">Self-Serve (free)</button>
+                    <button class="mode-tab" id="tab-finance-now" type="button" role="tab" aria-selected="false" aria-controls="free">Self-Serve (free)</button>
 
                 </article>
             </div>
 
         </section>
 
-        <div id="panel-finance-now" class="mode-panel" role="tabpanel" aria-labelledby="tab-finance-now" hidden>
+        <div id="free" class="mode-panel" role="tabpanel" aria-labelledby="tab-finance-now" hidden>
         <section class="card" id="overview" aria-labelledby="intro-heading">
             <!-- Moved intro section directly after the logo at the top of the page -->
 
@@ -392,12 +392,37 @@
             function initializeModeTabs() {
                 var nowTab = document.getElementById('tab-finance-now');
                 var guidedTab = document.getElementById('tab-finance-guided');
-                var nowPanel = document.getElementById('panel-finance-now');
+                var nowPanel = document.getElementById('free');
                 var guidedPanel = document.getElementById('panel-finance-guided');
                 var classSections = Array.prototype.slice.call(
                     document.querySelectorAll('section[id^="class"]')
                 );
                 if (!nowTab || !guidedTab || !nowPanel || !guidedPanel) return;
+
+                /**
+                 * Updates the URL hash for shareable class paths (#free or #guided).
+                 * @param {'free'|'guided'} mode
+                 */
+                function setModeHash(mode) {
+                    if (!window.history || !window.history.replaceState) return;
+                    var hash = mode === 'free' ? '#free' : '#guided';
+                    window.history.replaceState(
+                        null,
+                        '',
+                        window.location.pathname + window.location.search + hash
+                    );
+                }
+
+                /**
+                 * Reads the mode from location.hash (case-insensitive).
+                 * @returns {'free'|'guided'|null}
+                 */
+                function getModeFromHash() {
+                    var hash = (window.location.hash || '').replace(/^#/, '').toLowerCase();
+                    if (hash === 'free') return 'free';
+                    if (hash === 'guided' || hash === 'kyle') return 'guided';
+                    return null;
+                }
 
                 function showNow() {
                     nowPanel.removeAttribute('hidden');
@@ -416,9 +441,22 @@
                     guidedTab.setAttribute('aria-selected', 'true');
                 }
 
-                nowTab.addEventListener('click', showNow);
-                guidedTab.addEventListener('click', showGuided);
-                showGuided();
+                function applyModeFromHash() {
+                    var mode = getModeFromHash();
+                    if (mode === 'free') showNow();
+                    else showGuided();
+                }
+
+                nowTab.addEventListener('click', function () {
+                    showNow();
+                    setModeHash('free');
+                });
+                guidedTab.addEventListener('click', function () {
+                    showGuided();
+                    setModeHash('guided');
+                });
+                window.addEventListener('hashchange', applyModeFromHash);
+                applyModeFromHash();
             }
 
             /**
