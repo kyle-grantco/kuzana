@@ -178,7 +178,6 @@
         </div>
 
         <h1>You're in.</h1>
-        <p class="lead">We'll email and WhatsApp you before we go live.</p>
 
         <section class="card" aria-labelledby="prepare-heading">
             <h2 id="prepare-heading">What to prepare:</h2>
@@ -191,11 +190,11 @@
         </section>
 
         <section class="card" aria-labelledby="stream-heading">
-            <h2 id="stream-heading">Join the stream</h2>
-            <p class="stream-time">5PM EAT</p>
+            <h2 id="stream-heading">Join the AMA</h2>
+            <p class="stream-time">24 Jun 2026 · 5PM EAT</p>
             <div class="calendar-actions">
-            <a class="btn-stream" href="https://www.youtube.com/live/5D8EiWWhI_4" target="_blank" rel="noopener noreferrer">Join the YouTube live stream</a>
-            <a id="google-calendar-link" class="btn-google" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="btn-stream" href="https://meet.google.com/odn-zgog-kpd" target="_blank" rel="noopener noreferrer">Join on Google Meet</a>
+            <a id="google-calendar-link" class="btn-google" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Bottleneck+AMA&amp;dates=20260624T140000Z/20260624T150000Z&amp;details=Bring+your+blocker.+Hosted+by+Kyle+from+Kuzana.&amp;location=https%3A%2F%2Fmeet.google.com%2Fodn-zgog-kpd" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -207,99 +206,7 @@
             </div>
         </section>
 
-        <section class="card" aria-labelledby="discuss-heading">
-            <h2 id="discuss-heading">We will discuss:</h2>
-            <ul class="topics">
-                <li>Unblock sales stuck at 2m KES/month</li>
-                <li>Can't tell if Meta ads are profitable</li>
-                <li>Inventory chaos in manufacturing</li>
-            </ul>
-        </section>
-
         <p class="footer-note">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
     </div>
-
-    <script>
-        var BOTTLENECK_STREAM_URL = 'https://www.youtube.com/live/5D8EiWWhI_4';
-
-        /**
-         * Builds the next occurrence of 5PM EAT (UTC+3) as start/end for Google Calendar.
-         * @returns {{ start: string, end: string, label: string }}
-         */
-        function getNextBottleneckShowWindow() {
-            var now = new Date();
-            var start = new Date(Date.UTC(
-                now.getUTCFullYear(),
-                now.getUTCMonth(),
-                now.getUTCDate(),
-                14,
-                0,
-                0
-            ));
-            if (now >= start) start.setUTCDate(start.getUTCDate() + 1);
-
-            var end = new Date(start);
-            end.setUTCHours(end.getUTCHours() + 2);
-
-            function toGoogleDate(date) {
-                return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
-            }
-
-            var label = start.toLocaleDateString('en-GB', {
-                timeZone: 'Africa/Nairobi',
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric'
-            });
-
-            return {
-                start: toGoogleDate(start),
-                end: toGoogleDate(end),
-                label: label
-            };
-        }
-
-        /**
-         * Sets the Google Calendar add-event URL on the confirmation CTA.
-         */
-        function initializeGoogleCalendarLink() {
-            var link = document.getElementById('google-calendar-link');
-            if (!link) return;
-
-            var windowInfo = getNextBottleneckShowWindow();
-            var details = [
-                'The Bottleneck Show with Kuzana.',
-                'Join the live stream: ' + BOTTLENECK_STREAM_URL,
-                '',
-                'What to prepare:',
-                '- Your biggest blocker',
-                '- Revenue numbers (rough is fine)',
-                '- What you have already tried',
-                '- One question you want answered',
-                '',
-                'Topics: sales stuck at 2m KES/month, Meta ads profitability, inventory in manufacturing.',
-                '',
-                'https://kuzana.co/bottleneck/confirmation'
-            ].join('\n');
-
-            var params = new URLSearchParams({
-                action: 'TEMPLATE',
-                text: 'The Bottleneck Show – Kuzana',
-                dates: windowInfo.start + '/' + windowInfo.end,
-                details: details,
-                location: BOTTLENECK_STREAM_URL,
-                ctz: 'Africa/Nairobi'
-            });
-
-            link.href = 'https://calendar.google.com/calendar/render?' + params.toString();
-
-            var streamTime = document.querySelector('.stream-time');
-            if (streamTime) {
-                streamTime.textContent = windowInfo.label + ' · 5PM EAT';
-            }
-        }
-
-        initializeGoogleCalendarLink();
-    </script>
 </body>
 </html>
