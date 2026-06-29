@@ -29,7 +29,11 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="Kuzana: 12-week education and investment program for Kenya's top entrepreneurs. $20k equity + $100k working capital.">
     <title>Kuzana – Education for Kenya's Top 1% Entrepreneurs</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+    
+  <link rel="stylesheet" href="assets/css/style.css" />
     <meta property="og:site_name" content="Kuzana">
     <meta property="og:url" content="https://kuzana.co/">
     <meta property="og:title" content="Kuzana – Education for Kenya's Top 1% Entrepreneurs">
@@ -37,7 +41,7 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="/images/kuzana-logo.png">
     <link rel="canonical" href="https://kuzana.co/">
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/Kuzana/kuzana/images/favicon.png" type="image/x-icon">
     <!-- Website Schema -->
     <script type="application/ld+json">
     {
@@ -87,12 +91,11 @@
             return true;
         }
         </script>
-  
-
 </head>
+
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <a class="skip-link" href="#main">Skip to content</a>
+<!--     <a class="skip-link" href="#main">Skip to content</a> -->
     <script>
         (function(){
             try {
@@ -111,98 +114,318 @@
             } catch (e) {}
         })();
     </script>
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <div class="logo">
-            <a href="/">
-                <img src="images/logo.png" class="image-placeholder" loading="eager" decoding="async" fetchpriority="high">
-            </a>
-        </div>
-        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul class="nav-links" id="main-navigation">
-            <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-            <li><a href="/referral/" class="nav-link">Referral</a></li>
-            <li><a href="/faq/" class="nav-link">FAQ</a></li>
-                <li><a href="https://kuzana.substack.com" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a></li>
-            <li><a href="/library/" class="nav-link">Library</a></li>
-            <li><a href="#team" class="nav-link">Team</a></li>
-            <li><a href="/cofounders/" class="nav-link">CoFounders</a></li>
-            <li><a href="/resources/" class="nav-link">Resources</a></li>
-            <li><a href="https://form.kuzana.co/apply"
-                class="cta-button"
+  <header class="header home">
+    <div class="container header-container">
+
+      <div class="logo">
+        <a href="https://kuzana.co/"><img src="assets/images/logo.png" alt="Logo Image"></a>
+      </div>
+
+      <!-- HAMBURGER -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="nav" id="navMenu">
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/referral/">Referral</a>
+        <a href="/faq/">FAQ</a>
+        <a href="https://kuzana.substack.com">Blog</a>
+        <a href="/library/">Library</a>
+        <a href="#team">Team</a>
+        <a href="/cofounders/">Cofounders</a>
+        <a href="/resources/">Resources</a>
+        <a href="https://form.kuzana.co/apply"
+                class="apply-btn cta-button"
                 target="_blank"
                 rel="noopener"
                 onclick="return handleApplyClick(this.href);">
                 Apply Now
-             </a>   
-             </li>
-        </ul>
-    </nav>
+             </a>  
+      </nav>
 
-    <header class="hero">
-        <div class="large-logo">
-            <div class="sunrise-text">Kuzana</div>
-        </div>
-        <div class="hero-content">
-            <h1>Education & Investment for Kenya's Top 1% Entrepreneurs</h1>
-            <p>Workshops every Friday for 12 weeks. Most companies 2x revenue in 12 weeks.</p>
-            <p class="sector-preferences">agri-processing, real estate/construction, manufacturing, fintech, retail, logistics</p>
-                <a href="https://form.kuzana.co/apply"
-    class="cta-button"
-    target="_blank" 
-    rel="noopener noreferrer"
-    onclick="return handleApplyClick(this.href);">
-    Apply to the 12-week Program
-</a>
-            <p class="investment-range">Education includes a $20k equity investment + access to $100k working capital.</p>
-        </div>
-    </header>
+    </div>
+  </header>
 
-    <main id="main" class="main-content">
-        <section class="testimonials" id="testimonials">
-            <h2>In batch1 we helped 4 companies double revenue in 12 weeks</h2>
-            <img src="images/4companies.svg" alt="First Cohort Picture" class="image-placeholder" loading="lazy" decoding="async">
-            <div class="testimonial-grid">
-                <article class="team-card testimonial-card">
-                    <img src="images/Dickson1.png" alt="Dickson Ayuka" class="team-avatar" loading="lazy" decoding="async">
-                    <h3 class="team-name">
-                        <a href="https://www.linkedin.com/in/dickson-ayuka-897334b6/" target="_blank" rel="noopener noreferrer">Dickson Ayuka</a>
-                    </h3>
-                    <p class="team-title">CEO</p>
-                    <p>batch1</p>
-                    <img src="images/bellfeeds.jpeg" alt="Bellfeeds logo" class="testimonial-logo" loading="lazy" decoding="async">
-                    <p class="testimonial-quote">
-                        If building a startup were <strong>World War&nbsp;II, Kuzana would be the guy beside you in the trenches</strong>; the kind of investor every founder hopes for.
-                    </p>
-                    <p class="testimonial-quote">
-                        The one who <strong>rolls up their sleeves</strong>, opening doors and pushing for execution.
-                    </p>
-                </article>
-                <article class="team-card testimonial-card">
-                    <img src="images/Joy.png" alt="Joy Obuya" class="team-avatar" loading="lazy" decoding="async">
-                    <h3 class="team-name">
-                        <a href="https://www.linkedin.com/in/joy-obuya/" target="_blank" rel="noopener noreferrer">Joy Obuya</a>
-                    </h3>
-                    <p class="team-title">CEO</p>
-                    <p>batch3</p>
-                    <img src="images/NAWIRI_logo.png" alt="Nawiri logo" class="testimonial-logo testimonial-logo-nawiri" loading="lazy" decoding="async">
-                    <p class="testimonial-quote">
-                        I knew there was demand for micro-customized high-end women's clothes, but <strong>I didn't</strong> see the expected revenue.
-                        <br><br>
-                        Through the <strong>workshops and the community conversations</strong>, the blind spots became clear. Kuzana opened my eyes to more intentional selling.
-                        <br><br>
-                        Now, I'm seeing <strong>month-on-month growth!</strong>
-                    </p>
-                </article>
+
+  <section class="hero-section">
+
+    <div class="container">
+
+
+      <div class="hero-contents">
+
+        <div class="hero-left">
+          <h1>
+            Education & Investment Program for Kenya’s
+            <span class="highlight-text">Top 1%</span>
+            Entrepreneurs
+          </h1>
+        </div>
+
+        <div class="hero-right">
+
+          <p>
+            12 months. $20K equity. Access to $100K working capital.
+            Real workshops, real investors, real growth — in Spring Valley, Nairobi.
+          </p>
+
+          <p>
+            Most companies in our Kuzana Investment Program double revenue within 12 months.
+            We work with founders across agri-processing, retail, manufacturing, fintech,
+            logistics, and more — building the next generation of category leaders in Kenya.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="https://form.kuzana.co/apply" class="primary-btn">Apply to the Program</a>
+
+            <a href="#how-it-works" class="secondary-btn">How It Works <img src="assets/images/right-arrow.png"
+                alt="arrow Image"></a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="people-image">
+        <img src="assets/images/team-image.png" alt="Team Image">
+      </div>
+
+    </div>
+
+  </section>
+  <section class="counter-section">
+    <div class="container counter-container">
+
+      <div class="counter-item">
+        <h2 class="heading-h2"><span class="highlight-text">174%</span></h2>
+        <p>Avg. annual portfolio growth (Batch 1 & 2)</p>
+      </div>
+
+      <div class="counter-item">
+        <h2 class="heading-h2"><span class="highlight-text">15</span></h2>
+        <p>Investments in 2025, most equity investments into Kenyan companies</p>
+      </div>
+
+      <div class="counter-item">
+        <h2 class="heading-h2"><span class="highlight-text">$20K</span></h2>
+        <p>Equity investment per company</p>
+      </div>
+      <div class="counter-item">
+        <h2 class="heading-h2"><span class="highlight-text">$100K</span></h2>
+        <p>Working capital access</p>
+      </div>
+
+    </div>
+
+  </section>
+  <section class="batch-section">
+
+
+    <div class="container batch-container">
+      <div class="batch-header">
+        <img src="assets/images/Batch-result.png" alt="Event Highlight Icon" class="event-highlight-icon">
+        <div class="batch-header-content">
+          <h2 class="heading-h2">Batch 1 Results 4 Companies <span class="highlight-text">Doubled Revenue</span></h2>
+
+          <p class="batch-subtext">When we launched Batch 1, we made a public commitment: if companies didn’t grow by
+            50% in 6 months, we’d shut down. They didn’t grow 50%—they grew 174% on average. That’s what happens when
+            execution meets the right systems and capital.</p>
+        </div>
+      </div>
+      <div class="cards-stack">
+
+        <div class="card card-1">
+          <div class="card-badge">1</div>
+          <div class="card-content">
+            <div class="card-text">
+              <h3 class="card-title">Avocado / Agri-Export</h3>
+              <p class="card-discription">Raised working capital and set up a Netherlands-registered company — unlocking
+                access to cheaper
+                international debt that was previously unavailable to a Kenya-only structure.</p>
             </div>
-        </section>
+            <div class="result-tag"><a>RESULT</a>
+              <p class="result-text"><strong>Revenue increased 2x.</strong> A new export financing channel has opened.
+              </p>
+            </div>
+          </div>
+          <div class="card-image">
+            <img src="assets/images/avacado.png" alt="Avocado">
+          </div>
+        </div>
+        <div class="card card-2">
+          <div class="card-badge">2</div>
+          <div class="card-content">
+            <div class="card-text">
+              <h3 class="card-title">HealthFood</h3>
+              <p class="card-discription">Customer retention was 35% monthly meaning 65% of customers left. They rebuilt
+                the retention system,
+                bringing retention to 68% monthly. Accounting systems were put in place that let the founder respond to
+                investor due diligence request within 24 hours, resulting in additional Ksh3.5M in capital.</p>
+            </div>
+            <div class="result-tag"><a>RESULT</a>
+              <p class="result-text"><strong>Revenue increased 5x.</strong> Customer retention doubled (35% → 68%).
+                Ksh3.5M raised. Revenue trajectory stabilised and grew.
+              </p>
+            </div>
+          </div>
+          <div class="card-image">
+            <img src="assets/images/healyhfood.png" alt="HealthFood">
+          </div>
+        </div>
+        <div class="card card-3">
+          <div class="card-badge">3</div>
+          <div class="card-content">
+            <div class="card-text">
+              <h3 class="card-title">Soy</h3>
+              <p class="card-discription">Identified capital as the primary growth constraint. Structured the business
+                fundraising business to
+                raise Ksh20M in additional capital, in particular, put in place an accounting system outside investors
+                could trust.</p>
+            </div>
+            <div class="result-tag"><a>RESULT</a>
+              <p class="result-text"><strong>Revenue increased 4x</strong> Ksh20M raised. Production capacity expanded.
+                Ready to scale.
+              </p>
+            </div>
+          </div>
+          <div class="card-image">
+            <img src="assets/images/soy.png" alt="Soy">
+          </div>
+        </div>
+        <div class="card card-4">
+          <div class="card-badge">4</div>
+          <div class="card-content">
+            <div class="card-text">
+              <h3 class="card-title">Animal Feed</h3>
+              <p class="card-discription">Launched the company's first-ever social media advertising — a channel that
+                had never been tried and
+                paired organic growth with Ksh8M in follow-on capital via introduction.</p>
+            </div>
+            <div class="result-tag"><a>RESULT</a>
+              <p class="result-text"><strong>Revenue increased 3x</strong> New revenue channel via social media ads.
+                Ksh8M follow-on capital. Investor-ready financial systems.
+              </p>
+            </div>
+          </div>
+          <div class="card-image">
+            <img src="assets/images/animal-feed.png" alt="Animal Feed">
+          </div>
+        </div>
 
-        <section class="video-section">
-            <h2>What Happened at the Batch 2 Event</h2>
-            <div class="video-wrapper">
+
+
+      </div>
+
+    </div>
+
+
+
+
+    <section class="kuzana-section">
+      <div class="kuzana-header">
+        <h2 class="heading-h2">How Kuzana Helps Businesses <span class="highlight-text"> Scale Over Time</span></h2>
+
+        <p class="batch-subtext">The gap between the baseline and the top curve isn't luck - it's what the program is
+          built for.</p>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-image-wrap">
+          <img src="assets/images/kuzana-graph.png" alt="Kuzana Scale Chart">
+        </div>
+
+        <div class="bottom-banner">
+          <p>Cumulative portfolio valuation growth across Batch 1 companies — from application to 12 months
+            post-program.</p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+  <section class="founders-section">
+    <div class="container">
+      <h2 class="heading-h2">What Founders Say About Kuzana</h2>
+      <p class="founders-subtitle">
+        Straight from the founders themselves – real experiences, real growth.
+      </p>
+      <div class="founder-card-outer">
+        <div class="founder-card">
+          <div class="founder-left-side">
+            <img src="assets/images/dickson.png" alt="Dickson Ayuka" class="founder-photo" />
+          </div>
+          <div class="founder-right-side">
+            <div class="founder-info">
+              <div class="founder-left">
+                <h3 class="founder-name">Dickson Ayuka</h3>
+                <div class="founder-role">CEO</div>
+                <div class="founder-batch">batch1</div>
+              </div>
+              <div class="founder-logo">
+                <img src="assets/images/bellfeeds.png" alt="BELFEEDS Logo" />
+              </div>
+            </div>
+
+            <div class="founder-quote">
+              <p>
+                If building a startup were <strong>World War II</strong>, <strong>Kuzana would be the guy beside you in
+                  the trenches</strong>: the
+                kind of investor every founder hopes for.<br>
+              </p>
+              <p>
+                The one who <strong>rolls up their sleeves</strong>, opening doors and pushing for execution.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="founder-card-outer">
+        <div class="founder-card">
+          <div class="founder-left-side">
+            <img src="assets/images/joy.png" alt="Joy Obuya" class="founder-photo" />
+          </div>
+          <div class="founder-right-side">
+            <div class="founder-info">
+              <div class="founder-left">
+                <h3 class="founder-name">Joy Obuya</h3>
+                <div class="founder-role">CEO</div>
+                <div class="founder-batch">batch3</div>
+              </div>
+              <div class="founder-logo nwidilogo">
+                <img src="assets/images/NAWIRI_logo.png" alt="NAWIRI Logo" />
+              </div>
+            </div>
+
+            <div class="founder-quote">
+              <p>
+                I knew there was demand for micro-customized high-end women's clothes, but <strong>I didn't</strong> see
+                the expected revenue.
+              </p>
+              <p>
+                Through the <strong>workshops and the community conversations</strong>, the blind spots became clear.
+                Kuzana opened my eyes to more intentional selling.
+              </p>
+              <p>
+                Now, I'm seeing <strong>month-on-month growth! </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <section class="event-highlights-section">
+    <div class="container event-highlights-container">
+
                             <iframe
                                 loading="lazy"
                                 src="https://www.youtube.com/embed/zjZXd--TooU"
@@ -210,198 +433,505 @@
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen
+                                width="730px"
+                                height="100%"
                             ></iframe>
-            </div>
-          </section>                 
 
-        <section class="how-it-works" id="how-it-works">
-            <h2>How it works</h2>
-            <div class="investment-overview">
-                <p class="highlight">12-week education + $20k equity investment + access to $100k working capital</p>
-                <p class="support-details">Free support can include:</p>
-                <ul class="checkmark-list">
-                    <li>✅ 12 weeks of workshops Fridays in Spring Valley, Nairobi.</li>
-                    <li>✅ Strategy Board formation</li>
-                    <li>✅ Sales Coaching</li>
-                    <li>✅ Free Starlink internet and backup power</li>
-                    <li>✅ Free Zoho</li>
-                    <li>✅ Free Accounting for 12 months (and clean up of previous year)</li>
-                    <li>✅ Operations optimization so you can scale</li>
-                </ul>
-            </div>
+      <div class="content-wrapper">
+        <img src="assets/images/Kuzana-Batch.png" alt="Event Highlight Icon" class="event-highlight-icon">
+        <h2 class="heading-h2">
+          Kuzana Batch 2 Event <br>
+          <span class="highlight-text">Highlights</span>
+        </h2>
+        <p class="event-description">
+          After 12 months, Kuzana founders take the stage to present their growth in front of investors, advisors, and
+          the next generation of Kenya's top entrepreneurs.
+        </p>
+        <a href="https://form.kuzana.co/apply" class="primary-btn">Apply for the Next Batch</a>
+      </div>
 
-            <img src="images/image3.webp" alt="Whiteboard Pictures" class="image-placeholder" loading="lazy" decoding="async">
+    </div>
+  </section>
+  <section class="kuzana-program" id="how-it-works">
+    <div class="container">
+      <div class="program-header">
+        <h2 class="heading-h2">How the Kuzana <br><span class="highlight-text">Investment Program Works</span></h2>
 
-            <div class="investment-details">
-                <p><em>Because our philosophy is to grow together</em> we include $20k cash investment and make follow-on investments up to $100k.</p>
-                <p class="highlight">Only the top 7 companies in Kenya will be accepted.</p>
-                <p>We move fast: ~3 months from application to investment.</p>
-                <p>Kuzana is a for-profit company applying proven principles from investors like Warren Buffett and educators like Montessori.</p>
-            </div>
-
-    
-
-            <div class="referral-box">
-                <p>Know someone who should apply? <a href="https://kuzana.co/referral/">Get your customized referral link</a> and get up to Ksh50k referral bonus.</p>
-            </div>
-        </section>
-<p>
-
-</p>
-        <section class="eligibility" id="eligibility">
-            <h2>Eligibility:</h2>
-            <ul>
-                <li>✳️ Ksh400k-20m monthly revenue</li>
-                <li>✳️ Scalable business like agri-processing, retail, manufacturing, FinTech, logistics and more.</li>
-                <li>✳️ 3 months to 5 years old, usually</li>
-                <li>✳️ Ambition to be bigger than Bidco or Kakuzi. CEO needs the skills and ambition to grow to Ksh100m monthly revenue</li>
-                <li>✳️ Operating in Kenya</li>
-            </ul>
-            <p></p>
-            <p class="philosophy">Kuzana is more than an investment. This is for founders who know cash is only a small part of the equation. This is not a <em>get rich quick</em>; this is about building a long relationship that will build wealth and connection throughout your career.</p>
-            <div class="partnership-value">
-                <h3>Like a Chama for high performers</h3>
-            </div>
-        </section>
-
-
-        <section class="benefits" id="benefits">
-            <h2>Benefits for SMEs:</h2>
-            <div class="benefit-item">
-                <h3>Double your revenue in 12 weeks</h3>
-            </div>
-            <div class="benefit-item">
-                <h3>Professionalize</h3>
-                <p>compliance with KRA so you don't go to jail. Operational systems so you can relax in Diani and staff don't call you with their problems.</p>
-                <p class="quote">⬇️What got you here won't get you there.🚀</p>
-            </div>
-            <div class="benefit-item">
-                <h3>Community</h3>
-                <p>great founders make each other stronger. You're the average of your 5 closest friends.</p>
-                <p class="quote">🌱When you put ambitious people together they bloom like dying plants given water.🌻</p>
-            </div>
-            <div class="benefit-item">
-                <h3>Focus</h3>
-                <p>strategy is a fancy way of saying "no" to most things. What will you become the best at so you can become the next Kakuzi or BidCo?</p>
-                <p class="quote">The cheetah🐆 that chases 2 gazelle🦌🦌 catches none.</p>
-            </div>
-
-            <img src="images/image5.webp" alt="Graph Picture" class="image-placeholder" loading="lazy" decoding="async">
-        </section>
-        <p></p>
-
-        <section class="about-us" id="about">
-            <h2>About Us</h2>
-            <p>Kuzana is a made up word that in Swahili sounds like "to help each other grow". Our goal is to <strong>mint 1,000 more millionaire$</strong> by 2040 because capitalism is the greatest tool for good ever invented.</p>
-            
-            <p>We only accept "smart" money from value-add investors. </p>
-                
-            <p>Kuzana's founders previously ran a biogas business, Thai restaurant, outsourced CFO agency, Microfinance institution, tech platforms, farming business. See more about us on <a href="https://www.linkedin.com/company/kuzana/">LinkedIn</a>.</p>
-            <p>We partner with you forever (unless you want us to exit). We will go public in a few years like Africa Eats did in Mauritius <a href="https://www.africaeats.com/eats-zwto-and-elit-on-the-new-semx/"> here</a></p>
-            
-            <img src="images/image4.webp" alt="Herve Picture" class="image-placeholder" loading="lazy" decoding="async">
-        </section>
-
-        <section id="team" class="about-us">
-            <h2>Team</h2>
-            <div class="team-grid-cards">
-                <article class="team-card">
-                    <img src="images/kyle profile pic.png" alt="Kyle Schutter" class="team-avatar" loading="lazy" decoding="async">
-                    <h3 class="team-name">Kyle Schutter</h3>
-                    <p class="team-title">CEO</p>
-                    <p class="team-links">
-                        <a href="mailto:info+website@kuzana.co">email</a>
-                        · <a href="https://www.linkedin.com/in/kyleschutter/" target="_blank" rel="noopener">LinkedIn</a>
-                    </p>
-                </article>
-                <article class="team-card">
-                    <img src="images/Carol profile pic.png" alt="Carolyne Gathuru" class="team-avatar" loading="lazy" decoding="async">
-                    <h3 class="team-name">Carolyne Gathuru</h3>
-                    <p class="team-title">Head of Programs</p>
-                    <p class="team-links">
-                        <a href="https://www.linkedin.com/in/carolyne-gathuru-266ab017/" target="_blank" rel="noopener">LinkedIn</a>
-                    </p>
-                </article>
-                <article class="team-card">
-                    <img src="images/Felicity Profile Pic.png" alt="Felicity Sangona" class="team-avatar" loading="lazy" decoding="async">
-                    <h3 class="team-name">Felicity Sangona</h3>
-                    <p class="team-title">Executive Assistant</p>
-                    <p class="team-links">
-                        <a href="https://www.linkedin.com/in/felicity-sangona-ab0b93232/" target="_blank" rel="noopener">LinkedIn</a>
-                    </p>
-                </article>
-                <article class="team-card">
-                    <img src="images/Farhan profile pic.png" alt="Farhan Qureshi" class="team-avatar" loading="lazy" decoding="async">
-                    <h3 class="team-name">Farhan Qureshi</h3>
-                    <p class="team-title">co-Director</p>
-                    <p class="team-links">
-                        <a href="https://www.linkedin.com/in/farhan-qureshi-9b94a253/" target="_blank" rel="noopener">LinkedIn</a>
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <section class="cta-section">
-
-            <div class="faq-link">
-                <p>Have questions? We answered the 20 most common questions about our innovative investment model <a href="/faq/">here</a></p>
-            </div>
-            <div class="workshop-cta">
-                <p>Become a workshop leader or strategy board member. Email us at <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="newsletter">
-                <h3>Stay Updated</h3>
-                <div class="newsletter-iframe-wrapper">
-                    <iframe title="Kuzana newsletter" loading="lazy" src="https://kuzana.substack.com/embed" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
-                </div>
-            </div>
-            <div class="address">
-                <p>Spring Valley Rd, Nairobi, Kenya</p>
-            </div>
-            <ul class="social-links">
-                <li><a href="https://www.linkedin.com/company/kuzana" target="_blank">LinkedIn</a></li>
-                <li><a href="https://kuzana.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
-                <li><a href="https://www.tiktok.com/@kuzana.co" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-                <li><a href="https://x.com/kuzana_co" target="_blank" rel="noopener noreferrer">X</a></li>
-                <li><a href="https://www.facebook.com/kuzana" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                <li><a href="mailto:info+website@kuzana.co">Email</a></li>
-            </ul>
+        <div class="badge-container">
+          <span class="laurel-left"><img src="assets/images/left-leaf.png" alt="leaf"></span>
+          <span class="badge-text">Only the top 7 companies in Kenya will be accepted.</span>
+          <span class="laurel-right"><img src="assets/images/right-leaf.png" alt="leaf"></span>
         </div>
-    </footer>
 
-    <!-- Exit Intent Popup -->
-    <div class="popup" id="exitPopup">
-        <div class="popup-overlay" onclick="closePopup()"></div>
-        <div class="popup-content">
-            <button class="close-x" onclick="closePopup()" aria-label="Close popup">✖</button>
-            <img src="images/whatsapp_community.jpg" alt="Kuzana Community Photo" class="popup-image" loading="lazy" decoding="async" fetchpriority="low">
-            <h2 class="popup-title">Know an entrepreneur in Kenya?</h2>
-            <p class="popup-description">
-                Please forward Kuzana to them. Joining Kuzana could be life-changing.
+        <div class="stars"><img src="assets/images/start.png" alt="leaf"></div>
+
+        <p class="description">
+          Kuzana backs only the top 7 companies in Kenya, keeping the bar high and the batch focused. The process is
+          fast and structured—selected startups move from application to investment in three months.
+        </p>
+      </div>
+
+      <div class="inspiration-board">
+        <h2 class="board-title">WE TAKE INSPIRATION FROM:</h2>
+
+        <div class="grid-container">
+          <div class="inspiration-card">
+            <h3>Warren Buffet</h3>
+            <p>Hold investments for the long term</p>
+          </div>
+
+          <div class="inspiration-card">
+            <h3>Montessori & Waldorf</h3>
+            <p>hands-on education</p>
+          </div>
+
+          <div class="inspiration-card">
+            <h3>Africa Eats</h3>
+            <p>going public in Mauritius in 7 years</p>
+          </div>
+
+          <div class="inspiration-card">
+            <h3>a16z</h3>
+            <p>the best investor is founder-friendly and provides much more value than money.</p>
+          </div>
+
+          <div class="inspiration-card no-border">
+            <h3>YCombinator</h3>
+            <p>when you put ambitious people together they bloom like dying plants given water.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="process-section">
+    <div class="container process-container">
+
+
+      <h2 class="section-title">A. THE PROCESS</h2>
+
+      <div class="steps-wrapper">
+        <div class="step-card step-1">
+          <div class="step-number">01</div>
+          <div class="step-icon"><img src="assets/images/apply.png"></div>
+          <h3 class="step-heading">Step 1 - Apply</h3>
+          <p class="step-details">(5-min online form)<br>Decision in 2 weeks</p>
+        </div>
+
+
+
+        <div class="step-card step-2">
+          <div class="step-number">02</div>
+          <div class="step-icon"><img src="assets/images/join.png"></div>
+          <h3 class="step-heading">Step 2 - Join the Cohort</h3>
+
+          <p class="step-details">12 Friday workshops in<br>Spring Valley, Nairobi</p>
+        </div>
+
+
+
+        <div class="step-card step-3">
+          <div class="step-number">03</div>
+          <div class="step-icon"><img src="assets/images/receive.png"></div>
+          <h3 class="step-heading">Step 3 - Receive Investment</h3>
+
+          <p class="step-details">$20k equity + access to<br>$100k working capital</p>
+        </div>
+      </div>
+
+      <section class="included-section">
+        <h2 class="section-title">B. WHAT'S INCLUDE</h2>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-box icon-blue"><img src="assets/images/equality-investment.png"></div>
+            <p class="feature-text">$20k equity investment + follow-on up to $100k</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box icon-red"><img src="assets/images/calender.png"></div>
+            <p class="feature-text">12 months of expert-led Friday Kuzana entrepreneur workshops</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box icon-yellow"><img src="assets/images/monthly-board.png"></div>
+            <p class="feature-text">Monthly Strategy Board</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box icon-light-yellow"><img src="assets/images/sales-coaching.png"></div>
+            <p class="feature-text">Sales coaching + operations optimization</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box icon-dark-blue"><img src="assets/images/accounting-calender.png"></div>
+            <p class="feature-text">Accounting for 12 months</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box icon-zoho"><img src="assets/images/zoho.png"></div>
+            <p class="feature-text">Zoho Books accounting software</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="process-btn">
+        <p>Know a founder who fits that standard? Share a <a href="https://kuzana.co/referral/">personalized referral link</a> and earn up to Ksh
+          50,000 if it's accepted.</p>
+      </div>
+
+    </div>
+  </section>
+  <section class="eligibility-section">
+    <div class="container eligibility-container">
+
+      <div class="eligibility-content">
+        <h2 class="heading-h2">
+          Eligibility Criteria for the <br>
+          <span class="highlight-text">Kuzana Program</span>
+        </h2>
+
+        <ul class="criteria-list">
+          <li>Ksh400k-20m monthly revenue</li>
+          <li>Scalable business like agri-processing, retail, manufacturing, FinTech, logistics and more</li>
+          <li>3 months to 5 years old, usually</li>
+          <li>Ambition to be bigger than Bidco or Kakuzi. CEO needs the skills and ambition to grow to Ksh100m monthly
+            revenue</li>
+          <li>Operating in Kenya</li>
+        </ul>
+
+        <p class="eligibility-footer-text">
+          Kuzana is more than an investment. This is for founders who know cash is only a small part of the equation.
+          This is not a get rich quick; this is about building a long relationship that will build wealth and connection
+          throughout your career.
+        </p>
+      </div>
+
+      <div class="eligibility-image-wrapper">
+        <img src="assets/images/meeting.png" alt="Kuzana Program Meeting" class="eligibility-img">
+      </div>
+
+    </div>
+  </section>
+  <section class="timeline-section">
+    <div class="container">
+      <div class="timeline-header">
+        <h2 class="heading-h2">Why Join the Kuzana <br><span class="highlight-text">Entrepreneurs Program</span></h2>
+        <p class="timeline-subtitle">Most founders plateau not because they lack ambition — but because they lack the
+          right
+          systems, advisors, and peers. Kuzana fixes all three.</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item left-item">
+          <div class="timeline-dot"><img src="assets/images/dot.png" alt="Timeline Dot"></div>
+          <div class="timeline-content">
+            <h3 class="item-title">Double Your Revenue in 12 months</h3>
+            <p class="item-desc">Most founders already know what's working. Kuzana gives you the clarity, capital, and
+              support to go all in on it.</p>
+            <div class="highlight-box">
+              Growth doesn't come from doing more — it comes from doing less: do the thing that's actually working and
+              stop
+              doing the things you're afraid to admit aren't
+            </div>
+          </div>
+        </div>
+
+
+        <div class="timeline-item right-item">
+          <div class="timeline-dot"><img src="assets/images/dot.png" alt="Timeline Dot"></div>
+          <div class="timeline-content">
+            <h3 class="item-title">Professionalise - Stop Looking Over Your Shoulder</h3>
+            <p class="item-desc">Compliance with KRA so you don't go to jail. Operational systems so you can relax in
+              Diani
+              beach and staff don't call you with their problems.</p>
+            <div class="highlight-box">
+              What got you here won't get you there.
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item left-item">
+          <div class="timeline-dot"><img src="assets/images/dot.png" alt="Timeline Dot"></div>
+          <div class="timeline-content">
+            <h3 class="item-title">Community - Like a Chama for High Performers</h3>
+            <p class="item-desc">Great founders make each other stronger. You're the average of your 5 closest friends.
             </p>
-            <a
-                href="https://wa.me/?text=Hey%2C%20I%20saw%20Kuzana%20Investment%20Firm%20and%20thought%20you%20might%20like%20to%20raise%20capital%20from%20them.%20Check%20kuzana.co"
-                class="popup-cta-button"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Send via WhatsApp
-            </a>
-            <p class="popup-footer">Your forward could help a founder access capital and serious support.</p>
+            <div class="highlight-box">
+              When you put ambitious people together they bloom like dying plants given water
+            </div>
+          </div>
         </div>
+
+        <div class="timeline-item right-item">
+          <div class="timeline-dot"><img src="assets/images/dot.png" alt="Timeline Dot"></div>
+          <div class="timeline-content">
+            <h3 class="item-title">Focus - Strategy Is How You Say No</h3>
+            <p class="item-desc">Strategy is a fancy way of saying "no" to most things. What will you become the best at
+              so
+              you can become the next Kakuzi or BidCo?</p>
+            <div class="highlight-box">
+              The cheetah that chases 2 gazelles catches none.
+            </div>
+          </div>
+          <div class="timeline-dot botom-dot"><img src="assets/images/dot.png" alt="Timeline Dot"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="workshops-section">
+    <div class="container">
+      <div class="workshops-header">
+        <h2 class="heading-h2">What You'll Learn at the <br><span class="highlight-text">Kuzana Entrepreneur
+            Workshops</span></h2>
+        <p class="workshops-subtitle">Each Friday workshop in the Kuzana Investment Program covers one high-impact
+          business topic — taught by operators who have built real companies in Kenya. These are not theory sessions.
+          Every workshop is designed to give founders the CEO mindset, startup systems, and growth strategies they need
+          to double revenue in 12 months.</p>
+      </div>
+
+      <div class="workshops-grid">
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/ceo.png" alt="CEO Mindset Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/one.png"></span>
+          </div>
+          <h3 class="card-title">CEO Mindset for Founders</h3>
+          <p class="card-desc">Learn how to think like a CEO and identify the real bottlenecks in your business. This
+            workshop builds the startup leadership skills founders need to move from operator to owner — developing the
+            CEO mindset and leadership for founders that drives real, sustainable growth.</p>
+        </div>
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/branding.png" alt="Branding Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/two.png"></span>
+          </div>
+          <h3 class="card-title">Branding for Startups</h3>
+          <p class="card-desc">Build a brand that makes your product sell itself and attracts the right customers. This
+            workshop covers startup branding and brand strategy — practical tools to help entrepreneurs build a brand
+            that drives demand and turns a good product into a category leader.</p>
+        </div>
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/sales.png" alt="Sales Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/three.png"></span>
+          </div>
+          <h3 class="card-title">Sales for Entrepreneurs</h3>
+          <p class="card-desc">Turn customers into your best investors by mastering high-conversion sales strategies.
+            This sales training for entrepreneurs covers startup sales from first conversation to close — giving
+            founders the confidence and systems to consistently sell their product.</p>
+        </div>
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/customer.png" alt="Customer Experience Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/four.png"></span>
+          </div>
+          <h3 class="card-title">Customer Experience & Retention</h3>
+          <p class="card-desc">Design systems that drive repeat sales and long-term customer loyalty. This workshop
+            focuses on customer experience strategy and customer retention — building the processes that keep customers
+            coming back and grow revenue without constantly chasing new leads.</p>
+        </div>
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/startup.png" alt="Operations Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/five.png"></span>
+          </div>
+          <h3 class="card-title">Startup Operations & Systems</h3>
+          <p class="card-desc">Map every step of your business to create scalable and efficient operations. This
+            workshop builds the startup systems and business operations frameworks founders need to grow without
+            becoming the bottleneck — and to optimise every process for speed, quality, and scale.</p>
+        </div>
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/human.png" alt="HR Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/six.png"></span>
+          </div>
+          <h3 class="card-title">Human Resources for Startups</h3>
+          <p class="card-desc">Build systems for hiring, managing, and retaining a high-performing team. This workshop
+            covers HR for startups — giving founders the hiring systems and team management tools to recruit the right
+            people and build a culture that keeps them.</p>
+        </div>
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/public.png" alt="Public Speaking Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/seven.png"></span>
+          </div>
+          <h3 class="card-title">Public Speaking & Storytelling for Founders</h3>
+          <p class="card-desc">Learn how to tell powerful stories that win customers, investors, and attention. This
+            workshop develops public speaking and storytelling for business — sharpening the pitching skills every
+            founder needs to communicate their vision and get the room on their side.</p>
+        </div>
+
+        <div class="workshop-card">
+          <div class="card-header-row">
+            <img src="assets/images/finance.png" alt="Finance Icon" class="card-icon">
+            <span class="card-number"> <img src="assets/images/eight.png"></span>
+          </div>
+          <h3 class="card-title">Finance for Founders</h3>
+          <p class="card-desc">Understand your numbers and steer your business like a captain, not a passenger. This
+            startup finance workshop builds real financial literacy for founders — covering cash flow management,
+            financial decision-making, and the numbers every entrepreneur in Kenya needs to know to grow with
+            confidence.</p>
+        </div>
+
+      </div>
+
+      <div class="workshops-cta-ribbon">
+        <a href="https://form.kuzana.co/apply" class="ribbon-text">Want to experience these workshops first-hand? Apply to the Kuzana Investment
+          Program.</a>
+      </div>
+    </div>
+  </section>
+  <section class="about-us">
+    <div class="container about-container">
+      <div class="about-content">
+        <h2 class="heading-h2">About Us</h2>
+        <p class="about-subtext">Kuzana is a made-up word that, in Swahili, sounds like 'to help each other grow.' Our
+          goal is to mint 1,000 more dollar millionaire$ by 2040, because capitalism is the greatest tool for good ever
+          invented.</p>
+        <p class="about-subtext">We only accept smart money from value-add investors. Kuzana's founders have previously
+          run a biogas business, a Thai restaurant, an outsourced CFO agency, a microfinance institution, tech
+          platforms, and a farming business. We've sat in the same chair you're sitting in.</p>
+        <p class="about-subtext">We partner with you permanently — unless you want us to exit. We plan to go public in a
+          few years, as Africa Eats did on the SEM Exchange in Mauritius.</p>
+
+      </div>
+      <img src="assets/images/aboutus.png" alt="aboutus">
+
+    </div>
+  </section>
+  <section class="team-section" id="team">
+    <div class="container team-container">
+      <div class="team-header">
+        <img src="assets/images/Meet-the-Team.png" alt="Event Highlight Icon" class="event-highlight-icon">
+        <h2 class="heading-h2">Meet the Team <span class="highlight-text">Behind Kuzana</span></h2>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="image-wrapper">
+            <img src="assets/images/kyle.png" alt="Kyle Schutter">
+          </div>
+          <h3 class="member-name">Kyle Schutter</h3>
+          <p class="member-role">CEO</p>
+          <div class="member-links">
+            <a href="#" class="link-email">email</a>
+            <span class="separator">|</span>
+            <a href="#" class="link-linkedin">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="image-wrapper">
+            <img src="assets/images/farhan.png" alt="Farhan Qureshi">
+          </div>
+          <h3 class="member-name">Farhan Qureshi</h3>
+          <p class="member-role">co-Director</p>
+          <div class="member-links">
+            <a href="#" class="link-linkedin">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="image-wrapper">
+            <img src="assets/images/felicity.png" alt="Felicity Sangona">
+          </div>
+          <h3 class="member-name">Felicity Sangona</h3>
+          <p class="member-role">Executive Assistant</p>
+          <div class="member-links">
+            <a href="#" class="link-linkedin">LinkedIn</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="call-to-action">
+    <div class="container cta-container">
+      <h2 class="heading-h2">Ready to Build the Next Bidco?</h2>
+      <p class="cta-subtext">Only 7 companies are selected each cycle — if you’re serious about scaling, this is where
+        it happens.</p>
+      <p class="cta-subtext"><strong>Become a workshop leader or strategy board member. Email us at
+          info@kuzana.co</strong></p>
+      <a href="https://form.kuzana.co/apply" class="primary-btn cta-bttn">Apply to the Kuzana Investment Program</a>
+
+
+  </section>
+
+
+  <footer class="footer-section">
+    <div class="container footer-container">
+
+      <div class="footer-column brand-column">
+        <div class="footer-logo">
+          <img src="assets/images/footer-logo.png" alt="KUZANA Logo">
+        </div>
+        <p class="brand-description">
+          The Kuzana investment program is built for Kenya's most ambitious founders-12 months of entrepreneur
+          workshops, real capital, and the kind of support no other investment company in Kenya offers. </p>
+        <div class="social-media-wrapper">
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/kuzana" class="social-icon"><img src="assets/images/facebook.png" alt="KUZANA Logo"></a>
+            <a href="https://x.com/kuzana_co" class="social-icon"><img src="assets/images/twiter.png" alt="KUZANA Logo"></a>
+            <a href="https://www.linkedin.com/company/kuzana" class="social-icon"><img src="assets/images/linkdin.png" alt="KUZANA Logo"></a>
+            <a href="https://www.instagram.com/kuzana.co/" class="social-icon"><img src="assets/images/insagram.png" alt="KUZANA Logo"></a>
+            <a href="https://www.tiktok.com/@kuzana.co" class="social-icon"><img src="assets/images/tiktok.png" alt="KUZANA Logo"></a>
+            <a href="mailto:info+website@kuzana.co" class="social-icon"><img src="assets/images/email.png" alt="KUZANA Logo"></a>
+            <a href="https://kuzana.substack.com/" class="social-icon"><img src="assets/images/substack.png" alt="KUZANA Logo"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-column links-column">
+        <h3 class="column-title">Program</h3>
+        <ul class="footer-links">
+          <li><a href="https://form.kuzana.co/apply">Apply Now</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/cofounders/">Co-Founders</a></li>
+          <li><a href="/referral/">Referral</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column links-column">
+        <h3 class="column-title">Resources</h3>
+        <ul class="footer-links">
+          <li><a href="/library/">Library</a></li>
+          <li><a href="https://kuzana.substack.com">Blogs</a></li>
+          <li><a href="/resources/">Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column newsletter-column">
+        <h3 class="column-title newsletter-heading">Subscribe to Our Newsletter</h3>
+        <p class="newsletter-sub">Building the YCombinator for African SMEs</p>
+
+        <iframe title="Kuzana newsletter" loading="lazy" src="https://kuzana.substack.com/embed" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
+
+        <p class="privacy-notice">
+          By subscribing you agree to Substack's <a href="/terms.html">Terms of Use</a>, Our <a href="/privacypolicy/">Privacy Policy</a> and
+          our <a href="#">Information collection notice</a>
+        </p>
+      </div>
+
     </div>
 
-    <!-- WhatsApp Community Floating Link -->
-    <a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" class="whatsapp-link" target="_blank" rel="noopener noreferrer" aria-label="Join WhatsApp Community">
-        <span class="whatsapp-text">Join 📈Kuzana WhatsApp Community</span>
-        <span class="whatsapp-icon">💬</span>
-    </a>
-
-    <script src="script.js"></script>
+    <div class="footer-bottom">
+      <p>Kuzana | © 2026 | <a href="/privacypolicy/">Privacy Policy</a></p>
+    </div>
+  </footer>
+  <script src="assets/js/custom.js"></script>
 </body>
-</html> 
+
+</html>
