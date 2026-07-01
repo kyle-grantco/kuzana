@@ -5,7 +5,7 @@
 
 let exitIntentShown = false;
 let lastFocusedElement = null;
-let hamburger = null;
+//let hamburger = null;
 let mobileMenu = null;
 let body = null;
 const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV3';
