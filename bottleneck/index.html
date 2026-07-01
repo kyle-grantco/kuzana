@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- The Bottleneck: full-page Tally registration embed -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>The Bottleneck: UnBlock your business this week</title>
+    <meta name="description" content="The Bottleneck: UnBlock your business this week with Kuzana.">
+    <meta property="og:site_name" content="Kuzana">
+    <meta property="og:url" content="https://kuzana.co/bottleneck">
+    <meta property="og:title" content="The Bottleneck: UnBlock your business this week">
+    <meta property="og:description" content="UnBlock your business this week.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://kuzana.co/bottleneck">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <style>
+        html {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe
+        data-tally-src="https://tally.so/r/jakW49?transparentBackground=1"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="The Bottleneck: UnBlock your business this week">
+    </iframe>
+    <script>
+        (function () {
+            function loadTallyEmbeds() {
+                if (typeof Tally !== 'undefined') {
+                    Tally.loadEmbeds();
+                    return;
+                }
+                document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function (frame) {
+                    frame.src = frame.dataset.tallySrc;
+                });
+            }
+            if (typeof Tally !== 'undefined') loadTallyEmbeds();
+            else window.addEventListener('load', loadTallyEmbeds);
+        }());
+    </script>
+</body>
+</html>

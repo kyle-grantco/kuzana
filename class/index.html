@@ -44,7 +44,7 @@
     }
     </script>
     <style>
-        :root { --background:#fafafa; --text:#222; --primary:#0f172a; --secondary:#ff6f74; }
+        :root { --background:#fafafa; --text:#222; --primary:#0f172a; --secondary:#ff6f74; --kuzana-blue:#4a628d; --kuzana-red-light:#ffd6d8; --kuzana-blue-light:#dbe8ff; }
         html, body { height: 100%; }
         body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--background); }
         .wrap { max-width: 920px; margin: 0 auto; padding: 24px; }
@@ -56,8 +56,30 @@
         .hero-media { position: relative; margin: 12px 0 32px; }
         .hero-media img { width: 100%; border-radius: 10px; border: 1px solid #e5e5e5; display: block; }
         .hero-highlight { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); padding: 12px 14px; background: #fff; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.18); max-width: 560px; width: calc(100% - 32px); }
+        .hero-highlight h1 { margin: 0; font-size: 1.35rem; line-height: 1.2; color: var(--primary); }
+        .hero-highlight h3 { margin: 6px 0 0; font-size: 1rem; line-height: 1.35; font-style: italic; font-weight: 500; color: var(--primary); }
+        .path-card { margin-bottom: 14px; }
+        .path-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+        .path-option { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px; background: #fff; }
+        .path-option::after { content: ""; display: block; clear: both; }
+        .path-option h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--primary); }
+        .path-option p { margin: 0; font-size: .95rem; line-height: 1.45; }
+        .path-host { float: right; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #e5e7eb; margin: 2px 0 8px 10px; }
+        .mode-tabs { display: flex; gap: 8px; margin-top: 14px; }
+        .mode-tab { appearance: none; border: 1px solid #cbd5e1; background: #fff; color: var(--primary); border-radius: 8px; padding: 9px 12px; font-weight: 600; cursor: pointer; }
+        .mode-tab[aria-selected="true"] { background: var(--secondary); color: #fff; border-color: var(--secondary); }
+        .mode-panel[hidden] { display: none !important; }
+        .path-option-guided { border-color: var(--kuzana-red-light); }
+        .path-option-selfserve { border-color: var(--kuzana-blue-light); }
+        #tab-finance-guided { border-color: var(--kuzana-red-light); color: var(--secondary); }
+        #tab-finance-guided[aria-selected="true"] { background: var(--secondary); color: #fff; border-color: var(--secondary); }
+        #tab-finance-now { border-color: var(--kuzana-blue-light); color: var(--kuzana-blue); }
+        #tab-finance-now[aria-selected="true"] { background: var(--kuzana-blue); color: #fff; border-color: var(--kuzana-blue); }
+        #free > .card { border-color: var(--kuzana-blue-light); }
+        #panel-finance-guided { border-color: var(--kuzana-red-light); }
         @media (max-width: 640px) {
             .hero-highlight { bottom: 8px; padding: 10px 12px; width: calc(100% - 24px); }
+            .path-grid { grid-template-columns: 1fr; }
         }
         .toc { margin-bottom: 16px; }
         .toc strong { display: block; margin-bottom: 6px; }
@@ -66,7 +88,32 @@
         .toc a:hover { text-decoration: underline; }
         .lead { font-size: 1.05rem; line-height: 1.55; }
         .lead p { margin: 0 0 10px; }
-        .video-placeholder { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #eee; border: 1px dashed #ccc; border-radius: 8px; display: grid; place-items: center; color: #666; font-weight: 500; }
+        .youtube-lazy { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; background: #000; }
+        .youtube-lazy-button { width: 100%; height: 100%; padding: 0; border: 0; background: #000; cursor: pointer; position: relative; }
+        .youtube-lazy-button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .youtube-lazy-button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.1) 45%, rgba(0,0,0,.05));
+        }
+        .youtube-lazy-button::after {
+            content: "▶";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 74px;
+            height: 52px;
+            border-radius: 12px;
+            background: rgba(239, 68, 68, .95);
+            color: #fff;
+            font-size: 1.7rem;
+            line-height: 52px;
+            text-align: center;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .28);
+        }
+        .youtube-lazy iframe { width: 100%; height: 100%; border: 0; display: block; }
         .embed-slides { width: 100%; height: 839px; border: 0; }
         .embed-template { width: 500px; height: 260px; border: 0; display: block; margin: 0 auto; }
         .embed-form { width: 100%; height: 2400px; border: 0; }
@@ -93,16 +140,6 @@
         .footer { text-align: center; opacity: .7; font-size: .9rem; padding: 20px 0 8px; }
         .footer a { color: inherit; text-decoration: underline; }
         .trust-copy { margin-top: 6px; font-size: .85rem; color: #555; }
-        .popup { position: fixed; inset: 0; display: none; z-index: 60; }
-        .popup-visible { display: block; }
-        .popup-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
-        .popup-content { position: relative; max-width: 420px; margin: 80px auto; background: #fff; border-radius: 10px; padding: 16px 18px 18px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
-        .popup-title { margin: 0 0 8px; font-size: 1.15rem; color: var(--primary); }
-        .popup-body { margin: 0 0 12px; font-size: .95rem; }
-        .popup-cta { display: inline-block; padding: 10px 14px; border-radius: 8px; border: 1px solid #e5e5e5; background: var(--secondary); color: #fff; font-weight: 600; text-decoration: none; }
-        .popup-cta:hover { filter: brightness(1.05); }
-        .popup-footer { margin-top: 8px; font-size: .85rem; opacity: .8; }
-        .popup-close { position: absolute; top: 8px; right: 10px; background: transparent; border: 0; font-size: 18px; cursor: pointer; }
     </style>
     <meta property="og:title" content="Kuzana – Class">
     <meta property="og:image" content="https://kuzana.co/images/favicon.png">
@@ -114,42 +151,67 @@
             <a href="/" aria-label="Kuzana Home">
                 <img src="/images/logo.png" alt="Kuzana" class="logo" loading="eager" decoding="async" fetchpriority="high">
             </a>
+            <a href="https://kuzana.co/class#free" class="cta-signup" aria-current="page">Class</a>
         </div>
-        <section class="card" id="overview" aria-labelledby="intro-heading">
-           <h1>Founders’ Business Fundamentals Class</h1>
-            <div class="hero-media">
-                <img src="/images/whats your business worth.png" alt="What’s your business worth? illustration">
-                <div class="hero-highlight">
-                    <h2 id="intro-heading">Most founders don’t know. Find out in 10 minutes.</h2>
-                    <div class="lead">
-                        <p>So the next time someone asks, you actually have an answer.</p>
-                    </div>
-                </div>
+        <div class="hero-media">
+            <img src="/images/whats your business worth.png" alt="What’s your business worth? illustration">
+            <div class="hero-highlight">
+                <h1>Finance For Founders</h1>
+                <h3>an online class for top 1% entrepreneurs in Kenya</h3>
             </div>
+        </div>
 
-            <h2>Enter your email to get your valuation tool + walkthrough</h2>
-            <iframe
-              id="template-frame"
-              class="embed-template"
-              src="https://script.google.com/macros/s/AKfycbxYNtuHpLiY1MWrpVXFlTV6MqysTBi0nlLf7JI9NltHB0nhc0DSMMkX7kbjazURS6px7w/exec"
-              frameborder="0"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <p class="trust-copy">Free. Takes 10 minutes. No finance background needed.</p>
-            <p class="mobile-class-warning">
-                This class must be taken on a computer. Forward this page to your laptop or desktop so you can open your own BOSSmode sheet there.
-            </p>
+        <div class="lead">
+            <p><strong>Do you know what your business is worth?</strong></p>
+            <p>Most founders don't. And you can't raise money if you don't know the valuation.</p>
+        </div>
 
-            <div class="lead">
-                <p>Most founders underestimate their business. Some discover they’re already worth millions.</p>
-                <p>Now your mom will stop telling you to "Get a REAL job."</p>
+        <h2 id="intro-heading">Most founders underestimate their business. Some discover they’re already worth millions.</h2>
+        <div class="lead">
+            <p>In this class we'll answer questions like:</p>
+            <ul style="margin: 0 0 16px; padding-left: 20px;">
+                <li>what's your business worth?</li>
+                <li>should I get a loan?</li>
+                <li>can I spend more on Ads?</li>
+            </ul>
+            <p>Hosted by Kuzana📈, the Kenyan investment firm that helped 15 companies grow 174% per year.</p>
+        </div>
+        <section class="card path-card" aria-labelledby="choose-path-heading">
+            <h1 id="choose-path-heading">Choose your path</h1>
+            <div class="path-grid">
+                <article class="path-option path-option-guided">
+                    <h3>with Kyle</h3>
+                    <img src="/images/kyle profile pic.png" alt="Kyle Schutter" class="path-host" loading="lazy" decoding="async">
+                    <p>Guided support with structured help and follow-through. Sign up to reserve your spot.</p>
+                    <button class="mode-tab" id="tab-finance-guided" type="button" role="tab" aria-selected="true" aria-controls="panel-finance-guided">with Kyle</button>
+
+                </article>
+                <article class="path-option path-option-selfserve">
+                    <h3>Self-Serve (free)</h3>
+                    <p>Self-serve templates, videos, slides, and quizzes you can use immediately at your own pace.</p>
+                    <button class="mode-tab" id="tab-finance-now" type="button" role="tab" aria-selected="false" aria-controls="free">Self-Serve (free)</button>
+
+                </article>
             </div>
 
         </section>
 
+        <div id="free" class="mode-panel" role="tabpanel" aria-labelledby="tab-finance-now" hidden>
+        <section class="card" id="overview" aria-labelledby="intro-heading">
+            <h2 id="template-heading">Get started with the valuation template</h2>
+            <p>
+                <a class="cta-signup" href="https://docs.google.com/spreadsheets/d/1FGJfRkGH1xH3tLfIm07UBR_8Inro3HHtRsowxhEsIRo/copy" target="_blank" rel="noopener noreferrer">Create your Template</a>
+            </p>
+            <p class="trust-copy">Free. Takes 10 minutes. No finance background needed.</p>
+            <p class="mobile-class-warning">
+                This class must be taken on a computer. Forward this page to your laptop or desktop so you can open your own BOSSmode sheet there.
+            </p>
+        </section>
+
         <section id="class1" class="card" aria-labelledby="class1-title">
-            <h2 id="class1-title">Class 1: 🤑 What’s my business worth?</h2>
+            <h1 id="class1-title">Class 1: 🤑 What’s my business worth?</h1>
+            <h2>YouTube</h2>
+            <div class="youtube-lazy" data-video-id="aKnmi7k2X7U" data-video-title="Class 1: What's my business worth?"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaf5i1EvLrfCU4QFyeGRcOwkAvBVbhUMbfYuctkdggTm7iE0_o8yjizg2dqh3zdILvsZ2DLimA-uPe/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -165,7 +227,7 @@
         <section id="class2" class="card" aria-labelledby="class2-title">
             <h2 id="class2-title">Class 2: Debt Trap (and how founders avoid it)</h2>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/lXpvjV95P_w" title="Class 2: Debt Trap" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="lXpvjV95P_w" data-video-title="Class 2: Debt Trap"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRL9upx7_KU6IHm1mhYW8qOJlpMu7e70zQvS2tP4oASAwx2hkwbtu96CWMgs9xeY-aw8FORy9OiFNAh/pubembed?start=false&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -179,7 +241,7 @@
         <section id="class3" class="card" aria-labelledby="class3-title">
             <h2 id="class3-title">Class 3: Sales Channels — this one is 10x better for your biz</h2>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/UuzT1tQ7wnA" title="Class 3: Sales Channel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="UuzT1tQ7wnA" data-video-title="Class 3: Sales Channel"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQPGAOqKf-1n2J2_dfKzhAw9Di7Tt63SqN0a8jmFDCiT_LDo0omAMlT5quY6_n9Exx2ZMEueqqs_syo/pubembed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -192,7 +254,7 @@
         <section id="class4" class="card" aria-labelledby="class4-title">
             <h2 id="class4-title">Class 4: 💧 How Leaky is your bucket? Customer Retention</h2>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/3A8BPuxaH20" title="Class 4: Customer Retention" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="3A8BPuxaH20" data-video-title="Class 4: Customer Retention"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSE8a7CKv3zN5SsU-SVS5QZCYajbfUqj428t0zMsaRdGo1FqDojES2StDyx1onwS2wTU8npdonZts81/pubembed?start=true&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -206,7 +268,7 @@
         <section id="class5" class="card" aria-labelledby="class5-title">
             <h2 id="class5-title">Class 5: $100k Analyst vs Free GPT</h2>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/-r24Wg1IkJk" title="Class 5: $100k Analyst vs Free GPT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="-r24Wg1IkJk" data-video-title="Class 5: $100k Analyst vs Free GPT"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT-ovYdV--DTfjUhDbbTR2i-OSQKumVqTS6cnmeXwKvt4omdePSIMAHIFDpDq2pDWoeV3rkgIdRzNw8/pubembed?start=false&loop=true&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -219,7 +281,7 @@
         <section id="class6" class="card" aria-labelledby="class6-title">
             <h2 id="class6-title">Class 6: 📈 Month-over-Month Growth</h2>
             <h2>YouTube</h2>
-            <iframe width="100%" height="550" src="https://www.youtube.com/embed/7w85_CksE3s" title="Class 6: Month-over-Month Growth" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="youtube-lazy" data-video-id="7w85_CksE3s" data-video-title="Class 6: Month-over-Month Growth"></div>
             <h2>Presentation</h2>
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQzi2sfiR0G0SsYpE3vXgEiKpvp1ghfvJOSzpVAJp3PLZRPg_KWabyO9qTolUL7kVxYXg_dHfoLgc4G/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="550" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             <h2>Test yourself</h2>
@@ -235,24 +297,24 @@
 
         </div>
         <p class="footer">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
-        <div class="popup" id="exitValuationPopup" aria-hidden="true">
-            <div class="popup-overlay" data-popup-close="true"></div>
-            <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="exit-popup-title">
-                <button class="popup-close" type="button" data-popup-close="true" aria-label="Close popup">✕</button>
-                <h2 class="popup-title" id="exit-popup-title">Before you go…</h2>
-                <p class="popup-body">
-                    Drop your email below to get the same valuation Google Sheet + 10-minute walkthrough.
-                </p>
-                <iframe
-                  class="embed-template"
-                  src="https://script.google.com/macros/s/AKfycbxYNtuHpLiY1MWrpVXFlTV6MqysTBi0nlLf7JI9NltHB0nhc0DSMMkX7kbjazURS6px7w/exec"
-                  frameborder="0"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-                <p class="popup-footer">Free. Takes 10 minutes. No finance background needed.</p>
-            </div>
         </div>
+
+        <section id="panel-finance-guided" class="card mode-panel" role="tabpanel" aria-labelledby="tab-finance-guided">
+            <h2>with Kyle</h2>
+            <p class="lead">Sign up below to join the guided version.</p>
+            <iframe data-tally-src="https://tally.so/embed/yPv7v0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1695" frameborder="0" marginheight="0" marginwidth="0" title="Finance for Founders - Class"></iframe>
+            <h2>Template sign up</h2>
+            <p class="lead">Enter your email to get your valuation tool + walkthrough.</p>
+            <iframe
+              id="template-frame"
+              class="embed-template"
+              src="https://script.google.com/macros/s/AKfycbxYNtuHpLiY1MWrpVXFlTV6MqysTBi0nlLf7JI9NltHB0nhc0DSMMkX7kbjazURS6px7w/exec"
+              frameborder="0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+
     </main>
     <script>
         (function () {
@@ -325,39 +387,170 @@
                 });
             }
 
+            /**
+             * Toggles between FinanceNow and FinanceGuided panels so users can choose
+             * self-serve content or the paid guided signup flow.
+             */
+            function initializeModeTabs() {
+                var nowTab = document.getElementById('tab-finance-now');
+                var guidedTab = document.getElementById('tab-finance-guided');
+                var nowPanel = document.getElementById('free');
+                var guidedPanel = document.getElementById('panel-finance-guided');
+                var classSections = Array.prototype.slice.call(
+                    document.querySelectorAll('section[id^="class"]')
+                );
+                if (!nowTab || !guidedTab || !nowPanel || !guidedPanel) return;
+
+                /**
+                 * Updates the URL hash for shareable class paths (#free or #guided).
+                 * @param {'free'|'guided'} mode
+                 */
+                function setModeHash(mode) {
+                    if (!window.history || !window.history.replaceState) return;
+                    var hash = mode === 'free' ? '#free' : '#guided';
+                    window.history.replaceState(
+                        null,
+                        '',
+                        window.location.pathname + window.location.search + hash
+                    );
+                }
+
+                /**
+                 * Reads the mode from location.hash (case-insensitive).
+                 * @returns {'free'|'guided'|null}
+                 */
+                function getModeFromHash() {
+                    var hash = (window.location.hash || '').replace(/^#/, '').toLowerCase();
+                    if (hash === 'free') return 'free';
+                    if (hash === 'guided' || hash === 'kyle') return 'guided';
+                    return null;
+                }
+
+                function showNow() {
+                    nowPanel.removeAttribute('hidden');
+                    guidedPanel.setAttribute('hidden', 'hidden');
+                    nowTab.setAttribute('aria-selected', 'true');
+                    guidedTab.setAttribute('aria-selected', 'false');
+                    classSections.forEach(function (section) {
+                        section.removeAttribute('hidden');
+                    });
+                }
+
+                function showGuided() {
+                    nowPanel.setAttribute('hidden', 'hidden');
+                    guidedPanel.removeAttribute('hidden');
+                    nowTab.setAttribute('aria-selected', 'false');
+                    guidedTab.setAttribute('aria-selected', 'true');
+                }
+
+                function applyModeFromHash() {
+                    var mode = getModeFromHash();
+                    if (mode === 'free') showNow();
+                    else showGuided();
+                }
+
+                nowTab.addEventListener('click', function () {
+                    showNow();
+                    setModeHash('free');
+                });
+                guidedTab.addEventListener('click', function () {
+                    showGuided();
+                    setModeHash('guided');
+                });
+                window.addEventListener('hashchange', applyModeFromHash);
+                applyModeFromHash();
+            }
+
+            /**
+             * Loads Tally embed widgets for FinanceGuided only when needed.
+             */
+            function initializeTallyEmbeds() {
+                var d = document;
+                var w = 'https://tally.so/widgets/embed.js';
+                var v = function() {
+                    if ('undefined' != typeof Tally) Tally.loadEmbeds();
+                    else d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(e){ e.src = e.dataset.tallySrc; });
+                };
+                if ('undefined' != typeof Tally) v();
+                else if (d.querySelector('script[src="' + w + '"]') == null) {
+                    var s = d.createElement('script');
+                    s.src = w;
+                    s.onload = v;
+                    s.onerror = v;
+                    d.body.appendChild(s);
+                }
+            }
+
+            /**
+             * Renders YouTube embeds with max-resolution thumbnails, then swaps to the
+             * player only after click for sharper preview images and faster page load.
+             */
+            function initializeYouTubeEmbeds() {
+                var containers = Array.prototype.slice.call(
+                    document.querySelectorAll('.youtube-lazy[data-video-id]')
+                );
+                if (!containers.length) return;
+
+                containers.forEach(function (container) {
+                    var videoId = container.getAttribute('data-video-id');
+                    var videoTitle = container.getAttribute('data-video-title') || 'Kuzana class video';
+                    if (!videoId) return;
+
+                    var button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'youtube-lazy-button';
+                    button.setAttribute('aria-label', 'Play ' + videoTitle);
+
+                    var image = document.createElement('img');
+                    image.loading = 'lazy';
+                    image.decoding = 'async';
+                    image.alt = videoTitle + ' thumbnail';
+                    image.src = 'https://i.ytimg.com/vi/' + videoId + '/maxresdefault.jpg';
+                    image.addEventListener('error', function handleError() {
+                        image.src = 'https://i.ytimg.com/vi/' + videoId + '/hqdefault.jpg';
+                    }, { once: true });
+
+                    button.appendChild(image);
+                    container.appendChild(button);
+
+                    button.addEventListener('click', function () {
+                        var iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+                        iframe.title = videoTitle;
+                        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+                        iframe.allowFullscreen = true;
+                        iframe.setAttribute('loading', 'lazy');
+                        container.replaceChildren(iframe);
+                    });
+                });
+            }
+
             initializeTemplateReset();
             initializeClassSectionCollapsing();
-            /**
-             * Shows a one-time exit intent popup that nudges visitors to use the valuation
-             * tool embed before leaving the page.
-             */
-            (function initializeExitIntentPopup() {
-                var popup = document.getElementById('exitValuationPopup');
-                if (!popup) return;
-                var hasShown = false;
-
-                function openPopup() {
-                    if (hasShown) return;
-                    hasShown = true;
-                    popup.classList.add('popup-visible');
-                    popup.setAttribute('aria-hidden', 'false');
-                }
-
-                function closePopup() {
-                    popup.classList.remove('popup-visible');
-                    popup.setAttribute('aria-hidden', 'true');
-                }
-
-                document.addEventListener('mouseout', function handleMouseOut(event) {
-                    if (!event.relatedTarget && event.clientY <= 0) openPopup();
-                });
-
-                popup.addEventListener('click', function handlePopupClick(event) {
-                    if (event.target.hasAttribute('data-popup-close')) closePopup();
-                });
-            }());
+            initializeModeTabs();
+            initializeTallyEmbeds();
+            initializeYouTubeEmbeds();
         }());
     </script>
+    <script>
+    window.TallyConfig = {
+      "formId": "yPv7v0",
+      "popup": {
+        "width": 500,
+        "emoji": {
+          "text": "👋",
+          "animation": "wave"
+        },
+        "open": {
+          "trigger": "exit"
+        },
+        "layout": "modal"
+      }
+    };
+    </script>
+
+    <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
 

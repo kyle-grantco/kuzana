@@ -5,12 +5,17 @@
     <title>Apply to Kuzana</title>
     <link rel="preconnect" href="https://docs.google.com" crossorigin>
     <script>
-        // Fast, history-safe redirect
-        window.location.replace("https://form.kuzana.co/apply");
+        (function () {
+            var params = new URLSearchParams(window.location.search || '');
+            var referral = params.get('referral') || params.get('referrer');
+            var target = 'https://form.kuzana.co/apply';
+            if (referral) target += '?referral=' + encodeURIComponent(referral);
+            window.location.replace(target);
+        })();
     </script>
     <!-- Fallback for older/JS-disabled browsers -->
     <meta property="og:site_name" content="Kuzana">
-    <meta property="og:url" content="https://kuzana.co/">
+    <meta property="og:url" content="https://kuzana.co/apply">
     <meta http-equiv="refresh" content="0; url=https://form.kuzana.co/apply">
     <link rel="canonical" href="https://form.kuzana.co/apply"/>
     <noscript>
@@ -57,7 +62,17 @@
     <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:2rem;color:#333}</style>
 </head>
 <body>
-    <p>If you are not redirected automatically, continue to the <a href="https://form.kuzana.co/apply">application form</a>.</p>
+    <p>If you are not redirected automatically, continue to the <a id="apply-fallback" href="https://form.kuzana.co/apply">application form</a>.</p>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search || '');
+            var referral = params.get('referral') || params.get('referrer');
+            var link = document.getElementById('apply-fallback');
+            if (referral && link) {
+                link.href = 'https://form.kuzana.co/apply?referral=' + encodeURIComponent(referral);
+            }
+        })();
+    </script>
 </body>
 </html>
 

@@ -11,17 +11,15 @@
         (function() {
             var pathname = window.location.pathname || "/";
             var segment = pathname.replace(/^\/+|\/+$/g, "").split("/")[0];
-            // "Original part of the URL after kuzana.co" (path + any query string).
-            var originalAfterDomain = pathname.replace(/^\/+/, "").replace(/\/+$/g, "");
+            var referralCode = pathname.replace(/^\/+/, "").replace(/\/+$/g, "");
             var search = window.location.search || "";
-            if (search) originalAfterDomain += search;
+            if (search) referralCode += search;
             var ignored = ["", "index.html", "index.htm", "favicon.ico", "robots.txt"];
             if (ignored.indexOf(segment) !== -1) {
                 window.location.replace("/");
                 return;
             }
-            var target = "/?referrer=" + encodeURIComponent(originalAfterDomain);
-            window.location.replace(target);
+            window.location.replace("/?referral=" + encodeURIComponent(referralCode));
         })();
     </script>
     <style>
@@ -30,9 +28,8 @@
     </style>
 </head>
 <body>
-    <p>Redirecting you to the application form… If you are not redirected, continue to the
-        <a href="https://form.kuzana.co/apply">application</a>.
+    <p>Redirecting… If you are not redirected, continue to the
+        <a href="https://kuzana.co/">Kuzana homepage</a>.
     </p>
 </body>
 </html>
-

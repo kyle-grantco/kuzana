@@ -8,7 +8,8 @@ let lastFocusedElement = null;
 //let hamburger = null;
 let mobileMenu = null;
 let body = null;
-const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV1';
+const ATTRIBUTION_STORAGE_KEY = 'kuzanaAttributionParamsV3';
+const REFERRAL_STORAGE_KEY = 'kuzanaReferralCode';
 
 /**
  * Returns true when the provided hostname belongs to Kuzana properties.
@@ -27,7 +28,6 @@ function isKuzanaHostname(hostname) {
  */
 function getAttributionParams(searchParams) {
     const explicitKeys = new Set([
-        'referrer',
         'source',
         'campaign',
         'gclid',
@@ -59,6 +59,46 @@ function getStoredAttributionParams() {
         return parsedValue;
     } catch (error) {
         return {};
+    }
+}
+
+/**
+ * Returns referral code from query string (`referral` preferred; `referrer` legacy).
+ * @param {URLSearchParams} searchParams
+ * @returns {string}
+ */
+function getReferralFromSearchParams(searchParams) {
+    return (
+        searchParams.get('referral') ||
+        searchParams.get('referrer') ||
+        ''
+    ).trim();
+}
+
+/**
+ * Persists referral code from the current URL for Apply link decoration.
+ */
+function storeReferralFromLocation() {
+    var referral = getReferralFromSearchParams(
+        new URLSearchParams(window.location.search || '')
+    );
+    if (!referral) return;
+    try {
+        localStorage.setItem(REFERRAL_STORAGE_KEY, referral);
+    } catch (error) {
+        // no-op
+    }
+}
+
+/**
+ * Reads persisted referral code.
+ * @returns {string}
+ */
+function getStoredReferralCode() {
+    try {
+        return (localStorage.getItem(REFERRAL_STORAGE_KEY) || '').trim();
+    } catch (error) {
+        return '';
     }
 }
 
@@ -128,61 +168,102 @@ function decorateAnchorsWithAttribution(storedParams) {
     });
 }
 
-// function closeMenu() {
-//     if (!hamburger || !mobileMenu || !body) return;
-//     hamburger.classList.remove('active');
-//     mobileMenu.classList.remove('active');
-//     body.classList.remove('menu-open');
-//     body.style.overflow = '';
-//     hamburger.setAttribute('aria-expanded', 'false');
-// }
+/**
+ * Appends referral code to Kuzana apply form links only (not all internal nav links).
+ * @param {string} referralCode
+ */
+function decorateApplyLinksWithReferral(referralCode) {
+    if (!referralCode) return;
+    document.querySelectorAll('a[href]').forEach(function(anchor) {
+        var originalHref = anchor.getAttribute('href');
+        if (!originalHref || originalHref.indexOf('form.kuzana.co/apply') === -1) return;
+        var updatedHref = withReferralOnApplyHref(originalHref, referralCode);
+        if (updatedHref && updatedHref !== originalHref) anchor.setAttribute('href', updatedHref);
+    });
+}
 
-// function openMenu() {
-//     if (!hamburger || !mobileMenu || !body) return;
-//     hamburger.classList.add('active');
-//     mobileMenu.classList.add('active');
-//     body.classList.add('menu-open');
-//     body.style.overflow = 'hidden';
-//     hamburger.setAttribute('aria-expanded', 'true');
-// }
+/**
+ * Adds ?referral= to form.kuzana.co/apply URLs when missing.
+ * @param {string} href
+ * @param {string} referralCode
+ * @returns {string}
+ */
+function withReferralOnApplyHref(href, referralCode) {
+    if (!href || !referralCode) return href;
+    var trimmedHref = href.trim();
+    if (!trimmedHref || trimmedHref.indexOf('form.kuzana.co/apply') === -1) return href;
+    try {
+        var parsedUrl = new URL(trimmedHref, window.location.origin);
+        if (!parsedUrl.searchParams.has('referral')) {
+            parsedUrl.searchParams.set('referral', referralCode);
+        }
+        return parsedUrl.toString();
+    } catch (error) {
+        return href;
+    }
+}
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     storeAttributionParamsFromLocation();
-//     const storedAttributionParams = getStoredAttributionParams();
-//     decorateAnchorsWithAttribution(storedAttributionParams);
+function closeMenu() {
+    if (!hamburger || !mobileMenu || !body) return;
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    body.classList.remove('menu-open');
+    body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
+}
 
-//     body = document.body;
-//     hamburger = document.querySelector('.menu-toggle');
-//     mobileMenu = document.querySelector('.nav-links');
+function openMenu() {
+    if (!hamburger || !mobileMenu || !body) return;
+    hamburger.classList.add('active');
+    mobileMenu.classList.add('active');
+    body.classList.add('menu-open');
+    body.style.overflow = 'hidden';
+    hamburger.setAttribute('aria-expanded', 'true');
+}
 
-//     if (hamburger) {
-//         hamburger.setAttribute('aria-expanded', 'false');
-//         hamburger.setAttribute('aria-controls', 'main-navigation');
-//         hamburger.addEventListener('click', function(e) {
-//             e.stopPropagation();
-//             if (mobileMenu && mobileMenu.classList.contains('active')) closeMenu();
-//             else openMenu();
-//         });
-//     }
+document.addEventListener('DOMContentLoaded', function() {
+    storeAttributionParamsFromLocation();
+    storeReferralFromLocation();
+    const storedAttributionParams = getStoredAttributionParams();
+    decorateAnchorsWithAttribution(storedAttributionParams);
+    var referralFromUrl = getReferralFromSearchParams(
+        new URLSearchParams(window.location.search || '')
+    );
+    var referralCode = referralFromUrl || getStoredReferralCode();
+    decorateApplyLinksWithReferral(referralCode);
 
-//     if (mobileMenu) {
-//         const navLinks = mobileMenu.querySelectorAll('a');
-//         navLinks.forEach(function(link) {
-//             link.addEventListener('click', function() {
-//                 closeMenu();
-//             });
-//         });
-//     }
+    body = document.body;
+    hamburger = document.querySelector('.menu-toggle');
+    mobileMenu = document.querySelector('.nav-links');
 
-//     // Ensure clicking the top-left Kuzana logo goes to the normal homepage without redirect
-//     try {
-//         var logoAnchor = document.querySelector('.logo a');
-//         if (logoAnchor) {
-//             var logoHref = withAttributionParams('/?no_redirect=1', storedAttributionParams);
-//             logoAnchor.setAttribute('href', logoHref);
-//         }
-//     } catch (e) {}
-// });
+    if (hamburger) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-controls', 'main-navigation');
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (mobileMenu && mobileMenu.classList.contains('active')) closeMenu();
+            else openMenu();
+        });
+    }
+
+    if (mobileMenu) {
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+    }
+
+    // Ensure clicking the top-left Kuzana logo goes to the normal homepage without redirect
+    try {
+        var logoAnchor = document.querySelector('.logo a');
+        if (logoAnchor) {
+            var logoHref = withAttributionParams('/?no_redirect=1', storedAttributionParams);
+            logoAnchor.setAttribute('href', logoHref);
+        }
+    } catch (e) {}
+});
 
 function closePopup() {
     const popup = document.getElementById('exitPopup');

@@ -18,6 +18,7 @@ function doGet() {
     --background: #fafafa;
     --text: #222222;
     --primary: #0f172a;
+    --secondary: #4a628d;
     --accent: #fe7272;
     --border: #e5e5e5;
   }
@@ -67,8 +68,8 @@ function doGet() {
   input[type="email"]:focus,
   input[type="text"]:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 1px var(--primary);
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 1px var(--secondary);
   }
   button[type="submit"] {
     margin-top: 4px;
@@ -76,7 +77,7 @@ function doGet() {
     padding: 11px 14px;
     border-radius: 10px;
     border: 1px solid var(--border);
-    background: var(--accent);
+    background: var(--secondary);
     color: #ffffff;
     font-size: 0.95rem;
     font-weight: 600;
@@ -88,7 +89,7 @@ function doGet() {
   #msg {
     margin-top: 10px;
     font-size: 0.9rem;
-    color: var(--primary);
+    color: var(--secondary);
   }
 </style>
 <div class="wrap">
