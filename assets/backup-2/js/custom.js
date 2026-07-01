@@ -10,60 +10,6 @@ if (hamburger && navMenu) {
     });
 }
 
-// Faq code
- const plusIcon = "assets/images/icon-plus.png";
-        const minusIcon = "assets/images/icon-minus.png";
-
-        document.querySelectorAll(".faq-question").forEach((question) => {
-
-            question.addEventListener("click", () => {
-
-                const item = question.parentElement;
-                const answer = item.querySelector(".faq-answer");
-                const img = item.querySelector(".faq-icon img");
-
-                const isActive = item.classList.contains("active");
-
-                document.querySelectorAll(".faq-item").forEach((faq) => {
-
-                    faq.classList.remove("active");
-
-                    faq.querySelector(".faq-answer").style.maxHeight = null;
-
-                    faq.querySelector(".faq-icon img").src = plusIcon;
-
-                });
-
-                if (!isActive) {
-
-                    item.classList.add("active");
-
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-
-                    img.src = minusIcon;
-
-                }
-
-            });
-
-        });
-
-
-        window.addEventListener("load", () => {
-
-            const active = document.querySelector(".faq-item.active");
-
-            if (active) {
-
-                active.querySelector(".faq-answer").style.maxHeight =
-                    active.querySelector(".faq-answer").scrollHeight + "px";
-
-            }
-
-        });
-
-
-
 
 // Video Player
 const videoWrapper = document.querySelector(".video-wrapper");
@@ -143,7 +89,3 @@ $(function () {
     }
 
 });
-
-
-
-

@@ -4106,149 +4106,114 @@ span.icon-check.orange-check {
   object-fit: contain;
   margin-right: 8px;
 }
-
 .timeline-dot.botom-dot {
-  top: 100% !important;
+    top: 100% !important;
 }
-
 @media (min-width: 1200px) and (max-width: 1499px) {
   .about-hero-section .hero-left h1 {
     font-size: 60px;
     line-height: 4rem;
-  }
-
-  .kuzana-program-container {
+}
+.kuzana-program-container {
     padding: 20px 0px 80px;
   }
-
   .about_process_section {
     padding: 20px 0px 80px;
-  }
-
-  .eligibility-section.alredy-building-section {
-    padding: 0px 0px 80px;
-  }
 }
-
+.eligibility-section.alredy-building-section {
+    padding: 0px 0px 80px;
+}
+}
 @media (min-width: 768px) and (max-width: 1499px) {
-
-  .about-hero-section .hero-inner-content p,
-  .kuzana-program-container .program-subtitle,
-  .kuzana-program-container .features-grid .feature-card p,
-  .team_subtext,
-  .about_process_section .process-header p {
+  .about-hero-section .hero-inner-content p, .kuzana-program-container .program-subtitle, .kuzana-program-container .features-grid .feature-card p, .team_subtext, .about_process_section .process-header p {
     font-size: 16px;
   }
 }
-
 @media (min-width: 768px) and (max-width: 1024px) {
   .about-hero-section .hero-left h1 {
     font-size: 46px;
     line-height: 1.2em;
-  }
-
-  .about-hero-section .hero-content {
+}
+.about-hero-section .hero-content {
     padding-bottom: 60px;
     padding-top: 10px;
-  }
-
-  .kuzana-program-container {
+}
+.kuzana-program-container {
     padding: 0px 0px 50px;
   }
-
   .kuzana-program-container .features-grid {
     gap: 20px;
-  }
-
-  .included-banner .banner-grid {
+}
+.included-banner .banner-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .timeline-section {
+}
+.timeline-section {
     padding: 50px 0px 60px 0px;
   }
-
   .about_process_section {
     padding-bottom: 50px;
-  }
-
-  .eligibility-section.alredy-building-section {
+}
+.eligibility-section.alredy-building-section {
     padding: 0px 0px 50px;
-  }
-
-  .process-section.about_process_section .steps-wrapper .step-card .step-heading {
+}
+.process-section.about_process_section .steps-wrapper .step-card .step-heading {
     min-height: auto;
-  }
-
-  .about_process_section .step-card.step-1:after,
-  .about_process_section .step-card.step-2:after {
+}
+.about_process_section .step-card.step-1:after, .about_process_section .step-card.step-2:after {
     height: 20px;
     width: 20px;
     right: -32px;
-  }
-
-  .eligibility-section.alredy-building-section .eligibility-content {
-    text-align: center;
-  }
-
-  .about_process_section .step-card {
-    padding: 45px 20px 24px;
-  }
 }
-
+.eligibility-section.alredy-building-section .eligibility-content {
+        text-align: center;
+}
+.about_process_section .step-card {
+    padding: 45px 20px 24px;
+}
+}
 @media (min-width: 1025px) and (max-width: 1199px) {
   .about-hero-section .hero-left h1 {
     font-size: 50px;
     line-height: 1.2em;
-  }
-
-  .about-hero-section .hero-content {
+}
+.about-hero-section .hero-content {
     padding-bottom: 80px;
     padding-top: 20px;
-  }
-
-  .kuzana-program-container {
+}
+.kuzana-program-container {
     padding: 0px 0px 50px;
   }
-
   .about_process_section {
     padding-bottom: 60px;
-  }
-
-  .eligibility-section.alredy-building-section {
+}
+.eligibility-section.alredy-building-section {
     padding: 0px 0px 60px;
-  }
-
 }
 
+}
 @media (min-width: 992px) and (max-width: 1024px) {
   .eligibility-section.alredy-building-section ul li {
     text-align: left;
-  }
+}
 }
 
 @media (max-width: 991px) {
-  .kuzana_means .eligibility-image-wrapper {
+.kuzana_means .eligibility-image-wrapper {
     order: 2;
-  }
-
-  .kuzana_means .eligibility-content {
-    order: 1;
-  }
-
-  .eligibility-section.alredy-building-section ul li {
-    text-align: left;
-  }
-
-  .eligibility-section.alredy-building-section .criteria-list {
-    margin: 15px 0 0px 0;
-  }
-
-  .criteria-list li:last-child {
-    margin-bottom: 0px;
-  }
 }
-
+.kuzana_means .eligibility-content{
+  order: 1;
+}
+.eligibility-section.alredy-building-section ul li{
+  text-align: left;
+}
+.eligibility-section.alredy-building-section .criteria-list {
+    margin: 15px 0 0px 0;
+}
+.criteria-list li:last-child{
+  margin-bottom: 0px;
+}
+}
 @media (max-width: 767px) {
   .features-grid {
     grid-template-columns: 1fr;
@@ -4258,1035 +4223,59 @@ span.icon-check.orange-check {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-
   .included-banner {
     padding: 25px;
   }
-
-  .kuzana-program-container .features-grid,
-  .included-banner .banner-grid {
+  .kuzana-program-container .features-grid, .included-banner .banner-grid {
     grid-template-columns: 1fr;
     gap: 15px;
-  }
-
-  .kuzana-program-container .program-header {
+}
+.kuzana-program-container .program-header {
     margin-bottom: 25px;
-  }
-
-  .kuzana-program-container {
+}
+.kuzana-program-container {
     padding: 10px 0px 30px;
   }
-
-  .about-hero-section .hero-inner-content p,
-  .kuzana-program-container .program-subtitle,
-  .kuzana-program-container .features-grid .feature-card p,
-  .team_subtext,
-  .about_process_section .process-header p {
+  .about-hero-section .hero-inner-content p, .kuzana-program-container .program-subtitle, .kuzana-program-container .features-grid .feature-card p, .team_subtext, .about_process_section .process-header p {
     font-size: 15px;
-  }
-
-  .about-hero-section .hero-buttons {
+}
+.about-hero-section .hero-buttons {
     margin-top: 20px;
-  }
-
-  .about-hero-section .hero-content {
+}
+.about-hero-section .hero-content {
     padding-bottom: 40px;
-  }
-
-  .about-hero-section .hero-inner-content {
+}
+.about-hero-section .hero-inner-content {
     margin-top: 15px;
-  }
-
-  .about_process_section {
+}
+.about_process_section {
     padding-bottom: 40px;
-  }
-
-  .eligibility-section.alredy-building-section .eligibility-content {
+}
+.eligibility-section.alredy-building-section .eligibility-content {
     text-align: center;
-  }
-
-  .eligibility-section.alredy-building-section {
+}
+.eligibility-section.alredy-building-section {
     padding: 0px 0px 30px;
-  }
-
-  .alredy-building-section .eligibility-footer-text {
+}
+.alredy-building-section .eligibility-footer-text {
     margin-top: 15px;
-  }
-
-  .team_subtext {
-    margin-bottom: 10px;
-  }
-
-  .about_process_section .step-card.step-1:after,
-  .about_process_section .step-card.step-2:after {
+}
+.team_subtext{
+  margin-bottom: 10px;
+}
+.about_process_section .step-card.step-1:after, .about_process_section .step-card.step-2:after {
     height: 25px;
     width: 25px;
-  }
-
-  .about_process_section .step-card.step-1:after,
-  .about_process_section .step-card.step-2:after {
+}
+.about_process_section .step-card.step-1:after, .about_process_section .step-card.step-2:after {
     bottom: -45px;
-  }
-
-  .about_process_section .step-card {
+}
+.about_process_section .step-card {
     padding: 50px 20px 20px;
-  }
-
-  .about_process_section .heading-h2,
-  .kuzana-program-container .heading-h2 {
+}
+.about_process_section .heading-h2, .kuzana-program-container .heading-h2 {
     margin-bottom: 15px;
-  }
+}
 }
 
 /* About page css end */
-
-/* Education Investment page css start */
-.banner-list {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  list-style: none;
-}
-
-.banner-list li {
-  color: rgba(255, 255, 255, 1);
-  font-size: 18px;
-  line-height: 1.5em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.banner-list li img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-
-.call-to-action.business-action {
-  padding: 68px 0px;
-  background-image: url(../images/bg-cloudss.png);
-}
-
-.workshops-cta-ribbon.education-ribbon {
-  max-width: 1160px;
-  margin-inline: auto;
-}
-
-.workshops-cta-ribbon.education-ribbon a {
-  font-style: normal;
-}
-
-.education-workshop-section .workshop-card .card-title {
-  min-height: auto;
-}
-
-.education-workshop-section .workshops-header {
-  max-width: 1230px;
-}
-
-.industry-flex-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-}
-
-.industry-card {
-  width: calc(33.333% - 16px);
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
-}
-
-.industry-card .card-text {
-  font-size: 18px;
-  color: rgba(51, 51, 51, 1);
-  line-height: 1.4em;
-  font-weight: 600;
-}
-
-.founder_process_section.education-process .process-container {
-  max-width: 1260px;
-}
-
-.founder_process_section.education-process .icon-wrapper img {
-  height: 62px;
-  width: 62px;
-  object-fit: contain;
-}
-
-.founder_process_section.education-process .icon-wrapper {
-  display: flex;
-}
-
-.founder_process_section.education-process {
-  padding-bottom: 120px;
-}
-
-.kuzana-program-container.education-program-container .program-header {
-  max-width: 100%;
-}
-
-.kuzana-program-container.education-program-container .features-grid .feature-card .card-title h3 {
-  font-size: 18px;
-  color: rgba(51, 51, 51, 1);
-  font-weight: 500;
-}
-
-.kuzana-program-container.education-program-container .features-grid .feature-card .card-title {
-  margin-bottom: 0px;
-}
-
-.kuzana-program-container.education-program-container .features-grid {
-  gap: 16px;
-}
-
-.education-program-container .included-banner p {
-  margin: 0px;
-  font-size: 22px;
-  text-align: center;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 1);
-  line-height: 1.3em;
-}
-
-.education-program-container .included-banner {
-  padding: 10px 50px;
-}
-
-.education-walk-away .workshops-grid {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  margin-bottom: 0px;
-}
-
-.education-walk-away .workshops-grid .workshop-card .card-title {
-  min-height: auto;
-}
-
-.kuzana-ent-header {
-  text-align: center;
-  margin-bottom: 46px;
-}
-
-.kuzana-ent-header p {
-  font-size: 18px;
-  color: rgba(51, 51, 51, 1);
-  margin: 0 auto;
-  font-weight: 500;
-  line-height: 1.5em;
-}
-
-.kuzana-ent-section {
-  padding: 60px 0px 72px;
-}
-
-.kuzana-ent-content {
-  display: grid;
-  align-items: center;
-  gap: 52px;
-  position: relative;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.kuzana-ent-col {
-  display: flex;
-  flex-direction: column;
-  gap: 136px;
-}
-
-
-
-.kuzana-ent-right {
-  text-align: left;
-}
-
-.kuzana-ent-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.kuzana-ent-item p {
-  font-size: 24px;
-  line-height: 1.5em;
-  color: rgba(51, 51, 51, 1);
-  font-weight: 600;
-}
-
-.kuzana-ent-item img {
-  width: 20px;
-  height: 22px;
-  object-fit: contain;
-  margin-top: 8px;
-}
-
-.kuzana-ent-media {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.kuzana-ent-img {
-  width: 100%;
-  margin-bottom: 25px;
-}
-
-.kuzana-ent-bottom {
-  max-width: 330px;
-}
-
-.kuzana-ent-section .container {
-  max-width: 1410px;
-}
-
-.kuzana-ent-col.kuzana-ent-left .kuzana-ent-item {
-  padding-left: 88px;
-}
-
-.kuzana-ent-col.kuzana-ent-left .kuzana-ent-item:nth-child(2) {
-  padding-left: 0px;
-  padding-right: 110px;
-}
-
-.kuzana-ent-col.kuzana-ent-right .kuzana-ent-item:nth-child(2) {
-  padding-left: 85px;
-}
-
-.kuzana-ent-section .heading-h2 {
-  color: #4A6290;
-  margin-bottom: 20px;
-}
-
-.kuzana-ent-section .heading-h2 .highlight-text {
-  background-image: linear-gradient(180deg, #ff9e6d 10%, #ff626e 55%, #7a537d 100%);
-}
-
-
-.faq-section {
-  padding: 120px 0;
-  background-color: #ffffff;
-}
-
-.faq-section .container {
-  max-width: 1160px;
-  margin: 0 auto;
-}
-
-.faq-header {
-  text-align: center;
-  margin-bottom: 46px;
-}
-
-.faq-section .heading-h2 {
-  color: rgba(74, 98, 144, 1);
-}
-
-.faq-section .highlight-text {
-  background-image: linear-gradient(180deg, #ff9e6d 10%, #ff626e 55%, #7a537d 100%);
-}
-
-.faq-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.faq-item {
-  border: 1px solid transparent;
-  border-radius: 4px;
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(0deg, #4a62904d, #4a62904d) border-box;
-}
-
-.faq-item.active {
-  border: 1px solid transparent;
-  border-radius: 4px;
-  background:
-    linear-gradient(#FEF6EA, #FEF6EA) padding-box,
-    linear-gradient(270deg, #FDC469 0%, #FE7272 50%, #4A6290 100%) border-box;
-}
-
-.faq-question {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-}
-
-.faq-question:focus-visible {
-  outline: none;
-}
-
-.faq-icon {
-
-  width: 20px;
-  min-width: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.faq-icon img {
-  width: 16px;
-  height: 16px;
-  display: block;
-  transition: .3s;
-}
-
-.question-title {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1.4;
-  color: #4A6290;
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .45s ease;
-}
-
-.faq-answer-inner {
-  padding: 0 18px 18px 50px;
-  opacity: 0;
-  transition: opacity .25s ease;
-}
-
-.faq-item.active .faq-answer-inner {
-  opacity: 1;
-}
-
-.answer-desc {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.45em;
-  color: rgba(51, 51, 51, 1);
-  font-weight: 500;
-}
-
-.kuzana-ent-steps-header {
-  text-align: center;
-  margin-bottom: 46px;
-}
-
-.kuzana-ent-steps-section .container {
-  max-width: 1305px;
-}
-
-section.kuzana-ent-steps-section {
-  padding: 60px 0px;
-}
-
-.kuzana-ent-steps-header .heading-h2 {
-  color: #4A6290;
-  margin-bottom: 20px;
-}
-
-.kuzana-ent-steps-header .heading-h2 .highlight-text {
-  background-image: linear-gradient(180deg, #ff9e6d 10%, #ff626e 55%, #7a537d 100%);
-}
-
-.kuzana-ent-steps-header p {
-  font-size: 18px;
-  color: rgba(51, 51, 51, 1);
-  margin: 0 auto;
-  line-height: 1.5;
-  font-weight: 500;
-}
-
-.kuzana-ent-step-num img {
-  width: 87px;
-  height: 87px;
-  object-fit: contain;
-}
-
-.kuzana-ent-journey {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  position: relative;
-  background-image: url(../images/wave.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.kuzana-ent-step-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  width: 50%;
-}
-
-.kuzana-ent-left-align {
-  align-self: flex-start;
-  padding-right: 70px;
-}
-
-.kuzana-ent-right-align {
-  align-self: flex-end;
-  padding-left: 70px;
-}
-
-.kuzana-ent-step-text h3 {
-  font-size: 24px;
-  color: rgba(51, 51, 51, 1);
-  margin-bottom: 16px;
-  font-weight: 800;
-}
-
-.kuzana-ent-step-text p {
-  font-size: 18px;
-  color: rgba(51, 51, 51, 1);
-  line-height: 1.5em;
-  font-weight: 500;
-}
-
-.process-section.education_processs {
-  padding: 48px 0px 120px;
-}
-
-.workshops-section.education-workshop-section {
-  padding-top: 120px;
-}
-
-@media (max-width: 992px) {
-  .kuzana-ent-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .kuzana-ent-col {
-    text-align: center;
-    gap: 30px;
-  }
-
-  .kuzana-ent-left .kuzana-ent-item {
-    flex-direction: row;
-  }
-
-  .kuzana-ent-item {
-    justify-content: center;
-    text-align: center;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1499px) {
-  .process-section.education_processs {
-    padding: 20px 0px 80px;
-  }
-
-  .workshops-section.education-workshop-section {
-    padding-top: 80px;
-  }
-
-  .kuzana-ent-steps-section {
-    padding: 20px 0px 40px;
-  }
-
-  .workshops-section {
-    padding: 40px 0px;
-  }
-
-  .kuzana-ent-section {
-    padding: 40px 0px 60px;
-  }
-
-  .founder_process_section.education-process {
-    padding-bottom: 80px;
-  }
-
-  .faq-section {
-    padding: 80px 0;
-  }
-
-  .question-title {
-    font-size: 20px;
-    ;
-  }
-
-  .founder_process_section.education-process .icon-wrapper img {
-    height: 52px;
-    width: 52px;
-  }
-
-  .kuzana-ent-item p {
-    font-size: 18px;
-  }
-
-  .kuzana-ent-step-text p,
-  .kuzana-ent-steps-header p,
-  .kuzana-program-container.education-program-container .features-grid .feature-card .card-title h3,
-  .banner-list li {
-    font-size: 16px;
-  }
-
-  .education-program-container .included-banner p {
-    font-size: 20px;
-  }
-
-  .kuzana-ent-step-num img {
-    width: 75px;
-    height: 75px;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1199px) {
-
-  .kuzana-ent-step-text p,
-  .kuzana-ent-steps-header p,
-  .kuzana-program-container.education-program-container .features-grid .feature-card .card-title h3,
-  .banner-list li {
-    font-size: 16px;
-  }
-
-  .process-section.education_processs {
-    padding: 0px 0px 50px;
-  }
-
-  .call-to-action.business-action {
-    padding: 60px 0px;
-  }
-
-  .workshops-section.education-workshop-section {
-    padding: 50px 0px 0px;
-  }
-
-  .kuzana-ent-steps-section {
-    padding: 50px 0px;
-  }
-
-  .workshops-section.education-walk-away {
-    padding: 0px;
-  }
-
-  .kuzana-ent-section {
-    padding: 50px 0px 50px;
-  }
-
-  .kuzana-ent-item p {
-    font-size: 18px;
-  }
-
-  .kuzana-ent-col.kuzana-ent-right .kuzana-ent-item:nth-child(2) {
-    padding-left: 50px;
-  }
-
-  .kuzana-ent-col.kuzana-ent-left .kuzana-ent-item:nth-child(2) {
-    padding-right: 50px;
-  }
-
-  .education-program-container .included-banner p {
-    font-size: 16px;
-  }
-
-  .kuzana-ent-step-num img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .kuzana-ent-step-text h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-
-  .kuzana-ent-right-align {
-    padding-left: 40px;
-  }
-
-  .kuzana-ent-left-align {
-    padding-right: 40px;
-  }
-
-  .workshops-header {
-    margin-bottom: 40px;
-  }
-
-  .founder_process_section.education-process {
-    padding-bottom: 50px;
-  }
-
-  .faq-section {
-    padding: 50px 0;
-  }
-
-  .question-title {
-    font-size: 18px;
-  }
-
-  .answer-desc {
-    font-size: 16px;
-  }
-
-  .faq-header {
-    margin-bottom: 35px;
-  }
-
-  .founder_process_section.education-process .icon-wrapper img {
-    height: 52px;
-    width: 52px;
-  }
-
-  .industry-card .card-text {
-    font-size: 16px;
-    text-align: left;
-  }
-
-  .industry-card {
-    padding: 15px;
-    gap: 10px;
-  }
-
-  .industry-flex-wrapper {
-    gap: 18px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .process-section.education_processs {
-    padding: 0px 0px 50px;
-  }
-
-  .call-to-action.business-action {
-    padding: 50px 0px;
-  }
-
-  .workshops-section.education-workshop-section {
-    padding-top: 50px;
-  }
-
-  .kuzana-ent-steps-section {
-    padding: 0px !important;
-  }
-
-  .kuzana-ent-step-num img {
-    width: 55px;
-    height: 55px;
-  }
-
-  .founder_process_section .process-header p,
-  .kuzana-ent-step-text p,
-  .kuzana-ent-steps-header p,
-  .kuzana-ent-header p {
-    font-size: 16px;
-  }
-
-  .kuzana-ent-step-text h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-
-  .kuzana-ent-left-align {
-    padding-right: 20px;
-  }
-
-  .kuzana-ent-right-align {
-    padding-left: 20px;
-  }
-
-  .kuzana-ent-section {
-    padding: 0px 0px 50px;
-  }
-
-  .kuzana-ent-item p {
-    font-size: 16px;
-    text-align: left;
-  }
-
-  .kuzana-ent-col.kuzana-ent-right .kuzana-ent-item:nth-child(2) {
-    padding-left: 40px;
-  }
-
-  .kuzana-ent-col.kuzana-ent-left .kuzana-ent-item:nth-child(2) {
-    padding-right: 40px;
-  }
-
-  .kuzana-ent-col.kuzana-ent-left .kuzana-ent-item {
-    padding-left: 40px;
-  }
-
-  .education-program-container .included-banner p {
-    font-size: 18px;
-  }
-
-  .industry-card {
-    padding: 15px;
-    gap: 10px;
-    text-align: left;
-  }
-
-  .founder_process_section.education-process .icon-wrapper img {
-    height: 50px;
-    width: 50px;
-  }
-
-  .industry-card .card-text {
-    font-size: 16px;
-  }
-
-  .founder_process_section.education-process {
-    padding-bottom: 50px;
-  }
-
-  .faq-section {
-    padding: 50px 0;
-  }
-
-  .question-title {
-    font-size: 20px;
-  }
-
-  .answer-desc,
-  .banner-list li {
-    font-size: 16px;
-  }
-
-  .banner-list {
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  .about-hero-section .hero-buttons {
-    margin-top: 25px;
-  }
-
-  .education-walk-away .workshops-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .industry-flex-wrapper {
-    gap: 18px;
-  }
-}
-
-
-@media (max-width: 767px) {
-
-  .founder_process_section .process-header p,
-  .kuzana-ent-step-text p,
-  .kuzana-ent-steps-header p,
-  .kuzana-ent-header p {
-    font-size: 15px;
-  }
-
-  .process-section.education_processs {
-    padding: 0px 0px 30px;
-  }
-
-  .call-to-action.business-action {
-    padding: 30px 0px;
-  }
-
-  .workshops-section.education-workshop-section {
-    padding-top: 30px;
-  }
-
-  .kuzana-ent-steps-section {
-    padding: 0px 0px 30px;
-  }
-
-  .kuzana-ent-step-row {
-    width: 100%;
-  }
-
-  .kuzana-ent-right-align {
-    padding-left: 0;
-  }
-
-  .kuzana-ent-left-align {
-    padding-right: 0px;
-  }
-
-  .kuzana-ent-step-num img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .kuzana-ent-step-text h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .kuzana-ent-steps-section {
-    padding: 0px !important;
-  }
-
-  .education-walk-away .workshops-grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-  }
-
-  .kuzana-ent-section {
-    padding: 0px 0px 30px;
-  }
-
-  .kuzana-ent-content {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .kuzana-ent-item p {
-    font-size: 16px;
-    text-align: left;
-  }
-
-  .kuzana-ent-item {
-    justify-content: left !important;
-  }
-
-  .kuzana-ent-col.kuzana-ent-left .kuzana-ent-item {
-    padding-left: 0;
-  }
-
-  .kuzana-ent-col.kuzana-ent-left .kuzana-ent-item:nth-child(2) {
-    padding-left: 0px;
-    padding-right: 0;
-  }
-
-  .kuzana-ent-col {
-    gap: 15px !important;
-  }
-
-  .kuzana-ent-header {
-    margin-bottom: 30px;
-  }
-
-  .kuzana-ent-item img {
-    width: 18px;
-    height: 18px;
-    margin-top: 4px;
-  }
-
-  .kuzana-ent-content {
-    gap: 20px;
-  }
-
-  .kuzana-ent-col.kuzana-ent-right .kuzana-ent-item:nth-child(2) {
-    padding-left: 0;
-  }
-
-  .kuzana-ent-media {
-    align-items: self-start;
-  }
-
-  .kuzana-program-container.education-program-container .features-grid .feature-card .card-title h3 {
-    font-size: 15px;
-  }
-
-  .kuzana-program-container .features-grid .feature-card {
-    padding: 15px;
-  }
-
-  .education-program-container .included-banner {
-    padding: 10px 20px;
-  }
-
-  .education-program-container .included-banner p {
-    font-size: 16px;
-  }
-
-  .industry-card {
-    width: 100%;
-    padding: 15px;
-    gap: 10px;
-  }
-
-  .founder_process_section.education-process .icon-wrapper img {
-    height: 50px;
-    width: 50px;
-  }
-
-  .industry-flex-wrapper {
-    gap: 15px;
-  }
-
-  .founder_process_section.education-process {
-    padding-bottom: 30px;
-  }
-
-  .faq-section {
-    padding: 30px 0;
-  }
-
-  .question-title {
-    font-size: 16px;
-  }
-
-  .faq-question {
-    gap: 8px;
-    padding: 15px 15px;
-  }
-
-  .faq-answer-inner {
-    padding: 0 15px 15px 45px;
-  }
-
-  .answer-desc {
-    font-size: 15px;
-  }
-
-  .faq-header {
-    margin-bottom: 30px;
-  }
-
-  .call-to-action {
-    padding: 40px 0px !important;
-  }
-
-  .industry-card .card-text {
-    font-size: 16px;
-  }
-
-  .about_process_section .heading-h2 br,
-  .kuzana-program-container .heading-h2 br {
-    display: none;
-  }
-
-  .banner-list {
-    gap: 12px;
-    list-style: none;
-    flex-wrap: wrap;
-    text-align: left;
-  }
-
-  .banner-list li {
-    font-size: 15px;
-  }
-
-  .banner-list li img {
-    width: 16px;
-    height: 16px;
-  }
-
-  .kuzana-ent-bottom {
-    max-width: 100%;
-  }
-
-  .founder_process_section .steps-wrapper {
-    gap: 50px;
-  }
-
-  .founder_process_section .steps-wrapper .step-card .step-number img {
-    height: 35px;
-    width: 35px;
-  }
-
-  .workshops-section .workshops-header .heading-h2 {
-    margin-bottom: 15px;
-  }
-}
-
-
-/* Education Investment page css end */
