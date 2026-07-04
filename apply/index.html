@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <title>Apply to Kuzana</title>
     <link rel="preconnect" href="https://docs.google.com" crossorigin>
+    <script src="/attribution.js"></script>
     <script>
-        (function () {
-            var params = new URLSearchParams(window.location.search || '');
-            var referral = params.get('referral') || params.get('referrer');
-            var target = 'https://form.kuzana.co/apply';
-            if (referral) target += '?referral=' + encodeURIComponent(referral);
-            window.location.replace(target);
-        })();
+        window.location.replace(
+            window.KuzanaAttribution.buildApplyUrl('https://form.kuzana.co/apply')
+        );
     </script>
     <!-- Fallback for older/JS-disabled browsers -->
     <meta property="og:site_name" content="Kuzana">
@@ -27,7 +24,6 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="/images/kuzana-logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-    <meta name="referrer" content="no-referrer">
     <link rel="prefetch" href="https://form.kuzana.co/apply">
     <link rel="prerender" href="https://form.kuzana.co/apply">
     <!-- Website Schema -->
@@ -64,15 +60,8 @@
 <body>
     <p>If you are not redirected automatically, continue to the <a id="apply-fallback" href="https://form.kuzana.co/apply">application form</a>.</p>
     <script>
-        (function () {
-            var params = new URLSearchParams(window.location.search || '');
-            var referral = params.get('referral') || params.get('referrer');
-            var link = document.getElementById('apply-fallback');
-            if (referral && link) {
-                link.href = 'https://form.kuzana.co/apply?referral=' + encodeURIComponent(referral);
-            }
-        })();
+        document.getElementById('apply-fallback').href =
+            window.KuzanaAttribution.buildApplyUrl('https://form.kuzana.co/apply');
     </script>
 </body>
 </html>
-

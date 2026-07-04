@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Day 0 confirmation: investment readiness streak onboarding -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>You're in – Day 0 | Kuzana</title>
+    <meta name="description" content="You're in! We'll send you a 5-minute investment readiness step daily. Build your streak toward 100.">
+    <meta property="og:site_name" content="Kuzana">
+    <meta property="og:url" content="https://kuzana.co/day0">
+    <meta property="og:title" content="You're in – Day 0">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://kuzana.co/day0">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <style>
+        :root {
+            --text: #1f2937;
+            --muted: #4b5563;
+            --primary: #0f172a;
+            --accent: #ff6f74;
+            --done: #0a7a38;
+            --pending: #9ca3af;
+            --card: #ffffff;
+            --border: #e5e7eb;
+            --bg: #fafafa;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--text);
+            background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+            line-height: 1.55;
+            min-height: 100vh;
+        }
+        .wrap {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 48px 20px 64px;
+        }
+        h1 {
+            margin: 0 0 20px;
+            font-size: clamp(2rem, 6vw, 2.75rem);
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+        p {
+            margin: 0 0 14px;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+        .streak-card {
+            margin: 28px 0 32px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 22px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+        .streak-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .streak-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 1.05rem;
+            font-weight: 500;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .streak-list li:last-child {
+            border-bottom: 0;
+        }
+        .streak-list li.done {
+            color: var(--primary);
+        }
+        .streak-list li.pending {
+            color: var(--pending);
+            font-weight: 400;
+        }
+        .streak-list li.more {
+            color: var(--pending);
+            font-weight: 400;
+            padding-top: 10px;
+        }
+        .check {
+            color: var(--done);
+            font-size: 1.1rem;
+            width: 1.25rem;
+            text-align: center;
+        }
+        .memo-note {
+            font-size: 1rem;
+            color: var(--text);
+            margin: 0;
+        }
+        .memo-note a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .memo-note a:hover {
+            color: #e85f64;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>You're in!</h1>
+
+        <p>We will send you a 5 minute investment readiness step daily.</p>
+        <p>Each day you complete the step you extend your streak.</p>
+        <p>See if you can get to 100... 👀</p>
+
+        <div class="streak-card" aria-label="Your streak progress">
+            <ul class="streak-list">
+                <li class="done"><span class="check" aria-hidden="true">✅</span> Day0</li>
+                <li class="pending"><span class="check" aria-hidden="true"></span> Day1</li>
+                <li class="pending"><span class="check" aria-hidden="true"></span> Day2</li>
+                <li class="pending"><span class="check" aria-hidden="true"></span> Day3</li>
+                <li class="pending"><span class="check" aria-hidden="true"></span> Day4</li>
+                <li class="more">…</li>
+            </ul>
+        </div>
+
+        <p class="memo-note">
+            Remember the
+            <a href="https://docs.google.com/document/d/1Z9PJT7TByPNx_eySH-034175sONTJYqzwc66k728SuI/edit?tab=t.0#heading=h.cc1ar7hhr37l" target="_blank" rel="noopener noreferrer">40 Things to do before creating a pitch deck for investors</a>
+            here.
+        </p>
+    </div>
+</body>
+</html>

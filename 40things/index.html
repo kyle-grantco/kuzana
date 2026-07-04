@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kuzana – 40 Things Before the Deck landing page (focused, no site nav/footer) -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (GA4 gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FB5N4P252E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-FB5N4P252E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>40 Things Before the Deck – Kuzana</title>
+  <meta name="description" content="Enter your email to get instant access to Kuzana's memo: 40 things that matter more than your pitch deck when raising capital.">
+  <meta property="og:title" content="40 Things Before the Deck – Kuzana">
+  <meta property="og:description" content="A practical checklist of what serious investors actually look for before your slides.">
+  <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+  <link rel="canonical" href="https://kuzana.co/40things/">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <style>
+    :root { --background:#fafafa; --text:#222; --primary:#0f172a; --secondary:#ff6f74; }
+    * { box-sizing:border-box; }
+    html, body { height:100%; }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    main {
+      width:100%;
+      max-width:560px;
+      padding:24px 16px 32px;
+    }
+    .gate-card {
+      background:#fff;
+      border-radius:12px;
+      border:1px solid #eee;
+      padding:20px 18px 18px;
+      box-shadow:0 10px 30px rgba(15,23,42,0.08);
+    }
+    h1 {
+      margin:0 0 .75rem;
+      font-size:1.6rem;
+      font-weight:650;
+      color:var(--primary);
+    }
+    .sub {
+      margin:0 0 1.25rem;
+      font-size:.98rem;
+      line-height:1.55;
+      color:#444;
+    }
+    .gate-form {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      margin-top:.5rem;
+    }
+    .gate-form input[type=email] {
+      flex:1 1 230px;
+      padding:.8rem 1rem;
+      border-radius:8px;
+      border:1px solid #ddd;
+      font-size:.98rem;
+    }
+    .gate-form button {
+      white-space:nowrap;
+      padding:.8rem 1.4rem;
+      border-radius:8px;
+      border:0;
+      background:var(--secondary);
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .gate-form button:hover { filter:brightness(1.05); }
+    .gate-msg { font-size:.9rem; margin-top:.5rem; display:none; }
+    .gate-msg.error { color:#b00020; }
+    .gate-msg.success { color:#0a7a38; }
+    .small-note { margin-top:.6rem; font-size:.8rem; color:#666; }
+    @media (max-width:640px){
+      main { padding:20px 14px 28px; }
+      .gate-form { flex-direction:column; align-items:stretch; }
+      .gate-form button { width:100%; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <main id="main" role="main" aria-labelledby="gate-title">
+    <section class="gate-card">
+      <h1 id="gate-title">40 Things Before the Deck</h1>
+      <p class="sub">Raising capital? These 40 things matter more to serious investors than your pitch deck. Enter your email to get Kuzana's internal memo.</p>
+      <form id="fortyForm" class="gate-form" novalidate>
+        <input id="fortyEmail" type="email" name="email" autocomplete="email" placeholder="you@workemail.com" aria-label="Email" required>
+        <button type="submit">Get the Memo</button>
+      </form>
+      <p id="fortyError" class="gate-msg error">Please enter a valid email like name@company.com.</p>
+      <p id="fortySuccess" class="gate-msg success">Thanks! Redirecting you to the memo…</p>
+      <p class="small-note">We’ll also send occasional founder‑serious updates. No spam. Unsubscribe anytime.</p>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      var form = document.getElementById('fortyForm');
+      var emailInput = document.getElementById('fortyEmail');
+      var errorMsg = document.getElementById('fortyError');
+      var successMsg = document.getElementById('fortySuccess');
+      var DOC_URL = 'https://docs.google.com/document/d/1Z9PJT7TByPNx_eySH-034175sONTJYqzwc66k728SuI/edit?tab=t.0#heading=h.cc1ar7hhr37l';
+      var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxXIVLZBH3XplnP4RgTx6OIs5ZNyIkymkPKHRBNXW0YwXDSu0naMkUJjhmHKUHXfVDM/exec';
+
+      function isValidEmail(email){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
+      }
+
+      if (!form || !emailInput) return;
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'none';
+        var email = (emailInput.value || '').trim();
+        if (!isValidEmail(email)){
+          errorMsg.style.display = 'block';
+          return;
+        }
+
+        try {
+          fetch(GAS_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              name: '',
+              context: '40things_before_deck',
+              subject: '40 Things Before the Deck lead',
+              notify: 'kyle@kuzana.co',
+              source: '40things_landing'
+            })
+          }).catch(function(){});
+        } catch (err) {}
+
+        try {
+          if (window.gtag) {
+            window.gtag('event', '40things_before_deck_submit', {
+              event_category: 'lead',
+              event_label: '40things_before_deck',
+              value: 1
+            });
+          }
+        } catch (err) {}
+
+        successMsg.style.display = 'block';
+        window.location.href = DOC_URL;
+      });
+    })();
+  </script>
+</body>
+</html>
