@@ -45,6 +45,10 @@ body {
   background-color: #4A6290;
 }
 
+.header.home {
+    background: transparent;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -99,6 +103,7 @@ body {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+  padding: 0px;
 }
 
 .hamburger span {
@@ -124,7 +129,9 @@ body {
   margin-bottom: 0;
 }
 
-
+.hero-content.bizi {
+    display: block;
+}
 
 .hero-right p {
   font-size: 18px;
@@ -531,6 +538,7 @@ body {
 
 .footer-column {
   width: 100%;
+  text-align: left;
 }
 
 .footer-logo img {
@@ -1369,12 +1377,13 @@ body {
   margin-bottom: 5px;
 }
 
-.kuzana-program .badge-container .badge-text {
+.kuzana-program .badge-container .badge-text, .kuzana-program .badge-container .badge-text a {
   color: #4A6290;
   font-size: 22px;
   line-height: 1.3em;
   font-style: italic;
   font-weight: 800;
+  text-decoration: none;
 }
 
 .kuzana-program .badge-container img {
@@ -1394,11 +1403,11 @@ body {
   margin-bottom: 50px;
 }
 
-.kuzana-program .program-header .description {
-  font-size: 18px;
-  line-height: 1.4;
-  color: #333333;
-  font-weight: 500;
+.kuzana-program .program-header .description, .kuzana-program .program-header .description a {
+    font-size: 18px;
+    line-height: 1.4;
+    color: #333333;
+    font-weight: 500;
 }
 
 
@@ -2523,9 +2532,6 @@ body {
     line-height: 4rem;
   }
 
-  .hero-right {
-    margin-top: -20px;
-  }
 }
 
 @media (min-width: 1025px) and (max-width: 1199px) {
@@ -4600,7 +4606,7 @@ span.icon-check.orange-check {
 }
 
 .faq-item {
-  border: 1px solid transparent;
+  //border: 1px solid transparent;
   border-radius: 4px;
   background: linear-gradient(#fff, #fff) padding-box, linear-gradient(0deg, #4a62904d, #4a62904d) border-box;
 }
