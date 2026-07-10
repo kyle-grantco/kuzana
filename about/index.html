@@ -14,42 +14,68 @@
 
 <body>
 
+    <!-- header html -->
     <header class="header home">
         <div class="container header-container">
 
-            <div class="logo">
-                 <a href="https://kuzana.co/"><img src="../assets/images/logo.png" alt="Logo Image"></a>
+          <!-- Logo -->
+          <div class="logo">
+            <a href="https://kuzana.co/">
+              <img src="../assets/images/logo.png" alt="Kuzana Logo">
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <!-- Navigation -->
+          <nav class="nav" id="navMenu">
+
+            <a href="https://kuzana.co/portfolio/">Portfolio</a>
+
+            <a href="https://kuzana.co/how-it-works/">How It Works</a>
+
+            <a href="https://kuzana.co/class/">Class</a>
+
+            <!-- About Dropdown -->
+            <div class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle">
+                About <img src="../assets/images/dropdown-arrow.png" alt="arrow">
+              </a>
+
+              <div class="dropdown-menu">
+                <a href="https://kuzana.co/about/">About Us</a>
+                <a href="https://kuzana.co/founder/">Founder</a>
+                <a href="https://kuzana.co/#team">Team</a>
+              </div>
             </div>
 
-            <!-- HAMBURGER -->
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <!-- Resources Dropdown -->
+            <div class="dropdown">
+              <a href="https://kuzana.co/resources/" class="dropdown-toggle">
+                Resources <img src="../assets/images/dropdown-arrow.png" alt="arrow"> </a>
+
+              <div class="dropdown-menu">
+                <a href="https://blog.kuzana.co/">Blog</a>
+                <a href="https://kuzana.co/library/">Library</a>
+                <a href="https://kuzana.co/faq/">FAQ</a>
+                <a href="https://kuzana.co/cofounders/">Cofounders</a>
+                <a href="https://kuzana.co/referral/">Referral</a>
+              </div>
             </div>
 
+            <a href="https://form.kuzana.co/apply" class="apply-btn">
+              Apply Now
+            </a>
 
-            <nav class="nav" id="navMenu">
-                <a href="/portfolio/">Portfolio</a>
-                <a href="/referral/">Referral</a>
-                <a href="/faq/">FAQ</a>
-                <a href="https://kuzana.co/class#free">Class</a>
-                <a href="https://kuzana.substack.com">Blog</a>
-                <a href="/library/">Library</a>
-                <a href="#team">Team</a>
-                <a href="/cofounders/">Cofounders</a>
-                <a href="/resources/">Resources</a>
-                <a href="https://form.kuzana.co/apply"
-                        class="apply-btn cta-button"
-                        target="_blank"
-                        rel="noopener"
-                        onclick="return handleApplyClick(this.href);">
-                        Apply Now
-                    </a>  
-            </nav>
+          </nav>
 
         </div>
-    </header>
+      </header>
 
 
     <section class="hero-section about-hero-section">
@@ -494,7 +520,9 @@
 
       <div class="footer-column brand-column">
         <div class="footer-logo">
-          <img src="../assets/images/footer-logo.png" alt="KUZANA Logo">
+          <a href="https://kuzana.co/">
+           <img src="../assets/images/footer-logo.png" alt="KUZANA Logo">
+          </a>
         </div>
         <p class="brand-description">
           The Kuzana investment program is built for Kenya's most ambitious founders-12 months of entrepreneur
@@ -508,7 +536,7 @@
             <a href="https://www.instagram.com/kuzana.co/" class="social-icon"><img src="../assets/images/insagram.png" alt="KUZANA Logo"></a>
             <a href="https://www.tiktok.com/@kuzana.co" class="social-icon"><img src="../assets/images/tiktok.png" alt="KUZANA Logo"></a>
             <a href="mailto:info+website@kuzana.co" class="social-icon"><img src="../assets/images/email.png" alt="KUZANA Logo"></a>
-            <a href="https://kuzana.substack.com/" class="social-icon"><img src="../assets/images/substack.png" alt="KUZANA Logo"></a>
+            <a href="https://blog.kuzana.co/" class="social-icon"><img src="../assets/images/substack.png" alt="KUZANA Logo"></a>
           </div>
         </div>
       </div>
@@ -528,7 +556,7 @@
         <h3 class="column-title">Resources</h3>
         <ul class="footer-links">
           <li><a href="/library/">Library</a></li>
-          <li><a href="https://kuzana.substack.com">Blogs</a></li>
+          <li><a href="https://blog.kuzana.co/">Blogs</a></li>
           <li><a href="/resources/">Resources</a></li>
         </ul>
       </div>

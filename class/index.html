@@ -14,6 +14,7 @@
     <meta property="og:image" content="/images/kuzana-logo.png">
     <link rel="icon" href="/images/favicon.png" type="image/png">
     <link rel="preconnect" href="https://docs.google.com" crossorigin>
+      <link rel="stylesheet" href="../assets/css/style.css" />
     <!-- Website Schema -->
     <script type="application/ld+json">
     {
@@ -48,7 +49,7 @@
         html, body { height: 100%; }
         body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--background); }
         .wrap { max-width: 920px; margin: 0 auto; padding: 24px; }
-        .header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0 8px; }
+        .headers { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0 8px; }
         .logo { height: 36px; width: auto; display: block; }
         h1 { margin: 12px 0 20px; font-size: 1.5rem; font-weight: 600; text-align: left; color: var(--primary); }
         h2 { margin: 0 0 12px; font-size: 1.25rem; font-weight: 600; color: var(--primary); }
@@ -126,7 +127,7 @@
         .cta-signup:hover { filter: brightness(1.05); }
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: grid; place-items: center; z-index: 50; }
         .modal { width: min(960px, 96vw); background: #fff; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.2); padding: 12px; border: 1px solid #eee; }
-        .modal header { display: flex; align-items: center; justify-content: space-between; }
+        .modal headers { display: flex; align-items: center; justify-content: space-between; }
         .modal-close { background: transparent; border: 0; font-size: 24px; line-height: 1; cursor: pointer; padding: 6px 8px; border-radius: 6px; }
         .modal iframe { width: 100%; height: 75vh; border: 0; }
         .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,1px,1px); white-space: nowrap; border: 0; }
@@ -146,9 +147,71 @@
     <meta name="description" content="Register your interest for the Kuzana Class.">
     <script src="/attribution.js"></script>
 </head>
+    <!-- header html -->
+    <header class="header">
+        <div class="container header-container">
+
+          <!-- Logo -->
+          <div class="logo">
+            <a href="https://kuzana.co/">
+              <img src="../assets/images/logo.png" alt="Kuzana Logo">
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <!-- Navigation -->
+          <nav class="nav" id="navMenu">
+
+            <a href="https://kuzana.co/portfolio/">Portfolio</a>
+
+            <a href="https://kuzana.co/how-it-works/">How It Works</a>
+
+            <a href="https://kuzana.co/class/">Class</a>
+
+            <!-- About Dropdown -->
+            <div class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle">
+                About <img src="../assets/images/dropdown-arrow.png" alt="arrow">
+              </a>
+
+              <div class="dropdown-menu">
+                <a href="https://kuzana.co/about/">About Us</a>
+                <a href="https://kuzana.co/founder/">Founder</a>
+                <a href="https://kuzana.co/#team">Team</a>
+              </div>
+            </div>
+
+            <!-- Resources Dropdown -->
+            <div class="dropdown">
+              <a href="https://kuzana.co/resources/" class="dropdown-toggle">
+                Resources <img src="../assets/images/dropdown-arrow.png" alt="arrow"> </a>
+
+              <div class="dropdown-menu">
+                <a href="https://blog.kuzana.co/">Blog</a>
+                <a href="https://kuzana.co/library/">Library</a>
+                <a href="https://kuzana.co/faq/">FAQ</a>
+                <a href="https://kuzana.co/cofounders/">Cofounders</a>
+                <a href="https://kuzana.co/referral/">Referral</a>
+              </div>
+            </div>
+
+            <a href="https://form.kuzana.co/apply" class="apply-btn">
+              Apply Now
+            </a>
+
+          </nav>
+
+        </div>
+      </header>
 <body>
     <main class="wrap" role="main">
-        <div class="header">
+        <div class="headers" style="margin-top:100px;">
             <a href="/" aria-label="Kuzana Home">
                 <img src="/images/logo.png" alt="Kuzana" class="logo" loading="eager" decoding="async" fetchpriority="high">
             </a>
@@ -317,6 +380,72 @@
         </section>
 
     </main>
+      <footer class="footer-section">
+    <div class="container footer-container">
+
+      <div class="footer-column brand-column">
+        <div class="footer-logo">
+          <a href="https://kuzana.co/">
+           <img src="../assets/images/footer-logo.png" alt="KUZANA Logo">
+          </a>
+        </div>
+        <p class="brand-description">
+          The Kuzana investment program is built for Kenya's most ambitious founders-12 months of entrepreneur
+          workshops, real capital, and the kind of support no other investment company in Kenya offers. </p>
+        <div class="social-media-wrapper">
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/kuzana" class="social-icon"><img src="../assets/images/facebook.png" alt="KUZANA Logo"></a>
+            <a href="https://x.com/kuzana_co" class="social-icon"><img src="../assets/images/twiter.png" alt="KUZANA Logo"></a>
+            <a href="https://www.linkedin.com/company/kuzana" class="social-icon"><img src="../assets/images/linkdin.png" alt="KUZANA Logo"></a>
+            <a href="https://www.instagram.com/kuzana.co/" class="social-icon"><img src="../assets/images/insagram.png" alt="KUZANA Logo"></a>
+            <a href="https://www.tiktok.com/@kuzana.co" class="social-icon"><img src="../assets/images/tiktok.png" alt="KUZANA Logo"></a>
+            <a href="mailto:info+website@kuzana.co" class="social-icon"><img src="../assets/images/email.png" alt="KUZANA Logo"></a>
+            <a href="https://blog.kuzana.co/" class="social-icon"><img src="../assets/images/substack.png" alt="KUZANA Logo"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-column links-column">
+        <h3 class="column-title">Program</h3>
+        <ul class="footer-links">
+          <li><a href="https://form.kuzana.co/apply">Apply Now</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/cofounders/">Co-Founders</a></li>
+          <li><a href="/referral/">Referral</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column links-column">
+        <h3 class="column-title">Resources</h3>
+        <ul class="footer-links">
+          <li><a href="/library/">Library</a></li>
+          <li><a href="https://blog.kuzana.co/">Blogs</a></li>
+          <li><a href="/resources/">Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column newsletter-column">
+        <h3 class="column-title newsletter-heading">Subscribe to Our Newsletter</h3>
+        <p class="newsletter-sub">Building the YCombinator for African SMEs</p>
+
+        <iframe title="Kuzana newsletter" loading="lazy" src="https://kuzana.substack.com/embed" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
+
+        <p class="privacy-notice">
+          By subscribing you agree to Substack's <a href="/terms.html">Terms of Use</a>, Our <a href="/privacypolicy/">Privacy Policy</a> and
+          our <a href="#">Information collection notice</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>Kuzana | © 2026 | <a href="/privacypolicy/">Privacy Policy</a></p>
+    </div>
+  </footer>
+    <script src="../assets/js/custom.js"></script>
+  <script src="../script.js"></script>
     <script>
         (function () {
             /**
