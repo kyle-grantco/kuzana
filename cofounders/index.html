@@ -51,12 +51,12 @@
         ]
     }
     </script>
-
+    <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../styles.css">
   <style>
     /* Page-specific minimal adjustments */
     body { padding-top: 90px; }
-    .hero-cofounders { text-align: center; padding: 1rem 1rem .5rem; min-height: auto; }
+    .hero-cofounders { text-align: center; padding: 1rem 1rem .5rem; min-height: auto; margin-top: 60px; }
     .hero-cofounders .hero-content { padding: 0; margin-top: 0; gap: .75rem; }
     .hero-cofounders h1 { margin: .25rem 0 .25rem; }
     .hero-cofounders .hero-sub { margin: 0; }
@@ -71,27 +71,41 @@
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header class="header">
+        <div class="container header-container">
 
-  <nav class="main-nav" role="navigation" aria-label="Main navigation">
-    <div class="logo">
-      <a href="/">
-        <img src="../images/logo.png" class="image-placeholder" loading="eager" decoding="async" fetchpriority="high" alt="Kuzana">
-      </a>
-    </div>
-    <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="main-navigation">
-      <li><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-      <li><a href="/referral/" class="nav-link">Referral</a></li>
-      <li><a href="/faq/" class="nav-link">FAQ</a></li>
-            <li><a href="https://kuzana.co/class#free" class="nav-link">Class</a></li>
-      <li><a href="https://kuzana.substack.com" class="nav-link" target="_blank" rel="noopener noreferrer">Blog</a></li>
-      <li><a href="/library/" class="nav-link">Library</a></li>
-      <li><a href="/cofounders/" class="nav-link">CoFounders</a></li>
-      <li><a href="/resources/" class="nav-link">Resources</a></li>
-    </ul>
-  </nav>
+            <div class="logo">
+                <a href="https://kuzana.co/"><img src="../assets/images/logo.png" alt="Logo Image"></a>
+            </div>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="nav" id="navMenu">
+                <a href="/portfolio/">Portfolio</a>
+                <a href="/referral/">Referral</a>
+                <a href="/faq/">FAQ</a>
+                <a href="https://kuzana.co/class#free">Class</a>
+                <a href="https://kuzana.substack.com">Blog</a>
+                <a href="/library/">Library</a>
+                <a href="#team">Team</a>
+                <a href="/cofounders/">Cofounders</a>
+                <a href="/resources/">Resources</a>
+                <a href="https://form.kuzana.co/apply"
+                        class="apply-btn cta-button"
+                        target="_blank"
+                        rel="noopener"
+                        onclick="return handleApplyClick(this.href);">
+                        Apply Now
+                    </a>  
+            </nav>
+
+        </div>
+    </header>
 
   <header class="hero hero-cofounders">
     <div class="hero-content">
@@ -170,25 +184,73 @@
     </section>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="address">
-        <p>Spring Valley Rd, Nairobi, Kenya</p>
+
+  <footer class="footer-section">
+    <div class="container footer-container">
+
+      <div class="footer-column brand-column">
+        <div class="footer-logo">
+          <img src="../assets/images/footer-logo.png" alt="KUZANA Logo">
+        </div>
+        <p class="brand-description">
+          The Kuzana investment program is built for Kenya's most ambitious founders-12 months of entrepreneur
+          workshops, real capital, and the kind of support no other investment company in Kenya offers. </p>
+        <div class="social-media-wrapper">
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/kuzana" class="social-icon"><img src="../assets/images/facebook.png" alt="KUZANA Logo"></a>
+            <a href="https://x.com/kuzana_co" class="social-icon"><img src="../assets/images/twiter.png" alt="KUZANA Logo"></a>
+            <a href="https://www.linkedin.com/company/kuzana" class="social-icon"><img src="../assets/images/linkdin.png" alt="KUZANA Logo"></a>
+            <a href="https://www.instagram.com/kuzana.co/" class="social-icon"><img src="../assets/images/insagram.png" alt="KUZANA Logo"></a>
+            <a href="https://www.tiktok.com/@kuzana.co" class="social-icon"><img src="../assets/images/tiktok.png" alt="KUZANA Logo"></a>
+            <a href="mailto:info+website@kuzana.co" class="social-icon"><img src="../assets/images/email.png" alt="KUZANA Logo"></a>
+            <a href="https://kuzana.substack.com/" class="social-icon"><img src="../assets/images/substack.png" alt="KUZANA Logo"></a>
+          </div>
+        </div>
       </div>
-      <ul class="social-links">
-        <li><a href="https://www.linkedin.com/company/kuzana" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://kuzana.substack.com" target="_blank" rel="noopener">Substack</a></li>
-        <li><a href="https://www.tiktok.com/@kuzana.co" target="_blank" rel="noopener">TikTok</a></li>
-        <li><a href="https://www.instagram.com/kuzana.co/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://x.com/kuzana_co" target="_blank" rel="noopener">X</a></li>
-        <li><a href="mailto:info+website@kuzana.co">Email</a></li>
-      </ul>
+
+      <div class="footer-column links-column">
+        <h3 class="column-title">Program</h3>
+        <ul class="footer-links">
+          <li><a href="https://form.kuzana.co/apply">Apply Now</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/cofounders/">Co-Founders</a></li>
+          <li><a href="/referral/">Referral</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column links-column">
+        <h3 class="column-title">Resources</h3>
+        <ul class="footer-links">
+          <li><a href="/library/">Library</a></li>
+          <li><a href="https://kuzana.substack.com">Blogs</a></li>
+          <li><a href="/resources/">Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column newsletter-column">
+        <h3 class="column-title newsletter-heading">Subscribe to Our Newsletter</h3>
+        <p class="newsletter-sub">Building the YCombinator for African SMEs</p>
+
+        <iframe title="Kuzana newsletter" loading="lazy" src="https://kuzana.substack.com/embed" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
+
+        <p class="privacy-notice">
+          By subscribing you agree to Substack's <a href="/terms.html">Terms of Use</a>, Our <a href="/privacypolicy/">Privacy Policy</a> and
+          our <a href="#">Information collection notice</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>Kuzana | © 2026 | <a href="/privacypolicy/">Privacy Policy</a></p>
     </div>
   </footer>
 
   <script src="/attribution.js"></script>
 
-
+    <script src="../assets/js/custom.js"></script>
   <script src="../script.js"></script>
 </body>
 </html>

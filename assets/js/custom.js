@@ -11,8 +11,8 @@ if (hamburger && navMenu) {
 }
 
 // Faq code
- const plusIcon = "assets/images/icon-plus.png";
-        const minusIcon = "assets/images/icon-minus.png";
+ const plusIcon = "../assets/images/icon-plus.png";
+        const minusIcon = "../assets/images/icon-minus.png";
 
         document.querySelectorAll(".faq-question").forEach((question) => {
 
