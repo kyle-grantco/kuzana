@@ -444,7 +444,7 @@ p {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 0px;
 }
 
 .bar {
