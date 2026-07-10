@@ -113,41 +113,68 @@
             } catch (e) {}
         })();
     </script>
-  <header class="header home">
-    <div class="container header-container">
+    <!-- header html -->
+    <header class="header home">
+        <div class="container header-container">
 
-      <div class="logo">
-        <a href="https://kuzana.co/"><img src="assets/images/logo.png" alt="Logo Image"></a>
-      </div>
+          <!-- Logo -->
+          <div class="logo">
+            <a href="https://kuzana.co/">
+              <img src="assets/images/logo.png" alt="Kuzana Logo">
+            </a>
+          </div>
 
-      <!-- HAMBURGER -->
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+          <!-- Hamburger -->
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-      <nav class="nav" id="navMenu">
-        <a href="/portfolio/">Portfolio</a>
-        <a href="/referral/">Referral</a>
-        <a href="/faq/">FAQ</a>
-        <a href="https://kuzana.co/class#free">Class</a>
-        <a href="https://kuzana.substack.com">Blog</a>
-        <a href="/library/">Library</a>
-        <a href="#team">Team</a>
-        <a href="/cofounders/">Cofounders</a>
-        <a href="/resources/">Resources</a>
-        <a href="https://form.kuzana.co/apply"
-                class="apply-btn cta-button"
-                target="_blank"
-                rel="noopener"
-                onclick="return handleApplyClick(this.href);">
-                Apply Now
-             </a>  
-      </nav>
+          <!-- Navigation -->
+          <nav class="nav" id="navMenu">
 
-    </div>
-  </header>
+            <a href="https://kuzana.co/portfolio/">Portfolio</a>
+
+            <a href="https://kuzana.co/how-it-works/">How It Works</a>
+
+            <a href="https://kuzana.co/class/">Class</a>
+
+            <!-- About Dropdown -->
+            <div class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle">
+                About <img src="assets/images/dropdown-arrow.png" alt="arrow">
+              </a>
+
+              <div class="dropdown-menu">
+                <a href="https://kuzana.co/about/">About Us</a>
+                <a href="https://kuzana.co/founder/">Founder</a>
+                <a href="https://kuzana.co/#team">Team</a>
+              </div>
+            </div>
+
+            <!-- Resources Dropdown -->
+            <div class="dropdown">
+              <a href="https://kuzana.co/resources/" class="dropdown-toggle">
+                Resources <img src="assets/images/dropdown-arrow.png" alt="arrow"> </a>
+
+              <div class="dropdown-menu">
+                <a href="https://blog.kuzana.co/">Blog</a>
+                <a href="https://kuzana.co/library/">Library</a>
+                <a href="https://kuzana.co/faq/">FAQ</a>
+                <a href="https://kuzana.co/cofounders/">Cofounders</a>
+                <a href="https://kuzana.co/referral/">Referral</a>
+              </div>
+            </div>
+
+            <a href="https://form.kuzana.co/apply" class="apply-btn">
+              Apply Now
+            </a>
+
+          </nav>
+
+        </div>
+      </header>
 
 
   <section class="hero-section">
@@ -874,7 +901,9 @@
 
       <div class="footer-column brand-column">
         <div class="footer-logo">
-          <img src="assets/images/footer-logo.png" alt="KUZANA Logo">
+          <a href="https://kuzana.co/">
+           <img src="assets/images/footer-logo.png" alt="KUZANA Logo">
+          </a>
         </div>
         <p class="brand-description">
           The Kuzana investment program is built for Kenya's most ambitious founders-12 months of entrepreneur
