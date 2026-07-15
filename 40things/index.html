@@ -149,18 +149,17 @@
         }
 
         try {
+          var body = new URLSearchParams();
+          body.set('email', email);
+          body.set('name', '');
+          body.set('context', '40things_before_deck');
+          body.set('subject', '40 Things Before the Deck lead');
+          body.set('notify', 'kyle@kuzana.co');
+          body.set('source', '40things_landing');
           fetch(GAS_ENDPOINT, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: email,
-              name: '',
-              context: '40things_before_deck',
-              subject: '40 Things Before the Deck lead',
-              notify: 'kyle@kuzana.co',
-              source: '40things_landing'
-            })
+            body: body
           }).catch(function(){});
         } catch (err) {}
 

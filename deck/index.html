@@ -284,15 +284,14 @@
                 submitButton.disabled = true;
                 submitButton.textContent = 'Submitting...';
 
+                var body = new URLSearchParams();
+                body.set('email', email);
+                body.set('context', 'deck_request');
+                body.set('source', 'deck_landing');
                 fetch(GAS_ENDPOINT, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        email: email,
-                        context: 'deck_request',
-                        source: 'deck_landing'
-                    })
+                    body: body
                 }).catch(function () {
                     // Apps Script no-cors responses are opaque; network visibility is limited in the browser.
                 }).finally(function () {
