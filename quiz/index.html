@@ -37,7 +37,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 72px 20px 28px;
+      position: relative;
+    }
+    .quiz-logo {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 20;
+      display: block;
+      line-height: 0;
+    }
+    .quiz-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    @media (min-width: 640px) {
+      .quiz-logo { top: 24px; right: 28px; }
+      .quiz-logo img { height: 44px; }
+      body { padding-top: 88px; }
     }
     .container { max-width: 680px; width: 100%; }
     .screen { display: none; animation: fadeIn 0.5s ease; }
@@ -189,7 +208,7 @@
     }
     .nav-row {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       margin-top: 26px;
     }
@@ -205,22 +224,6 @@
       transition: all 0.2s;
     }
     .btn-back:hover { border-color: rgba(255, 255, 255, 0.3); color: #fff; }
-    .btn-next {
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      padding: 11px 30px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: 700;
-      font-family: inherit;
-      transition: all 0.2s;
-      opacity: 0.35;
-      pointer-events: none;
-    }
-    .btn-next.ready { opacity: 1; pointer-events: all; }
-    .btn-next.ready:hover { background: var(--gold-hover); }
     .email-gate { text-align: center; }
     .email-gate .lock-icon { font-size: 48px; margin-bottom: 16px; }
     .email-gate h2 { font-size: 26px; margin-bottom: 10px; font-weight: 800; }
@@ -332,6 +335,9 @@
   </style>
 </head>
 <body>
+<a class="quiz-logo" href="https://kuzana.co/" aria-label="Kuzana home">
+  <img src="/assets/images/logo.png" alt="Kuzana" width="144" height="44" decoding="async">
+</a>
 <div class="container">
 
   <div class="screen active" id="s-intro">
@@ -352,7 +358,6 @@
     <div class="options" id="qopts"></div>
     <div class="nav-row">
       <button class="btn-back" id="backBtn" type="button" onclick="goBack()">← Back</button>
-      <button class="btn-next" id="nextBtn" type="button" onclick="goNext()">Next →</button>
     </div>
   </div>
 
@@ -481,6 +486,8 @@
   var cur = 0;
   var ans = new Array(Qs.length).fill(null);
   var userEmail = '';
+  var advanceTimer = null;
+  var isAdvancing = false;
 
   /**
    * Shows a single quiz screen by id.
@@ -491,6 +498,15 @@
       s.classList.remove('active');
     });
     document.getElementById(id).classList.add('active');
+  }
+
+  /** Clears any pending auto-advance timeout. */
+  function clearAdvanceTimer() {
+    if (advanceTimer) {
+      clearTimeout(advanceTimer);
+      advanceTimer = null;
+    }
+    isAdvancing = false;
   }
 
   /**
@@ -544,10 +560,11 @@
    * Renders the current question and answer options.
    */
   function renderQ() {
+    clearAdvanceTimer();
     var q = Qs[cur];
     document.getElementById('qlabel').textContent = 'Question ' + (cur + 1) + ' of ' + Qs.length;
     document.getElementById('qtext').textContent = q.text;
-    document.getElementById('pbar').style.width = (cur / Qs.length) * 100 + '%';
+    document.getElementById('pbar').style.width = ((cur + (ans[cur] !== null ? 1 : 0)) / Qs.length) * 100 + '%';
     document.getElementById('backBtn').style.visibility = cur === 0 ? 'hidden' : 'visible';
 
     var letters = ['A', 'B', 'C', 'D'];
@@ -560,24 +577,26 @@
       d.onclick = function () { pick(i); };
       c.appendChild(d);
     });
-
-    var nb = document.getElementById('nextBtn');
-    nb.textContent = cur === Qs.length - 1 ? 'Get My Result →' : 'Next →';
-    nb.className = 'btn-next' + (ans[cur] !== null ? ' ready' : '');
   }
 
   /**
-   * Selects an answer for the current question.
+   * Selects an answer and auto-advances after a short highlight delay.
    * @param {number} i
    */
   function pick(i) {
+    if (isAdvancing) return;
     ans[cur] = i;
     document.querySelectorAll('.option').forEach(function (el, idx) {
       el.classList.toggle('selected', idx === i);
+      el.style.pointerEvents = 'none';
     });
-    var nb = document.getElementById('nextBtn');
-    nb.classList.add('ready');
-    nb.textContent = cur === Qs.length - 1 ? 'Get My Result →' : 'Next →';
+    document.getElementById('pbar').style.width = ((cur + 1) / Qs.length) * 100 + '%';
+    isAdvancing = true;
+    advanceTimer = setTimeout(function () {
+      advanceTimer = null;
+      isAdvancing = false;
+      goNext();
+    }, 280);
   }
 
   /** Advances to the next question or the email gate. */
@@ -587,12 +606,14 @@
       cur++;
       renderQ();
     } else {
+      clearAdvanceTimer();
       show('s-email');
     }
   }
 
   /** Goes back one question. */
   function goBack() {
+    clearAdvanceTimer();
     if (cur > 0) {
       cur--;
       renderQ();
@@ -712,6 +733,7 @@
 
   /** Resets the quiz to the intro screen. */
   function retake() {
+    clearAdvanceTimer();
     cur = 0;
     ans = new Array(Qs.length).fill(null);
     userEmail = '';
