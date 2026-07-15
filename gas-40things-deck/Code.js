@@ -60,7 +60,8 @@ function isValidEmail_(email) {
 
 function logLead_(email, context) {
   Logger.log('logLead_ called with email=%s context=%s', email, context);
-  const ss = SpreadsheetApp.openById(SHEET_ID);
+  // Prefer the bound spreadsheet; fall back to openById for standalone deploys
+  const ss = SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.openById(SHEET_ID);
   // gid=1695097223 tab (40ThingsBeforeTheDeck) also stores quiz leads
   const thingsContexts = {
     '40things_before_deck': true,
