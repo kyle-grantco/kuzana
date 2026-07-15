@@ -130,6 +130,14 @@
 
       if (!form || !emailInput) return;
 
+      // Autofill email when arriving from the quiz (or any ?email= link)
+      try {
+        var emailFromUrl = new URLSearchParams(window.location.search || '').get('email');
+        if (emailFromUrl && isValidEmail(emailFromUrl)) {
+          emailInput.value = emailFromUrl.trim();
+        }
+      } catch (err) {}
+
       form.addEventListener('submit', function(e){
         e.preventDefault();
         errorMsg.style.display = 'none';

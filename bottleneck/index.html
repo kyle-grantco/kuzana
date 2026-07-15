@@ -40,6 +40,7 @@
 </head>
 <body>
     <iframe
+        id="bottleneck-tally"
         data-tally-src="https://tally.so/r/jakW49?transparentBackground=1"
         width="100%"
         height="100%"
@@ -50,7 +51,25 @@
     </iframe>
     <script>
         (function () {
+            /**
+             * Forwards ?email= from this page into the Tally embed URL for autofill.
+             * Tally prefills when the field API ID matches the param name (email).
+             */
+            function applyEmailPrefill() {
+                var frame = document.getElementById('bottleneck-tally');
+                if (!frame) return;
+                var base = frame.getAttribute('data-tally-src') || '';
+                try {
+                    var email = new URLSearchParams(window.location.search || '').get('email');
+                    if (!email) return;
+                    var url = new URL(base);
+                    url.searchParams.set('email', email);
+                    frame.setAttribute('data-tally-src', url.toString());
+                } catch (err) {}
+            }
+
             function loadTallyEmbeds() {
+                applyEmailPrefill();
                 if (typeof Tally !== 'undefined') {
                     Tally.loadEmbeds();
                     return;

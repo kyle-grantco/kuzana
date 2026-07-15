@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kuzana Investment Readiness Quiz — lead magnet with email gate -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuzana Investment Readiness Quiz</title>
+  <meta name="description" content="Seven questions. Two minutes. Find out exactly where your business stands before you pitch an investor.">
+  <meta property="og:site_name" content="Kuzana">
+  <meta property="og:title" content="Kuzana Investment Readiness Quiz">
+  <meta property="og:description" content="Seven questions. Two minutes. Find out if you are investment ready.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kuzana.co/quiz">
+  <link rel="canonical" href="https://kuzana.co/quiz">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #fdc469;
+      --gold-hover: #f0b347;
+      --coral: #FE7272;
+      --blue: #4A6290;
+      --navy: #0a0f1e;
+      --text: #ffffff;
+      --muted: #a0aec0;
+      --soft: #e2e8f0;
+      --danger: #f87171;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Urbanist", system-ui, -apple-system, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container { max-width: 680px; width: 100%; }
+    .screen { display: none; animation: fadeIn 0.5s ease; }
+    .screen.active { display: block; }
+    .intro { text-align: center; }
+    .kuzana-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .intro h1 { font-size: 34px; line-height: 1.2; margin-bottom: 16px; font-weight: 800; }
+    .intro h1 span { color: var(--gold); }
+    .intro p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .time-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74, 98, 144, 0.25);
+      border: 1px solid rgba(253, 196, 105, 0.25);
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 15px 44px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(254, 114, 114, 0.45);
+      color: var(--soft);
+      padding: 13px 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: inherit;
+      text-decoration: none;
+      display: block;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .btn-outline:hover { border-color: var(--coral); color: #fff; }
+    .btn-ghost {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-top: 6px;
+    }
+    .progress-wrap {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      height: 4px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+    .q-label {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .q-text {
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 26px;
+    }
+    .options { display: flex; flex-direction: column; gap: 11px; }
+    .option {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 15px;
+      color: var(--soft);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .option:hover {
+      border-color: var(--gold);
+      background: rgba(253, 196, 105, 0.08);
+      color: #fff;
+    }
+    .option.selected {
+      border-color: var(--gold);
+      background: rgba(253, 196, 105, 0.15);
+      color: #fff;
+    }
+    .opt-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .option.selected .opt-letter {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 26px;
+    }
+    .btn-back {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      color: var(--muted);
+      padding: 11px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { border-color: rgba(255, 255, 255, 0.3); color: #fff; }
+    .btn-next {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 11px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      transition: all 0.2s;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .btn-next.ready { opacity: 1; pointer-events: all; }
+    .btn-next.ready:hover { background: var(--gold-hover); }
+    .email-gate { text-align: center; }
+    .email-gate .lock-icon { font-size: 48px; margin-bottom: 16px; }
+    .email-gate h2 { font-size: 26px; margin-bottom: 10px; font-weight: 800; }
+    .email-gate p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .email-form input {
+      background: rgba(255, 255, 255, 0.07);
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-family: inherit;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .email-form input::placeholder { color: #64748b; }
+    .email-form input:focus { border-color: var(--gold); }
+    .email-form input.error { border-color: var(--danger); }
+    .error-msg { color: var(--danger); font-size: 13px; text-align: left; }
+    .privacy-note { font-size: 12px; color: #64748b; margin-top: 4px; }
+    .result { text-align: center; }
+    .result-badge {
+      display: inline-block;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .lvl1 { background: rgba(254, 114, 114, 0.15); color: var(--coral); border: 1px solid rgba(254, 114, 114, 0.35); }
+    .lvl2 { background: rgba(251, 146, 60, 0.15); color: #fb923c; border: 1px solid rgba(251, 146, 60, 0.25); }
+    .lvl3 { background: rgba(253, 196, 105, 0.15); color: var(--gold); border: 1px solid rgba(253, 196, 105, 0.35); }
+    .lvl4 { background: rgba(74, 222, 128, 0.15); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.25); }
+    .score-ring { width: 110px; height: 110px; margin: 0 auto 22px; position: relative; }
+    .score-ring svg { transform: rotate(-90deg); }
+    .ring-bg { fill: none; stroke: rgba(255, 255, 255, 0.08); stroke-width: 8; }
+    .ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1.2s ease; }
+    .ring-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .result h2 { font-size: 26px; margin-bottom: 10px; font-weight: 800; }
+    .result-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 460px;
+      margin: 0 auto 24px;
+    }
+    .gaps-box {
+      background: rgba(74, 98, 144, 0.18);
+      border: 1px solid rgba(253, 196, 105, 0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .gaps-box h4 {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+    .gap-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 7px;
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .gap-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .cta-stack { display: flex; flex-direction: column; gap: 10px; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="screen active" id="s-intro">
+    <div class="intro">
+      <div class="kuzana-badge">Kuzana</div>
+      <h1>Are You <span>Investment Ready?</span></h1>
+      <p>Seven questions. Two minutes. Find out exactly where your business stands before you pitch an investor.</p>
+      <div class="time-pill">⏱ Takes about 2 minutes</div>
+      <br>
+      <button class="btn-gold" type="button" onclick="show('s-quiz'); renderQ()">Start the Quiz →</button>
+    </div>
+  </div>
+
+  <div class="screen" id="s-quiz">
+    <div class="progress-wrap"><div class="progress-bar" id="pbar"></div></div>
+    <div class="q-label" id="qlabel"></div>
+    <div class="q-text" id="qtext"></div>
+    <div class="options" id="qopts"></div>
+    <div class="nav-row">
+      <button class="btn-back" id="backBtn" type="button" onclick="goBack()">← Back</button>
+      <button class="btn-next" id="nextBtn" type="button" onclick="goNext()">Next →</button>
+    </div>
+  </div>
+
+  <div class="screen" id="s-email">
+    <div class="email-gate">
+      <div class="lock-icon">🔒</div>
+      <h2>Your result is ready</h2>
+      <p>Enter your email below and we will send your Investment Readiness result directly to your inbox.</p>
+      <div class="email-form">
+        <input type="email" id="emailInput" placeholder="Your email address" autocomplete="email" />
+        <div class="error-msg" id="emailError" style="display:none">Please enter a valid email address.</div>
+        <button class="btn-gold" type="button" id="emailSubmitBtn" onclick="submitEmail()" style="width:100%;padding:15px;">See My Result →</button>
+        <div class="privacy-note">No spam. Kuzana will only send you relevant founder resources.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" id="s-result">
+    <div class="result">
+      <div class="result-badge" id="rbadge"></div>
+      <div class="score-ring">
+        <svg viewBox="0 0 110 110" width="110" height="110">
+          <circle class="ring-bg" cx="55" cy="55" r="46"/>
+          <circle class="ring-fill" id="rfill" cx="55" cy="55" r="46"
+            stroke="#fdc469" stroke-dasharray="289" stroke-dashoffset="289"/>
+        </svg>
+        <div class="ring-label" id="rscore">0%</div>
+      </div>
+      <h2 id="rtitle"></h2>
+      <p class="result-desc" id="rdesc"></p>
+      <div class="gaps-box" id="rgaps" style="display:none">
+        <h4>Your key gaps to fix</h4>
+        <div id="rgaplist"></div>
+      </div>
+      <div class="cta-stack" id="rctastack"></div>
+      <button class="btn-ghost" type="button" onclick="retake()">Retake the quiz</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/**
+ * Kuzana Investment Readiness Quiz
+ * Scores answers, gates results behind email, logs leads to Google Sheets,
+ * and forwards the email on CTA links for autofill on the next page.
+ */
+(function () {
+  var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxXIVLZBH3XplnP4RgTx6OIs5ZNyIkymkPKHRBNXW0YwXDSu0naMkUJjhmHKUHXfVDM/exec';
+  var QUIZ_CONTEXT = 'InvestmentReadinessQuiz';
+
+  // Options are deliberately shuffled — best answer is NOT always last
+  var Qs = [
+    {
+      text: "What is your average monthly revenue over the last three months?",
+      opts: [
+        { text: "Ksh 1,000,000 to Ksh 5,000,000", score: 2 },
+        { text: "Below Ksh 500,000", score: 0 },
+        { text: "Above Ksh 5,000,000", score: 3 },
+        { text: "Ksh 500,000 to Ksh 1,000,000", score: 1 }
+      ],
+      gap: "Monthly revenue is below the Ksh 500k threshold Kuzana requires to invest"
+    },
+    {
+      text: "When someone points out a problem in your business, what typically happens?",
+      opts: [
+        { text: "I actively seek feedback and have systems in place to act on it quickly", score: 3 },
+        { text: "I find it hard to hear criticism and prefer to figure things out myself", score: 0 },
+        { text: "I take feedback seriously and have made changes based on it", score: 2 },
+        { text: "I listen but rarely change what I am doing", score: 1 }
+      ],
+      gap: "Coachability — investors back founders who take hard feedback and change quickly"
+    },
+    {
+      text: "If an investor asked right now for your revenue, gross margin, and monthly profit — what would happen?",
+      opts: [
+        { text: "I have rough numbers in my head but nothing written down", score: 0 },
+        { text: "I can send a clean breakdown within 24 hours from my own records", score: 3 },
+        { text: "I have records but they are mixed with personal transactions", score: 1 },
+        { text: "I wouldn't really know. Maybe my accountant would.", score: 0 }
+      ],
+      gap: "Financial records are not clean, separated, or immediately accessible"
+    },
+    {
+      text: "How do most of your customers find and buy from you?",
+      opts: [
+        { text: "Through a community I own — a group, circle, or membership", score: 2 },
+        { text: "Through supermarkets, distributors, or middlemen", score: 0 },
+        { text: "Customers identify with my brand and refer others without being asked", score: 3 },
+        { text: "Directly via social media, WhatsApp, or my own store", score: 1 }
+      ],
+      gap: "Limited customer ownership — selling through intermediaries reduces margin and customer data"
+    },
+    {
+      text: "What percentage of your customers come back to buy again within 90 days?",
+      opts: [
+        { text: "More than 60%", score: 3 },
+        { text: "I do not track this", score: 0 },
+        { text: "30% to 60%", score: 2 },
+        { text: "Less than 30%", score: 0 }
+      ],
+      gap: "Customer retention is not tracked or is below what investors need to see"
+    },
+    {
+      text: "What does success look like for your business in five years?",
+      opts: [
+        { text: "A recognized brand in Kenya with multiple locations or product lines", score: 1 },
+        { text: "A market leader that has changed how an entire industry works in East Africa", score: 3 },
+        { text: "A stable business that supports my lifestyle comfortably", score: 0 },
+        { text: "A business and a team that runs without me being involved", score: 2 }
+      ],
+      gap: "Ambition level — Kuzana invests in founders building for scale, not just stability"
+    },
+    {
+      text: "How would you describe your business model right now?",
+      opts: [
+        { text: "We have one clear product for one clear customer and do it well", score: 2 },
+        { text: "We offer many different products and services to many types of customers", score: 0 },
+        { text: "We have productized our offer and our sales process runs without me in every deal", score: 3 },
+        { text: "We have a core product but also do several other things on the side", score: 1 }
+      ],
+      gap: "Lack of focus and productization — investors want a repeatable, scalable model"
+    }
+  ];
+
+  var cur = 0;
+  var ans = new Array(Qs.length).fill(null);
+  var userEmail = '';
+
+  /**
+   * Shows a single quiz screen by id.
+   * @param {string} id
+   */
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(function (s) {
+      s.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+
+  /**
+   * Appends email (and attribution) to a destination URL for autofill.
+   * @param {string} baseUrl
+   * @param {string} email
+   * @returns {string}
+   */
+  function withEmailParam(baseUrl, email) {
+    try {
+      var url = new URL(baseUrl, window.location.origin);
+      if (email) url.searchParams.set('email', email);
+      if (!url.searchParams.has('source')) url.searchParams.set('source', 'leadmagnet');
+      if (!url.searchParams.has('campaign')) url.searchParams.set('campaign', 'quiz');
+      return url.toString();
+    } catch (err) {
+      return baseUrl;
+    }
+  }
+
+  /**
+   * Logs the quiz lead to the Kuzana Google Sheet via Apps Script.
+   * Columns: date | email | InvestmentReadinessQuiz
+   * @param {string} email
+   */
+  function logQuizLead(email) {
+    try {
+      fetch(GAS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          context: QUIZ_CONTEXT,
+          source: 'investment_readiness_quiz'
+        })
+      }).catch(function () {});
+    } catch (err) {}
+
+    try {
+      if (window.gtag) {
+        window.gtag('event', 'investment_readiness_quiz_submit', {
+          event_category: 'lead',
+          event_label: QUIZ_CONTEXT,
+          value: 1
+        });
+      }
+    } catch (err) {}
+  }
+
+  /**
+   * Renders the current question and answer options.
+   */
+  function renderQ() {
+    var q = Qs[cur];
+    document.getElementById('qlabel').textContent = 'Question ' + (cur + 1) + ' of ' + Qs.length;
+    document.getElementById('qtext').textContent = q.text;
+    document.getElementById('pbar').style.width = (cur / Qs.length) * 100 + '%';
+    document.getElementById('backBtn').style.visibility = cur === 0 ? 'hidden' : 'visible';
+
+    var letters = ['A', 'B', 'C', 'D'];
+    var c = document.getElementById('qopts');
+    c.innerHTML = '';
+    q.opts.forEach(function (o, i) {
+      var d = document.createElement('div');
+      d.className = 'option' + (ans[cur] === i ? ' selected' : '');
+      d.innerHTML = '<span class="opt-letter">' + letters[i] + '</span><span>' + o.text + '</span>';
+      d.onclick = function () { pick(i); };
+      c.appendChild(d);
+    });
+
+    var nb = document.getElementById('nextBtn');
+    nb.textContent = cur === Qs.length - 1 ? 'Get My Result →' : 'Next →';
+    nb.className = 'btn-next' + (ans[cur] !== null ? ' ready' : '');
+  }
+
+  /**
+   * Selects an answer for the current question.
+   * @param {number} i
+   */
+  function pick(i) {
+    ans[cur] = i;
+    document.querySelectorAll('.option').forEach(function (el, idx) {
+      el.classList.toggle('selected', idx === i);
+    });
+    var nb = document.getElementById('nextBtn');
+    nb.classList.add('ready');
+    nb.textContent = cur === Qs.length - 1 ? 'Get My Result →' : 'Next →';
+  }
+
+  /** Advances to the next question or the email gate. */
+  function goNext() {
+    if (ans[cur] === null) return;
+    if (cur < Qs.length - 1) {
+      cur++;
+      renderQ();
+    } else {
+      show('s-email');
+    }
+  }
+
+  /** Goes back one question. */
+  function goBack() {
+    if (cur > 0) {
+      cur--;
+      renderQ();
+    }
+  }
+
+  /** Validates email, logs the lead, then shows the result. */
+  function submitEmail() {
+    var input = document.getElementById('emailInput');
+    var err = document.getElementById('emailError');
+    var btn = document.getElementById('emailSubmitBtn');
+    var val = (input.value || '').trim();
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if (!valid) {
+      input.classList.add('error');
+      err.style.display = 'block';
+      return;
+    }
+    input.classList.remove('error');
+    err.style.display = 'none';
+    userEmail = val;
+    btn.disabled = true;
+    btn.textContent = 'Loading…';
+    logQuizLead(userEmail);
+    showResult();
+  }
+
+  /** Computes score, gaps, and CTA links (with ?email= for autofill). */
+  function showResult() {
+    show('s-result');
+
+    var total = ans.reduce(function (s, a, i) {
+      return s + (a !== null ? Qs[i].opts[a].score : 0);
+    }, 0);
+    var max = Qs.reduce(function (s, q) {
+      return s + Math.max.apply(null, q.opts.map(function (o) { return o.score; }));
+    }, 0);
+    var pct = Math.round((total / max) * 100);
+
+    setTimeout(function () {
+      var circ = 289;
+      document.getElementById('rfill').style.strokeDashoffset = circ - (pct / 100) * circ;
+      document.getElementById('rscore').textContent = pct + '%';
+    }, 200);
+
+    var gaps = ans.map(function (a, i) {
+      return a !== null && Qs[i].opts[a].score < 2 ? Qs[i].gap : null;
+    }).filter(Boolean);
+
+    var level;
+    var badgeClass;
+    var title;
+    var desc;
+    var ctas;
+
+    if (pct < 35) {
+      level = 1;
+      badgeClass = 'lvl1';
+      title = 'Getting Ready';
+      desc = 'Your business has real potential but is not yet investment ready. The gaps are fixable. Most founders who end up investable start exactly where you are right now.';
+      ctas = [
+        { text: '40 Things to do before Raising Investment →', url: 'https://kuzana.co/40things/', gold: true },
+        { text: 'Join the Bottleneck AMA — Wednesdays. Free. →', url: 'https://kuzana.co/bottleneck/', gold: false }
+      ];
+    } else if (pct < 55) {
+      level = 2;
+      badgeClass = 'lvl2';
+      title = 'On the Right Track';
+      desc = 'You have the foundations. A few critical areas need attention before an investor will take you seriously. Start with the 40 things every founder must know before they pitch.';
+      ctas = [
+        { text: '40 Things to do before Raising Investment →', url: 'https://kuzana.co/40things/', gold: true },
+        { text: 'Join the Bottleneck AMA — Wednesdays. Free. →', url: 'https://kuzana.co/bottleneck/', gold: false }
+      ];
+    } else if (pct < 80) {
+      level = 3;
+      badgeClass = 'lvl3';
+      title = 'Nearly There';
+      desc = 'You are closer than most founders who apply to Kuzana. A few targeted improvements could make you investable within one or two batches. Join the Bottleneck Show and let us help you close the gap.';
+      ctas = [
+        { text: '40 Things to do before Raising Investment →', url: 'https://kuzana.co/40things/', gold: true },
+        { text: 'Join the Bottleneck AMA — Wednesdays. Free. →', url: 'https://kuzana.co/bottleneck/', gold: false }
+      ];
+    } else {
+      level = 4;
+      badgeClass = 'lvl4';
+      title = 'Investment Ready';
+      desc = 'You match the profile of businesses Kuzana has invested in. Join the Bottleneck Show to stay connected with the ecosystem and apply when the next batch opens.';
+      ctas = [
+        { text: '40 Things to do before Raising Investment →', url: 'https://kuzana.co/40things/', gold: true },
+        { text: 'Join the Bottleneck AMA — Wednesdays. Free. →', url: 'https://kuzana.co/bottleneck/', gold: false }
+      ];
+    }
+
+    document.getElementById('rbadge').textContent = 'Level ' + level + ' — ' + title;
+    document.getElementById('rbadge').className = 'result-badge ' + badgeClass;
+    document.getElementById('rtitle').textContent = title;
+    document.getElementById('rdesc').textContent = desc;
+
+    var gbox = document.getElementById('rgaps');
+    if (gaps.length > 0) {
+      gbox.style.display = 'block';
+      document.getElementById('rgaplist').innerHTML = gaps.map(function (g) {
+        return '<div class="gap-item"><span class="gap-dot"></span><span>' + g + '</span></div>';
+      }).join('');
+    } else {
+      gbox.style.display = 'none';
+    }
+
+    var stack = document.getElementById('rctastack');
+    stack.innerHTML = ctas.map(function (cta) {
+      var href = withEmailParam(cta.url, userEmail);
+      var cls = cta.gold ? 'btn-gold' : 'btn-outline';
+      var style = cta.gold ? 'display:block;text-align:center;' : '';
+      return '<a href="' + href + '" target="_blank" rel="noopener" class="' + cls + '" style="' + style + '">' + cta.text + '</a>';
+    }).join('');
+  }
+
+  /** Resets the quiz to the intro screen. */
+  function retake() {
+    cur = 0;
+    ans = new Array(Qs.length).fill(null);
+    userEmail = '';
+    document.getElementById('emailInput').value = '';
+    document.getElementById('emailSubmitBtn').disabled = false;
+    document.getElementById('emailSubmitBtn').textContent = 'See My Result →';
+    document.getElementById('rfill').style.strokeDashoffset = '289';
+    show('s-intro');
+  }
+
+  window.show = show;
+  window.renderQ = renderQ;
+  window.goBack = goBack;
+  window.goNext = goNext;
+  window.submitEmail = submitEmail;
+  window.retake = retake;
+}());
+</script>
+</body>
+</html>

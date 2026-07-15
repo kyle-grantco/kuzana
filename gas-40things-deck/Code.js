@@ -32,9 +32,9 @@ function doPost(e) {
     // Log every lead somewhere first
     logLead_(rawEmail, context);
 
-    // 40 Things: only log, do NOT send deck or notifications
-    if (context === '40things_before_deck') {
-      return json_({ status: 'success', ok: true, handled: '40things_before_deck' });
+    // 40 Things / quiz: only log, do NOT send deck or notifications
+    if (context === '40things_before_deck' || context === 'InvestmentReadinessQuiz') {
+      return json_({ status: 'success', ok: true, handled: context });
     }
 
     // Deck requests / investor contexts: send deck + notify you
@@ -61,7 +61,12 @@ function isValidEmail_(email) {
 function logLead_(email, context) {
   Logger.log('logLead_ called with email=%s context=%s', email, context);
   const ss = SpreadsheetApp.openById(SHEET_ID);
-  const targetSheetName = (context === '40things_before_deck')
+  // gid=1695097223 tab (40ThingsBeforeTheDeck) also stores quiz leads
+  const thingsContexts = {
+    '40things_before_deck': true,
+    'InvestmentReadinessQuiz': true
+  };
+  const targetSheetName = thingsContexts[context]
     ? THINGS_SHEET_NAME
     : DECK_SHEET_NAME;
 
@@ -69,6 +74,7 @@ function logLead_(email, context) {
   if (!sheet) {
     throw new Error('Sheet not found for context ' + context + ': ' + targetSheetName);
   }
+  // Columns: date | email | context (e.g. InvestmentReadinessQuiz)
   sheet.appendRow([new Date(), email, context]);
 }
 
@@ -76,6 +82,7 @@ function logLead_(email, context) {
 function testLogLead() {
   logLead_('test-deck@example.com', 'deck_request');
   logLead_('test-40things@example.com', '40things_before_deck');
+  logLead_('test-quiz@example.com', 'InvestmentReadinessQuiz');
 }
 
 function testEmailSend() {
@@ -128,9 +135,4 @@ function parseJson_(e) {
 function json_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
-}
-function testLogLead() {
-  // Manually test logging to both tabs
-  logLead_('test-deck@example.com', 'deck_request');
-  logLead_('test-40things@example.com', '40things_before_deck');
 }
