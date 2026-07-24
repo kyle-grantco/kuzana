@@ -14,7 +14,7 @@ body {
 .hero-section {
   position: relative;
   overflow: hidden;
-  background-image: url(../images/hero-banner.png);
+  background-image: url(../images/hero-banner.jpg);
   color: #fff;
   background-size: cover;
   background-position: center;
@@ -384,7 +384,7 @@ body {
 }
 
 .counter-section {
-  background-image: url(../images/counter-bg.png);
+  background-image: url(../images/counter-bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -510,7 +510,7 @@ body {
 }
 
 .cards-stack .card.card-1 {
-  background-image: url(../images/blue-bg.png);
+  background-image: url(../images/blue-bg.jpg);
   top: 160px;
   z-index: 1;
 }
@@ -659,7 +659,7 @@ body {
 
 .call-to-action {
   padding: 80px 0px;
-  background-image: url(../images/cta-bg.png);
+  background-image: url(../images/cta-bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1123,7 +1123,7 @@ body {
 .founders-section {
   padding: 80px 0 80px 0;
   text-align: center;
-  background-image: url(../images/founder-gradient-bg.png);
+  background-image: url(../images/founder-gradient-bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1309,7 +1309,7 @@ body {
 
 .timeline-section {
   padding: 80px 0px 60px 0px;
-  background-image: url('../images/program-bg.png');
+  background-image: url('../images/program-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -5532,7 +5532,7 @@ section.kuzana-ent-steps-section {
 
 .process-section.startup_process_section {
   padding: 120px 0px 60px;
-  background-image: url(../images/counter-bg.png);
+  background-image: url(../images/counter-bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -6361,3 +6361,102 @@ section.kuzana-ent-steps-section {
 
 
 /* Startup accelerator page css End */
+/* ============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================ */
+
+.whatsapp-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 0.875rem 1.25rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.whatsapp-link:hover {
+    background-color: #20BA5A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+.whatsapp-link:active {
+    transform: translateY(0);
+}
+
+.whatsapp-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.whatsapp-text {
+    white-space: nowrap;
+}
+
+/* WhatsApp Button Mobile Styles */
+@media (max-width: 768px) {
+    .whatsapp-link {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        border-radius: 45px;
+    }
+    
+    .whatsapp-icon {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-link {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.7rem 0.9rem;
+        font-size: 0.8rem;
+        border-radius: 40px;
+        box-shadow: 0 3px 10px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-icon {
+        font-size: 1rem;
+    }
+    
+    .whatsapp-text {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .whatsapp-link {
+        bottom: 12px;
+        right: 12px;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 10px rgba(37, 211, 102, 0.4);
+    }
+    
+    .whatsapp-text {
+        display: none; /* Hide text on very small screens, show only icon */
+    }
+    
+    .whatsapp-icon {
+        font-size: 1.1rem;
+    }
+}
