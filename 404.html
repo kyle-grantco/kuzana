@@ -10,15 +10,26 @@
     <script>
         (function() {
             var pathname = window.location.pathname || "/";
-            var segment = pathname.replace(/^\/+|\/+$/g, "").split("/")[0];
-            var referralCode = pathname.replace(/^\/+/, "").replace(/\/+$/g, "");
+            var parts = pathname.replace(/^\/+|\/+$/g, "").split("/");
+            var segment = parts[0] || "";
             var search = window.location.search || "";
-            if (search) referralCode += search;
             var ignored = ["", "index.html", "index.htm", "favicon.ico", "robots.txt"];
+
+            // /class/[name] → /class?referral=[name]
+            if (segment === "class" && parts.length >= 2 && parts[1] && parts[1] !== "index.html") {
+                var params = new URLSearchParams(search);
+                params.set("referral", parts[1]);
+                window.location.replace("/class?" + params.toString());
+                return;
+            }
+
             if (ignored.indexOf(segment) !== -1) {
                 window.location.replace("/");
                 return;
             }
+
+            var referralCode = pathname.replace(/^\/+/, "").replace(/\/+$/g, "");
+            if (search) referralCode += search;
             window.location.replace("/?referral=" + encodeURIComponent(referralCode));
         })();
     </script>
