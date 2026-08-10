@@ -480,7 +480,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(../images/scale-bg.png);
+  background-image: url(../images/scale-bg.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -516,19 +516,19 @@ body {
 }
 
 .cards-stack .card.card-2 {
-  background-image: url(../images/pink-bg.png);
+  background-image: url(../images/pink-bg.webp);
   top: 160px;
   z-index: 2;
 }
 
 .cards-stack .card.card-3 {
-  background-image: url(../images/yellow-bg.png);
+  background-image: url(../images/yellow-bg.webp);
   top: 160px;
   z-index: 3;
 }
 
 .cards-stack .card.card-4 {
-  background-image: url(../images/blue-bg.png);
+  background-image: url(../images/blue-bg.webp);
   top: 160px;
   z-index: 4;
 }
