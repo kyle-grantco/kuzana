@@ -65,14 +65,45 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1.5rem;
-      align-items: center;
+      align-items: stretch;
       justify-items: center;
       padding: 1rem;
       max-width: 1000px;
       margin: 0 auto 3rem;
     }
-    .logo-card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 1rem; width: 100%; display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 3; }
-    .logo-card img { max-width: 90%; max-height: 80%; object-fit: contain; display: block; }
+    .logo-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1rem 1rem 1.1rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+    }
+    .logo-card img {
+      width: 100%;
+      height: 110px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .logo-card .company-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: #4A6290;
+      text-decoration: none;
+      line-height: 1.3;
+    }
+    .logo-card a.company-name:hover { text-decoration: underline; }
+    .logo-card .company-desc {
+      margin: 0.35rem 0 0;
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.4;
+    }
     @media (max-width: 900px) { .logo-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 640px) { .logo-grid { grid-template-columns: repeat(2, 1fr); } }
   </style>
@@ -158,15 +189,101 @@
     </section>
 
     <section class="logo-grid">
-      <div class="logo-card"><img src="../images/skysail.webp" alt="Skysail" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/bellfeeds.webp" alt="Bellfeeds" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/mosoro.webp" alt="Mosoro" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/crafty-steaks.webp" alt="Crafty Steaks" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/nyumbani.webp" alt="Nyumbani Greens" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/paycloud.webp" alt="Paycloud" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/aluvana.webp" alt="Aluvana Horticultural" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/greenwells.webp" alt="Greenwells Agricultural" loading="lazy" decoding="async"></div>
-      <div class="logo-card"><img src="../images/jarvis-farm1.webp" alt="Jarvis Farm" loading="lazy" decoding="async"></div>
+      <div class="logo-card">
+        <img src="../images/skysail.webp" alt="Skysail" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/skysail-mabati/" target="_blank" rel="noopener noreferrer">Skysail</a>
+        <p class="company-desc">roofing material</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/bellfeeds.webp" alt="Bellfeeds" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.instagram.com/bellfeedsfarmcare/" target="_blank" rel="noopener noreferrer">Bellfeeds</a>
+        <p class="company-desc">pig feed</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/mosoro.webp" alt="Mosoro" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.instagram.com/mosoroafya/" target="_blank" rel="noopener noreferrer">Mosoro</a>
+        <p class="company-desc">granola, porridge and nut butter</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/crafty-steaks.webp" alt="Crafty Steaks" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.instagram.com/craftysteaks/" target="_blank" rel="noopener noreferrer">Crafty Steaks</a>
+        <p class="company-desc">premium meats</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/nyumbani.webp" alt="Nyumbani Greens" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.instagram.com/nyumbanigreens/" target="_blank" rel="noopener noreferrer">Nyumbani Greens</a>
+        <p class="company-desc">african traditional greens</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/paycloud.webp" alt="Paycloud" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/paycloud-africa" target="_blank" rel="noopener noreferrer">Paycloud</a>
+        <p class="company-desc">POS for dukas</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/aluvana.webp" alt="Aluvana" loading="lazy" decoding="async">
+        <span class="company-name">Aluvana</span>
+        <p class="company-desc">avocados</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/greenwells.jpeg" alt="Greenwells" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/greenwells-agriculture-limited/posts/?feedView=all" target="_blank" rel="noopener noreferrer">Greenwells</a>
+        <p class="company-desc">soya logistics</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/jarvis-farm1.webp" alt="Jarvis" loading="lazy" decoding="async">
+        <span class="company-name">Jarvis</span>
+        <p class="company-desc">chickens</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/saint%20boss.svg" alt="Saint Boss" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/saintbossofficial/" target="_blank" rel="noopener noreferrer">Saint Boss</a>
+        <p class="company-desc">office interior design</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/foke.png" alt="Foke" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/fokesuppliers/" target="_blank" rel="noopener noreferrer">Foke</a>
+        <p class="company-desc">ready to cook potatoes</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/lusoi.jpeg" alt="Lusoi" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/lusoi-hill-farm/" target="_blank" rel="noopener noreferrer">Lusoi</a>
+        <p class="company-desc">eggs</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/Adia.jpeg" alt="Adia" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/adia-mills-limited/posts/?feedView=all" target="_blank" rel="noopener noreferrer">Adia</a>
+        <p class="company-desc">cow feed</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/Nawiri.png" alt="NAWIRI" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.instagram.com/nawiriwoman/" target="_blank" rel="noopener noreferrer">NAWIRI</a>
+        <p class="company-desc">women's fashion</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/kaya_comfort_logo.jpeg" alt="Kaya" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/company/kaya-comfort/" target="_blank" rel="noopener noreferrer">Kaya</a>
+        <p class="company-desc">tissue paper manufacturing</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/zitenge.png" alt="Zitenge" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.instagram.com/zitenge/" target="_blank" rel="noopener noreferrer">Zitenge</a>
+        <p class="company-desc">shoe racks</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/furniture_zoo_limited7_logo.jpeg" alt="Furniture Zoo" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.instagram.com/furniturezoolimited/" target="_blank" rel="noopener noreferrer">Furniture Zoo</a>
+        <p class="company-desc">high end furniture manufacturing</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/sold%20out%20africa.svg" alt="SoldOutAfrica" loading="lazy" decoding="async">
+        <a class="company-name" href="https://soldoutafrica.com/" target="_blank" rel="noopener noreferrer">SoldOutAfrica</a>
+        <p class="company-desc">event ticketing</p>
+      </div>
+      <div class="logo-card">
+        <img src="../images/mamae.jpeg" alt="Mamae" loading="lazy" decoding="async">
+        <a class="company-name" href="https://www.linkedin.com/in/mbugua-ngugi-81229612a/" target="_blank" rel="noopener noreferrer">Mamae</a>
+        <p class="company-desc">garbage collection for estates and commercial</p>
+      </div>
     </section>
   </main>
 
