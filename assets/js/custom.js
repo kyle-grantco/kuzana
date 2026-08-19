@@ -162,5 +162,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener('click', function (event) {
 
+    const button = event.target.closest('.youtube-play');
+
+    if (!button) {
+        return;
+    }
+
+    const container = button.closest('.youtube-lazy');
+    const videoId = container.dataset.videoId;
+
+    const iframe = document.createElement('iframe');
+
+    iframe.src =
+        'https://www.youtube.com/embed/' +
+        encodeURIComponent(videoId) +
+        '?autoplay=1&rel=0';
+
+    iframe.title = 'YouTube video player';
+
+    iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allowFullscreen = true;
+
+    container.innerHTML = '';
+    container.appendChild(iframe);
+});
 
