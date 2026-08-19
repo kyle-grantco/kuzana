@@ -9,6 +9,8 @@ const SHEET_ID = '1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU';
 // Tab names inside that spreadsheet (lead funnels)
 const INVESTORS_SHEET_NAME = 'Investors'; // investor / deck request leads
 const FOUNDERS_SHEET_NAME = 'Founders';   // founder lead magnets (quiz, 40 things, etc.)
+const FOUNDERS_SHEET_GID = 60907525;      // https://docs.google.com/spreadsheets/d/1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU/edit?gid=60907525
+const INVESTORS_SHEET_GID = 0;            // unused unless a specific Investors gid is known
 
 // Legacy aliases kept for readability in routing helpers
 const DECK_SHEET_NAME = INVESTORS_SHEET_NAME;
@@ -89,16 +91,64 @@ function logLead_(email, context) {
   Logger.log('logLead_ called with email=%s context=%s', email, context);
   // Prefer the bound spreadsheet; fall back to openById for standalone deploys
   const ss = SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.openById(SHEET_ID);
-  const targetSheetName = FOUNDERS_CONTEXTS[context]
-    ? FOUNDERS_SHEET_NAME
-    : INVESTORS_SHEET_NAME;
+  const isFounderLead = !!FOUNDERS_CONTEXTS[context];
+  const sheet = isFounderLead
+    ? getFoundersSheet_(ss)
+    : getInvestorsSheet_(ss);
 
-  const sheet = ss.getSheetByName(targetSheetName);
   if (!sheet) {
-    throw new Error('Sheet not found for context ' + context + ': ' + targetSheetName);
+    throw new Error('Sheet not found for context ' + context);
   }
   // Columns: date | email | context (e.g. InvestmentReadinessQuiz)
   sheet.appendRow([new Date(), email, context]);
+}
+
+/**
+ * Founder lead magnet tab: gid=60907525, with name fallbacks.
+ * @param {GoogleAppsScript.Spreadsheet.Spreadsheet} ss
+ * @returns {GoogleAppsScript.Spreadsheet.Sheet|null}
+ */
+function getFoundersSheet_(ss) {
+  return getSheetByGidOrName_(ss, FOUNDERS_SHEET_GID, [
+    FOUNDERS_SHEET_NAME,
+    '40ThingsBeforeTheDeck',
+    'Founders'
+  ]);
+}
+
+/**
+ * Investor / deck-request tab, with name fallbacks.
+ * @param {GoogleAppsScript.Spreadsheet.Spreadsheet} ss
+ * @returns {GoogleAppsScript.Spreadsheet.Sheet|null}
+ */
+function getInvestorsSheet_(ss) {
+  return getSheetByGidOrName_(ss, INVESTORS_SHEET_GID, [
+    INVESTORS_SHEET_NAME,
+    'DeckRequests',
+    'Investors'
+  ]);
+}
+
+/**
+ * Finds a sheet by numeric gid first, then by any of the provided names.
+ * @param {GoogleAppsScript.Spreadsheet.Spreadsheet} ss
+ * @param {number} gid
+ * @param {string[]} names
+ * @returns {GoogleAppsScript.Spreadsheet.Sheet|null}
+ */
+function getSheetByGidOrName_(ss, gid, names) {
+  var sheets = ss.getSheets();
+  var i;
+  if (gid) {
+    for (i = 0; i < sheets.length; i++) {
+      if (sheets[i].getSheetId() === Number(gid)) return sheets[i];
+    }
+  }
+  for (i = 0; i < names.length; i++) {
+    var sheet = ss.getSheetByName(names[i]);
+    if (sheet) return sheet;
+  }
+  return null;
 }
 
 // Manual tests to verify permissions and behavior
