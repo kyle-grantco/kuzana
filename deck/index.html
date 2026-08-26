@@ -296,10 +296,12 @@
                 body.set('email', email);
                 body.set('context', 'deck_request');
                 body.set('source', 'deck_landing');
+                var encoded = body.toString();
                 fetch(GAS_ENDPOINT, {
                     method: 'POST',
                     mode: 'no-cors',
-                    body: body
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                    body: encoded
                 }).catch(function () {
                     // Apps Script no-cors responses are opaque; network visibility is limited in the browser.
                 }).finally(function () {

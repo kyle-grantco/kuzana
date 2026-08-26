@@ -538,10 +538,12 @@
       body.set('email', email);
       body.set('context', QUIZ_CONTEXT);
       body.set('source', 'investment_readiness_quiz');
+      var encoded = body.toString();
       fetch(GAS_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
-        body: body
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: encoded
       }).catch(function () {});
     } catch (err) {}
 

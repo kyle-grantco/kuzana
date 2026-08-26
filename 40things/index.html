@@ -156,17 +156,20 @@
           body.set('subject', '40 Things Before the Deck lead');
           body.set('notify', 'kyle@kuzana.co');
           body.set('source', '40things_landing');
+          var encoded = body.toString();
+          var blob = new Blob([encoded], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
           // sendBeacon survives the memo redirect; fetch keepalive is a fallback.
           var posted = false;
           try {
-            if (navigator.sendBeacon) posted = navigator.sendBeacon(GAS_ENDPOINT, body);
+            if (navigator.sendBeacon) posted = navigator.sendBeacon(GAS_ENDPOINT, blob);
           } catch (beaconErr) {}
           if (!posted) {
             fetch(GAS_ENDPOINT, {
               method: 'POST',
               mode: 'no-cors',
               keepalive: true,
-              body: body
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+              body: encoded
             }).catch(function(){});
           }
         } catch (err) {}
