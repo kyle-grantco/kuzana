@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kuzana – Frontier Sales Self Guided Workshop lead magnet -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (GA4 gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FB5N4P252E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FB5N4P252E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontier Sales Workshop – Kuzana</title>
+  <meta name="description" content="Enter your email to get instant access to Kuzana's Frontier Sales Self Guided Workshop.">
+  <meta property="og:title" content="Frontier Sales Workshop – Kuzana">
+  <meta property="og:description" content="A self-guided workshop to build a clearer sales motion for frontier markets.">
+  <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+  <link rel="canonical" href="https://kuzana.co/sales/">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <script src="/attribution.js"></script>
+  <style>
+    :root { --background:#fafafa; --text:#222; --primary:#0f172a; --secondary:#ff6f74; }
+    * { box-sizing:border-box; }
+    html, body { height:100%; }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    main {
+      width:100%;
+      max-width:560px;
+      padding:24px 16px 32px;
+    }
+    .gate-card {
+      background:#fff;
+      border-radius:12px;
+      border:1px solid #eee;
+      padding:20px 18px 18px;
+      box-shadow:0 10px 30px rgba(15,23,42,0.08);
+    }
+    h1 {
+      margin:0 0 .75rem;
+      font-size:1.6rem;
+      font-weight:650;
+      color:var(--primary);
+    }
+    .sub {
+      margin:0 0 1.25rem;
+      font-size:.98rem;
+      line-height:1.55;
+      color:#444;
+    }
+    .gate-form {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.75rem;
+      margin-top:.5rem;
+    }
+    .gate-form input[type=email] {
+      flex:1 1 230px;
+      padding:.8rem 1rem;
+      border-radius:8px;
+      border:1px solid #ddd;
+      font-size:.98rem;
+    }
+    .gate-form button {
+      white-space:nowrap;
+      padding:.8rem 1.4rem;
+      border-radius:8px;
+      border:0;
+      background:var(--secondary);
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .gate-form button:hover { filter:brightness(1.05); }
+    .gate-msg { font-size:.9rem; margin-top:.5rem; display:none; }
+    .gate-msg.error { color:#b00020; }
+    .gate-msg.success { color:#0a7a38; }
+    .small-note { margin-top:.6rem; font-size:.8rem; color:#666; }
+    @media (max-width:640px){
+      main { padding:20px 14px 28px; }
+      .gate-form { flex-direction:column; align-items:stretch; }
+      .gate-form button { width:100%; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <main id="main" role="main" aria-labelledby="gate-title">
+    <section class="gate-card">
+      <h1 id="gate-title">Frontier Sales Workshop</h1>
+      <p class="sub">A self-guided workshop to tighten your sales motion. Enter your email to get instant access.</p>
+      <form id="salesForm" class="gate-form" novalidate>
+        <input id="salesEmail" type="email" name="email" autocomplete="email" placeholder="you@workemail.com" aria-label="Email" required>
+        <button type="submit">Get the Workshop</button>
+      </form>
+      <p id="salesError" class="gate-msg error">Please enter a valid email like name@company.com.</p>
+      <p id="salesSuccess" class="gate-msg success">Thanks! Redirecting you to the workshop…</p>
+      <p class="small-note">We’ll also send occasional founder‑serious updates. No spam. Unsubscribe anytime.</p>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      var form = document.getElementById('salesForm');
+      var emailInput = document.getElementById('salesEmail');
+      var errorMsg = document.getElementById('salesError');
+      var successMsg = document.getElementById('salesSuccess');
+      var DOC_URL = 'https://docs.google.com/presentation/d/1jmr0EeZxJbjfbrZyXa0NWkLizoge3n8vvc78jpZtW6o/edit?slide=id.g3f667ce3f96_0_833#slide=id.g3f667ce3f96_0_833';
+      var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyv42j66yaBvzDzMTJMy1ehJZDlAzniAir1zVtOWTjWyFhF_8AE7YSnolaeVfWApCvBnQ/exec';
+      var LEAD_CONTEXT = 'frontier_sales_workshop';
+
+      /**
+       * Returns true when the email looks valid enough to submit.
+       * @param {string} email
+       * @returns {boolean}
+       */
+      function isValidEmail(email){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
+      }
+
+      if (!form || !emailInput) return;
+
+      // Autofill email when arriving from another Kuzana page via ?email=
+      try {
+        var emailFromUrl = new URLSearchParams(window.location.search || '').get('email');
+        if (emailFromUrl && isValidEmail(emailFromUrl)) {
+          emailInput.value = emailFromUrl.trim();
+        }
+      } catch (err) {}
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'none';
+        var email = (emailInput.value || '').trim();
+        if (!isValidEmail(email)){
+          errorMsg.style.display = 'block';
+          return;
+        }
+
+        try {
+          var body = new URLSearchParams();
+          body.set('email', email);
+          body.set('name', '');
+          body.set('context', LEAD_CONTEXT);
+          body.set('subject', 'Frontier Sales Workshop lead');
+          body.set('notify', 'kyle@kuzana.co');
+          body.set('source', 'sales_landing');
+          // sendBeacon survives the workshop redirect; fetch keepalive is a fallback.
+          var posted = false;
+          try {
+            if (navigator.sendBeacon) posted = navigator.sendBeacon(GAS_ENDPOINT, body);
+          } catch (beaconErr) {}
+          if (!posted) {
+            fetch(GAS_ENDPOINT, {
+              method: 'POST',
+              mode: 'no-cors',
+              keepalive: true,
+              body: body
+            }).catch(function(){});
+          }
+        } catch (err) {}
+
+        try {
+          if (window.gtag) {
+            window.gtag('event', 'frontier_sales_workshop_submit', {
+              event_category: 'lead',
+              event_label: LEAD_CONTEXT,
+              value: 1
+            });
+          }
+        } catch (err) {}
+
+        successMsg.style.display = 'block';
+        // Give the lead POST a moment to leave the browser before navigating away.
+        setTimeout(function () {
+          window.location.href = DOC_URL;
+        }, 500);
+      });
+    })();
+  </script>
+</body>
+</html>

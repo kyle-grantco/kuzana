@@ -9,7 +9,7 @@ const SHEET_ID = '1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU';
 // Tab names inside that spreadsheet (lead funnels)
 const INVESTORS_SHEET_NAME = 'Investors'; // investor / deck request leads
 const FOUNDERS_SHEET_NAME = 'Founders';   // founder lead magnets (quiz, 40 things, etc.)
-const FOUNDERS_SHEET_GID = 60907525;      // https://docs.google.com/spreadsheets/d/1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU/edit?gid=60907525
+const FOUNDERS_SHEET_GID = 1695097223;    // https://docs.google.com/spreadsheets/d/1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU/edit?gid=1695097223
 const INVESTORS_SHEET_GID = 0;            // unused unless a specific Investors gid is known
 
 // Legacy aliases kept for readability in routing helpers
@@ -19,7 +19,8 @@ const THINGS_SHEET_NAME = FOUNDERS_SHEET_NAME;
 // Founder-funnel contexts → Founders tab (column C stores the context string)
 const FOUNDERS_CONTEXTS = {
   '40things_before_deck': true,
-  'InvestmentReadinessQuiz': true
+  'InvestmentReadinessQuiz': true,
+  'frontier_sales_workshop': true
 };
 
 // --- ENTRYPOINT ---
@@ -156,6 +157,7 @@ function testLogLead() {
   logLead_('test-investors@example.com', 'deck_request');
   logLead_('test-founders-40things@example.com', '40things_before_deck');
   logLead_('test-founders-quiz@example.com', 'InvestmentReadinessQuiz');
+  logLead_('test-founders-sales@example.com', 'frontier_sales_workshop');
 }
 
 function testEmailSend() {
