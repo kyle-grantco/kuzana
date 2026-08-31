@@ -191,7 +191,7 @@
             <p class="stream-time">Wednesdays · 5PM East Africa Time</p>
             <div class="calendar-actions">
             <a class="btn-stream" href="https://meet.google.com/odn-zgog-kpd" target="_blank" rel="noopener noreferrer">Join on Google Meet</a>
-            <a id="google-calendar-link" class="btn-google" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Bottleneck+AMA&amp;dates=20260624T140000Z/20260624T150000Z&amp;details=Bring+your+blocker.+Hosted+by+Kyle+from+Kuzana.&amp;location=https%3A%2F%2Fmeet.google.com%2Fodn-zgog-kpd" target="_blank" rel="noopener noreferrer">
+            <a id="google-calendar-link" class="btn-google" href="#" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -205,5 +205,127 @@
 
         <p class="footer-note">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
     </div>
+    <script>
+    (function () {
+        var TZ = 'Africa/Nairobi';
+        var MEET_URL = 'https://meet.google.com/odn-zgog-kpd';
+        var SESSION_HOUR = 17;
+        var ROLLOVER_HOUR = 18;
+        var SESSION_MINUTES = 60;
+
+        /**
+         * Returns weekday (0=Sun) and clock time for a date in East Africa Time.
+         * @param {Date} date
+         * @returns {{ weekday: number, hour: number, minute: number, ymd: string }}
+         */
+        function getEatParts(date) {
+            var weekdayMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+            var weekdayLabel = new Intl.DateTimeFormat('en-US', { timeZone: TZ, weekday: 'short' }).format(date);
+            var timeParts = new Intl.DateTimeFormat('en-GB', {
+                timeZone: TZ,
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            }).formatToParts(date);
+            var hour = 0;
+            var minute = 0;
+            timeParts.forEach(function (part) {
+                if (part.type === 'hour') hour = parseInt(part.value, 10);
+                if (part.type === 'minute') minute = parseInt(part.value, 10);
+            });
+            return {
+                weekday: weekdayMap[weekdayLabel] ?? 0,
+                hour: hour,
+                minute: minute,
+                ymd: new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(date)
+            };
+        }
+
+        /**
+         * Converts a calendar date + clock time in EAT (UTC+3) to a UTC Date.
+         * @param {number} year
+         * @param {number} month
+         * @param {number} day
+         * @param {number} hour
+         * @param {number} minute
+         * @returns {Date}
+         */
+        function eatLocalToUtc(year, month, day, hour, minute) {
+            var pad = function (n) { return String(n).padStart(2, '0'); };
+            return new Date(
+                year + '-' + pad(month) + '-' + pad(day) + 'T' +
+                pad(hour) + ':' + pad(minute) + ':00+03:00'
+            );
+        }
+
+        /**
+         * Adds days to a Y-M-D tuple using UTC date math (timezone-safe for calendar dates).
+         * @param {number} year
+         * @param {number} month
+         * @param {number} day
+         * @param {number} days
+         * @returns {{ year: number, month: number, day: number }}
+         */
+        function addDays(year, month, day, days) {
+            var shifted = new Date(Date.UTC(year, month - 1, day + days));
+            return {
+                year: shifted.getUTCFullYear(),
+                month: shifted.getUTCMonth() + 1,
+                day: shifted.getUTCDate()
+            };
+        }
+
+        /**
+         * First upcoming AMA start (Wed 5PM EAT). After Wed 6PM EAT, rolls to the following week.
+         * @param {Date} now
+         * @returns {Date}
+         */
+        function getNextSessionStartUtc(now) {
+            var eat = getEatParts(now);
+            var ymd = eat.ymd.split('-').map(function (part) { return parseInt(part, 10); });
+            var daysUntilWednesday = (3 - eat.weekday + 7) % 7;
+            var target = addDays(ymd[0], ymd[1], ymd[2], daysUntilWednesday);
+            var pastRollover = eat.weekday === 3 &&
+                (eat.hour > ROLLOVER_HOUR || (eat.hour === ROLLOVER_HOUR && eat.minute >= 0));
+            if (pastRollover) {
+                target = addDays(target.year, target.month, target.day, 7);
+            }
+            return eatLocalToUtc(target.year, target.month, target.day, SESSION_HOUR, 0);
+        }
+
+        /**
+         * Formats a Date as Google Calendar UTC timestamps (YYYYMMDDTHHMMSSZ).
+         * @param {Date} date
+         * @returns {string}
+         */
+        function formatGoogleCalendarUtc(date) {
+            return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z/, 'Z');
+        }
+
+        /**
+         * Builds a Google Calendar add-event URL with weekly recurrence on Wednesdays.
+         * @param {Date} startUtc
+         * @param {Date} endUtc
+         * @returns {string}
+         */
+        function buildGoogleCalendarUrl(startUtc, endUtc) {
+            var params = new URLSearchParams();
+            params.set('action', 'TEMPLATE');
+            params.set('text', 'The Bottleneck AMA');
+            params.set('dates', formatGoogleCalendarUtc(startUtc) + '/' + formatGoogleCalendarUtc(endUtc));
+            params.set('details', 'Bring your blocker. Hosted by Kyle from Kuzana.\n\nJoin: ' + MEET_URL);
+            params.set('location', MEET_URL);
+            params.set('recur', 'RRULE:FREQ=WEEKLY;BYDAY=WE');
+            return 'https://calendar.google.com/calendar/render?' + params.toString();
+        }
+
+        var link = document.getElementById('google-calendar-link');
+        if (!link) return;
+
+        var startUtc = getNextSessionStartUtc(new Date());
+        var endUtc = new Date(startUtc.getTime() + SESSION_MINUTES * 60 * 1000);
+        link.href = buildGoogleCalendarUrl(startUtc, endUtc);
+    })();
+    </script>
 </body>
 </html>
