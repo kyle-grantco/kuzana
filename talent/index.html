@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kuzana Talent: open roles across Kuzana and portfolio companies -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Talent – Work with Kenya’s Top 1% Entrepreneurs | Kuzana</title>
+  <meta name="description" content="Kuzana is looking for top operators, salespeople, marketers, accountants, managers and future CEOs to work with Kenya’s most ambitious companies.">
+  <meta property="og:site_name" content="Kuzana">
+  <meta property="og:url" content="https://kuzana.co/talent/">
+  <meta property="og:title" content="Talent – Work with Kenya’s Top 1% Entrepreneurs | Kuzana">
+  <meta property="og:description" content="Join Kuzana-backed companies. You don’t need to be looking for a job — our hires are usually already employed, but know they could be MORE.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://kuzana.co/images/kuzana-logo.png">
+  <link rel="canonical" href="https://kuzana.co/talent/">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="/attribution.js"></script>
+  <style>
+    :root {
+      --talent-bg: #f7f4f0;
+      --talent-ink: #1a2332;
+      --talent-muted: #5a6573;
+      --talent-accent: #ff6f74;
+      --talent-accent-hover: #e85f64;
+      --talent-line: #e4ddd4;
+      --talent-surface: #ffffff;
+      --talent-blue: #4a628d;
+    }
+    body {
+      padding-top: 90px;
+      margin: 0;
+      font-family: 'Poppins', system-ui, sans-serif;
+      color: var(--talent-ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(255, 111, 116, 0.12), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(74, 98, 141, 0.1), transparent 50%),
+        var(--talent-bg);
+    }
+    .talent-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+    .talent-hero {
+      margin: 12px 0 40px;
+    }
+    .talent-brand {
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+    .talent-brand img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .talent-hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(1.85rem, 5vw, 2.55rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--talent-ink);
+    }
+    .talent-hero p {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--talent-muted);
+    }
+    .talent-hero p:last-child { margin-bottom: 0; }
+    .talent-section {
+      margin-bottom: 36px;
+    }
+    .talent-section h2 {
+      margin: 0 0 14px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--talent-ink);
+      letter-spacing: -0.01em;
+    }
+    .job-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .job-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--talent-surface);
+      border: 1px solid var(--talent-line);
+      border-radius: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    a.job-card:hover {
+      border-color: var(--talent-accent);
+      box-shadow: 0 8px 24px rgba(26, 35, 50, 0.08);
+      transform: translateY(-1px);
+    }
+    .job-card.is-soon {
+      opacity: 0.92;
+      cursor: default;
+    }
+    .job-meta {
+      min-width: 0;
+    }
+    .job-title {
+      margin: 0 0 4px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--talent-ink);
+    }
+    .job-pay {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--talent-muted);
+    }
+    .job-action {
+      flex-shrink: 0;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--talent-accent);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    a.job-card:hover .job-action {
+      background: var(--talent-accent-hover);
+    }
+    .job-badge {
+      flex-shrink: 0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(74, 98, 141, 0.12);
+      color: var(--talent-blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .empty-note {
+      margin: 0;
+      padding: 18px 20px;
+      background: transparent;
+      border: 1px dashed var(--talent-line);
+      border-radius: 12px;
+      color: var(--talent-muted);
+      font-size: 0.98rem;
+    }
+    @media (max-width: 560px) {
+      .job-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .job-action,
+      .job-badge {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="https://kuzana.co/">
+          <img src="../assets/images/logo.png" alt="Kuzana Logo">
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav" id="navMenu">
+        <a href="https://kuzana.co/portfolio/">Portfolio</a>
+        <a href="https://kuzana.co/how-it-works/">How It Works</a>
+        <a href="https://kuzana.co/class/">Class</a>
+        <div class="dropdown">
+          <a href="javascript:void(0);" class="dropdown-toggle">
+            About <img src="../assets/images/dropdown-arrow.png" alt="">
+          </a>
+          <div class="dropdown-menu">
+            <a href="https://kuzana.co/about/">About Us</a>
+            <a href="https://kuzana.co/founder/">Founder</a>
+            <a href="https://kuzana.co/#team">Team</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="https://kuzana.co/resources/" class="dropdown-toggle">
+            Resources <img src="../assets/images/dropdown-arrow.png" alt="">
+          </a>
+          <div class="dropdown-menu">
+            <a href="https://blog.kuzana.co/">Blog</a>
+            <a href="https://kuzana.co/library/">Library</a>
+            <a href="https://kuzana.co/faq/">FAQ</a>
+            <a href="https://kuzana.co/cofounders/">Cofounders</a>
+            <a href="https://kuzana.co/referral/">Referral</a>
+          </div>
+        </div>
+        <a href="https://kuzana.co/talent/" class="apply-btn">Talent</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="talent-wrap">
+    <header class="talent-hero">
+      <h1>Work with Kenya’s top 1% entrepreneurs.</h1>
+      <p>Kuzana backs ambitious Kenyan companies that intend to become unusually good at what they do.</p>
+      <p>We are looking for people like you! Top operators, salespeople, marketers, accountants, managers and future CEOs.</p>
+      <p>You don’t need to be looking for a job.</p>
+      <p>Since we only hire the top 1%, our hires are usually already employed, but know they could be MORE.</p>
+    </header>
+
+    <section class="talent-section" aria-labelledby="jobs-heading">
+      <h2 id="jobs-heading">Jobs</h2>
+      <div class="job-list">
+        <a class="job-card" href="https://form.kuzana.co/growthmarketer" target="_blank" rel="noopener noreferrer">
+          <div class="job-meta">
+            <h3 class="job-title">Growth Marketer</h3>
+            <p class="job-pay">Ksh 100k–200k</p>
+          </div>
+          <span class="job-action">Apply</span>
+        </a>
+        <a class="job-card" href="https://form.kuzana.co/wa" target="_blank" rel="noopener noreferrer">
+          <div class="job-meta">
+            <h3 class="job-title">Community &amp; Events Manager</h3>
+            <p class="job-pay">Ksh 50k–100k</p>
+          </div>
+          <span class="job-action">Apply</span>
+        </a>
+        <a class="job-card" href="https://form.kuzana.co/creative" target="_blank" rel="noopener noreferrer">
+          <div class="job-meta">
+            <h3 class="job-title">Creative</h3>
+            <p class="job-pay">Ksh 50k–120k</p>
+          </div>
+          <span class="job-action">Apply</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="talent-section" aria-labelledby="fellowship-heading">
+      <h2 id="fellowship-heading">Fellowship</h2>
+      <div class="job-list">
+        <a class="job-card is-soon" href="https://fellowship.kuzana.co" target="_blank" rel="noopener noreferrer">
+          <div class="job-meta">
+            <h3 class="job-title">Live Players fellowship</h3>
+            <p class="job-pay">~$5,000 for 4 months</p>
+          </div>
+          <span class="job-badge">Coming Soon</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="talent-section" aria-labelledby="experts-heading">
+      <h2 id="experts-heading">Workshop leaders and Experts</h2>
+      <p class="empty-note">None open right now. Check back soon.</p>
+    </section>
+  </main>
+
+  <footer class="footer-section">
+    <div class="container footer-container">
+      <div class="footer-column brand-column">
+        <div class="footer-logo">
+          <a href="https://kuzana.co/">
+            <img src="../assets/images/footer-logo.png" alt="KUZANA Logo">
+          </a>
+        </div>
+        <p class="brand-description">
+          The Kuzana investment program is built for Kenya's most ambitious founders-12 months of entrepreneur
+          workshops, real capital, and the kind of support no other investment company in Kenya offers.
+        </p>
+        <div class="social-media-wrapper">
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/kuzana" class="social-icon"><img src="../assets/images/facebook.png" alt=""></a>
+            <a href="https://x.com/kuzana_co" class="social-icon"><img src="../assets/images/twiter.png" alt=""></a>
+            <a href="https://www.linkedin.com/company/kuzana" class="social-icon"><img src="../assets/images/linkdin.png" alt=""></a>
+            <a href="https://www.instagram.com/kuzana.co/" class="social-icon"><img src="../assets/images/insagram.png" alt=""></a>
+            <a href="https://www.tiktok.com/@kuzana.co" class="social-icon"><img src="../assets/images/tiktok.png" alt=""></a>
+            <a href="mailto:info+website@kuzana.co" class="social-icon"><img src="../assets/images/email.png" alt=""></a>
+            <a href="https://blog.kuzana.co/" class="social-icon"><img src="../assets/images/substack.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-column links-column">
+        <h3 class="column-title">Program</h3>
+        <ul class="footer-links">
+          <li><a href="https://form.kuzana.co/apply">Apply Now</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/talent/">Talent</a></li>
+          <li><a href="/cofounders/">Co-Founders</a></li>
+        </ul>
+      </div>
+      <div class="footer-column links-column">
+        <h3 class="column-title">Resources</h3>
+        <ul class="footer-links">
+          <li><a href="/library/">Library</a></li>
+          <li><a href="https://blog.kuzana.co/">Blogs</a></li>
+          <li><a href="/resources/">Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-column newsletter-column">
+        <h3 class="column-title newsletter-heading">Subscribe to Our Newsletter</h3>
+        <p class="newsletter-sub">Building the YCombinator for African SMEs</p>
+        <iframe title="Kuzana newsletter" loading="lazy" src="https://kuzana.substack.com/embed" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Kuzana. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
