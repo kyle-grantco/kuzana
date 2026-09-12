@@ -9,6 +9,7 @@ const SHEET_ID = '1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU';
 // Tab names inside that spreadsheet (lead funnels)
 const INVESTORS_SHEET_NAME = 'Investors'; // investor / deck request leads
 const FOUNDERS_SHEET_NAME = 'Founders';   // founder lead magnets (quiz, 40 things, sales, etc.)
+const WAITLIST_SHEET_NAME = 'Waitlist';   // course waitlist subscribers
 // Hard-coded Founders tab gid — do not route by name alone
 const FOUNDERS_SHEET_GID = 1695097223;    // https://docs.google.com/spreadsheets/d/1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU/edit?gid=1695097223
 const INVESTORS_SHEET_GID = null;         // resolve Investors by name until a stable gid is known
@@ -22,6 +23,10 @@ const FOUNDERS_CONTEXTS = {
   '40things_before_deck': true,
   'InvestmentReadinessQuiz': true,
   'frontier_sales_workshop': true
+};
+
+const WAITLIST_CONTEXTS = {
+  'course_waitlist': true
 };
 
 // --- ENTRYPOINT ---
@@ -45,10 +50,18 @@ function doPost(e) {
       return json_({ status: 'error', error: 'invalid_email' });
     }
 
+    const name = String(data.name || '').trim();
+    const revenue = String(data.revenue || '').trim();
+    const department = String(data.department || '').trim();
+
     // Log every lead somewhere first
-    logLead_(rawEmail, context);
+    logLead_(rawEmail, context, name, revenue, department);
 
     // Founder lead magnets: only log, do NOT send deck or notifications
+    if (WAITLIST_CONTEXTS[context]) {
+      return json_({ status: 'success', ok: true, handled: context, sheet: WAITLIST_SHEET_NAME });
+    }
+
     if (FOUNDERS_CONTEXTS[context]) {
       return json_({ status: 'success', ok: true, handled: context, sheet: FOUNDERS_SHEET_NAME, gid: FOUNDERS_SHEET_GID });
     }
@@ -126,25 +139,78 @@ function parseFormBody_(contents) {
 }
 
 /**
- * Appends a lead row to Founders (by gid) or Investors (by name).
+ * Appends a lead row to Waitlist, Founders, or Investors.
+ * Waitlist columns: date | name | email | department | revenue | context
+ * Other leads: date | email | context | name | revenue
  * @param {string} email
  * @param {string} context
+ * @param {string=} name
+ * @param {string=} revenue
+ * @param {string=} department
  */
-function logLead_(email, context) {
+function logLead_(email, context, name, revenue, department) {
   Logger.log('logLead_ called with email=%s context=%s', email, context);
-  // Prefer the bound spreadsheet; fall back to openById for standalone deploys
   const ss = SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.openById(SHEET_ID);
-  const isFounderLead = !!FOUNDERS_CONTEXTS[context];
-  const sheet = isFounderLead
-    ? getFoundersSheet_(ss)
-    : getInvestorsSheet_(ss);
+  var sheet;
+  var isWaitlist = !!WAITLIST_CONTEXTS[context];
+  var isFounderLead = !!FOUNDERS_CONTEXTS[context];
+
+  if (isWaitlist) sheet = getOrCreateWaitlistSheet_(ss);
+  else if (isFounderLead) sheet = getFoundersSheet_(ss);
+  else sheet = getInvestorsSheet_(ss);
 
   if (!sheet) {
     throw new Error('Sheet not found for context ' + context);
   }
   Logger.log('logLead_ writing to sheet=%s gid=%s', sheet.getName(), sheet.getSheetId());
-  // Columns: date | email | context (e.g. InvestmentReadinessQuiz)
-  sheet.appendRow([new Date(), email, context]);
+
+  if (isWaitlist) {
+    sheet.appendRow([
+      new Date(),
+      String(name || ''),
+      email,
+      String(department || ''),
+      String(revenue || ''),
+      context
+    ]);
+    return;
+  }
+
+  sheet.appendRow([
+    new Date(),
+    email,
+    context,
+    String(name || ''),
+    String(revenue || '')
+  ]);
+}
+
+/**
+ * Gets or creates the Waitlist tab for course subscribers.
+ * Columns: Date | Name | Email | Department | Revenue | Context
+ * @param {GoogleAppsScript.Spreadsheet.Spreadsheet} ss
+ * @returns {GoogleAppsScript.Spreadsheet.Sheet}
+ */
+function getOrCreateWaitlistSheet_(ss) {
+  var sheet = ss.getSheetByName(WAITLIST_SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(WAITLIST_SHEET_NAME);
+    sheet.appendRow(['Date', 'Name', 'Email', 'Department', 'Revenue', 'Context']);
+    sheet.getRange(1, 1, 1, 6).setFontWeight('bold');
+    sheet.setFrozenRows(1);
+    Logger.log('Created Waitlist sheet gid=%s', sheet.getSheetId());
+    return sheet;
+  }
+
+  // If the tab already exists without Department, add the header cell once.
+  var header = String(sheet.getRange(1, 4).getValue() || '').trim().toLowerCase();
+  if (header !== 'department' && header !== 'revenue') {
+    // Leave existing data alone; new rows still write department in column D.
+  } else if (header === 'revenue') {
+    sheet.insertColumnBefore(4);
+    sheet.getRange(1, 4).setValue('Department').setFontWeight('bold');
+  }
+  return sheet;
 }
 
 /**
@@ -217,6 +283,7 @@ function testLogLead() {
   logLead_('test-founders-40things@example.com', '40things_before_deck');
   logLead_('test-founders-quiz@example.com', 'InvestmentReadinessQuiz');
   logLead_('test-founders-sales@example.com', 'frontier_sales_workshop');
+  logLead_('test-waitlist@example.com', 'course_waitlist', 'Waitlist Test', 'Ksh 1m', 'wood factory');
 }
 
 function testEmailSend() {

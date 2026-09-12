@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Kuzana course waitlist: name, email, revenue -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+  <!-- End Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FB5N4P252E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FB5N4P252E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Course Waitlist – Kuzana</title>
+  <meta name="description" content="Join the waitlist for the upcoming Kuzana course for ambitious founders and operators.">
+  <meta property="og:site_name" content="Kuzana">
+  <meta property="og:url" content="https://kuzana.co/waitlist/">
+  <meta property="og:title" content="Course Waitlist – Kuzana">
+  <meta property="og:description" content="Be first to know when the next Kuzana course opens. This will be a paid course.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://kuzana.co/images/kuzana-logo.png">
+  <link rel="canonical" href="https://kuzana.co/waitlist/">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="/attribution.js"></script>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --ink: #112b3c;
+      --muted: #5a6573;
+      --coral: #ff6f74;
+      --coral-hover: #e85f64;
+      --teal: #4a628d;
+      --line: #ddd4c6;
+      --surface: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 70% 45% at 0% 0%, rgba(255, 111, 116, 0.14), transparent 55%),
+        radial-gradient(ellipse 55% 40% at 100% 10%, rgba(74, 98, 141, 0.12), transparent 50%),
+        linear-gradient(180deg, #faf6ef 0%, var(--bg) 100%);
+    }
+    .wrap {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 40px 20px 56px;
+    }
+    .logo {
+      display: inline-block;
+      margin-bottom: 32px;
+    }
+    .logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.1rem, 8vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+    .lead {
+      margin: 0 0 28px;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .field {
+      width: 100%;
+    }
+    input,
+    select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: 1rem;
+    }
+    input:focus,
+    select:focus {
+      outline: 2px solid rgba(255, 111, 116, 0.35);
+      border-color: var(--coral);
+    }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23112b3c' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    button {
+      margin-top: 4px;
+      padding: 0.95rem 1.25rem;
+      border: 0;
+      border-radius: 8px;
+      background: var(--coral);
+      color: #fff;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--coral-hover); }
+    button:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .msg {
+      display: none;
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    .msg.error { color: #9f1239; }
+    .msg.success { color: #0a7a38; }
+    .disclaimer {
+      margin: 18px 0 0;
+      padding: 12px 14px;
+      border-left: 3px solid var(--teal);
+      background: rgba(74, 98, 141, 0.08);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .disclaimer strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .note {
+      margin: 14px 0 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <main class="wrap" id="main">
+    <a class="logo" href="/" aria-label="Kuzana home">
+      <img src="/images/kuzana-logo.png" alt="Kuzana" width="160" height="44" loading="eager" decoding="async">
+    </a>
+
+    <p class="eyebrow">Upcoming course</p>
+    <h1>Join the waitlist.</h1>
+    <p class="lead">Be first when the next Kuzana course opens for ambitious founders and operators.</p>
+
+    <form id="waitlistForm" novalidate>
+      <div class="field">
+        <label for="waitlistName">Name</label>
+        <input id="waitlistName" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+      </div>
+      <div class="field">
+        <label for="waitlistEmail">Email</label>
+        <input id="waitlistEmail" name="email" type="email" autocomplete="email" placeholder="you@workemail.com" required>
+      </div>
+      <div class="field">
+        <label for="waitlistDepartment">What kind of business?</label>
+        <input id="waitlistDepartment" name="department" type="text" autocomplete="organization-title" placeholder="e.g. wood factory, fashion designer, farmer" required>
+      </div>
+      <div class="field">
+        <label for="waitlistRevenue">Revenue</label>
+        <select id="waitlistRevenue" name="revenue" required>
+          <option value="" disabled selected>Select revenue</option>
+          <option value="0-500k">0–500k</option>
+          <option value="500k-5mil">500k–5mil</option>
+          <option value="5mil+">5mil+</option>
+        </select>
+      </div>
+      <button id="waitlistSubmit" type="submit">Join the waitlist</button>
+    </form>
+
+    <p id="waitlistError" class="msg error" role="alert">Please fill in your name, email, business type, and revenue.</p>
+    <p id="waitlistSuccess" class="msg success" role="status">You're on the list. We'll email you when the course opens.</p>
+
+    <p class="disclaimer"><strong>Paid course.</strong> This upcoming Kuzana course will be a paid offering. Joining the waitlist does not enroll you or charge you.</p>
+    <p class="note">No spam. Unsubscribe anytime.</p>
+  </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById('waitlistForm');
+      var nameInput = document.getElementById('waitlistName');
+      var emailInput = document.getElementById('waitlistEmail');
+      var departmentInput = document.getElementById('waitlistDepartment');
+      var revenueInput = document.getElementById('waitlistRevenue');
+      var submitBtn = document.getElementById('waitlistSubmit');
+      var errorMsg = document.getElementById('waitlistError');
+      var successMsg = document.getElementById('waitlistSuccess');
+      var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyv42j66yaBvzDzMTJMy1ehJZDlAzniAir1zVtOWTjWyFhF_8AE7YSnolaeVfWApCvBnQ/exec';
+      var LEAD_CONTEXT = 'course_waitlist';
+
+      /**
+       * Returns true when the email looks valid enough to submit.
+       * @param {string} email
+       * @returns {boolean}
+       */
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
+      }
+
+      if (!form) return;
+
+      try {
+        var emailFromUrl = new URLSearchParams(window.location.search || '').get('email');
+        if (emailFromUrl && isValidEmail(emailFromUrl)) emailInput.value = emailFromUrl.trim();
+      } catch (err) {}
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'none';
+
+        var name = (nameInput.value || '').trim();
+        var email = (emailInput.value || '').trim();
+        var department = (departmentInput.value || '').trim();
+        var revenue = (revenueInput.value || '').trim();
+
+        if (!name || !isValidEmail(email) || !department || !revenue) {
+          errorMsg.style.display = 'block';
+          return;
+        }
+
+        submitBtn.disabled = true;
+
+        try {
+          var body = new URLSearchParams();
+          body.set('email', email);
+          body.set('name', name);
+          body.set('department', department);
+          body.set('revenue', revenue);
+          body.set('context', LEAD_CONTEXT);
+          body.set('source', 'course_waitlist');
+          var encoded = body.toString();
+          var blob = new Blob([encoded], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
+          var posted = false;
+          try {
+            if (navigator.sendBeacon) posted = navigator.sendBeacon(GAS_ENDPOINT, blob);
+          } catch (beaconErr) {}
+          if (!posted) {
+            fetch(GAS_ENDPOINT, {
+              method: 'POST',
+              mode: 'no-cors',
+              keepalive: true,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+              body: encoded
+            }).catch(function () {});
+          }
+        } catch (err) {}
+
+        try {
+          if (window.gtag) {
+            window.gtag('event', 'course_waitlist_submit', {
+              event_category: 'lead',
+              event_label: LEAD_CONTEXT,
+              value: 1
+            });
+          }
+        } catch (err) {}
+
+        successMsg.style.display = 'block';
+        form.reset();
+        submitBtn.disabled = false;
+      });
+    })();
+  </script>
+</body>
+</html>
