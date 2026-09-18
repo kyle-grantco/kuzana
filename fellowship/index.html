@@ -40,13 +40,10 @@
       margin: 0;
       font-family: 'Outfit', system-ui, sans-serif;
       color: var(--navy);
-      background:
-        radial-gradient(ellipse 70% 40% at 0% 0%, rgba(254,114,114,.1), transparent 55%),
-        radial-gradient(ellipse 50% 35% at 100% 0%, rgba(74,98,144,.1), transparent 50%),
-        var(--ivory);
+      background: var(--ivory);
     }
     a { color: inherit; }
-    .wrap { width: min(70rem, 100%); margin: 0 auto; padding: 0 1.25rem; }
+    .wrap { width: min(62rem, 100%); margin: 0 auto; padding: 0 1.35rem; }
     .skip { position: absolute; left: -999px; }
     .skip:focus { left: 1rem; top: 1rem; z-index: 60; background: #fff; padding: .5rem .75rem; }
 
@@ -117,10 +114,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: .85rem 1.2rem;
+      padding: .78rem 1.1rem;
       text-decoration: none;
-      font-size: .95rem;
+      font-size: .8rem;
       font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
       transition: background .15s ease, color .15s ease, border-color .15s ease;
     }
     .btn-coral { background: var(--coral); color: var(--navy); }
@@ -155,7 +154,7 @@
     .facts dt { margin: 0; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(247,240,227,.65); }
     .facts dd { margin: .4rem 0 0; font-size: 1rem; color: var(--ivory); }
 
-    .section { padding: 4rem 0; }
+    .section { padding: 4.75rem 0; }
     .section h2 {
       margin: .65rem 0 0;
       max-width: 20ch;
@@ -390,33 +389,50 @@
     .media {
       margin: 1.75rem 0 0;
       overflow: hidden;
-      background: #ddd5c6;
+      background: #e4ddd0;
+      max-width: 22rem;
+    }
+    .media.media-md { max-width: 26rem; }
+    .media.media-wide { max-width: 34rem; }
+    .hero-visual .media {
+      margin: 0;
+      max-width: none;
+      width: min(100%, 22rem);
+      box-shadow: 0 22px 50px rgba(0,0,0,.28);
     }
     .media img {
       display: block;
       width: 100%;
       height: auto;
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.88) contrast(1.04);
     }
+    .hero-visual .media img { aspect-ratio: 4 / 5; }
+    .media.landscape img { aspect-ratio: 16 / 10; }
     .media figcaption {
       margin: 0;
-      padding: .7rem .1rem 0;
-      font-size: .88rem;
+      padding: .55rem 0 0;
+      font-size: .72rem;
+      letter-spacing: .05em;
       color: var(--muted);
     }
     .media-pair {
       display: grid;
-      gap: 1rem;
+      gap: .9rem;
       margin: 1.75rem 0 0;
+      max-width: 34rem;
     }
     @media (min-width: 700px) {
-      .media-pair { grid-template-columns: 1.2fr .8fr; align-items: stretch; }
+      .media-pair { grid-template-columns: 1fr 1fr; }
     }
     .advisor-photos {
       display: grid;
-      gap: 1rem;
+      gap: .75rem;
       margin: 1.5rem 0 0;
       grid-template-columns: 1fr 1fr;
-      max-width: 28rem;
+      max-width: 16rem;
     }
     .advisor-photos figure { margin: 0; }
     .advisor-photos img {
@@ -424,12 +440,22 @@
       width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
+      filter: saturate(.85) contrast(1.05);
     }
-    .advisor-photos figcaption {
-      margin-top: .45rem;
-      font-size: .88rem;
-      color: var(--teal);
+    .hero-grid {
+      display: grid;
+      gap: 2.25rem;
+      align-items: end;
     }
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.2fr .8fr;
+        gap: 3rem;
+        align-items: center;
+      }
+    }
+    .hero-mark { opacity: .45 !important; width: min(26rem, 42vw) !important; }
+    .toc { display: none !important; }
 
     .footer {
       padding: 1.35rem 0 5.5rem;
@@ -487,14 +513,26 @@
           <a href="#faq">FAQ</a>
         </nav>
       </div>
-      <p class="eyebrow">Nairobi · May–September 2027</p>
-      <h1>Live Players Mittlemann Fellowship</h1>
-      <p class="hero-line">Do real work inside ambitious Kenyan companies.</p>
-      <p class="hero-quote">“In Kenya, anything is possible.”</p>
-      <p class="hero-support">Hands-on work with top 1% businesses.</p>
-      <div class="cta-row">
-        <a class="btn btn-coral" href="https://form.kuzana.co/fellowship" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click">Apply Now</a>
-        <a class="btn btn-ghost" href="#overview">See the program</a>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Nairobi · May–September 2027</p>
+          <h1>Live Players Mittlemann Fellowship</h1>
+          <p class="hero-line">Do real work inside ambitious Kenyan companies.</p>
+          <p class="hero-quote">“In Kenya, anything is possible.”</p>
+          <p class="hero-support">Hands-on work with top 1% businesses.</p>
+          <div class="cta-row">
+            <a class="btn btn-coral" href="https://form.kuzana.co/fellowship" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click">Apply Now</a>
+            <a class="btn btn-ghost" href="#overview">See the program</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <figure class="media">
+            <picture>
+              <source srcset="/images/fellowship/hero-coastal.webp" type="image/webp">
+              <img src="/images/fellowship/hero-coastal.jpg" alt="Illustration of people walking toward a bright coastal future across East Africa" width="900" height="1125" loading="eager" decoding="async">
+            </picture>
+          </figure>
+        </div>
       </div>
       <dl class="facts">
         <div><dt>Where</dt><dd>Nairobi, Kenya</dd></div>
@@ -502,12 +540,6 @@
         <div><dt>Length</dt><dd>4 months</dd></div>
         <div><dt>Who</dt><dd>Kenyan &amp; diaspora operators, 18–35+</dd></div>
       </dl>
-      <figure class="media" style="margin-top:2rem">
-        <picture>
-          <source srcset="/images/fellowship/hero-coastal.webp" type="image/webp">
-          <img src="/images/fellowship/hero-coastal.jpg" alt="Illustration of people walking toward a bright coastal future across East Africa" width="1600" height="900" loading="eager" decoding="async">
-        </picture>
-      </figure>
     </div>
   </header>
 
@@ -515,23 +547,8 @@
     <section class="section" id="overview">
       <div class="wrap">
         <p class="kicker">At a glance</p>
-        <h2>Everything an applicant needs to know</h2>
-        <p class="lead">This is a full-time fellowship for people who want high-leverage operating experience inside real Kenyan companies — not case studies, not classroom simulations.</p>
-        <ul class="toc" aria-label="On this page">
-          <li><a href="#problem">The problem</a></li>
-          <li><a href="#idea">What a Live Player is</a></li>
-          <li><a href="#story">Why this exists</a></li>
-          <li><a href="#fellowship">What fellows do</a></li>
-          <li><a href="#work">Real operating work</a></li>
-          <li><a href="#companies">Companies</a></li>
-          <li><a href="#kuzana">What Kuzana is</a></li>
-          <li><a href="#curriculum">Curriculum</a></li>
-          <li><a href="#benefits">Benefits &amp; support</a></li>
-          <li><a href="#eligibility">Who it’s for</a></li>
-          <li><a href="#advisors">Advisors</a></li>
-          <li><a href="#apply">How to apply</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
+        <h2>A four-month operating fellowship in Nairobi</h2>
+        <p class="lead">For people who want high-leverage experience inside real Kenyan companies — not case studies, not classroom simulations.</p>
       </div>
     </section>
 
@@ -572,7 +589,7 @@
           <p style="font-family:'Instrument Serif',Georgia,serif;font-size:1.45rem;color:var(--teal)">A small nudge at the right moment can change a life.</p>
           <p>This fellowship exists to pass that nudge forward — to operators who are ready to do serious work inside ambitious companies.</p>
         </div>
-        <figure class="media">
+        <figure class="media media-md landscape">
           <picture>
             <source srcset="/images/fellowship/ops-team.webp" type="image/webp">
             <img src="/images/fellowship/ops-team.jpg" alt="Operators and team members at a Kuzana portfolio company feed mill" width="1280" height="960" loading="lazy" decoding="async">
@@ -604,7 +621,7 @@
             <p>Political economy, founder discussions, and workshops that build judgment — not just tasks.</p>
           </div>
         </div>
-        <figure class="media">
+        <figure class="media media-md landscape">
           <picture>
             <source srcset="/images/fellowship/workshop.webp" type="image/webp">
             <img src="/images/fellowship/workshop.jpg" alt="Fellows and founders in a circle discussion under a canopy" width="1200" height="718" loading="lazy" decoding="async">
@@ -628,14 +645,14 @@
           <li>Launch new regions and depots</li>
         </ul>
         <div class="media-pair">
-          <figure class="media" style="margin:0">
+          <figure class="media landscape" style="margin:0;max-width:none">
             <picture>
               <source srcset="/images/fellowship/company-ops.webp" type="image/webp">
               <img src="/images/fellowship/company-ops.jpg" alt="Operations at a Kenyan agribusiness loading bags onto a truck" width="1400" height="933" loading="lazy" decoding="async">
             </picture>
             <figcaption>Operating work inside real Kenyan businesses.</figcaption>
           </figure>
-          <figure class="media" style="margin:0">
+          <figure class="media landscape" style="margin:0;max-width:none">
             <picture>
               <source srcset="/images/fellowship/cohort-group.webp" type="image/webp">
               <img src="/images/fellowship/cohort-group.jpg" alt="Kuzana cohort group outdoors after a session" width="1400" height="626" loading="lazy" decoding="async">
@@ -725,7 +742,7 @@
             <p>Complete a final project and present it at Zanzalu.</p>
           </article>
         </div>
-        <figure class="media">
+        <figure class="media media-md landscape">
           <picture>
             <source srcset="/images/fellowship/the-warren.webp" type="image/webp">
             <img src="/images/fellowship/the-warren.jpg" alt="The Warren startup house exterior and garden in Nairobi" width="1400" height="935" loading="lazy" decoding="async">
