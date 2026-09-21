@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Set data-show-free-class="true" to restore Self-Serve (free) path + #free panel. -->
+<html lang="en" data-show-free-class="false">
 <head>
     <!-- Kuzana Class: Minimalist landing page embedding the Google Form for class signups. -->
     <meta charset="UTF-8">
@@ -78,6 +79,14 @@
         #tab-finance-now[aria-selected="true"] { background: var(--kuzana-blue); color: #fff; border-color: var(--kuzana-blue); }
         #free > .card { border-color: var(--kuzana-blue-light); }
         #panel-finance-guided { border-color: var(--kuzana-red-light); }
+        /* Temporary: hide Self-Serve (free). Flip html[data-show-free-class] to "true" to restore. */
+        html[data-show-free-class="false"] .path-option-selfserve,
+        html[data-show-free-class="false"] #free {
+            display: none !important;
+        }
+        html[data-show-free-class="false"] .path-grid { grid-template-columns: 1fr; }
+        html[data-show-free-class="false"] .path-heading-when-free-on { display: none; }
+        html[data-show-free-class="true"] .path-heading-when-free-off { display: none; }
         @media (max-width: 640px) {
             .hero-highlight { bottom: 8px; padding: 10px 12px; width: calc(100% - 24px); }
             .path-grid { grid-template-columns: 1fr; }
@@ -248,7 +257,10 @@
             <p>Hosted by Kuzana📈, the Kenyan investment firm that helped 15 companies grow 174% per year.</p>
         </div>
         <section class="card path-card" aria-labelledby="choose-path-heading">
-            <h1 id="choose-path-heading">Choose your path</h1>
+            <h1 id="choose-path-heading">
+                <span class="path-heading-when-free-on">Choose your path</span>
+                <span class="path-heading-when-free-off">Get started</span>
+            </h1>
             <div class="path-grid">
                 <article class="path-option path-option-guided">
                     <h3>with Kyle</h3>
@@ -257,6 +269,7 @@
                     <button class="mode-tab" id="tab-finance-guided" type="button" role="tab" aria-selected="true" aria-controls="panel-finance-guided">with Kyle</button>
 
                 </article>
+                <!-- Self-Serve (free): hidden while html[data-show-free-class="false"]. Do not delete. -->
                 <article class="path-option path-option-selfserve">
                     <h3>Self-Serve (free)</h3>
                     <p>Self-serve templates, videos, slides, and quizzes you can use immediately at your own pace.</p>
@@ -521,6 +534,15 @@
             }
 
             /**
+             * Whether Self-Serve (free) is enabled via html[data-show-free-class].
+             * Set data-show-free-class="true" on <html> to restore the free path.
+             * @returns {boolean}
+             */
+            function isFreeClassEnabled() {
+                return document.documentElement.getAttribute('data-show-free-class') === 'true';
+            }
+
+            /**
              * Toggles between FinanceNow and FinanceGuided panels so users can choose
              * self-serve content or the paid guided signup flow.
              */
@@ -532,7 +554,9 @@
                 var classSections = Array.prototype.slice.call(
                     document.querySelectorAll('section[id^="class"]')
                 );
-                if (!nowTab || !guidedTab || !nowPanel || !guidedPanel) return;
+                if (!guidedTab || !nowPanel || !guidedPanel) return;
+
+                var freeEnabled = isFreeClassEnabled();
 
                 /**
                  * Updates the URL hash for shareable class paths (#free or #guided).
@@ -560,9 +584,13 @@
                 }
 
                 function showNow() {
+                    if (!freeEnabled) {
+                        showGuided();
+                        return;
+                    }
                     nowPanel.removeAttribute('hidden');
                     guidedPanel.setAttribute('hidden', 'hidden');
-                    nowTab.setAttribute('aria-selected', 'true');
+                    if (nowTab) nowTab.setAttribute('aria-selected', 'true');
                     guidedTab.setAttribute('aria-selected', 'false');
                     classSections.forEach(function (section) {
                         section.removeAttribute('hidden');
@@ -572,20 +600,22 @@
                 function showGuided() {
                     nowPanel.setAttribute('hidden', 'hidden');
                     guidedPanel.removeAttribute('hidden');
-                    nowTab.setAttribute('aria-selected', 'false');
+                    if (nowTab) nowTab.setAttribute('aria-selected', 'false');
                     guidedTab.setAttribute('aria-selected', 'true');
                 }
 
                 function applyModeFromHash() {
                     var mode = getModeFromHash();
-                    if (mode === 'free') showNow();
+                    if (freeEnabled && mode === 'free') showNow();
                     else showGuided();
                 }
 
-                nowTab.addEventListener('click', function () {
-                    showNow();
-                    setModeHash('free');
-                });
+                if (freeEnabled && nowTab) {
+                    nowTab.addEventListener('click', function () {
+                        showNow();
+                        setModeHash('free');
+                    });
+                }
                 guidedTab.addEventListener('click', function () {
                     showGuided();
                     setModeHash('guided');
