@@ -57,12 +57,25 @@
       font-weight:650;
       color:var(--primary);
     }
-    .sub {
-      margin:0 0 1.25rem;
-      font-size:.98rem;
-      line-height:1.55;
-      color:#444;
+    .author {
+      display:flex;
+      align-items:center;
+      gap:.85rem;
+      margin:0 0 1rem;
     }
+    .author img {
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid #fff;
+      box-shadow:0 0 0 3px var(--secondary);
+      flex-shrink:0;
+    }
+    .author-name { margin:0; font-weight:650; color:var(--primary); }
+    .author-role { margin:.15rem 0 0; font-size:.85rem; color:#666; }
+    .intro p { margin:0 0 .85rem; font-size:1rem; line-height:1.6; color:#333; }
+    .intro p:last-child { margin-bottom:1.1rem; font-weight:600; color:var(--primary); }
     .gate-form {
       display:flex;
       flex-wrap:wrap;
@@ -103,8 +116,18 @@
 
   <main id="main" role="main" aria-labelledby="gate-title">
     <section class="gate-card">
+      <div class="author">
+        <img src="/images/40things/kyle.jpg" alt="Kyle Schutter" width="72" height="72" decoding="async">
+        <div>
+          <p class="author-name">Kyle Schutter</p>
+          <p class="author-role">Founder, Kuzana</p>
+        </div>
+      </div>
       <h1 id="gate-title">40 Things Before the Deck</h1>
-      <p class="sub">Raising capital? These 40 things matter more to serious investors than your pitch deck. Enter your email to get Kuzana's internal memo.</p>
+      <div class="intro">
+        <p>I’ve raised $20m for companies in East Africa, including my own. While most investors claim they want a deck, in reality, here are 40 things investors judge founders on <strong>before</strong> looking at the deck.</p>
+        <p>Read them here so you can avoid all the time it took me to learn the hard way.</p>
+      </div>
       <form id="fortyForm" class="gate-form" novalidate>
         <input id="fortyEmail" type="email" name="email" autocomplete="email" placeholder="you@workemail.com" aria-label="Email" required>
         <button type="submit">Get the Memo</button>
