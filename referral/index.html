@@ -11,8 +11,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <title>Refer a Business & Earn Ksh50,000 | Kuzana – Get Link</title>
-  <meta name="description" content="Promote a friend’s company with Kuzana! Generate your custom link, share it, and earn up to Ksh50,000 if we invest. Act now and support startup growth.">
+  <title>Refer a Business & Earn Ksh100,000 | Kuzana – Get Link</title>
+  <meta name="description" content="Promote a friend’s company with Kuzana! Generate your custom link, share it, and earn up to Ksh100,000 if we invest. Act now and support startup growth.">
   <link rel="canonical" href="https://kuzana.co/referral/" />
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="styles.css">
@@ -103,17 +103,44 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    function generateLink() {
+    /**
+     * Turns an email into a URL handle: the part before @, without +tags,
+     * keeping only letters, numbers, dots, dashes and underscores.
+     * @param {string} email
+     * @returns {string}
+     */
+    function getHandleFromEmail(email) {
+      return email.split("@")[0].split("+")[0].replace(/[^a-z0-9._-]/g, "");
+    }
+
+    /**
+     * Checks whether kuzana.co/[handle] is already a real page, in which case
+     * the 404 referral redirect would never fire for that handle.
+     * @param {string} handle
+     * @returns {Promise<boolean>}
+     */
+    async function isExistingPage(handle) {
+      try {
+        const response = await fetch(`/${handle}/`, { method: "HEAD", cache: "no-store" });
+        return response.ok;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    async function generateLink() {
       const emailField = document.getElementById("email");
       const email = emailField.value.trim().toLowerCase();
 
-      if (email && !validateEmail(email)) {
+      if (!email || !validateEmail(email)) {
         alert("Please enter a valid email address.");
         return;
       }
 
-      const shortUrl = `${window.location.origin}/${email}`;
-      const displayUrl = `Kuzana.co/${email}`;
+      const handle = getHandleFromEmail(email);
+      const code = handle && !(await isExistingPage(handle)) ? handle : email;
+      const shortUrl = `${window.location.origin}/${code}`;
+      const displayUrl = `Kuzana.co/${code}`;
 
       document.getElementById("result").value = displayUrl;
 
@@ -228,7 +255,7 @@
   <div class="content-wrapper" style="max-width: 600px; margin: 120px auto;"> 
     
     <h1 style="font-size: 30px;">Want to Promote a friend's company?</h1>
-    <p>We'll offer up to <strong>Ksh50,000</strong>* if we invest.</p>
+    <p>We'll offer up to <strong>Ksh100,000</strong>* if we invest.</p>
     <h2 style="font-size: 24px;">Generate Your Custom Kuzana Link</h2>
 
     <label>Your Email:<br>
