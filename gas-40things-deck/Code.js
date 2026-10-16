@@ -10,6 +10,7 @@ const SHEET_ID = '1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU';
 const INVESTORS_SHEET_NAME = 'Investors'; // investor / deck request leads
 const FOUNDERS_SHEET_NAME = 'Founders';   // founder lead magnets (quiz, 40 things, sales, etc.)
 const WAITLIST_SHEET_NAME = 'Waitlist';   // course waitlist subscribers
+const FINALE_STREAMING_SHEET_NAME = 'finale streaming'; // Finale Batch4 online stream leads
 // Hard-coded Founders tab gid — do not route by name alone
 const FOUNDERS_SHEET_GID = 1695097223;    // https://docs.google.com/spreadsheets/d/1-kq5To3ysklnhM5n_Rx-B0JQ3oHxpbIkecWq6wksnEU/edit?gid=1695097223
 const INVESTORS_SHEET_GID = null;         // resolve Investors by name until a stable gid is known
@@ -27,6 +28,10 @@ const FOUNDERS_CONTEXTS = {
 
 const WAITLIST_CONTEXTS = {
   'course_waitlist': true
+};
+
+const FINALE_STREAMING_CONTEXTS = {
+  'finale_streaming': true
 };
 
 // --- ENTRYPOINT ---
@@ -53,11 +58,16 @@ function doPost(e) {
     const name = String(data.name || '').trim();
     const revenue = String(data.revenue || '').trim();
     const department = String(data.department || '').trim();
+    const whatsapp = String(data.whatsapp || data.phone || '').trim();
 
     // Log every lead somewhere first
-    logLead_(rawEmail, context, name, revenue, department);
+    logLead_(rawEmail, context, name, revenue, department, whatsapp);
 
     // Founder lead magnets: only log, do NOT send deck or notifications
+    if (FINALE_STREAMING_CONTEXTS[context]) {
+      return json_({ status: 'success', ok: true, handled: context, sheet: FINALE_STREAMING_SHEET_NAME });
+    }
+
     if (WAITLIST_CONTEXTS[context]) {
       return json_({ status: 'success', ok: true, handled: context, sheet: WAITLIST_SHEET_NAME });
     }
@@ -139,7 +149,8 @@ function parseFormBody_(contents) {
 }
 
 /**
- * Appends a lead row to Waitlist, Founders, or Investors.
+ * Appends a lead row to Finale streaming, Waitlist, Founders, or Investors.
+ * Finale streaming columns: date | email | whatsapp
  * Waitlist columns: date | name | email | department | revenue | context
  * Other leads: date | email | context | name | revenue
  * @param {string} email
@@ -147,15 +158,18 @@ function parseFormBody_(contents) {
  * @param {string=} name
  * @param {string=} revenue
  * @param {string=} department
+ * @param {string=} whatsapp
  */
-function logLead_(email, context, name, revenue, department) {
+function logLead_(email, context, name, revenue, department, whatsapp) {
   Logger.log('logLead_ called with email=%s context=%s', email, context);
   const ss = SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.openById(SHEET_ID);
   var sheet;
+  var isFinaleStreaming = !!FINALE_STREAMING_CONTEXTS[context];
   var isWaitlist = !!WAITLIST_CONTEXTS[context];
   var isFounderLead = !!FOUNDERS_CONTEXTS[context];
 
-  if (isWaitlist) sheet = getOrCreateWaitlistSheet_(ss);
+  if (isFinaleStreaming) sheet = getOrCreateFinaleStreamingSheet_(ss);
+  else if (isWaitlist) sheet = getOrCreateWaitlistSheet_(ss);
   else if (isFounderLead) sheet = getFoundersSheet_(ss);
   else sheet = getInvestorsSheet_(ss);
 
@@ -163,6 +177,15 @@ function logLead_(email, context, name, revenue, department) {
     throw new Error('Sheet not found for context ' + context);
   }
   Logger.log('logLead_ writing to sheet=%s gid=%s', sheet.getName(), sheet.getSheetId());
+
+  if (isFinaleStreaming) {
+    sheet.appendRow([
+      new Date(),
+      email,
+      String(whatsapp || '')
+    ]);
+    return;
+  }
 
   if (isWaitlist) {
     sheet.appendRow([
@@ -183,6 +206,24 @@ function logLead_(email, context, name, revenue, department) {
     String(name || ''),
     String(revenue || '')
   ]);
+}
+
+/**
+ * Gets or creates the "finale streaming" tab for online stream signups.
+ * Columns: Date | Email | WhatsApp
+ * @param {GoogleAppsScript.Spreadsheet.Spreadsheet} ss
+ * @returns {GoogleAppsScript.Spreadsheet.Sheet}
+ */
+function getOrCreateFinaleStreamingSheet_(ss) {
+  var sheet = ss.getSheetByName(FINALE_STREAMING_SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(FINALE_STREAMING_SHEET_NAME);
+    sheet.appendRow(['Date', 'Email', 'WhatsApp']);
+    sheet.getRange(1, 1, 1, 3).setFontWeight('bold');
+    sheet.setFrozenRows(1);
+    Logger.log('Created finale streaming sheet gid=%s', sheet.getSheetId());
+  }
+  return sheet;
 }
 
 /**
@@ -284,6 +325,7 @@ function testLogLead() {
   logLead_('test-founders-quiz@example.com', 'InvestmentReadinessQuiz');
   logLead_('test-founders-sales@example.com', 'frontier_sales_workshop');
   logLead_('test-waitlist@example.com', 'course_waitlist', 'Waitlist Test', 'Ksh 1m', 'wood factory');
+  logLead_('test-finale@example.com', 'finale_streaming', '', '', '', '+254700000000');
 }
 
 function testEmailSend() {

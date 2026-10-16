@@ -1,15 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- /finale redirects to SoldOutAfrica Finale Batch4 ticket page -->
-    <meta charset="UTF-8">
-    <meta name="robots" content="noindex, follow">
-    <meta http-equiv="refresh" content="0; url=https://soldoutafrica.com/finale-batch4">
-    <link rel="canonical" href="https://soldoutafrica.com/finale-batch4">
-    <title>Finale Batch4 — Kuzana</title>
-    <script>window.location.replace('https://soldoutafrica.com/finale-batch4');</script>
+  <!-- Kuzana Finale Batch4 landing: in-person tickets + online stream signup -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FB5N4P252E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FB5N4P252E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finale Batch4 — Kuzana</title>
+  <meta name="description" content="Join Kuzana Finale Batch4 in Nairobi, or stream online if you are not in Kenya.">
+  <meta property="og:title" content="Finale Batch4 — Kuzana">
+  <meta property="og:description" content="Batch4 companies share their growth. Tickets in Nairobi, or get the stream link if you are abroad.">
+  <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+  <link rel="canonical" href="https://kuzana.co/finale/">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #112b3c;
+      --ivory: #f7f0e3;
+      --sand: #efe6d6;
+      --coral: #fe7272;
+      --gold: #fdc469;
+      --teal: #4a6290;
+      --muted: rgba(17, 43, 60, 0.7);
+      --line: rgba(17, 43, 60, 0.14);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--navy);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(253, 196, 105, 0.35), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 90% 10%, rgba(254, 114, 114, 0.22), transparent 50%),
+        linear-gradient(180deg, var(--ivory) 0%, var(--sand) 100%);
+    }
+    main {
+      width: min(34rem, 100%);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+    .logo {
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .logo img { display: block; height: 36px; width: auto; }
+    .eyebrow {
+      margin: 0 0 .65rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    h1 {
+      margin: 0;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.2rem, 7vw, 3.1rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+    .sub {
+      margin: 1rem 0 0;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .meta {
+      margin: 1.1rem 0 0;
+      font-size: .92rem;
+      color: var(--navy);
+    }
+    .meta strong { font-weight: 700; }
+    .btn-tickets {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 1.75rem;
+      padding: 1.15rem 1.25rem;
+      border-radius: 10px;
+      background: var(--coral);
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 28px rgba(254, 114, 114, 0.28);
+      transition: filter .15s ease, transform .15s ease;
+    }
+    .btn-tickets:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .abroad {
+      margin: 2rem 0 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .abroad-label {
+      margin: 0 0 .75rem;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    .btn-stream {
+      appearance: none;
+      border: 1px solid var(--navy);
+      background: transparent;
+      color: var(--navy);
+      border-radius: 8px;
+      padding: .65rem 1.1rem;
+      font: inherit;
+      font-size: .88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease;
+    }
+    .btn-stream:hover,
+    .btn-stream[aria-expanded="true"] {
+      background: var(--navy);
+      color: var(--ivory);
+    }
+    .stream-form {
+      display: none;
+      margin: 1.15rem auto 0;
+      max-width: 22rem;
+      text-align: left;
+    }
+    .stream-form.is-open { display: grid; gap: .75rem; }
+    .stream-form label {
+      display: grid;
+      gap: .35rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .stream-form input {
+      width: 100%;
+      padding: .75rem .9rem;
+      border: 1px solid #d7d0c3;
+      border-radius: 8px;
+      background: #fff;
+      font: inherit;
+      font-size: .95rem;
+      color: var(--navy);
+    }
+    .stream-form input:focus {
+      outline: 2px solid var(--gold);
+      border-color: transparent;
+    }
+    .stream-form button[type="submit"] {
+      appearance: none;
+      border: 0;
+      border-radius: 8px;
+      padding: .8rem 1rem;
+      background: var(--gold);
+      color: var(--navy);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .stream-form button[type="submit"]:hover { filter: brightness(1.05); }
+    .stream-form button[type="submit"]:disabled { opacity: .6; cursor: wait; }
+    .msg {
+      display: none;
+      margin: .35rem 0 0;
+      font-size: .88rem;
+      line-height: 1.4;
+    }
+    .msg.error { color: #9b1c1c; }
+    .msg.success { color: #166534; }
+    .note {
+      margin: .85rem 0 0;
+      font-size: .78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <p>Redirecting to <a href="https://soldoutafrica.com/finale-batch4">Finale Batch4 tickets</a>.</p>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <main>
+    <a class="logo" href="/" aria-label="Kuzana home">
+      <img src="/images/kuzana-logo.png" alt="Kuzana" width="140" height="36">
+    </a>
+
+    <p class="eyebrow">Kuzana event</p>
+    <h1>Finale Batch4</h1>
+    <p class="sub">Watch Batch4 companies share their growth. Meet founders and investors in Nairobi.</p>
+    <p class="meta"><strong>Wed, 21 Oct 2026</strong> · Nairobi Street Kitchen</p>
+
+    <a class="btn-tickets" href="/finale/tickets/">Get tickets</a>
+
+    <div class="abroad">
+      <p class="abroad-label">Not in Kenya?</p>
+      <button class="btn-stream" id="streamToggle" type="button" aria-expanded="false" aria-controls="streamForm">
+        Stream online
+      </button>
+
+      <form class="stream-form" id="streamForm" novalidate hidden>
+        <label for="streamEmail">
+          Email
+          <input id="streamEmail" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+        </label>
+        <label for="streamWhatsapp">
+          WhatsApp
+          <input id="streamWhatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="+254 7…" required>
+        </label>
+        <button id="streamSubmit" type="submit">Send me the stream link</button>
+        <p id="streamError" class="msg error" role="alert">Please enter a valid email and WhatsApp number.</p>
+        <p id="streamSuccess" class="msg success" role="status">Got it. We’ll send the streaming link to your email and WhatsApp.</p>
+        <p class="note">We’ll only use these details to send the Finale stream link.</p>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('streamToggle');
+      var form = document.getElementById('streamForm');
+      var emailInput = document.getElementById('streamEmail');
+      var whatsappInput = document.getElementById('streamWhatsapp');
+      var submitBtn = document.getElementById('streamSubmit');
+      var errorMsg = document.getElementById('streamError');
+      var successMsg = document.getElementById('streamSuccess');
+      var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyv42j66yaBvzDzMTJMy1ehJZDlAzniAir1zVtOWTjWyFhF_8AE7YSnolaeVfWApCvBnQ/exec';
+      var LEAD_CONTEXT = 'finale_streaming';
+
+      /**
+       * Returns true when the email looks valid enough to submit.
+       * @param {string} email
+       * @returns {boolean}
+       */
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
+      }
+
+      /**
+       * Returns true when WhatsApp looks like a phone number (digits and common separators).
+       * @param {string} value
+       * @returns {boolean}
+       */
+      function isValidWhatsapp(value) {
+        var digits = String(value || '').replace(/\D/g, '');
+        return digits.length >= 9 && digits.length <= 15;
+      }
+
+      if (!toggle || !form) return;
+
+      toggle.addEventListener('click', function () {
+        var isOpen = form.classList.toggle('is-open');
+        form.hidden = !isOpen;
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (isOpen) {
+          successMsg.style.display = 'none';
+          errorMsg.style.display = 'none';
+          emailInput.focus();
+        }
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorMsg.style.display = 'none';
+        successMsg.style.display = 'none';
+
+        var email = (emailInput.value || '').trim();
+        var whatsapp = (whatsappInput.value || '').trim();
+
+        if (!isValidEmail(email) || !isValidWhatsapp(whatsapp)) {
+          errorMsg.style.display = 'block';
+          return;
+        }
+
+        submitBtn.disabled = true;
+
+        try {
+          var body = new URLSearchParams();
+          body.set('email', email);
+          body.set('whatsapp', whatsapp);
+          body.set('context', LEAD_CONTEXT);
+          body.set('source', 'finale_landing');
+          var encoded = body.toString();
+          var blob = new Blob([encoded], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
+          var posted = false;
+          try {
+            if (navigator.sendBeacon) posted = navigator.sendBeacon(GAS_ENDPOINT, blob);
+          } catch (beaconErr) {}
+          if (!posted) {
+            fetch(GAS_ENDPOINT, {
+              method: 'POST',
+              mode: 'no-cors',
+              keepalive: true,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+              body: encoded
+            }).catch(function () {});
+          }
+        } catch (err) {}
+
+        try {
+          if (window.gtag) {
+            window.gtag('event', 'finale_streaming_submit', {
+              event_category: 'lead',
+              event_label: LEAD_CONTEXT,
+              value: 1
+            });
+          }
+        } catch (err) {}
+
+        successMsg.style.display = 'block';
+        form.reset();
+        submitBtn.disabled = false;
+      });
+    })();
+  </script>
 </body>
 </html>
