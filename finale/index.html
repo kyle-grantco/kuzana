@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kuzana Finale Batch4 landing: in-person tickets + online stream signup -->
+  <!-- Kuzana Batch 4 Finale landing: sells in-person tickets (SoldOutAfrica) + online stream signup -->
+  <script>
+    // Tag in-app visitors with UTM params before GA loads. TikTok Promote links can't carry UTMs,
+    // so infer the source from the click ID or the in-app browser's user agent.
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        if (p.get('utm_source')) return;
+        var ua = navigator.userAgent || '';
+        var src = null;
+        var medium = 'social';
+        if (p.get('ttclid')) { src = 'tiktok'; medium = 'paid'; }
+        else if (/musical_ly|Bytedance|TikTok|trill_/i.test(ua)) src = 'tiktok';
+        else if (/Instagram/i.test(ua)) src = 'instagram';
+        else if (p.get('fbclid') || /FBAN|FBAV|FB_IAB/i.test(ua)) src = 'facebook';
+        else if (/LinkedInApp/i.test(ua)) src = 'linkedin';
+        if (!src) return;
+        p.set('utm_source', src);
+        p.set('utm_medium', medium);
+        p.set('utm_campaign', 'finale_batch4');
+        window.history.replaceState(null, '', window.location.pathname + '?' + p.toString() + window.location.hash);
+      } catch (err) {}
+    })();
+  </script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -16,16 +39,42 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finale Batch4 — Kuzana</title>
-  <meta name="description" content="Join Kuzana Finale Batch4 in Nairobi, or stream online if you are not in Kenya.">
-  <meta property="og:title" content="Finale Batch4 — Kuzana">
-  <meta property="og:description" content="Batch4 companies share their growth. Tickets in Nairobi, or get the stream link if you are abroad.">
-  <meta property="og:image" content="https://kuzana.co/images/favicon.png">
+  <title>Batch 4 Finale · Wed 21 Oct, K1 Klub House — Kuzana</title>
+  <meta name="description" content="Five Batch 4 companies share the real numbers behind their growth. Keynote by Flora Mutahi, CEO of Melvin's Tea. Wed 21 Oct, K1 Klub House, Nairobi. Food and drinks included.">
+  <meta property="og:title" content="Kuzana Batch 4 Finale · Wed 21 Oct, K1 Klub House">
+  <meta property="og:description" content="Founders, investors and real growth stories. Keynote by Flora Mutahi, CEO of Melvin's Tea. Food and drinks included.">
+  <meta property="og:image" content="https://kuzana.co/images/finale/finale-og.jpg">
+  <meta property="og:url" content="https://kuzana.co/finale/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://kuzana.co/finale/">
   <link rel="icon" href="/images/favicon.png" type="image/png">
+  <link rel="preload" as="image" href="/images/finale/finale-crowd.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Kuzana Batch 4 Finale",
+    "startDate": "2026-10-21T18:00:00+03:00",
+    "endDate": "2026-10-21T22:00:00+03:00",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "K1 Klub House",
+      "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" }
+    },
+    "image": ["https://kuzana.co/images/finale/finale-og.jpg"],
+    "description": "Batch 4 founders share the real numbers behind their growth. Keynote by Flora Mutahi, CEO of Melvin's Tea.",
+    "organizer": { "@type": "Organization", "name": "Kuzana", "url": "https://kuzana.co" },
+    "offers": [
+      { "@type": "Offer", "name": "General Admission", "price": "4000", "priceCurrency": "KES", "url": "https://soldoutafrica.com/finale-batch4", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "Bring a Friend", "price": "6000", "priceCurrency": "KES", "url": "https://soldoutafrica.com/finale-batch4", "availability": "https://schema.org/InStock" }
+    ]
+  }
+  </script>
   <style>
     :root {
       --navy: #112b3c;
@@ -34,87 +83,276 @@
       --coral: #fe7272;
       --gold: #fdc469;
       --teal: #4a6290;
-      --muted: rgba(17, 43, 60, 0.7);
+      --muted: rgba(17, 43, 60, 0.72);
       --line: rgba(17, 43, 60, 0.14);
+      --card: rgba(255, 255, 255, 0.72);
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; min-height: 100%; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
       color: var(--navy);
       background:
-        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(253, 196, 105, 0.35), transparent 55%),
-        radial-gradient(ellipse 70% 45% at 90% 10%, rgba(254, 114, 114, 0.22), transparent 50%),
+        radial-gradient(ellipse 80% 40% at 10% 0%, rgba(253, 196, 105, 0.35), transparent 55%),
+        radial-gradient(ellipse 70% 35% at 90% 6%, rgba(254, 114, 114, 0.22), transparent 50%),
         linear-gradient(180deg, var(--ivory) 0%, var(--sand) 100%);
+      padding-bottom: 5.5rem;
     }
+    img { max-width: 100%; display: block; }
     main {
-      width: min(34rem, 100%);
+      width: min(38rem, 100%);
       margin: 0 auto;
-      padding: 2.5rem 1.25rem 3.5rem;
+      padding: 1.75rem 1.25rem 2rem;
     }
-    .logo {
-      display: inline-block;
-      margin-bottom: 2rem;
-    }
-    .logo img { display: block; height: 36px; width: auto; }
+    section { margin-top: 3rem; }
+    .logo { display: inline-block; margin-bottom: 1.5rem; }
+    .logo img { height: 34px; width: auto; }
     .eyebrow {
-      margin: 0 0 .65rem;
-      font-size: .72rem;
+      margin: 0 0 .6rem;
+      font-size: .74rem;
       font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--teal);
     }
-    h1 {
+    h1, h2 {
       margin: 0;
       font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(2.2rem, 7vw, 3.1rem);
       font-weight: 400;
-      line-height: 1.05;
       letter-spacing: -.02em;
     }
+    h1 { font-size: clamp(2.6rem, 11vw, 3.6rem); line-height: 1; }
+    h2 { font-size: clamp(1.8rem, 7vw, 2.3rem); line-height: 1.08; }
     .sub {
       margin: 1rem 0 0;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       line-height: 1.55;
       color: var(--muted);
     }
-    .meta {
-      margin: 1.1rem 0 0;
-      font-size: .92rem;
-      color: var(--navy);
+    .section-lead {
+      margin: .6rem 0 0;
+      line-height: 1.55;
+      color: var(--muted);
     }
-    .meta strong { font-weight: 700; }
+
+    /* Hero */
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .6rem;
+      margin: 1.4rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .facts li {
+      padding: .75rem .85rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--card);
+      font-size: .9rem;
+      line-height: 1.35;
+    }
+    .facts span {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .2rem;
+    }
+    .facts a { color: inherit; }
     .btn-tickets {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
-      margin-top: 1.75rem;
-      padding: 1.15rem 1.25rem;
-      border-radius: 10px;
+      margin-top: 1.5rem;
+      padding: 1.05rem 1.25rem;
+      border-radius: 12px;
       background: var(--coral);
       color: var(--navy);
       text-decoration: none;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 700;
-      letter-spacing: .04em;
+      letter-spacing: .03em;
       text-transform: uppercase;
-      box-shadow: 0 10px 28px rgba(254, 114, 114, 0.28);
+      box-shadow: 0 10px 28px rgba(254, 114, 114, 0.3);
       transition: filter .15s ease, transform .15s ease;
     }
+    .btn-tickets small {
+      margin-top: .2rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      opacity: .85;
+    }
     .btn-tickets:hover { filter: brightness(1.05); transform: translateY(-1px); }
-    .abroad {
+    .pay-note {
+      margin: .7rem 0 0;
+      font-size: .84rem;
+      line-height: 1.45;
+      text-align: center;
+      color: var(--muted);
+    }
+    .countdown {
+      margin: .35rem 0 0;
+      font-size: .84rem;
+      font-weight: 700;
+      text-align: center;
+      color: #b42318;
+    }
+    .countdown:empty { display: none; }
+    .photo {
       margin: 2rem 0 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--sand);
+    }
+    .photo img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+    .photo figcaption {
+      padding: .55rem .8rem;
+      font-size: .78rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Keynote */
+    .keynote {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 1.1rem;
+      align-items: center;
+      margin-top: 1.25rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+    }
+    .keynote img { width: 7.5rem; height: 7.5rem; border-radius: 50%; object-fit: cover; }
+    .keynote .name { margin: 0; font-size: 1.2rem; font-weight: 700; }
+    .keynote .role { margin: .2rem 0 0; color: var(--muted); }
+    .keynote .tag {
+      display: inline-block;
+      margin-bottom: .45rem;
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      background: var(--gold);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* Run of show */
+    .timeline { margin: 1.25rem 0 0; padding: 0; list-style: none; }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 5.2rem 1fr;
+      gap: .9rem;
+      padding: .9rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .timeline li:last-child { border-bottom: 1px solid var(--line); }
+    .timeline time { font-weight: 700; }
+    .timeline strong { display: block; }
+    .timeline p { margin: .2rem 0 0; color: var(--muted); line-height: 1.45; font-size: .95rem; }
+
+    /* Companies */
+    .companies {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .6rem;
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .companies li {
+      display: grid;
+      grid-template-columns: 3.4rem 1fr;
+      gap: .9rem;
+      align-items: center;
+      padding: .7rem .8rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+    }
+    .companies img {
+      width: 3.4rem;
+      height: 3.4rem;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      padding: .25rem;
+    }
+    .companies strong { display: block; }
+    .companies span { font-size: .9rem; color: var(--muted); }
+
+    /* Who */
+    .who { margin: 1.1rem 0 0; padding: 0; list-style: none; display: grid; gap: .6rem; }
+    .who li {
+      padding: .85rem 1rem;
+      border-left: 3px solid var(--coral);
+      background: var(--card);
+      border-radius: 0 10px 10px 0;
+      line-height: 1.45;
+    }
+    .who li:nth-child(2) { border-left-color: var(--gold); }
+    .who li:nth-child(3) { border-left-color: var(--teal); }
+
+    /* Tickets */
+    .tickets { display: grid; gap: .75rem; margin-top: 1.25rem; }
+    .ticket {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .4rem 1rem;
+      align-items: center;
+      padding: 1.1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--navy);
+      text-decoration: none;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+    .ticket:hover { border-color: var(--coral); transform: translateY(-1px); }
+    .ticket .t-name { font-weight: 700; font-size: 1.05rem; }
+    .ticket .t-price { font-weight: 700; font-size: 1.25rem; text-align: right; }
+    .ticket .t-desc { grid-column: 1 / -1; font-size: .9rem; color: var(--muted); }
+    .ticket .t-go {
+      grid-column: 1 / -1;
+      margin-top: .35rem;
+      padding: .7rem;
+      border-radius: 9px;
+      background: var(--coral);
+      text-align: center;
+      font-weight: 700;
+      font-size: .92rem;
+    }
+    .ticket.alt .t-go { background: var(--gold); }
+
+    /* FAQ */
+    .faq { margin-top: 1rem; }
+    .faq details { border-top: 1px solid var(--line); padding: .9rem 0; }
+    .faq details:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; font-weight: 700; list-style: none; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; float: right; font-weight: 400; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq p { margin: .55rem 0 0; color: var(--muted); line-height: 1.5; }
+    .faq a { color: var(--navy); }
+
+    /* Stream (secondary) */
+    .abroad {
+      margin-top: 3rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--line);
       text-align: center;
     }
-    .abroad-label {
-      margin: 0 0 .75rem;
-      font-size: 1rem;
-      color: var(--muted);
-    }
+    .abroad-label { margin: 0 0 .75rem; font-size: 1rem; color: var(--muted); }
     .btn-stream {
       appearance: none;
       border: 1px solid var(--navy);
@@ -129,10 +367,7 @@
       transition: background .15s ease, color .15s ease;
     }
     .btn-stream:hover,
-    .btn-stream[aria-expanded="true"] {
-      background: var(--navy);
-      color: var(--ivory);
-    }
+    .btn-stream[aria-expanded="true"] { background: var(--navy); color: var(--ivory); }
     .stream-form {
       display: none;
       margin: 1.15rem auto 0;
@@ -140,13 +375,7 @@
       text-align: left;
     }
     .stream-form.is-open { display: grid; gap: .75rem; }
-    .stream-form label {
-      display: grid;
-      gap: .35rem;
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
+    .stream-form label { display: grid; gap: .35rem; font-size: .85rem; font-weight: 600; }
     .stream-form input {
       width: 100%;
       padding: .75rem .9rem;
@@ -154,13 +383,10 @@
       border-radius: 8px;
       background: #fff;
       font: inherit;
-      font-size: .95rem;
+      font-size: 1rem;
       color: var(--navy);
     }
-    .stream-form input:focus {
-      outline: 2px solid var(--gold);
-      border-color: transparent;
-    }
+    .stream-form input:focus { outline: 2px solid var(--gold); border-color: transparent; }
     .stream-form button[type="submit"] {
       appearance: none;
       border: 0;
@@ -172,22 +398,42 @@
       font-weight: 700;
       cursor: pointer;
     }
-    .stream-form button[type="submit"]:hover { filter: brightness(1.05); }
     .stream-form button[type="submit"]:disabled { opacity: .6; cursor: wait; }
-    .msg {
-      display: none;
-      margin: .35rem 0 0;
-      font-size: .88rem;
-      line-height: 1.4;
-    }
+    .msg { display: none; margin: .35rem 0 0; font-size: .88rem; line-height: 1.4; }
     .msg.error { color: #9b1c1c; }
     .msg.success { color: #166534; }
-    .note {
-      margin: .85rem 0 0;
-      font-size: .78rem;
-      color: var(--muted);
-      text-align: center;
+    .note { margin: .85rem 0 0; font-size: .78rem; color: var(--muted); text-align: center; }
+
+    /* Sticky mobile CTA */
+    .sticky {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
+      background: rgba(17, 43, 60, 0.96);
+      color: var(--ivory);
+      transform: translateY(110%);
+      transition: transform .2s ease;
     }
+    .sticky.is-visible { transform: translateY(0); }
+    .sticky p { margin: 0; font-size: .85rem; line-height: 1.3; }
+    .sticky strong { display: block; font-size: .95rem; }
+    .sticky a {
+      flex-shrink: 0;
+      padding: .7rem 1rem;
+      border-radius: 9px;
+      background: var(--coral);
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: .92rem;
+    }
+    footer { text-align: center; font-size: .78rem; color: var(--muted); padding: 1rem 1.25rem 0; }
+    footer p { margin: 0; letter-spacing: .1em; text-transform: uppercase; }
   </style>
 </head>
 <body>
@@ -196,20 +442,148 @@
 
   <main>
     <a class="logo" href="/" aria-label="Kuzana home">
-      <img src="/images/kuzana-logo.png" alt="Kuzana" width="140" height="36">
+      <img src="/images/kuzana-logo.png" alt="Kuzana" width="132" height="34">
     </a>
 
-    <p class="eyebrow">Kuzana event</p>
-    <h1>Finale Batch4</h1>
-    <p class="sub">Watch Batch4 companies share their growth. Meet founders and investors in Nairobi.</p>
-    <p class="meta"><strong>Wed, 21 Oct 2026</strong> · Nairobi Street Kitchen</p>
+    <!-- Hero -->
+    <p class="eyebrow">Wed 21 Oct · K1 Klub House, Nairobi</p>
+    <h1>Batch 4 Finale</h1>
+    <p class="sub">Five Batch 4 companies share their wins, their lessons and the real numbers behind their growth. Then stay for food, drinks and an evening with investors and founders.</p>
 
-    <a class="btn-tickets" href="/finale/tickets/">Get tickets</a>
+    <ul class="facts">
+      <li><span>Date</span>Wed, 21 Oct 2026</li>
+      <li><span>Time</span>6:00 PM to 10:00 PM</li>
+      <li><span>Venue</span><a href="https://www.google.com/maps/search/?api=1&query=K1+Klub+House+Nairobi" target="_blank" rel="noopener">K1 Klub House</a></li>
+      <li><span>Included</span>Food &amp; drinks</li>
+    </ul>
 
+    <a class="btn-tickets js-ticket" data-cta="hero" href="https://soldoutafrica.com/finale-batch4">
+      Get my ticket
+      <small>KES 4,000 · or 2 for KES 6,000</small>
+    </a>
+    <p class="pay-note">Pay with M-Pesa, Airtel Money or card. Your QR ticket arrives by SMS and email.</p>
+    <p class="countdown" id="countdown"></p>
+
+    <figure class="photo">
+      <img src="/images/finale/finale-crowd.webp" alt="Founders and guests cheering at a Kuzana Finale" width="1200" height="769">
+      <figcaption>The room at our Batch 2 Finale.</figcaption>
+    </figure>
+
+    <!-- Keynote -->
+    <section aria-labelledby="keynote-h">
+      <h2 id="keynote-h">Keynote</h2>
+      <div class="keynote">
+        <img src="/images/finale/flora-mutahi.webp" alt="Flora Mutahi" width="240" height="240" loading="lazy">
+        <div>
+          <p class="name">Flora Mutahi</p>
+          <p class="role">CEO, Melvin's Tea</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Run of show -->
+    <section aria-labelledby="night-h">
+      <h2 id="night-h">The night</h2>
+      <ol class="timeline">
+        <li>
+          <time>6:00 PM</time>
+          <div><strong>Networking</strong><p>Drinks and conversations with founders and investors before the programme starts.</p></div>
+        </li>
+        <li>
+          <time>7:00 PM</time>
+          <div><strong>Founders on stage</strong><p>Batch 4 companies show what they grew, how they did it and what they learned. Keynote from Flora Mutahi.</p></div>
+        </li>
+        <li>
+          <time>After</time>
+          <div><strong>Food, music and prizes</strong><p>Dinner, live music and a chance to win prizes.</p></div>
+        </li>
+        <li>
+          <time>10:00 PM</time>
+          <div><strong>Close</strong></div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Companies -->
+    <section aria-labelledby="companies-h">
+      <h2 id="companies-h">Meet Batch 4</h2>
+      <p class="section-lead">Kenyan businesses that spent the last few months in Kuzana working on one thing: growth.</p>
+      <ul class="companies">
+        <li><img src="/images/kaya_comfort_logo.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Kaya</strong><span>Tissue paper manufacturing</span></div></li>
+        <li><img src="/images/zitenge.png" alt="" width="54" height="54" loading="lazy"><div><strong>Zitenge</strong><span>Shoe racks</span></div></li>
+        <li><img src="/images/furniture_zoo_limited7_logo.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Furniture Zoo</strong><span>High-end furniture manufacturing</span></div></li>
+        <li><img src="/images/sold%20out%20africa.svg" alt="" width="54" height="54" loading="lazy"><div><strong>SoldOutAfrica</strong><span>Event ticketing</span></div></li>
+        <li><img src="/images/mamae.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Mamae Recyclers</strong><span>Waste collection for estates and businesses</span></div></li>
+      </ul>
+    </section>
+
+    <!-- Who -->
+    <section aria-labelledby="who-h">
+      <h2 id="who-h">Who's in the room</h2>
+      <ul class="who">
+        <li><strong>Founders</strong> who want to hear how other Kenyan businesses actually grew, and meet people building the same thing.</li>
+        <li><strong>Investors</strong> looking for high-growth businesses, in a relaxed setting instead of a boardroom.</li>
+        <li><strong>Anyone in the startup scene</strong> who wants a bigger network and a good night out.</li>
+      </ul>
+    </section>
+
+    <!-- Tickets -->
+    <section id="tickets" aria-labelledby="tickets-h">
+      <h2 id="tickets-h">Tickets</h2>
+      <p class="section-lead">Spaces are limited. Food and drinks are included with every ticket.</p>
+      <div class="tickets">
+        <a class="ticket js-ticket" data-cta="ticket_ga" href="https://soldoutafrica.com/finale-batch4">
+          <span class="t-name">General Admission</span>
+          <span class="t-price">KES 4,000</span>
+          <span class="t-desc">One ticket.</span>
+          <span class="t-go">Get my ticket</span>
+        </a>
+        <a class="ticket alt js-ticket" data-cta="ticket_friend" href="https://soldoutafrica.com/finale-batch4">
+          <span class="t-name">Bring a Friend</span>
+          <span class="t-price">KES 6,000</span>
+          <span class="t-desc">Two tickets. You both save KES 1,000.</span>
+          <span class="t-go">Get 2 tickets</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="faq-h">
+      <h2 id="faq-h">Questions</h2>
+      <div class="faq">
+        <details>
+          <summary>How do I pay?</summary>
+          <p>Tickets are sold through SoldOutAfrica. Pick your ticket, enter the phone number it should go to, then confirm the M-Pesa prompt. Airtel Money, Visa and Mastercard also work.</p>
+        </details>
+        <details>
+          <summary>How do I get my ticket?</summary>
+          <p>Your QR code arrives by SMS and email as soon as you pay. Show it at the gate.</p>
+        </details>
+        <details>
+          <summary>Where is K1 Klub House?</summary>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=K1+Klub+House+Nairobi" target="_blank" rel="noopener">Open it in Google Maps</a>. Networking starts at 6:00 PM, and the programme starts at 7:00 PM.</p>
+        </details>
+        <details>
+          <summary>What's included?</summary>
+          <p>Food and drinks, the founder talks, the keynote, live music and the chance to win prizes.</p>
+        </details>
+        <details>
+          <summary>Who do I contact with questions?</summary>
+          <p>WhatsApp SoldOutAfrica on <a href="https://wa.me/254117066018">+254 117 066 018</a> for ticket help.</p>
+        </details>
+      </div>
+    </section>
+
+    <a class="btn-tickets js-ticket" data-cta="footer" href="https://soldoutafrica.com/finale-batch4">
+      Get my ticket
+      <small>KES 4,000 · or 2 for KES 6,000</small>
+    </a>
+
+    <!-- Stream (secondary) -->
     <div class="abroad">
-      <p class="abroad-label">Not in Kenya?</p>
+      <p class="abroad-label">Can't be there in person?</p>
       <button class="btn-stream" id="streamToggle" type="button" aria-expanded="false" aria-controls="streamForm">
-        Stream online
+        Get the stream link
       </button>
 
       <form class="stream-form" id="streamForm" novalidate hidden>
@@ -229,7 +603,93 @@
     </div>
   </main>
 
+  <footer>
+    <p>Minting 1,000 more millionaires by 2040</p>
+  </footer>
+
+  <div class="sticky" id="sticky" aria-hidden="true">
+    <p><strong>Batch 4 Finale</strong>Wed 21 Oct · from KES 3,000 each</p>
+    <a class="js-ticket" data-cta="sticky" href="https://soldoutafrica.com/finale-batch4" tabindex="-1">Get tickets</a>
+  </div>
+
   <script>
+    (function () {
+      var TICKET_URL = 'https://soldoutafrica.com/finale-batch4';
+      var EVENT_START = new Date('2026-10-21T18:00:00+03:00');
+
+      /**
+       * Builds the ticket URL, passing through the visitor's UTM params (e.g. from the TikTok ad)
+       * so SoldOutAfrica sales can be traced back to their source.
+       * @param {string} cta Which button was used.
+       * @returns {string}
+       */
+      function ticketUrl(cta) {
+        var incoming = new URLSearchParams(window.location.search);
+        var out = new URLSearchParams();
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+          if (incoming.get(k)) out.set(k, incoming.get(k));
+        });
+        if (!out.get('utm_source')) out.set('utm_source', 'kuzana_site');
+        if (!out.get('utm_medium')) out.set('utm_medium', 'landing');
+        if (!out.get('utm_campaign')) out.set('utm_campaign', 'finale_batch4');
+        if (!out.get('utm_content')) out.set('utm_content', cta);
+        return TICKET_URL + '?' + out.toString();
+      }
+
+      document.querySelectorAll('.js-ticket').forEach(function (link) {
+        var cta = link.getAttribute('data-cta') || 'unknown';
+        link.href = ticketUrl(cta);
+        link.addEventListener('click', function () {
+          try {
+            if (window.gtag) {
+              window.gtag('event', 'finale_ticket_click', {
+                event_category: 'tickets',
+                event_label: cta,
+                transport_type: 'beacon'
+              });
+            }
+          } catch (err) {}
+        });
+      });
+
+      // Countdown under the hero CTA.
+      var countdown = document.getElementById('countdown');
+      if (countdown) {
+        var ms = EVENT_START.getTime() - Date.now();
+        var days = Math.ceil(ms / 86400000);
+        if (ms > 0 && days > 1) countdown.textContent = days + ' days to go';
+        else if (ms > 0) countdown.textContent = 'Happening today at 6:00 PM';
+      }
+
+      // Show the sticky ticket bar once the hero button scrolls out of view.
+      var sticky = document.getElementById('sticky');
+      var hero = document.querySelector('.btn-tickets[data-cta="hero"]');
+      var footerBtn = document.querySelector('.btn-tickets[data-cta="footer"]');
+      if (sticky && hero && 'IntersectionObserver' in window) {
+        var heroVisible = true;
+        var footerVisible = false;
+        var update = function () {
+          var show = !heroVisible && !footerVisible;
+          sticky.classList.toggle('is-visible', show);
+          sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+          sticky.querySelector('a').tabIndex = show ? 0 : -1;
+        };
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.target === hero) heroVisible = e.isIntersecting;
+            if (e.target === footerBtn) footerVisible = e.isIntersecting;
+          });
+          update();
+        }).observe(hero);
+        if (footerBtn) {
+          new IntersectionObserver(function (entries) {
+            footerVisible = entries[0].isIntersecting;
+            update();
+          }).observe(footerBtn);
+        }
+      }
+    })();
+
     (function () {
       var toggle = document.getElementById('streamToggle');
       var form = document.getElementById('streamForm');
