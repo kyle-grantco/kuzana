@@ -39,10 +39,10 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Batch 4 Finale · Wed 21 Oct, K1 Klub House — Kuzana</title>
-  <meta name="description" content="Five Batch 4 companies share the real numbers behind their growth. Keynote by Flora Mutahi, CEO of Melvin's Tea. Wed 21 Oct, K1 Klub House, Nairobi. Food and drinks included.">
+  <title>Kuzana Batch 4 Finale · Wed 21 Oct, K1 Klub House</title>
+  <meta name="description" content="Kenyan founders share the real numbers behind their growth. Keynote by Flora Mutahi, CEO of Melvin's Tea. Wed 21 Oct, 6 PM, K1 Klub House, Nairobi. Food and drinks included.">
   <meta property="og:title" content="Kuzana Batch 4 Finale · Wed 21 Oct, K1 Klub House">
-  <meta property="og:description" content="Founders, investors and real growth stories. Keynote by Flora Mutahi, CEO of Melvin's Tea. Food and drinks included.">
+  <meta property="og:description" content="Kenyan founders share the real numbers behind their growth. Keynote by Flora Mutahi, CEO of Melvin's Tea. Food and drinks included.">
   <meta property="og:image" content="https://kuzana.co/images/finale/finale-og.jpg">
   <meta property="og:url" content="https://kuzana.co/finale/">
   <meta name="twitter:card" content="summary_large_image">
@@ -67,11 +67,11 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" }
     },
     "image": ["https://kuzana.co/images/finale/finale-og.jpg"],
-    "description": "Batch 4 founders share the real numbers behind their growth. Keynote by Flora Mutahi, CEO of Melvin's Tea.",
+    "description": "Kuzana's Batch 4 companies share the real numbers behind their growth. Keynote by Flora Mutahi, CEO of Melvin's Tea.",
     "organizer": { "@type": "Organization", "name": "Kuzana", "url": "https://kuzana.co" },
     "offers": [
       { "@type": "Offer", "name": "General Admission", "price": "4000", "priceCurrency": "KES", "url": "https://soldoutafrica.com/finale-batch4", "availability": "https://schema.org/InStock" },
-      { "@type": "Offer", "name": "Bring a Friend", "price": "6000", "priceCurrency": "KES", "url": "https://soldoutafrica.com/finale-batch4", "availability": "https://schema.org/InStock" }
+      { "@type": "Offer", "name": "Bring a Friend (2 tickets)", "price": "6000", "priceCurrency": "KES", "url": "https://soldoutafrica.com/finale-batch4", "availability": "https://schema.org/InStock" }
     ]
   }
   </script>
@@ -83,6 +83,7 @@
       --coral: #fe7272;
       --gold: #fdc469;
       --teal: #4a6290;
+      --green: #166534;
       --muted: rgba(17, 43, 60, 0.72);
       --line: rgba(17, 43, 60, 0.14);
       --card: rgba(255, 255, 255, 0.72);
@@ -105,7 +106,7 @@
       margin: 0 auto;
       padding: 1.75rem 1.25rem 2rem;
     }
-    section { margin-top: 3rem; }
+    section { margin-top: 3.25rem; }
     .logo { display: inline-block; margin-bottom: 1.5rem; }
     .logo img { height: 34px; width: auto; }
     .eyebrow {
@@ -122,19 +123,21 @@
       font-weight: 400;
       letter-spacing: -.02em;
     }
-    h1 { font-size: clamp(2.6rem, 11vw, 3.6rem); line-height: 1; }
+    h1 { font-size: clamp(2.3rem, 9.5vw, 3.3rem); line-height: 1.02; }
     h2 { font-size: clamp(1.8rem, 7vw, 2.3rem); line-height: 1.08; }
     .sub {
       margin: 1rem 0 0;
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       line-height: 1.55;
       color: var(--muted);
     }
+    .sub strong { color: var(--navy); font-weight: 600; }
     .section-lead {
       margin: .6rem 0 0;
       line-height: 1.55;
       color: var(--muted);
     }
+    .section-lead + .section-lead { margin-top: .8rem; }
 
     /* Hero */
     .facts {
@@ -163,13 +166,24 @@
       margin-bottom: .2rem;
     }
     .facts a { color: inherit; }
+    .eb-banner {
+      margin: 1.25rem 0 0;
+      padding: .7rem .9rem;
+      border-radius: 10px;
+      background: var(--navy);
+      color: var(--ivory);
+      font-size: .9rem;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .eb-banner strong { color: var(--gold); }
     .btn-tickets {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
       padding: 1.05rem 1.25rem;
       border-radius: 12px;
       background: var(--coral);
@@ -184,7 +198,7 @@
     }
     .btn-tickets small {
       margin-top: .2rem;
-      font-size: .78rem;
+      font-size: .8rem;
       font-weight: 600;
       letter-spacing: 0;
       text-transform: none;
@@ -220,46 +234,32 @@
       background: rgba(255, 255, 255, 0.6);
     }
 
-    /* Keynote */
-    .keynote {
+    /* About Kuzana */
+    .stats {
       display: grid;
-      grid-template-columns: 7.5rem 1fr;
-      gap: 1.1rem;
-      align-items: center;
-      margin-top: 1.25rem;
-      padding: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .5rem;
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .stats li {
+      padding: .85rem .6rem;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 12px;
       background: var(--card);
+      text-align: center;
     }
-    .keynote img { width: 7.5rem; height: 7.5rem; border-radius: 50%; object-fit: cover; }
-    .keynote .name { margin: 0; font-size: 1.2rem; font-weight: 700; }
-    .keynote .role { margin: .2rem 0 0; color: var(--muted); }
-    .keynote .tag {
-      display: inline-block;
-      margin-bottom: .45rem;
-      padding: .2rem .55rem;
-      border-radius: 999px;
-      background: var(--gold);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
+    .stats strong {
+      display: block;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.9rem;
+      line-height: 1;
     }
-
-    /* Run of show */
-    .timeline { margin: 1.25rem 0 0; padding: 0; list-style: none; }
-    .timeline li {
-      display: grid;
-      grid-template-columns: 5.2rem 1fr;
-      gap: .9rem;
-      padding: .9rem 0;
-      border-top: 1px solid var(--line);
-    }
-    .timeline li:last-child { border-bottom: 1px solid var(--line); }
-    .timeline time { font-weight: 700; }
-    .timeline strong { display: block; }
-    .timeline p { margin: .2rem 0 0; color: var(--muted); line-height: 1.45; font-size: .95rem; }
+    .stats span { display: block; margin-top: .35rem; font-size: .76rem; line-height: 1.3; color: var(--muted); }
+    .source { margin: .6rem 0 0; font-size: .76rem; color: var(--muted); }
+    .source a { color: inherit; }
 
     /* Companies */
     .companies {
@@ -291,6 +291,36 @@
     .companies strong { display: block; }
     .companies span { font-size: .9rem; color: var(--muted); }
 
+    /* Keynote */
+    .keynote {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 1.1rem;
+      align-items: center;
+      margin-top: 1.25rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+    }
+    .keynote img { width: 7rem; height: 7rem; border-radius: 50%; object-fit: cover; }
+    .keynote .name { margin: 0; font-size: 1.2rem; font-weight: 700; }
+    .keynote .role { margin: .2rem 0 0; color: var(--muted); }
+
+    /* Run of show */
+    .timeline { margin: 1.25rem 0 0; padding: 0; list-style: none; }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 5.2rem 1fr;
+      gap: .9rem;
+      padding: .9rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .timeline li:last-child { border-bottom: 1px solid var(--line); }
+    .timeline time { font-weight: 700; }
+    .timeline strong { display: block; }
+    .timeline p { margin: .2rem 0 0; color: var(--muted); line-height: 1.45; font-size: .95rem; }
+
     /* Who */
     .who { margin: 1.1rem 0 0; padding: 0; list-style: none; display: grid; gap: .6rem; }
     .who li {
@@ -304,13 +334,23 @@
     .who li:nth-child(3) { border-left-color: var(--teal); }
 
     /* Tickets */
-    .tickets { display: grid; gap: .75rem; margin-top: 1.25rem; }
+    .stack { margin: .9rem 0 0; padding: 0; list-style: none; display: grid; gap: .5rem; }
+    .stack li { position: relative; padding-left: 1.6rem; line-height: 1.45; }
+    .stack li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .tickets { display: grid; gap: .75rem; margin-top: 1.4rem; }
     .ticket {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: .4rem 1rem;
       align-items: center;
-      padding: 1.1rem 1.1rem;
+      padding: 1.1rem;
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #fff;
@@ -333,6 +373,28 @@
       font-size: .92rem;
     }
     .ticket.alt .t-go { background: var(--gold); }
+    .ticket.eb { border: 2px solid var(--navy); }
+    .ticket.eb .t-go { background: var(--navy); color: var(--ivory); }
+    .t-flag {
+      grid-column: 1 / -1;
+      justify-self: start;
+      padding: .15rem .5rem;
+      border-radius: 999px;
+      background: var(--gold);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* Batch 5 */
+    .apply-note {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(74, 98, 144, 0.1);
+      line-height: 1.5;
+    }
 
     /* FAQ */
     .faq { margin-top: 1rem; }
@@ -344,6 +406,9 @@
     .faq details[open] summary::after { content: '−'; }
     .faq p { margin: .55rem 0 0; color: var(--muted); line-height: 1.5; }
     .faq a { color: var(--navy); }
+
+    .closing { margin-top: 3.25rem; text-align: center; }
+    .closing p { margin: .6rem 0 0; color: var(--muted); line-height: 1.5; }
 
     /* Stream (secondary) */
     .abroad {
@@ -401,7 +466,7 @@
     .stream-form button[type="submit"]:disabled { opacity: .6; cursor: wait; }
     .msg { display: none; margin: .35rem 0 0; font-size: .88rem; line-height: 1.4; }
     .msg.error { color: #9b1c1c; }
-    .msg.success { color: #166534; }
+    .msg.success { color: var(--green); }
     .note { margin: .85rem 0 0; font-size: .78rem; color: var(--muted); text-align: center; }
 
     /* Sticky mobile CTA */
@@ -434,6 +499,7 @@
     }
     footer { text-align: center; font-size: .78rem; color: var(--muted); padding: 1rem 1.25rem 0; }
     footer p { margin: 0; letter-spacing: .1em; text-transform: uppercase; }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
@@ -446,9 +512,9 @@
     </a>
 
     <!-- Hero -->
-    <p class="eyebrow">Wed 21 Oct · K1 Klub House, Nairobi</p>
-    <h1>Batch 4 Finale</h1>
-    <p class="sub">Five Batch 4 companies share their wins, their lessons and the real numbers behind their growth. Then stay for food, drinks and an evening with investors and founders.</p>
+    <p class="eyebrow">Kuzana Batch 4 Finale · Wed 21 Oct</p>
+    <h1>Kenyan founders share the real numbers behind their growth</h1>
+    <p class="sub"><strong>Kuzana invests in Kenyan businesses and works with their founders for a year to grow them.</strong> On Wednesday, our fourth group of companies, Batch 4, takes the stage to share their wins, their lessons and their numbers. Then stay for food, drinks and live music with founders and investors.</p>
 
     <ul class="facts">
       <li><span>Date</span>Wed, 21 Oct 2026</li>
@@ -457,17 +523,45 @@
       <li><span>Included</span>Food &amp; drinks</li>
     </ul>
 
+    <p class="eb-banner js-eb" hidden><strong>Early Bird: KES 3,000</strong> until 11:58 PM tonight. Then KES 4,000.</p>
+
     <a class="btn-tickets js-ticket" data-cta="hero" href="https://soldoutafrica.com/finale-batch4">
       Get my ticket
-      <small>KES 4,000 · or 2 for KES 6,000</small>
+      <small class="js-hero-price">KES 4,000 · or 2 tickets for KES 6,000</small>
     </a>
     <p class="pay-note">Pay with M-Pesa, Airtel Money or card. Your QR ticket arrives by SMS and email.</p>
     <p class="countdown" id="countdown"></p>
 
     <figure class="photo">
-      <img src="/images/finale/finale-crowd.webp" alt="Founders and guests cheering at a Kuzana Finale" width="1200" height="769">
-      <figcaption>The room at our Batch 2 Finale.</figcaption>
+      <img src="/images/finale/finale-crowd.webp" alt="Founders and guests cheering at a Kuzana event" width="1200" height="769">
+      <figcaption>The room at our Batch 2 Final Pitch Event.</figcaption>
     </figure>
+
+    <!-- What is Kuzana / Batch 4 -->
+    <section aria-labelledby="about-h">
+      <h2 id="about-h">New to Kuzana?</h2>
+      <p class="section-lead">Kuzana is an education and investment programme for Kenyan entrepreneurs, based in Spring Valley, Nairobi. We invest in a small group of companies at a time and work with their founders every Friday for 12 months on sales, systems, accounting and capital.</p>
+      <p class="section-lead">Each group is called a batch. Batch 4 is our fourth. The Finale is where they show what changed.</p>
+      <ul class="stats">
+        <li><strong>$40K</strong><span>invested per company in cash and support</span></li>
+        <li><strong>12</strong><span>months working with each founder</span></li>
+        <li><strong>174%</strong><span>average growth of Batch 1 companies</span></li>
+      </ul>
+      <p class="source">From Kuzana's published results. <a href="/how-it-works/">How the programme works</a>.</p>
+    </section>
+
+    <!-- Companies -->
+    <section aria-labelledby="companies-h">
+      <h2 id="companies-h">Meet Batch 4</h2>
+      <p class="section-lead">The five companies in Batch 4.</p>
+      <ul class="companies">
+        <li><img src="/images/kaya_comfort_logo.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Kaya</strong><span>Tissue paper manufacturing</span></div></li>
+        <li><img src="/images/zitenge.png" alt="" width="54" height="54" loading="lazy"><div><strong>Zitenge</strong><span>Shoe racks</span></div></li>
+        <li><img src="/images/furniture_zoo_limited7_logo.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Furniture Zoo</strong><span>High-end furniture manufacturing</span></div></li>
+        <li><img src="/images/sold%20out%20africa.svg" alt="" width="54" height="54" loading="lazy"><div><strong>SoldOutAfrica</strong><span>Event ticketing</span></div></li>
+        <li><img src="/images/mamae.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Mamae Recyclers</strong><span>Waste collection for estates and businesses</span></div></li>
+      </ul>
+    </section>
 
     <!-- Keynote -->
     <section aria-labelledby="keynote-h">
@@ -483,19 +577,19 @@
 
     <!-- Run of show -->
     <section aria-labelledby="night-h">
-      <h2 id="night-h">The night</h2>
+      <h2 id="night-h">The evening</h2>
       <ol class="timeline">
         <li>
           <time>6:00 PM</time>
-          <div><strong>Networking</strong><p>Drinks and conversations with founders and investors before the programme starts.</p></div>
+          <div><strong>Networking</strong><p>Drinks with founders, investors and the Kuzana team.</p></div>
         </li>
         <li>
           <time>7:00 PM</time>
-          <div><strong>Founders on stage</strong><p>Batch 4 companies show what they grew, how they did it and what they learned. Keynote from Flora Mutahi.</p></div>
+          <div><strong>On stage</strong><p>Batch 4 founders share their wins, their lessons and the numbers behind their growth. Keynote from Flora Mutahi.</p></div>
         </li>
         <li>
           <time>After</time>
-          <div><strong>Food, music and prizes</strong><p>Dinner, live music and a chance to win prizes.</p></div>
+          <div><strong>Food, music and prizes</strong><p>Food, drinks and live music, with secret guests and a chance to win prizes.</p></div>
         </li>
         <li>
           <time>10:00 PM</time>
@@ -504,34 +598,34 @@
       </ol>
     </section>
 
-    <!-- Companies -->
-    <section aria-labelledby="companies-h">
-      <h2 id="companies-h">Meet Batch 4</h2>
-      <p class="section-lead">Kenyan businesses that spent the last few months in Kuzana working on one thing: growth.</p>
-      <ul class="companies">
-        <li><img src="/images/kaya_comfort_logo.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Kaya</strong><span>Tissue paper manufacturing</span></div></li>
-        <li><img src="/images/zitenge.png" alt="" width="54" height="54" loading="lazy"><div><strong>Zitenge</strong><span>Shoe racks</span></div></li>
-        <li><img src="/images/furniture_zoo_limited7_logo.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Furniture Zoo</strong><span>High-end furniture manufacturing</span></div></li>
-        <li><img src="/images/sold%20out%20africa.svg" alt="" width="54" height="54" loading="lazy"><div><strong>SoldOutAfrica</strong><span>Event ticketing</span></div></li>
-        <li><img src="/images/mamae.jpeg" alt="" width="54" height="54" loading="lazy"><div><strong>Mamae Recyclers</strong><span>Waste collection for estates and businesses</span></div></li>
-      </ul>
-    </section>
-
-    <!-- Who -->
+    <!-- Who (self-qualification) -->
     <section aria-labelledby="who-h">
-      <h2 id="who-h">Who's in the room</h2>
+      <h2 id="who-h">This is for you if</h2>
       <ul class="who">
-        <li><strong>Founders</strong> who want to hear how other Kenyan businesses actually grew, and meet people building the same thing.</li>
-        <li><strong>Investors</strong> looking for high-growth businesses, in a relaxed setting instead of a boardroom.</li>
-        <li><strong>Anyone in the startup scene</strong> who wants a bigger network and a good night out.</li>
+        <li><strong>You run a business in Kenya</strong> and want to hear how other Kenyan businesses grew, with the numbers.</li>
+        <li><strong>You want to meet investors</strong> in a relaxed room instead of a boardroom.</li>
+        <li><strong>You're thinking about applying to Kuzana</strong> and want to see a batch up close first.</li>
       </ul>
     </section>
 
     <!-- Tickets -->
     <section id="tickets" aria-labelledby="tickets-h">
       <h2 id="tickets-h">Tickets</h2>
-      <p class="section-lead">Spaces are limited. Food and drinks are included with every ticket.</p>
+      <p class="section-lead">Spaces are limited. Every ticket includes:</p>
+      <ul class="stack">
+        <li>The Batch 4 founders' growth stories, with their numbers</li>
+        <li>Keynote from Flora Mutahi, CEO of Melvin's Tea</li>
+        <li>Food and drinks</li>
+        <li>Live music, secret guests and prizes</li>
+      </ul>
       <div class="tickets">
+        <a class="ticket eb js-ticket js-eb" data-cta="ticket_earlybird" href="https://soldoutafrica.com/finale-batch4" hidden>
+          <span class="t-flag">Ends 11:58 PM tonight</span>
+          <span class="t-name">Early Bird</span>
+          <span class="t-price">KES 3,000</span>
+          <span class="t-desc">One ticket at KES 1,000 off.</span>
+          <span class="t-go">Get the Early Bird price</span>
+        </a>
         <a class="ticket js-ticket" data-cta="ticket_ga" href="https://soldoutafrica.com/finale-batch4">
           <span class="t-name">General Admission</span>
           <span class="t-price">KES 4,000</span>
@@ -541,16 +635,27 @@
         <a class="ticket alt js-ticket" data-cta="ticket_friend" href="https://soldoutafrica.com/finale-batch4">
           <span class="t-name">Bring a Friend</span>
           <span class="t-price">KES 6,000</span>
-          <span class="t-desc">Two tickets. You both save KES 1,000.</span>
+          <span class="t-desc">Two tickets, KES 3,000 each.</span>
           <span class="t-go">Get 2 tickets</span>
         </a>
       </div>
+    </section>
+
+    <!-- Batch 5 (no competing CTA: the ticket is the next step) -->
+    <section aria-labelledby="batch5-h">
+      <h2 id="batch5-h">Thinking about Batch 5?</h2>
+      <p class="section-lead">We select a small group of companies for each batch. We look for founders who are already building, with significant traction. Our target is KSh 300k or more in monthly revenue.</p>
+      <p class="apply-note">The Finale is the easiest way to see what a Kuzana batch looks like, hear from founders who went through it, and meet the Kuzana team in person.</p>
     </section>
 
     <!-- FAQ -->
     <section aria-labelledby="faq-h">
       <h2 id="faq-h">Questions</h2>
       <div class="faq">
+        <details>
+          <summary>What is Kuzana?</summary>
+          <p>An education and investment programme for Kenyan entrepreneurs in Spring Valley, Nairobi. We invest $40K per company in cash and support, then work with the founders for 12 months. <a href="/how-it-works/">See how it works</a>.</p>
+        </details>
         <details>
           <summary>How do I pay?</summary>
           <p>Tickets are sold through SoldOutAfrica. Pick your ticket, enter the phone number it should go to, then confirm the M-Pesa prompt. Airtel Money, Visa and Mastercard also work.</p>
@@ -561,26 +666,34 @@
         </details>
         <details>
           <summary>Where is K1 Klub House?</summary>
-          <p><a href="https://www.google.com/maps/search/?api=1&query=K1+Klub+House+Nairobi" target="_blank" rel="noopener">Open it in Google Maps</a>. Networking starts at 6:00 PM, and the programme starts at 7:00 PM.</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=K1+Klub+House+Nairobi" target="_blank" rel="noopener">Open it in Google Maps</a>. Networking starts at 6:00 PM and the programme starts at 7:00 PM.</p>
         </details>
         <details>
           <summary>What's included?</summary>
-          <p>Food and drinks, the founder talks, the keynote, live music and the chance to win prizes.</p>
+          <p>Food and drinks, the founder stories, the keynote, live music, secret guests and a chance to win prizes.</p>
         </details>
         <details>
-          <summary>Who do I contact with questions?</summary>
-          <p>WhatsApp SoldOutAfrica on <a href="https://wa.me/254117066018">+254 117 066 018</a> for ticket help.</p>
+          <summary>Is there a livestream?</summary>
+          <p>Yes, for anyone who can't be there in person. <a href="#stream">Get the free stream link below</a>.</p>
+        </details>
+        <details>
+          <summary>Who do I contact about my ticket?</summary>
+          <p>WhatsApp SoldOutAfrica on <a href="https://wa.me/254117066018">+254 117 066 018</a>.</p>
         </details>
       </div>
     </section>
 
+    <div class="closing">
+      <h2>See you Wednesday</h2>
+      <p>Wed 21 Oct · 6:00 PM · K1 Klub House, Nairobi</p>
+    </div>
     <a class="btn-tickets js-ticket" data-cta="footer" href="https://soldoutafrica.com/finale-batch4">
       Get my ticket
-      <small>KES 4,000 · or 2 for KES 6,000</small>
+      <small class="js-hero-price">KES 4,000 · or 2 tickets for KES 6,000</small>
     </a>
 
     <!-- Stream (secondary) -->
-    <div class="abroad">
+    <div class="abroad" id="stream">
       <p class="abroad-label">Can't be there in person?</p>
       <button class="btn-stream" id="streamToggle" type="button" aria-expanded="false" aria-controls="streamForm">
         Get the stream link
@@ -608,7 +721,7 @@
   </footer>
 
   <div class="sticky" id="sticky" aria-hidden="true">
-    <p><strong>Batch 4 Finale</strong>Wed 21 Oct · from KES 3,000 each</p>
+    <p><strong>Batch 4 Finale</strong>Wed 21 Oct · K1 Klub House</p>
     <a class="js-ticket" data-cta="sticky" href="https://soldoutafrica.com/finale-batch4" tabindex="-1">Get tickets</a>
   </div>
 
@@ -616,6 +729,8 @@
     (function () {
       var TICKET_URL = 'https://soldoutafrica.com/finale-batch4';
       var EVENT_START = new Date('2026-10-21T18:00:00+03:00');
+      // Matches the Early Bird sale end date on SoldOutAfrica (2026-10-17 20:58 UTC).
+      var EARLY_BIRD_END = new Date('2026-10-17T23:58:00+03:00');
 
       /**
        * Builds the ticket URL, passing through the visitor's UTM params (e.g. from the TikTok ad)
@@ -652,10 +767,19 @@
         });
       });
 
+      // Early Bird is shown only while it's on sale.
+      var now = Date.now();
+      if (now < EARLY_BIRD_END.getTime()) {
+        document.querySelectorAll('.js-eb').forEach(function (el) { el.hidden = false; });
+        document.querySelectorAll('.js-hero-price').forEach(function (el) {
+          el.textContent = 'Early Bird KES 3,000 until 11:58 PM tonight';
+        });
+      }
+
       // Countdown under the hero CTA.
       var countdown = document.getElementById('countdown');
       if (countdown) {
-        var ms = EVENT_START.getTime() - Date.now();
+        var ms = EVENT_START.getTime() - now;
         var days = Math.ceil(ms / 86400000);
         if (ms > 0 && days > 1) countdown.textContent = days + ' days to go';
         else if (ms > 0) countdown.textContent = 'Happening today at 6:00 PM';
@@ -675,10 +799,7 @@
           sticky.querySelector('a').tabIndex = show ? 0 : -1;
         };
         new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.target === hero) heroVisible = e.isIntersecting;
-            if (e.target === footerBtn) footerVisible = e.isIntersecting;
-          });
+          heroVisible = entries[0].isIntersecting;
           update();
         }).observe(hero);
         if (footerBtn) {
