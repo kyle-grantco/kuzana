@@ -117,3 +117,15 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+/**
+ * Loads Metricool once for pages that include this shared script.js.
+ */
+(function bootstrapMetricool() {
+    if (window.__kuzanaMetricoolBootstrapped) return;
+    window.__kuzanaMetricoolBootstrapped = true;
+    var script = document.createElement('script');
+    script.src = '/metricool.js';
+    script.defer = true;
+    document.head.appendChild(script);
+})();

@@ -192,3 +192,15 @@ document.addEventListener('click', function (event) {
     container.appendChild(iframe);
 });
 
+/**
+ * Loads Metricool once for pages that include this shared custom.js.
+ */
+(function bootstrapMetricool() {
+    if (window.__kuzanaMetricoolBootstrapped) return;
+    window.__kuzanaMetricoolBootstrapped = true;
+    var script = document.createElement('script');
+    script.src = '/metricool.js';
+    script.defer = true;
+    document.head.appendChild(script);
+})();
+
