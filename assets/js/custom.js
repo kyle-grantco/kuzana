@@ -204,3 +204,23 @@ document.addEventListener('click', function (event) {
     document.head.appendChild(script);
 })();
 
+/**
+ * Loads attribution.js on pages that include custom.js but forgot the script tag
+ * (homepage used to miss this, so Apply dropped ?referral=).
+ */
+(function bootstrapAttribution() {
+    function decorate() {
+        if (window.KuzanaAttribution) window.KuzanaAttribution.decorateApplyLinks();
+    }
+    if (window.KuzanaAttribution) {
+        decorate();
+        return;
+    }
+    if (window.__kuzanaAttributionBootstrapped) return;
+    window.__kuzanaAttributionBootstrapped = true;
+    var script = document.createElement('script');
+    script.src = '/attribution.js';
+    script.onload = decorate;
+    document.head.appendChild(script);
+})();
+

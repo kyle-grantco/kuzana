@@ -234,12 +234,38 @@
     }
 
     /**
+     * Rewrites Apply clicks at the last moment so referral/UTM still attach
+     * even if the href was not decorated on load.
+     */
+    function interceptApplyClicks() {
+        global.document.addEventListener('click', function (event) {
+            var anchor = event.target && event.target.closest
+                ? event.target.closest('a[href]')
+                : null;
+            if (!anchor) return;
+            var originalHref = anchor.getAttribute('href');
+            if (!originalHref || !APPLY_HOST_PATTERN.test(originalHref)) return;
+            var updatedHref = withApplyAttribution(
+                originalHref,
+                getEffectiveFormAttribution(),
+                getReferralFromSearchParams(
+                    new URLSearchParams(global.location.search || '')
+                ) || getStoredReferralCode()
+            );
+            if (updatedHref && updatedHref !== originalHref) {
+                anchor.setAttribute('href', updatedHref);
+            }
+        }, true);
+    }
+
+    /**
      * Initializes attribution capture and link decoration.
      */
     function init() {
         tagGoogleSearchVisit();
         storeFormAttributionFromLocation();
         storeReferralFromLocation();
+        interceptApplyClicks();
         if (global.document.readyState === 'loading') {
             global.document.addEventListener('DOMContentLoaded', decorateApplyLinks);
         } else {
