@@ -700,6 +700,7 @@
       </button>
 
       <form class="stream-form" id="streamForm" novalidate hidden>
+        <input type="hidden" id="streamSource" name="source" value="">
         <label for="streamEmail">
           Email
           <input id="streamEmail" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
@@ -816,11 +817,13 @@
       var form = document.getElementById('streamForm');
       var emailInput = document.getElementById('streamEmail');
       var whatsappInput = document.getElementById('streamWhatsapp');
+      var sourceInput = document.getElementById('streamSource');
       var submitBtn = document.getElementById('streamSubmit');
       var errorMsg = document.getElementById('streamError');
       var successMsg = document.getElementById('streamSuccess');
       var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyv42j66yaBvzDzMTJMy1ehJZDlAzniAir1zVtOWTjWyFhF_8AE7YSnolaeVfWApCvBnQ/exec';
       var LEAD_CONTEXT = 'finale_streaming';
+      var SOURCE_STORAGE_KEY = 'kuzanaFinaleStreamSource';
 
       /**
        * Returns true when the email looks valid enough to submit.
@@ -841,7 +844,31 @@
         return digits.length >= 9 && digits.length <= 15;
       }
 
+      /**
+       * Reads campaign source from ?source= or ?utm_source=, and remembers it
+       * for the rest of the session if the visitor navigates within the page.
+       * @returns {string}
+       */
+      function getStreamSource() {
+        var fromUrl = '';
+        try {
+          var params = new URLSearchParams(window.location.search || '');
+          fromUrl = (params.get('source') || params.get('utm_source') || '').trim();
+        } catch (err) {}
+        if (fromUrl) {
+          try { sessionStorage.setItem(SOURCE_STORAGE_KEY, fromUrl); } catch (err) {}
+          return fromUrl;
+        }
+        try {
+          return (sessionStorage.getItem(SOURCE_STORAGE_KEY) || '').trim();
+        } catch (err) {
+          return '';
+        }
+      }
+
       if (!toggle || !form) return;
+
+      if (sourceInput) sourceInput.value = getStreamSource();
 
       toggle.addEventListener('click', function () {
         var isOpen = form.classList.toggle('is-open');
@@ -850,6 +877,7 @@
         if (isOpen) {
           successMsg.style.display = 'none';
           errorMsg.style.display = 'none';
+          if (sourceInput) sourceInput.value = getStreamSource();
           emailInput.focus();
         }
       });
@@ -861,6 +889,8 @@
 
         var email = (emailInput.value || '').trim();
         var whatsapp = (whatsappInput.value || '').trim();
+        var source = getStreamSource();
+        if (sourceInput) sourceInput.value = source;
 
         if (!isValidEmail(email) || !isValidWhatsapp(whatsapp)) {
           errorMsg.style.display = 'block';
@@ -874,7 +904,7 @@
           body.set('email', email);
           body.set('whatsapp', whatsapp);
           body.set('context', LEAD_CONTEXT);
-          body.set('source', 'finale_landing');
+          body.set('source', source);
           var encoded = body.toString();
           var blob = new Blob([encoded], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
           var posted = false;
@@ -904,6 +934,7 @@
 
         successMsg.style.display = 'block';
         form.reset();
+        if (sourceInput) sourceInput.value = getStreamSource();
         submitBtn.disabled = false;
       });
     })();
