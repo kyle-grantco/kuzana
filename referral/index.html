@@ -253,10 +253,10 @@
 
       const handle = getHandleFromEmail(email);
       const code = handle && !(await isExistingPage(handle)) ? handle : email;
-      const shortUrl = `${window.location.origin}/${code}`;
-      const displayUrl = `Kuzana.co/${code}`;
+      // Referral links must remain shareable when generated in a local preview.
+      const shortUrl = `https://kuzana.co/${code}`;
 
-      document.getElementById("result").value = displayUrl;
+      document.getElementById("result").value = shortUrl;
 
       const whatsappMsg = `Hey Friend, Are you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 500k+ monthly revenue.\n\nUse this link to show that I promoted you: ${shortUrl}`;
       const emailMsg = `Hey Friend!\n\nAre you looking to raise capital for your business? I saw this and thought of you.\n\nKuzana invests in Kenyan businesses with Ksh 500k+ monthly revenue.\n\nUse this link to show that I promoted you: ${shortUrl}`;
