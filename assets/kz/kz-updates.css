@@ -10,6 +10,13 @@
 .kz-text-link{color:inherit;text-underline-offset:5px;line-height:1.6}
 .kz-text-link:hover{color:#FDC469}
 
+/* About and Investors: stick the intro only while its details sit beside it. */
+.kz-intro-grid{grid-template-columns:minmax(0,1fr)}
+@media(min-width:1024px){
+ .kz-intro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .kz-intro-grid__intro{position:sticky;top:110px}
+}
+
 /* Featured Finale video: same destination and muted autoplay as the incoming site. */
 .kz-feature{position:relative;overflow:hidden;background:#18202F;color:#FBF7EF;border-bottom:1px solid rgba(251,247,239,.16)}
 .kz-feature__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center;gap:clamp(24px,4vw,56px);padding-block:clamp(32px,4vw,56px)}
