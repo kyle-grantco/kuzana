@@ -1,886 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Live Players Mittlemann Fellowship — full applicant landing page -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <title>Live Players Mittlemann Fellowship | Kuzana</title>
-  <meta name="description" content="Four months in Nairobi, May–September 2027. Run operations inside Kuzana portfolio companies, study political economy, live at The Warren. Apply at form.kuzana.co/fellowship.">
-  <meta property="og:site_name" content="Kuzana">
-  <meta property="og:url" content="https://kuzana.co/fellowship/">
-  <meta property="og:title" content="Live Players Mittlemann Fellowship | Kuzana">
-  <meta property="og:description" content="Do real work inside ambitious Kenyan companies. Hands-on work with top 1% businesses.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://kuzana.co/images/kuzana-logo.png">
-  <link rel="canonical" href="https://kuzana.co/fellowship/">
-  <link rel="icon" href="/images/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="/attribution.js"></script>
-  <style>
-    :root {
-      --navy: #112b3c;
-      --teal: #4a6290;
-      --ivory: #f7f0e3;
-      --coral: #fe7272;
-      --gold: #fdc469;
-      --muted: rgba(17, 43, 60, 0.72);
-      --line: rgba(17, 43, 60, 0.14);
-      --sand: #efe6d6;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Outfit', system-ui, sans-serif;
-      color: var(--navy);
-      background: var(--ivory);
-    }
-    a { color: inherit; }
-    .wrap { width: min(62rem, 100%); margin: 0 auto; padding: 0 1.35rem; }
-    .skip { position: absolute; left: -999px; }
-    .skip:focus { left: 1rem; top: 1rem; z-index: 60; background: #fff; padding: .5rem .75rem; }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background: var(--navy);
-      color: var(--ivory);
-      padding: 1.25rem 0 3.5rem;
-    }
-    .hero-mark {
-      display: none;
-      position: absolute;
-      right: -2rem; top: 0;
-      width: min(34rem, 65vw);
-      opacity: .85;
-      pointer-events: none;
-    }
-    @media (min-width: 800px) { .hero-mark { display: block; } }
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 2.25rem;
-    }
-    .brand { display: inline-flex; align-items: center; text-decoration: none; }
-    .brand img { height: 36px; width: auto; display: block; }
-    .nav { display: none; gap: 1.1rem; font-size: .88rem; color: rgba(247,240,227,.8); }
-    .nav a { text-decoration: none; }
-    .nav a:hover { color: var(--gold); }
-    @media (min-width: 900px) { .nav { display: flex; } }
-
-    .eyebrow {
-      margin: 0 0 .7rem;
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .hero h1 {
-      margin: 0;
-      text-wrap: pretty;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(2.5rem, 7.5vw, 4.25rem);
-      font-weight: 400;
-      line-height: .98;
-      letter-spacing: -.02em;
-    }
-    .hero-line {
-      margin: 1.35rem 0 0;
-      text-wrap: pretty;
-      font-size: 1.15rem;
-      line-height: 1.55;
-      color: rgba(247,240,227,.92);
-    }
-    .hero-quote {
-      margin: 1rem 0 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 1.45rem;
-      color: var(--gold);
-    }
-    .hero-support { margin: .65rem 0 0; font-size: .95rem; color: rgba(247,240,227,.75); }
-
-    .cta-row { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.75rem; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: .78rem 1.1rem;
-      text-decoration: none;
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      transition: background .15s ease, color .15s ease, border-color .15s ease;
-    }
-    .btn-coral { background: var(--coral); color: var(--navy); }
-    .btn-coral:hover { background: #ff8a72; }
-    .btn-ghost { background: transparent; color: var(--ivory); border: 1px solid rgba(247,240,227,.7); }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-navy { background: var(--navy); color: var(--ivory); }
-    .btn-navy:hover { background: #1a3d52; }
-    .btn-gold { background: var(--gold); color: var(--navy); }
-    .btn-gold:hover { background: #ffd68a; }
-
-    .facts {
-      display: grid;
-      gap: 0;
-      margin-top: 2.25rem;
-      border-top: 1px solid rgba(247,240,227,.18);
-    }
-    @media (min-width: 700px) { .facts { grid-template-columns: repeat(4, 1fr); } }
-    .facts div {
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(247,240,227,.12);
-    }
-    @media (min-width: 700px) {
-      .facts div {
-        border-bottom: 0;
-        border-right: 1px solid rgba(247,240,227,.12);
-        padding-right: 1rem;
-        margin-right: 1rem;
-      }
-      .facts div:last-child { border-right: 0; margin-right: 0; }
-    }
-    .facts dt { margin: 0; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(247,240,227,.65); }
-    .facts dd { margin: .4rem 0 0; font-size: 1rem; color: var(--ivory); }
-
-    .section { padding: 4.75rem 0; }
-    .section h2 {
-      margin: .65rem 0 0;
-      text-wrap: pretty;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(1.9rem, 4.5vw, 2.85rem);
-      font-weight: 400;
-      line-height: 1.1;
-    }
-    .kicker {
-      margin: 0;
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--teal);
-    }
-    .kicker-gold { color: var(--gold); }
-    .lead {
-      margin: 1.15rem 0 0;
-      text-wrap: pretty;
-      font-size: 1.05rem;
-      line-height: 1.65;
-      color: var(--muted);
-    }
-    .lead p { margin: 0 0 .8rem; }
-    .lead p:last-child { margin-bottom: 0; }
-    .band-navy { background: var(--navy); color: var(--ivory); }
-    .band-sand { background: var(--sand); }
-    .split { display: grid; gap: 2rem; }
-    @media (min-width: 800px) { .split { grid-template-columns: 1fr 1fr; gap: 2.75rem; } }
-
-    .toc {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .65rem .9rem;
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .toc a {
-      font-size: .88rem;
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 1px;
-      color: var(--navy);
-    }
-
-    .definition {
-      margin: 1rem 0 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(1.45rem, 2.8vw, 1.95rem);
-      line-height: 1.28;
-    }
-
-    .list-grid {
-      display: grid;
-      gap: 1.25rem;
-      margin: 1.75rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    @media (min-width: 700px) { .list-grid { grid-template-columns: 1fr 1fr; } }
-    .list-grid li { border-top: 1px solid var(--line); padding-top: .85rem; }
-    .list-grid .num { display: block; font-size: .72rem; letter-spacing: .16em; color: var(--coral); }
-    .list-grid p {
-      margin: .35rem 0 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 1.3rem;
-    }
-
-    .rule-list {
-      margin: 1.35rem 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: .8rem;
-    }
-    @media (min-width: 700px) { .rule-list.two { grid-template-columns: 1fr 1fr; } }
-    .rule-list li {
-      border-left: 2px solid var(--gold);
-      padding-left: .85rem;
-      font-size: 1.02rem;
-      line-height: 1.45;
-    }
-
-    .day-grid {
-      display: grid;
-      gap: 1rem;
-      margin: 1.75rem 0 0;
-    }
-    @media (min-width: 700px) { .day-grid { grid-template-columns: 1fr 1fr; } }
-    .day-block {
-      border-top: 1px solid var(--line);
-      padding-top: 1rem;
-    }
-    .day-block h3 {
-      margin: 0;
-      font-size: .75rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--teal);
-    }
-    .day-block p {
-      margin: .55rem 0 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 1.35rem;
-      line-height: 1.3;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .65rem 1.1rem;
-      margin: 1.35rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .chips li {
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: .1rem;
-      font-size: 1.02rem;
-    }
-    .chips a { color: inherit; text-decoration: none; }
-    .chips a:hover { color: var(--teal); }
-
-    .questions { margin: 1.35rem 0 0; padding: 0; list-style: none; }
-    .questions li {
-      margin: 0 0 .9rem;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(1.25rem, 2.6vw, 1.7rem);
-      line-height: 1.25;
-    }
-
-    .people {
-      display: grid;
-      gap: 1.35rem;
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .people { grid-template-columns: 1fr 1fr; }
-    @media (min-width: 700px) { .people { grid-template-columns: repeat(4, 1fr); } }
-    .avatar {
-      display: block;
-      width: 7rem;
-      height: 7rem;
-      margin: 0 0 1rem;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--sand);
-      box-shadow: 0 0 0 3px var(--ring, var(--gold));
-      background: var(--navy);
-    }
-    .avatar img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(.85) contrast(1.05);
-    }
-    .avatar-zoom img { transform: scale(1.9); transform-origin: 47% 28%; }
-    .avatar-empty { background: #000; }
-    .avatar-logo { background: #fff; }
-    .avatar-logo img { object-fit: contain; padding: 22%; filter: none; }
-    .people h3 {
-      margin: 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 1.4rem;
-      font-weight: 400;
-    }
-    .people p { margin: .35rem 0 0; font-size: .92rem; color: var(--teal); }
-
-    .benefit-cards {
-      display: grid;
-      gap: 1rem;
-      margin: 1.75rem 0 0;
-    }
-    @media (min-width: 700px) { .benefit-cards { grid-template-columns: 1fr 1fr 1fr; } }
-    .benefit-cards article {
-      border-top: 1px solid var(--line);
-      padding-top: .9rem;
-    }
-    .benefit-cards h3 {
-      margin: 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-    }
-    .benefit-cards p {
-      margin: .45rem 0 0;
-      font-size: .95rem;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-
-    .steps {
-      display: grid;
-      gap: 1.25rem;
-      margin: 1.75rem 0 0;
-      padding: 0;
-      list-style: none;
-      counter-reset: apply-step;
-    }
-    @media (min-width: 700px) { .steps { grid-template-columns: repeat(3, 1fr); } }
-    .steps li {
-      border-top: 1px solid var(--line);
-      padding-top: .9rem;
-      counter-increment: apply-step;
-    }
-    .steps li::before {
-      content: "0" counter(apply-step);
-      display: block;
-      font-size: .72rem;
-      letter-spacing: .16em;
-      color: var(--coral);
-    }
-    .steps h3 {
-      margin: .4rem 0 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-    }
-    .steps p { margin: .45rem 0 0; color: var(--muted); line-height: 1.5; }
-
-    .figures {
-      display: grid;
-      gap: 1.25rem;
-      margin: 1.75rem 0 0;
-    }
-    @media (min-width: 700px) { .figures { grid-template-columns: 1fr 1fr; } }
-    .figures div {
-      border-top: 1px solid rgba(247,240,227,.15);
-      padding-top: .8rem;
-    }
-    .figures dt { margin: 0; font-size: .88rem; color: rgba(247,240,227,.7); }
-    .figures dd {
-      margin: .35rem 0 0;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 2.25rem;
-      color: var(--gold);
-    }
-
-    .faq details {
-      border-top: 1px solid var(--line);
-      padding: .95rem 0;
-    }
-    .faq details:last-child { border-bottom: 1px solid var(--line); }
-    .faq summary {
-      cursor: pointer;
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 1.28rem;
-      list-style: none;
-    }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq p { margin: .7rem 0 0; color: var(--muted); line-height: 1.6; }
-
-    .media {
-      margin: 1.75rem 0 0;
-      overflow: hidden;
-      background: #e4ddd0;
-      max-width: 22rem;
-    }
-    .media.media-md { max-width: 26rem; }
-    .media.media-wide { max-width: 34rem; }
-    .hero-visual .media {
-      margin: 0;
-      max-width: none;
-      width: min(100%, 22rem);
-      box-shadow: 0 22px 50px rgba(0,0,0,.28);
-    }
-    .media img {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 5 / 4;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(.88) contrast(1.04);
-    }
-    .hero-visual .media img { aspect-ratio: 4 / 5; }
-    .media.landscape img { aspect-ratio: 16 / 10; }
-    .media figcaption {
-      margin: 0;
-      padding: .55rem 0 0;
-      font-size: .72rem;
-      letter-spacing: .05em;
-      color: var(--muted);
-    }
-    .media-pair {
-      display: grid;
-      gap: .9rem;
-      margin: 1.75rem 0 0;
-      max-width: 34rem;
-    }
-    @media (min-width: 700px) {
-      .media-pair { grid-template-columns: 1fr 1fr; }
-    }
-    .hero-grid {
-      display: grid;
-      gap: 2.25rem;
-      align-items: end;
-    }
-    @media (min-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1.2fr .8fr;
-        gap: 3rem;
-        align-items: center;
-      }
-    }
-    .hero-mark { opacity: .45 !important; width: min(26rem, 42vw) !important; }
-    .toc { display: none !important; }
-
-    .footer {
-      padding: 1.35rem 0 5.5rem;
-      font-size: .88rem;
-      color: var(--muted);
-    }
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: .5rem;
-    }
-    .sticky-apply {
-      position: fixed;
-      inset-inline: 0;
-      bottom: 0;
-      z-index: 40;
-      padding: .75rem 1rem;
-      background: rgba(247,240,227,.96);
-      border-top: 1px solid var(--line);
-      backdrop-filter: blur(8px);
-    }
-    .sticky-apply .btn { width: 100%; }
-    @media (min-width: 768px) {
-      .sticky-apply { display: none; }
-      .footer { padding-bottom: 2rem; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  </style>
+<!-- kz:head-tracking -->
+    <!-- Google Tag Manager (primary container; configure ad pixels inside GTM) -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (GA4 gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FB5N4P252E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FB5N4P252E');
+    </script>
+    <!-- Microsoft Clarity -->
+    <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xudn3i0jbj");
+    </script>
+<!-- /kz:head-tracking -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Players Mittlemann Fellowship | Kuzana</title>
+    <meta name="description" content="Four months in Nairobi, June 1–September 30, 2027. Run operations inside the Bizi, Kuzana’s portfolio companies, study political economy, live at The Warren. Apply at form.kuzana.co/fellowship.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kuzana.co/fellowship/">
+    <meta property="og:site_name" content="Kuzana">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kuzana.co/fellowship/">
+    <meta property="og:title" content="Live Players Mittlemann Fellowship | Kuzana">
+    <meta property="og:description" content="Do real work inside ambitious Kenyan companies. Hands-on work with top 1% businesses.">
+    <meta property="og:image" content="https://kuzana.co/images/kuzana-logo.png">
+<!-- kz:head-assets -->
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/kz/kz.css?v=1e1d201a66">
+    <link rel="stylesheet" href="/assets/kz/kz-hover.css?v=bf6f4bc2eb">
+    <link rel="stylesheet" href="/assets/kz/kz-updates.css">
+<!-- /kz:head-assets -->
+<style>
+.kz-fel-sticky{display:none}
+@media (max-width:767.98px){.kz-fel-sticky{display:block}body{padding-bottom:76px}}
+</style>
 </head>
-<body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="hero">
-    <svg class="hero-mark" viewBox="0 0 640 420" fill="none" aria-hidden="true" focusable="false">
-      <path d="M-20 280 C 80 220, 140 340, 240 290 S 420 180, 520 250 S 680 360, 700 240" stroke="#4A6290" stroke-width="1.2" opacity="0.7"/>
-      <path d="M-10 310 C 90 250, 180 360, 280 310 S 430 220, 560 280" stroke="#FDC469" stroke-width="0.8" opacity="0.85"/>
-      <path d="M40 90 C 160 40, 220 140, 320 100 S 480 20, 620 80" stroke="#FE7272" stroke-width="0.7" opacity="0.45"/>
-      <circle cx="188" cy="248" r="3" fill="#FDC469"/>
-      <circle cx="318" cy="112" r="2.5" fill="#FDC469"/>
-      <circle cx="452" cy="236" r="2.2" fill="#F7F0E3"/>
-      <path d="M188 248 L 318 112 L 452 236" stroke="#FDC469" stroke-width="0.5" opacity="0.55"/>
-      <circle cx="240" cy="70" r="46" stroke="#4A6290" stroke-width="0.6" opacity="0.35"/>
-    </svg>
-    <div class="wrap">
-      <div class="topbar">
-        <a class="brand" href="/"><img src="/images/kuzana-logo.png" alt="Kuzana" width="140" height="36"></a>
-        <nav class="nav" aria-label="Page sections">
-          <a href="#overview">Overview</a>
-          <a href="#eligibility">Who it's for</a>
-          <a href="#work">The work</a>
-          <a href="#benefits">Benefits</a>
-          <a href="#apply">Apply</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-      </div>
-      <div class="hero-grid">
-        <div>
-          <h1>Live Players Mittlemann Fellowship</h1>
-          <p class="hero-support">Hands-on work with top 1% businesses.</p>
-          <div class="cta-row">
-            <a class="btn btn-coral" href="https://form.kuzana.co/fellowship" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click">Apply Now</a>
-            <a class="btn btn-ghost" href="#overview">See the program</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <figure class="media">
-            <picture>
-              <source srcset="/images/fellowship/hero-coastal.webp" type="image/webp">
-              <img src="/images/fellowship/hero-coastal.jpg" alt="Illustration of people walking toward a bright coastal future across East Africa" width="900" height="1125" loading="eager" decoding="async">
-            </picture>
-          </figure>
-        </div>
-      </div>
-      <dl class="facts">
-        <div><dt>Where</dt><dd>Nairobi, Kenya</dd></div>
-        <div><dt>When</dt><dd>June 1–September 30, 2027</dd></div>
-        <div><dt>Length</dt><dd>4 months</dd></div>
-        <div><dt>Who</dt><dd>African &amp; diaspora operators, 18–35+</dd></div>
-      </dl>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="section" id="overview">
-      <div class="wrap">
-        <h2>A four-month operating fellowship in Nairobi</h2>
-        <p class="lead">For people who want high-leverage experience inside real Kenyan companies — not classroom case studies..</p>
-      </div>
-    </section>
-
-    <section class="section" id="problem" style="border-top:1px solid var(--line)">
-      <div class="wrap">
-        <h2>Too much talent is funneled into the "default" careers</h2>
-        <div class="lead">
-          <p>The fellowship gives you a chance to change the world while building a career.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section band-navy" id="idea">
-      <div class="wrap split">
-        <div>
-          <h2>Why “Live Players”?</h2>
-        </div>
-        <div>
-          <p class="kicker kicker-gold">Live player (n.)</p>
-          <p class="definition">A person, group or guild who steps outside the expected role, rewrites the script and changes reality.</p>
-          <p style="margin-top:1.4rem;color:var(--gold)">Reality is editable. Choose your path.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="story">
-      <div class="wrap">
-        <h2>The nudge that changed my life</h2>
-        <p style="margin:1rem 0 0;color:var(--coral)">In honor of the late Prof. Josef Mittlemann</p>
-        <div class="lead">
-          <p>His $5,000 grant in 2010 caused me, Kyle Schutter, to switch careers from investment banking or a PhD to entrepreneurship.</p>
-          <p>I started a biogas company in Kenya, then raised $20m in East Africa, eventually leading to Kuzana.</p>
-          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:1.45rem;color:var(--teal)">A small nudge at the right moment can change a life.</p>
-          <p>This fellowship exists to pay it forward.</p>
-        </div>
-        <figure class="media media-md landscape">
-          <picture>
-            <source srcset="/images/fellowship/ops-team.webp" type="image/webp">
-            <img src="/images/fellowship/ops-team.jpg" alt="Operators and team members at a Kuzana portfolio company feed mill" width="1280" height="960" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Real companies. Real operators. Real work. (at Bellfeeds, a $2m animal feed company)</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section" id="fellowship" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-      <div class="wrap">
-        <p class="kicker">The fellowship</p>
-        <h2>Four months in Nairobi for young builders</h2>
-        <ol class="list-grid">
-          <li><span class="num">01</span><p>Run operations inside real Kuzana portfolio companies</p></li>
-          <li><span class="num">02</span><p>Political economy discussions</p></li>
-          <li><span class="num">03</span><p>Operations workshops with successful founders and operators</p></li>
-          <li><span class="num">04</span><p>Complete a final project for Zanzalu</p></li>
-        </ol>
-        <div class="day-grid">
-          <div class="day-block">
-            <h3>Days</h3>
-            <p>Embedded in a company doing real operating work under real constraints.</p>
-          </div>
-          <div class="day-block">
-            <h3>Nights&Weekends</h3>
-            <p>Political economy and workshops that build judgment.</p>
-          </div>
-        </div>
-        <figure class="media media-md landscape">
-          <picture>
-            <source srcset="/images/fellowship/workshop.webp" type="image/webp">
-            <img src="/images/fellowship/workshop.jpg" alt="Fellows and founders in a circle discussion under a canopy" width="1200" height="718" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Zanzalu workshop July 25-August 10 in Zanzibar, Tanzania.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section" id="work">
-      <div class="wrap">
-        <p class="kicker">Work that matters</p>
-        <ul class="rule-list two">
-          <li>Improve sales conversion</li>
-          <li>Build reporting dashboards</li>
-          <li>Improve receivables collection</li>
-          <li>Optimize hiring and onboarding</li>
-          <li>Create viral social content</li>
-          <li>Launch new regions and depots</li>
-        </ul>
-        <div class="media-pair">
-          <figure class="media landscape" style="margin:0;max-width:none">
-            <picture>
-              <source srcset="/images/fellowship/company-ops.webp" type="image/webp">
-              <img src="/images/fellowship/company-ops.jpg" alt="Operations at a Kenyan agribusiness loading bags onto a truck" width="1400" height="933" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Operating work inside real Kenyan businesses.</figcaption>
-          </figure>
-          <figure class="media landscape" style="margin:0;max-width:none">
-            <picture>
-              <source srcset="/images/fellowship/cohort-group.webp" type="image/webp">
-              <img src="/images/fellowship/cohort-group.jpg" alt="Kuzana cohort group outdoors after a session" width="1400" height="626" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>Join a serious operator community.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section band-sand" id="companies">
-      <div class="wrap">
-        <p class="kicker">Participating companies</p>
-        <h2>Where fellows may work</h2>
-        <p class="lead">Example companies include Soya Logistics, Bellfeeds animal feed, Foke potatoes, Saint Boss interior design, Nawiri women’s fashion, Kaya manufacturing and Paycloud neobank.</p>
-        <ul class="chips" aria-label="Example companies">
-          <li><a href="/portfolio/">Kuzana Portfolio Companies</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="kuzana">
-      <div class="wrap">
-        <p class="kicker">The ecosystem</p>
-        <h2>What is Kuzana?</h2>
-        <ul class="rule-list">
-          <li>Kuzana.co is Africa’s top accelerator for “boring” and profitable businesses</li>
-          <li>Launched in 2025</li>
-          <li>20 equity investments — more than any other investor in that timeframe</li>
-          <li>Fast growth: ~3x average annual growth for bizi, Ksh 1m–25m monthly revenue</li>
-          <li>Goal: mint 1,000 more millionaires and reclaim the virtue of wealth creation</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section band-sand" id="curriculum">
-      <div class="wrap">
-        <p class="kicker">The intellectual spine</p>
-        <h2>Operators need context</h2>
-        <p class="lead" style="font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Join Kuzana founders to discuss</p>
-        <ul class="questions">
-          <li>Does export manufacturing still make sense for Africa?</li>
-          <li>What is Kenya’s elite bargain?</li>
-          <li>Can guilds create trust?</li>
-          <li>What should Africa copy from Korea, Singapore, China or Rwanda?</li>
-        </ul>
+<body class="kz-nobar">
+<!-- kz:gtm-noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="kz-skip" href="#main">Skip to content</a>
+<!-- /kz:gtm-noscript -->
+<!-- kz:header -->
+<header style="position:sticky;top:0;z-index:40;background:#FBF7EF;color:#18202F;border-bottom:1px solid rgba(24,32,47,.12)">
+<div class="kz-header-inner" style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<a href="/" style="display:flex;align-items:center" aria-label="Kuzana home"><img src="/assets/kz/kuzana-logo.png" alt="Kuzana" width="106" height="32" style="height:32px;width:auto;display:block"></a>
+<div class="kz-desk">
+<nav class="kz-nav" aria-label="Main" style="display:flex;gap:clamp(18px,2.4vw,36px);font-size:16px;font-weight:500">
+<a class="kz-h-ink" data-nav="pf" href="/portfolio/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Portfolio</a>
+<details class="kz-resources" data-kz-resources>
+<summary class="kz-h-ink">Resources <svg class="kz-resources-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="kz-resources-panel">
+<a href="/resources/">All resources <span aria-hidden="true">↗</span></a>
+<a href="https://blog.kuzana.co/">Blog <span aria-hidden="true">↗</span></a>
+<a href="/library/">Library <span aria-hidden="true">↗</span></a>
+<a href="/faq/">FAQ <span aria-hidden="true">↗</span></a>
+<a href="/cofounders/">Cofounders <span aria-hidden="true">↗</span></a>
+<a href="/referral/">Referral <span aria-hidden="true">↗</span></a>
 </div>
-    </section>
+</details>
+<a class="kz-h-ink" data-nav="ab" href="/about/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">About</a>
+<a class="kz-h-ink" data-nav="inv" href="/invest/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Investors</a>
+<a class="kz-h-ink" data-nav="ref" href="/referral/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Referral</a>
+</nav>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<a class="kz-h-applyhdr" href="/apply/" style="display:flex;gap:10px;align-items:center;background:#FE7272;color:#18202F;padding:11px 18px;font-size:16px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply</span><span aria-hidden="true">↗</span></a>
+<div class="kz-mob">
+<button type="button" data-kz-menu-toggle aria-controls="kz-mobile-menu" aria-label="Open menu" aria-expanded="false" style="width:44px;height:44px;border:1px solid #18202F;background:transparent;color:#18202F;border-radius:3px;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;cursor:pointer"><span style="width:18px;height:1.5px;background:#18202F"></span><span style="width:18px;height:1.5px;background:#18202F"></span></button>
+</div>
+</div>
+</div>
+</header>
+<div id="kz-mobile-menu" class="kz-menu" style="position:fixed;inset:68px 0 0 0;z-index:39;background:#101A2E;color:#FBF7EF;padding:28px 20px;flex-direction:column;gap:28px;overflow:auto">
+<nav aria-label="Mobile" style="display:flex;flex-direction:column;font-size:30px;font-weight:600;letter-spacing:-.02em">
+<a href="/portfolio/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Portfolio</a>
+<details class="kz-resources kz-resources-mobile" data-kz-resources>
+<summary>Resources <svg class="kz-resources-chevron" width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="kz-resources-panel">
+<a href="/resources/">All resources <span aria-hidden="true">↗</span></a>
+<a href="https://blog.kuzana.co/">Blog <span aria-hidden="true">↗</span></a>
+<a href="/library/">Library <span aria-hidden="true">↗</span></a>
+<a href="/faq/">FAQ <span aria-hidden="true">↗</span></a>
+<a href="/cofounders/">Cofounders <span aria-hidden="true">↗</span></a>
+<a href="/referral/">Referral <span aria-hidden="true">↗</span></a>
+</div>
+</details>
+<a href="/about/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">About</a>
+<a href="/invest/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Investors</a>
+<a href="/referral/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Referral</a>
+<a href="/faq/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">FAQ</a>
+</nav>
+<div style="display:flex;flex-direction:column;gap:10px">
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="display:flex;justify-content:space-between;border:1px solid #FBF7EF;color:#FBF7EF;padding:16px 18px;font-size:17px;text-decoration:none;border-radius:3px"><span>Join the WhatsApp community</span><span aria-hidden="true">↗</span></a>
+<a href="/tea/" style="display:flex;justify-content:space-between;border:1px solid rgba(251,247,239,.4);color:#FBF7EF;padding:16px 18px;font-size:17px;text-decoration:none;border-radius:3px"><span>Book a tea meeting</span><span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<!-- /kz:header -->
+<main id="main">
+<section data-screen-label="Fellowship" style="background:#101A2E;color:#FBF7EF;overflow:hidden">
+<div style="max-width:1360px;margin:0 auto;padding:clamp(56px,9vh,120px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#AEB8CC;display:flex;gap:10px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#FDC469;flex:none"></span>Live Players · Nairobi</div>
+<h1 style="margin:0;font-size:clamp(44px,6vw,96px);line-height:.94;font-weight:600;letter-spacing:-.05em;text-wrap:balance">Live Players Mittlemann Fellowship</h1>
+<p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#C9D0DE;max-width:680px;text-wrap:pretty">Hands-on work with top 1% businesses.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="h-811b52a" href="https://form.kuzana.co/fellowship" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click" style="display:flex;gap:16px;align-items:center;justify-content:space-between;background:#FDC469;color:#18202F;padding:17px 24px;font-size:18px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply Now</span><span>↗</span></a><a class="h-811b52a" href="#overview" style="display:flex;gap:14px;align-items:center;justify-content:space-between;border:1px solid #FBF7EF;color:#FBF7EF;padding:16px 22px;font-size:17px;text-decoration:none;border-radius:3px"><span>See the program</span><span>↗</span></a></div>
+</div>
+<div data-reveal="" data-delay="120" style="position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/3.6;background:#22304C"><picture style="display:contents"><source srcset="/images/fellowship/hero-coastal.webp" type="image/webp"><img src="/images/fellowship/hero-coastal.jpg" alt="Illustration of people walking toward a bright coastal future across East Africa" width="900" height="1125" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></picture></div>
+</div>
+<div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px) clamp(48px,6vw,80px)"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1px solid rgba(251,247,239,.16)"><div style="padding:22px 16px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC">Where</span><span style="font-size:20px;font-weight:600;letter-spacing:-.01em">Nairobi, Kenya</span></div><div style="padding:22px 16px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC">When</span><span style="font-size:20px;font-weight:600;letter-spacing:-.01em">June 1–September 30, 2027</span></div><div style="padding:22px 16px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC">Length</span><span style="font-size:20px;font-weight:600;letter-spacing:-.01em">4 months</span></div><div style="padding:22px 16px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC">Who</span><span style="font-size:20px;font-weight:600;letter-spacing:-.01em">African &amp; diaspora operators, 18–35+</span></div></div></div>
+</section>
+<nav aria-label="Page sections" style="position:sticky;top:68px;z-index:30;min-width:0;max-width:100%;overflow:hidden;background:#FBF7EF;border-bottom:1px solid rgba(24,32,47,.12)"><div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;gap:clamp(20px,3vw,40px);overflow-x:auto;font-size:15px;font-weight:500;white-space:nowrap;scrollbar-width:none"><a class="h-f309ca3" href="#overview" style="color:#18202F;text-decoration:none;padding:16px 0 14px">Overview</a><a class="h-f309ca3" href="#eligibility" style="color:#18202F;text-decoration:none;padding:16px 0 14px">Who it's for</a><a class="h-f309ca3" href="#work" style="color:#18202F;text-decoration:none;padding:16px 0 14px">The work</a><a class="h-f309ca3" href="#benefits" style="color:#18202F;text-decoration:none;padding:16px 0 14px">Benefits</a><a class="h-f309ca3" href="#apply" style="color:#18202F;text-decoration:none;padding:16px 0 14px">Apply</a><a class="h-f309ca3" href="#faq" style="color:#18202F;text-decoration:none;padding:16px 0 14px">FAQ</a></div></nav>
+<section id="overview" data-screen-label="Overview" style="scroll-margin-top:120px"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">Overview</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">A four-month operating fellowship in Nairobi</h2><p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#3F4657;max-width:680px;text-wrap:pretty">For people who want high-leverage experience inside real Kenyan companies — not classroom case studies.</p></div>
+<div data-reveal="" data-delay="100" style="display:flex;flex-direction:column;gap:16px">
+<div style="background:#F2EBDD;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:10px"><span style="font-size:clamp(24px,2.4vw,32px);font-weight:600;letter-spacing:-.03em;line-height:1.1">Too much talent is funneled into the "default" careers</span><span style="font-size:17px;line-height:1.55;color:#3F4657">The fellowship gives you a chance to change the world while building a career.</span></div>
+<div style="background:#101A2E;color:#FBF7EF;border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469">Why “Live Players”?</span><span style="font-size:clamp(28px,2.8vw,40px);font-weight:600;letter-spacing:-.035em">Live player <span style="font-weight:400;font-style:italic;color:#AEB8CC;font-size:.6em">(n.)</span></span><span style="font-size:17px;line-height:1.55;color:#E6EBF4">A person, group or guild who steps outside the expected role, rewrites the script and changes reality.</span><span style="font-size:18px;font-weight:600;color:#FDC469">Reality is editable. Choose your path.</span></div>
+</div></div></section>
+<section data-screen-label="The nudge" style="background:#F2EBDD"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">In honor of the late Prof. Josef Mittlemann</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">The nudge that changed my life</h2>
+<p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#3F4657;max-width:680px;text-wrap:pretty">His $5,000 grant in 2010 caused me, Kyle Schutter, to switch careers from investment banking or a PhD to entrepreneurship.</p>
+<p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#3F4657;max-width:680px;text-wrap:pretty">I started a biogas company in Kenya, then raised $20m in East Africa, eventually leading to Kuzana.</p>
+<div style="font-size:clamp(22px,2.2vw,30px);font-weight:600;letter-spacing:-.025em;line-height:1.2">A small nudge at the right moment can change a life.</div>
+<p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#3F4657;max-width:680px;text-wrap:pretty">This fellowship exists to pay it forward.</p></div>
+<figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3.2;background:#D9D0BF"><picture style="display:contents"><source srcset="/images/fellowship/ops-team.webp" type="image/webp"><img src="/images/fellowship/ops-team.jpg" alt="Operators and team members at a Kuzana portfolio company feed mill" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#586073">Real companies. Real operators. Real work. (at Bellfeeds, a $2m animal feed company)</figcaption></figure>
+</div></section>
+<section data-screen-label="The fellowship" style="background:#101A2E;color:#FBF7EF"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#FDC469">The fellowship</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Four months in Nairobi for young builders</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">
+<div data-reveal="" data-delay="0" style="background:#17233B;border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:18px;min-height:200px"><span style="font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:.85;color:#FDC469">01</span><span style="margin-top:auto;font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.25">Run operations inside the Bizi</span></div>
+<div data-reveal="" data-delay="90" style="background:#17233B;border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:18px;min-height:200px"><span style="font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:.85;color:#FE7272">02</span><span style="margin-top:auto;font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.25">Political economy discussions</span></div>
+<div data-reveal="" data-delay="180" style="background:#17233B;border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:18px;min-height:200px"><span style="font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:.85;color:#4A6290">03</span><span style="margin-top:auto;font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.25">Operations workshops with successful founders and operators</span></div>
+<div data-reveal="" data-delay="270" style="background:#17233B;border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:18px;min-height:200px"><span style="font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:.85;color:#8FA3CC">04</span><span style="margin-top:auto;font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.25">Complete a final project for Zanzalu</span></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(24px,4vw,56px);align-items:center">
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+<div data-reveal="" style="border-top:2px solid #FDC469;padding-top:18px;display:flex;flex-direction:column;gap:8px"><span style="font-size:26px;font-weight:600;letter-spacing:-.02em">Days</span><span style="font-size:16px;line-height:1.55;color:#C9D0DE">Embedded in a company doing real operating work under real constraints.</span></div>
+<div data-reveal="" data-delay="100" style="border-top:2px solid #FE7272;padding-top:18px;display:flex;flex-direction:column;gap:8px"><span style="font-size:clamp(20px,6vw,26px);font-weight:600;letter-spacing:-.02em;overflow-wrap:anywhere">Nights&amp;​Weekends</span><span style="font-size:16px;line-height:1.55;color:#C9D0DE">Political economy and workshops that build judgment.</span></div>
+</div>
+<figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:6px;overflow:hidden;aspect-ratio:16/10;background:#D9D0BF"><picture style="display:contents"><source srcset="/images/fellowship/workshop.webp" type="image/webp"><img src="/images/fellowship/workshop.jpg" alt="Fellows and founders in a circle discussion under a canopy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#AEB8CC">Zanzalu workshop July 25-August 10 in Zanzibar, Tanzania.</figcaption></figure>
+</div></div></section>
+<section id="work" data-screen-label="Work that matters" style="scroll-margin-top:120px"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">The work</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Work that matters</h2></div>
+<div data-reveal="" style="display:flex;flex-wrap:wrap;gap:10px"><span style="padding:14px 20px;border-radius:999px;font-size:clamp(17px,1.5vw,20px);font-weight:500;background:#FDC469;color:#18202F">Improve sales conversion</span><span style="padding:14px 20px;border-radius:999px;font-size:clamp(17px,1.5vw,20px);font-weight:500;background:#FE7272;color:#18202F">Build reporting dashboards</span><span style="padding:14px 20px;border-radius:999px;font-size:clamp(17px,1.5vw,20px);font-weight:500;background:#4A6290;color:#fff">Improve receivables collection</span><span style="padding:14px 20px;border-radius:999px;font-size:clamp(17px,1.5vw,20px);font-weight:500;background:#FDC469;color:#18202F">Optimize hiring and onboarding</span><span style="padding:14px 20px;border-radius:999px;font-size:clamp(17px,1.5vw,20px);font-weight:500;background:#FE7272;color:#18202F">Create viral social content</span><span style="padding:14px 20px;border-radius:999px;font-size:clamp(17px,1.5vw,20px);font-weight:500;background:#4A6290;color:#fff">Launch new regions and depots</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px"><figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:#D9D0BF"><picture style="display:contents"><source srcset="/images/fellowship/company-ops.webp" type="image/webp"><img src="/images/fellowship/company-ops.jpg" alt="Operations at a Kenyan agribusiness loading bags onto a truck" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#586073">Operating work inside real Kenyan businesses.</figcaption></figure><figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:#D9D0BF"><picture style="display:contents"><source srcset="/images/fellowship/cohort-group.webp" type="image/webp"><img src="/images/fellowship/cohort-group.jpg" alt="Kuzana cohort group outdoors after a session" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#586073">Join a serious operator community.</figcaption></figure></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px">
+<div data-reveal="" style="background:#F2EBDD;border-radius:6px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">Participating companies</div><span style="font-size:clamp(26px,2.6vw,36px);font-weight:600;letter-spacing:-.03em;line-height:1.05">Where fellows may work</span><span style="font-size:17px;line-height:1.55;color:#3F4657">Example companies include Soya Logistics, Bellfeeds animal feed, Foke potatoes, Saint Boss interior design, Nawiri women’s fashion, Kaya manufacturing and Paycloud neobank.</span><div style="margin-top:auto"><a class="h-d4131cb" href="/portfolio/" style="display:flex;gap:14px;align-items:center;justify-content:space-between;border:1px solid #18202F;color:#18202F;padding:15px 22px;font-size:17px;text-decoration:none;border-radius:3px"><span>The Bizi</span><span>↗</span></a></div></div>
+<div data-reveal="" data-delay="100" style="background:#101A2E;color:#FBF7EF;border-radius:6px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:16px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#FDC469">The ecosystem</div><span style="font-size:clamp(26px,2.6vw,36px);font-weight:600;letter-spacing:-.03em;line-height:1.05">What is Kuzana?</span><ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(251,247,239,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FDC469;margin-top:7px"></span><span>Kuzana.co is Africa’s top accelerator for “boring” and profitable businesses</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(251,247,239,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FE7272;margin-top:7px"></span><span>Launched in 2025</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(251,247,239,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#4A6290;margin-top:7px"></span><span>20 Bizi — more equity investments than any other investor in that timeframe</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(251,247,239,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FDC469;margin-top:7px"></span><span>Fast growth: ~3x average annual growth for bizi, Ksh 1m–25m monthly revenue</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(251,247,239,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FE7272;margin-top:7px"></span><span>Goal: mint 1,000 more millionaires and reclaim the virtue of wealth creation</span></li></ul></div>
+</div>
+<div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,4vw,56px);padding-top:clamp(24px,3vw,40px);border-top:1px solid rgba(24,32,47,.16)">
+<div style="display:flex;flex-direction:column;gap:14px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">The intellectual spine</div><span style="font-size:clamp(30px,3.2vw,48px);font-weight:600;letter-spacing:-.04em;line-height:1">Operators need context</span><span style="font-size:17px;color:#3F4657">Join Kuzana founders to discuss</span></div>
+<div style="display:flex;flex-direction:column"><div style="display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:clamp(19px,1.7vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3"><span style="color:#FDC469;filter:brightness(.85);font-size:28px;line-height:.8">?</span><span>Does export manufacturing still make sense for Africa?</span></div><div style="display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:clamp(19px,1.7vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3"><span style="color:#FE7272;font-size:28px;line-height:.8">?</span><span>What is Kenya’s elite bargain?</span></div><div style="display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:clamp(19px,1.7vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3"><span style="color:#4A6290;font-size:28px;line-height:.8">?</span><span>Can guilds create trust?</span></div><div style="display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:clamp(19px,1.7vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3"><span style="color:#FDC469;filter:brightness(.85);font-size:28px;line-height:.8">?</span><span>What should Africa copy from Korea, Singapore, China or Rwanda?</span></div></div>
+</div>
+</div></section>
+<section id="benefits" data-screen-label="Support" style="background:#F2EBDD;scroll-margin-top:120px"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">Support and structure</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Enough support to do serious work</h2><p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#3F4657;max-width:680px;text-wrap:pretty">The fellowship covers the basics so you can focus on the work.</p></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;align-items:stretch">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px"><div data-reveal="" data-delay="0" style="background:#FBF7EF;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;border-top:4px solid #FDC469"><span style="font-size:20px;font-weight:600;letter-spacing:-.015em">Housing</span><span style="font-size:15px;line-height:1.5;color:#3F4657">Live together at The Warren startup house in Nairobi.</span></div><div data-reveal="" data-delay="80" style="background:#FBF7EF;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;border-top:4px solid #FE7272"><span style="font-size:20px;font-weight:600;letter-spacing:-.015em">Stipend</span><span style="font-size:15px;line-height:1.5;color:#3F4657">$1,000 monthly stipend for living costs. The Bizi also contribute toward their fellow’s stipend.</span></div><div data-reveal="" data-delay="0" style="background:#FBF7EF;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;border-top:4px solid #4A6290"><span style="font-size:20px;font-weight:600;letter-spacing:-.015em">Travel</span><span style="font-size:15px;line-height:1.5;color:#3F4657">Travel support to Nairobi for fellows who need it.</span></div><div data-reveal="" data-delay="80" style="background:#FBF7EF;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;border-top:4px solid #FDC469"><span style="font-size:20px;font-weight:600;letter-spacing:-.015em">Daily transport</span><span style="font-size:15px;line-height:1.5;color:#3F4657">Daily Uber to work so commuting is not the bottleneck.</span></div><div data-reveal="" data-delay="0" style="background:#FBF7EF;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;border-top:4px solid #FE7272"><span style="font-size:20px;font-weight:600;letter-spacing:-.015em">Mentorship</span><span style="font-size:15px;line-height:1.5;color:#3F4657">Mentorship and expert sessions with operators and teachers who have shipped real companies.</span></div><div data-reveal="" data-delay="80" style="background:#FBF7EF;border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;border-top:4px solid #4A6290"><span style="font-size:20px;font-weight:600;letter-spacing:-.015em">Zanzalu capstone</span><span style="font-size:15px;line-height:1.5;color:#3F4657">Complete a final project and present it at Zanzalu.</span></div></div>
+<figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:12px"><div style="border-radius:6px;overflow:hidden;aspect-ratio:4/4;background:#D9D0BF"><picture style="display:contents"><source srcset="/images/fellowship/the-warren.webp" type="image/webp"><img src="/images/fellowship/the-warren.jpg" alt="The Warren startup house exterior and garden in Nairobi" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><figcaption style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#586073">Housing at The Warren startup house.</figcaption></figure>
+</div></div></section>
+<section id="eligibility" data-screen-label="Ideal fellow" style="scroll-margin-top:120px"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">Who it is for</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Ideal fellow profile</h2></div>
+<div data-reveal="" data-delay="100"><ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column"><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FDC469;margin-top:7px"></span><span>Age 18–35+</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FE7272;margin-top:7px"></span><span>African or African diaspora</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#4A6290;margin-top:7px"></span><span>Operator-minded</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FDC469;margin-top:7px"></span><span>Curious about politics and development</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#FE7272;margin-top:7px"></span><span>Experienced in ops, marketing, manufacturing or business</span></li><li style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid rgba(24,32,47,.16);font-size:17px;line-height:1.5"><span style="width:10px;height:10px;border-radius:50%;background:#4A6290;margin-top:7px"></span><span>Ready to work inside real companies</span></li></ul></div>
+</div></section>
+<section data-screen-label="Advisors" style="background:#101A2E;color:#FBF7EF"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#FDC469">Advisors and teachers</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Built around people who know talent, startups and African execution</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px"><div data-reveal="" data-delay="0" style="display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:#FDC469;display:flex;align-items:center;justify-content:center"><picture style="display:contents"><source srcset="/images/fellowship/advisor-2.webp" type="image/webp"><img src="/images/fellowship/advisor-2.jpg" alt="Indresh Salujah" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.9);transform-origin:47% 28%"></picture></div><span style="font-size:21px;font-weight:600">Indresh Salujah</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#AEB8CC">COO, Acorn Properties</span></div><div data-reveal="" data-delay="80" style="display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:#FE7272;display:flex;align-items:center;justify-content:center"><picture style="display:contents"><source srcset="/images/fellowship/advisor-1.webp" type="image/webp"><img src="/images/fellowship/advisor-1.jpg" alt="Caleb Maru" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></picture></div><span style="font-size:21px;font-weight:600">Caleb Maru</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#AEB8CC">Investor. Founder, Build Back Home and TechSafari</span></div><div data-reveal="" data-delay="160" style="display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:#4A6290;display:flex;align-items:center;justify-content:center"><span style="font-size:72px;font-weight:700;letter-spacing:-.05em;color:#fff">KB</span></div><span style="font-size:21px;font-weight:600">Kevin Banister</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#AEB8CC">CTO, LegalNia</span></div><div data-reveal="" data-delay="240" style="display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:#FDC469;display:flex;align-items:center;justify-content:center"><img src="/images/favicon.png" alt="Kuzana" loading="lazy" style="width:40%;height:auto;object-fit:cover;display:block"></div><span style="font-size:21px;font-weight:600">Kuzana</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5;color:#AEB8CC">Investors, operators and capital partners</span></div></div>
 
-    <section class="section" id="benefits">
-      <div class="wrap">
-        <p class="kicker">Support and structure</p>
-        <h2>Enough support to do serious work</h2>
-        <p class="lead">The fellowship covers the basics so you can focus on the work.</p>
-        <div class="benefit-cards">
-          <article>
-            <h3>Housing</h3>
-            <p>Live together at The Warren startup house in Nairobi.</p>
-          </article>
-          <article>
-            <h3>Stipend</h3>
-            <p>$1,000 monthly stipend for living costs. Portfolio companies also contribute toward their fellow’s stipend.</p>
-          </article>
-          <article>
-            <h3>Travel</h3>
-            <p>Travel support to Nairobi for fellows who need it.</p>
-          </article>
-          <article>
-            <h3>Daily transport</h3>
-            <p>Daily Uber to work so commuting is not the bottleneck.</p>
-          </article>
-          <article>
-            <h3>Mentorship</h3>
-            <p>Mentorship and expert sessions with operators and teachers who have shipped real companies.</p>
-          </article>
-          <article>
-            <h3>Zanzalu capstone</h3>
-            <p>Complete a final project and present it at Zanzalu.</p>
-          </article>
-        </div>
-        <figure class="media media-md landscape">
-          <picture>
-            <source srcset="/images/fellowship/the-warren.webp" type="image/webp">
-            <img src="/images/fellowship/the-warren.jpg" alt="The Warren startup house exterior and garden in Nairobi" width="1400" height="935" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Housing at The Warren startup house.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section" id="eligibility" style="border-top:1px solid var(--line)">
-      <div class="wrap">
-        <p class="kicker">Who it is for</p>
-        <h2>Ideal fellow profile</h2>
-        <ul class="rule-list two">
-          <li>Age 18–35+</li>
-          <li>African or African diaspora</li>
-          <li>Operator-minded</li>
-          <li>Curious about politics and development</li>
-          <li>Experienced in ops, marketing, manufacturing or business</li>
-          <li>Ready to work inside real companies</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section band-sand" id="advisors">
-      <div class="wrap">
-        <p class="kicker">Advisors and teachers</p>
-        <h2>Built around people who know talent, startups and African execution</h2>
-        <ul class="people">
-          <li>
-            <picture class="avatar avatar-zoom" style="--ring: var(--gold)">
-              <source srcset="/images/fellowship/advisor-2.webp" type="image/webp">
-              <img src="/images/fellowship/advisor-2.jpg" alt="Indresh Salujah" width="800" height="800" loading="lazy" decoding="async">
-            </picture>
-            <h3>Indresh Salujah</h3>
-            <p>COO, Acorn Properties</p>
-          </li>
-          <li>
-            <picture class="avatar" style="--ring: var(--coral)">
-              <source srcset="/images/fellowship/advisor-1.webp" type="image/webp">
-              <img src="/images/fellowship/advisor-1.jpg" alt="Caleb Maru" width="800" height="800" loading="lazy" decoding="async">
-            </picture>
-            <h3>Caleb Maru</h3>
-            <p>Investor. Founder, Build Back Home and TechSafari</p>
-          </li>
-          <li>
-            <span class="avatar avatar-empty" style="--ring: var(--teal)" role="img" aria-label="Photo coming soon"></span>
-            <h3>Kevin Banister</h3>
-            <p>CTO, LegalNia</p>
-          </li>
-          <li>
-            <span class="avatar avatar-logo" style="--ring: var(--gold)">
-              <img src="/images/favicon.png" alt="Kuzana logo" width="723" height="715" loading="lazy" decoding="async">
-            </span>
-            <h3>Kuzana</h3>
-            <p>Investors, operators and capital partners</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="apply">
-      <div class="wrap">
-        <p class="kicker">How to apply</p>
-        <h2>Ready to choose a higher-leverage path?</h2>
-        <ol class="steps">
-          <li>
-            <h3>Apply online</h3>
-            <p>Submit at form.kuzana.co/fellowship. Rolling Application open now.</p>
-          </li>
-          <li>
-            <h3>Conversation</h3>
-            <p>Strong applicants are invited to talk about fit, timing, and the kind of work they can own.</p>
-          </li>
-          <li>
-            <h3>Placement</h3>
-            <p>Accepted fellows are matched with a Kuzana portfolio company. Final Deadline March 1st, 2027.</p>
-          </li>
-        </ol>
-        <div class="cta-row">
-          <a class="btn btn-navy" href="https://form.kuzana.co/fellowship?source=website" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click">Apply</a>
-          <a class="btn" style="border:1px solid var(--line)" href="mailto:info@kuzana.co?subject=Live%20Players%20Fellowship%20question" data-event="fellowship_contact_click">Ask a question</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq" style="border-top:1px solid var(--line)">
-      <div class="wrap">
-        <h2>Questions applicants ask</h2>
-        <div class="faq" style="margin-top:1.35rem">
-          <details open>
-            <summary>When and where is the fellowship?</summary>
-            <p>Nairobi, May–September 2027. Four months embedded with Kuzana portfolio companies, living at The Warren.</p>
-          </details>
-          <details>
-            <summary>Is this full-time?</summary>
-            <p>Yes. Days are for company operations. Evenings include political economy discussions, workshops, and your Zanzalu project.</p>
-          </details>
-          <details>
-            <summary>Who is it for?</summary>
-            <p>African and African-diaspora operators aged 18–35+, curious about politics and development, with experience in operations, marketing, manufacturing or business, and ready to work inside real companies.</p>
-          </details>
-          <details>
-            <summary>What is a Live Player?</summary>
-            <p>A person, group or guild who steps outside the expected role, rewrites the script and changes reality.</p>
-          </details>
-          <details>
-            <summary>What will I actually do day to day?</summary>
-            <p>Run real operating work: sales follow-up, dashboards, receivables, hiring, social content, or launching new regions — depending on the company. You get real constraints and real feedback.</p>
-          </details>
-          <details>
-            <summary>Which companies might I join?</summary>
-            <p>Examples include Soya Logistics, Bellfeeds, Foke, Saint Boss, Nawiri, Kaya manufacturing and Paycloud. Final placement depends on fit and company needs.</p>
-          </details>
-          <details>
-            <summary>What support do fellows get?</summary>
-            <p>Housing at The Warren, stipend, travel to Nairobi, daily Uber to work, mentorship and expert sessions, and a Zanzalu capstone.</p>
-          </details>
-          <details>
-            <summary>How do I apply?</summary>
-            <p>Apply at <a href="https://form.kuzana.co/fellowship">form.kuzana.co/fellowship</a>. Questions: <a href="mailto:info@kuzana.co">info@kuzana.co</a>.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section band-navy">
-      <div class="wrap">
-        <h2>Choose a higher-leverage path.</h2>
-        <p class="hero-line">Do real work inside ambitious Kenyan companies.</p>
-        <div class="cta-row">
-          <a class="btn btn-coral" href="https://form.kuzana.co/fellowship" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click">Apply Now</a>
-          <a class="btn btn-ghost" href="mailto:info@kuzana.co?subject=Live%20Players%20Fellowship" data-event="fellowship_contact_click">Email info@kuzana.co</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <p>Live Players Mittlemann Fellowship · Kuzana</p>
-      <p>Nairobi · June 1–September 30, 2027</p>
-    </div>
-  </footer>
-
-  <div class="sticky-apply">
-    <a class="btn btn-coral" href="https://form.kuzana.co/fellowship?source=website" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click">Apply Now</a>
-  </div>
-
-  <script>
+</div></section>
+<section id="apply" data-screen-label="How to apply" style="scroll-margin-top:120px"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">How to apply</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Ready to choose a higher-leverage path?</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;align-items:end">
+<div data-reveal="" data-delay="0" style="display:flex;flex-direction:column"><div style="height:96px;display:flex;align-items:flex-end"><div data-grow="" data-delay="0" style="width:100%;height:32px;background:#FDC469;border-radius:4px 4px 0 0;transform-origin:bottom"></div></div><div style="background:#F2EBDD;padding:26px;border-radius:0 0 6px 6px;display:flex;flex-direction:column;gap:10px;min-height:190px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#586073">Step 1</span><span style="font-size:28px;font-weight:600;letter-spacing:-.03em">Apply online</span><span style="font-size:16px;line-height:1.5;color:#3F4657">Submit at form.kuzana.co/fellowship. Rolling Application open now.</span></div></div>
+<div data-reveal="" data-delay="140" style="display:flex;flex-direction:column"><div style="height:96px;display:flex;align-items:flex-end"><div data-grow="" data-delay="140" style="width:100%;height:60px;background:#FE7272;border-radius:4px 4px 0 0;transform-origin:bottom"></div></div><div style="background:#F2EBDD;padding:26px;border-radius:0 0 6px 6px;display:flex;flex-direction:column;gap:10px;min-height:190px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#586073">Step 2</span><span style="font-size:28px;font-weight:600;letter-spacing:-.03em">Conversation</span><span style="font-size:16px;line-height:1.5;color:#3F4657">Strong applicants are invited to talk about fit, timing, and the kind of work they can own.</span></div></div>
+<div data-reveal="" data-delay="280" style="display:flex;flex-direction:column"><div style="height:96px;display:flex;align-items:flex-end"><div data-grow="" data-delay="280" style="width:100%;height:96px;background:#4A6290;border-radius:4px 4px 0 0;transform-origin:bottom"></div></div><div style="background:#F2EBDD;padding:26px;border-radius:0 0 6px 6px;display:flex;flex-direction:column;gap:10px;min-height:190px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#586073">Step 3</span><span style="font-size:28px;font-weight:600;letter-spacing:-.03em">Placement</span><span style="font-size:16px;line-height:1.5;color:#3F4657">Accepted fellows are matched with one of the Bizi. Final Deadline March 1st, 2027.</span></div></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="h-811b52a" href="https://form.kuzana.co/fellowship?source=website" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click" style="display:flex;gap:16px;align-items:center;justify-content:space-between;background:#FDC469;color:#18202F;padding:17px 24px;font-size:18px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply</span><span>↗</span></a><a class="h-d4131cb" href="mailto:info@kuzana.co?subject=Live%20Players%20Fellowship%20question" data-event="fellowship_contact_click" style="display:flex;gap:14px;align-items:center;justify-content:space-between;border:1px solid #18202F;color:#18202F;padding:15px 22px;font-size:17px;text-decoration:none;border-radius:3px"><span>Ask a question</span><span>↗</span></a></div>
+</div></section>
+<section id="faq" data-screen-label="Fellowship FAQ" style="background:#101A2E;color:#FBF7EF;scroll-margin-top:120px"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:20px;max-width:960px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#FDC469">FAQ</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Questions applicants ask</h2></div>
+<div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(251,247,239,.18)"><details open="" style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>When and where is the fellowship?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">Nairobi, June 1–September 30, 2027. Four months embedded with the Bizi, Kuzana’s portfolio companies, living at The Warren.</p></details>
+<details style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>Is this full-time?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">Yes. Days are for company operations. Evenings include political economy discussions, workshops, and your Zanzalu project.</p></details>
+<details style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>Who is it for?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">African and African-diaspora operators aged 18–35+, curious about politics and development, with experience in operations, marketing, manufacturing or business, and ready to work inside real companies.</p></details>
+<details style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>What is a Live Player?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">A person, group or guild who steps outside the expected role, rewrites the script and changes reality.</p></details>
+<details style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>What will I actually do day to day?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">Run real operating work: sales follow-up, dashboards, receivables, hiring, social content, or launching new regions — depending on the company. You get real constraints and real feedback.</p></details>
+<details style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>Which companies might I join?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">Examples include Soya Logistics, Bellfeeds, Foke, Saint Boss, Nawiri, Kaya manufacturing and Paycloud. Final placement depends on fit and company needs.</p></details>
+<details style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>What support do fellows get?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">Housing at The Warren, stipend, travel to Nairobi, daily Uber to work, mentorship and expert sessions, and a Zanzalu capstone.</p></details>
+<details style="border-top:1px solid rgba(251,247,239,.18);padding:22px 0"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em"><span>How do I apply?</span><span class="kz-plus" aria-hidden="true" style="color:#FDC469">+</span></summary><p style="margin:14px 0 0;font-size:17px;line-height:1.55;color:#C9D0DE;max-width:680px">Apply at <a href="https://form.kuzana.co/fellowship" target="_blank" rel="noopener noreferrer" style="color:#FDC469">form.kuzana.co/fellowship</a>. Questions: <a href="mailto:info@kuzana.co" style="color:#FDC469">info@kuzana.co</a>.</p></details></div>
+</div></section>
+<section data-screen-label="Fellowship CTA" style="position:relative;background:#101A2E;color:#FBF7EF;overflow:hidden;border-top:1px solid rgba(251,247,239,.12)">
+<picture style="display:contents"><source srcset="/images/fellowship/hero-coastal.webp" type="image/webp"><img src="/images/fellowship/hero-coastal.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;display:block"></picture>
+<div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:18px;max-width:900px"><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em;text-wrap:balance">Choose a higher-leverage path.</h2><p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#E6EBF4;max-width:680px;text-wrap:pretty">Do real work inside ambitious Kenyan companies.</p><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#FDC469">Live Players Mittlemann Fellowship · Kuzana · Nairobi · June 1–September 30, 2027</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="h-811b52a" href="https://form.kuzana.co/fellowship" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click" style="display:flex;gap:16px;align-items:center;justify-content:space-between;background:#FDC469;color:#18202F;padding:17px 24px;font-size:18px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply Now</span><span>↗</span></a><a class="h-811b52a" href="mailto:info@kuzana.co?subject=Live%20Players%20Fellowship" data-event="fellowship_contact_click" style="display:flex;gap:14px;align-items:center;justify-content:space-between;border:1px solid #FBF7EF;color:#FBF7EF;padding:16px 22px;font-size:17px;text-decoration:none;border-radius:3px"><span>Email info@kuzana.co</span><span>↗</span></a></div>
+</div></section>
+<div class="kz-fel-sticky" style="position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(251,247,239,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid rgba(24,32,47,.16);padding:10px 12px calc(10px + env(safe-area-inset-bottom))">
+<a class="h-d4131cb" href="https://form.kuzana.co/fellowship?source=website" target="_blank" rel="noopener noreferrer" data-event="fellowship_apply_click" style="display:flex;justify-content:space-between;align-items:center;background:#FDC469;color:#18202F;padding:14px 18px;font-size:17px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply Now</span><span aria-hidden="true">↗</span></a>
+</div>
+</main>
+<!-- kz:footer -->
+<footer style="background:#101A2E;color:#FBF7EF;overflow:hidden">
+<div style="max-width:1360px;margin:0 auto;padding:clamp(64px,7vw,104px) clamp(20px,4vw,56px) 0;display:flex;flex-direction:column;gap:56px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px;max-width:420px">
+<a href="/" style="align-self:flex-start" aria-label="Kuzana home"><img src="/assets/kz/kuzana-logo-reversed.png" alt="Kuzana" width="132" height="40" style="height:40px;width:auto;display:block"></a>
+<div style="font-size:22px;line-height:1.25;font-weight:500;letter-spacing:-.02em">Building the YCombinator for African SMEs.</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#AEB8CC">Mint 1,000 more millionaire$ by 2040.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<label for="kz-foot-email" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC">Substack newsletter</label>
+<form data-substack-form action="https://kuzana.substack.com/subscribe" method="get" target="_blank" rel="noopener" style="display:flex;border:1px solid rgba(251,247,239,.35);border-radius:3px;overflow:hidden"><input id="kz-foot-email" type="email" name="email" required placeholder="Your email" autocomplete="email" style="flex:1;min-width:0;background:transparent;border:0;color:#FBF7EF;padding:15px 16px;font:inherit;font-size:16px;outline:none"><button type="submit" style="background:#FBF7EF;color:#18202F;border:0;padding:0 20px;font:inherit;font-size:16px;font-weight:700;cursor:pointer">Subscribe</button></form>
+<div data-substack-done hidden style="display:flex;gap:12px;align-items:center;border:1px solid #FDC469;border-radius:3px;padding:14px 16px;font-size:16px;line-height:1.45;color:#FBF7EF"><span style="color:#FDC469;font-size:18px">✓</span><span>Almost done. Confirm your subscription on Substack. <a data-substack-continue href="https://kuzana.substack.com/subscribe" target="_blank" rel="noopener" style="color:#FDC469;text-underline-offset:4px">Continue to Substack ↗</a></span></div>
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="display:flex;justify-content:space-between;align-items:center;background:#FDC469;color:#18202F;padding:15px 18px;font-size:16px;font-weight:700;text-decoration:none;border-radius:3px"><span>Join the WhatsApp community</span><span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px;padding-top:40px;border-top:1px solid rgba(251,247,239,.14);font-size:15px;line-height:2">
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Founders</span><a href="/apply/" style="color:#FBF7EF;text-decoration:none">Apply</a><a href="/#how" style="color:#FBF7EF;text-decoration:none">How it works</a><a href="/startup-accelerator-kenya/" style="color:#FBF7EF;text-decoration:none">Startup accelerator Kenya</a><a href="/faq/" style="color:#FBF7EF;text-decoration:none">FAQ</a><a href="/quiz" style="color:#FBF7EF;text-decoration:none">Readiness quiz</a><a href="/referral/" style="color:#FBF7EF;text-decoration:none">Referral</a><a href="/cofounders/" style="color:#FBF7EF;text-decoration:none">Cofounders</a><a href="/talent/" style="color:#FBF7EF;text-decoration:none">Talent</a><a href="/fellowship/" style="color:#FBF7EF;text-decoration:none">Fellowship</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Resources</span><a href="/resources/" style="color:#FBF7EF;text-decoration:none">Resources</a><a href="/library/" style="color:#FBF7EF;text-decoration:none">Library</a><a href="https://blog.kuzana.co/" style="color:#FBF7EF;text-decoration:none">Blog</a><a href="/40things/" style="color:#FBF7EF;text-decoration:none">40 things before the deck</a><a href="/sales/" style="color:#FBF7EF;text-decoration:none">Sales</a><a href="/bottleneck" style="color:#FBF7EF;text-decoration:none">Find your bottleneck</a><a href="/class/" style="color:#FBF7EF;text-decoration:none">Finance for Founders</a><a href="/deck/" style="color:#FBF7EF;text-decoration:none">Deck</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">About</span><a href="/about/" style="color:#FBF7EF;text-decoration:none">About Kuzana</a><a href="/founder/" style="color:#FBF7EF;text-decoration:none">Our founder</a><a href="/about/#team" style="color:#FBF7EF;text-decoration:none">Team</a><a href="/portfolio/" style="color:#FBF7EF;text-decoration:none">Portfolio</a><a href="/tea/" style="color:#FBF7EF;text-decoration:none">Tea with Kyle</a><a href="/bizisafari/" style="color:#FBF7EF;text-decoration:none">Bizi Safari</a><a href="/batch2final/" style="color:#FBF7EF;text-decoration:none">Batch 2 final</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Investors</span><a href="/invest/" style="color:#FBF7EF;text-decoration:none">Invest in Kuzana</a><a href="https://kuzana.substack.com/" style="color:#FBF7EF;text-decoration:none">Substack</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Follow</span><a href="https://www.instagram.com/kuzana.co/" style="color:#FBF7EF;text-decoration:none">Instagram</a><a href="https://www.tiktok.com/@kuzana.co" style="color:#FBF7EF;text-decoration:none">TikTok</a><a href="https://www.linkedin.com/company/kuzana" style="color:#FBF7EF;text-decoration:none">LinkedIn</a><a href="https://www.facebook.com/kuzana" style="color:#FBF7EF;text-decoration:none">Facebook</a><a href="https://x.com/kuzana_co" style="color:#FBF7EF;text-decoration:none">X</a></div>
+</div>
+<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC"><span>Kuzana © 2026 · <a href="mailto:info+website@kuzana.co" style="color:#AEB8CC">info@kuzana.co</a></span><span style="display:flex;gap:20px"><a href="/privacypolicy/" style="color:#AEB8CC">Privacy policy</a><a href="/terms.html" style="color:#AEB8CC">Terms</a></span></div>
+<div style="height:24px"></div>
+</div>
+</footer>
+<div class="kz-bar" style="position:fixed;left:0;right:0;bottom:0;z-index:45;background:#FBF7EF;border-top:1px solid rgba(24,32,47,.16);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:8px">
+<a href="/apply/" style="flex:1;display:flex;justify-content:space-between;align-items:center;background:#FDC469;color:#18202F;padding:14px 18px;font-size:17px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply · 5-min form</span><span aria-hidden="true">↗</span></a>
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="flex:none;display:flex;align-items:center;justify-content:center;padding:0 16px;border:1px solid #18202F;color:#18202F;font-size:15px;font-weight:600;text-decoration:none;border-radius:3px">WhatsApp</a>
+</div>
+<!-- /kz:footer -->
+<!-- kz:scripts -->
+<script src="/attribution.js?v=ae22ebda8b"></script>
+<script src="/metricool.js" defer></script>
+<script src="/assets/kz/kz.js?v=dc975f8e20" defer></script>
+<!-- /kz:scripts -->
+<script>
     (function () {
       document.querySelectorAll('[data-event]').forEach(function (el) {
         el.addEventListener('click', function () {
@@ -893,7 +264,6 @@
         });
       });
     })();
-  </script>
-  <script src="/metricool.js" defer></script>
+</script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+{
+  "formId": "jakW49",
+  "status": "Prepared locally. Not applied to the live Tally form.",
+  "instructions": "Design changes only. Use placeholders, not default answers. Preserve existing field types, IDs, required flags, email prefill, hidden fields, integrations and the confirmation redirect. This is an edit specification, not an API PATCH body.",
+  "fields": [
+    {
+      "blockUuid": "c54f9d30-ad3e-4082-93e5-4868ebaac239",
+      "label": "Your name",
+      "placeholder": "e.g. Amina Otieno",
+      "required": true
+    },
+    {
+      "blockUuid": "eb09da02-1933-422f-b2c8-a5d947403520",
+      "label": "What does your business do?",
+      "placeholder": "e.g. We make and sell furniture in Nairobi.",
+      "required": false
+    },
+    {
+      "blockUuid": "5e56d6c1-d616-49a5-beeb-435dc2fc27ab",
+      "label": "What's your biggest bottleneck?",
+      "placeholder": "e.g. We get enquiries on WhatsApp, but few turn into paid orders.",
+      "helpText": "Describe one specific challenge. A sentence or two is enough.",
+      "required": false
+    },
+    {
+      "blockUuid": "023e5181-4b86-43e2-9b52-6a10db856349",
+      "label": "WhatsApp number",
+      "placeholder": "+254 712 345 678",
+      "helpText": "We'll send the live session link here.",
+      "required": true,
+      "country": "KE"
+    },
+    {
+      "blockUuid": "ee8eefb1-e47a-41c9-b687-44b605b309d6",
+      "label": "Email address",
+      "placeholder": "you@yourbusiness.com",
+      "required": true
+    }
+  ],
+  "submitButtonLabel": "Register for the AMA",
+  "preserve": {
+    "hiddenFields": ["source", "campaign", "email"],
+    "hiddenRevenueQuestion": true,
+    "emailDefaultAnswerBinding": true,
+    "recordingAndPermissionNotice": true,
+    "partialSubmissions": true,
+    "saveForLater": true,
+    "confirmationRedirect": "Kuzana.co/bottleneck/confirmation"
+  }
+}

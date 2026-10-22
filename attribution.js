@@ -1,12 +1,21 @@
 /**
  * Kuzana form attribution: source, campaign, referrer (+ referral program code).
- * Persists across pages and decorates Apply links to form.kuzana.co/apply.
+ * Persists across pages and decorates on-site and hosted application links.
  */
 (function (global) {
     var FORM_ATTRIBUTION_STORAGE_KEY = 'kuzanaFormAttributionV1';
     var REFERRAL_STORAGE_KEY = 'kuzanaReferralCode';
     var FORM_PARAM_KEYS = ['source', 'campaign', 'referrer'];
-    var APPLY_HOST_PATTERN = /form\.kuzana\.co\/apply|kuzana\.co\/apply/;
+    function isApplyUrl(href) {
+        try {
+            var url = new URL(href, global.location.origin);
+            var supportedHost = url.origin === global.location.origin ||
+                ['kuzana.co', 'www.kuzana.co', 'form.kuzana.co'].indexOf(url.hostname) !== -1;
+            return supportedHost && /^\/apply\/?$/.test(url.pathname);
+        } catch (error) {
+            return false;
+        }
+    }
 
     /**
      * @returns {boolean}
@@ -179,7 +188,7 @@
     function withApplyAttribution(href, formAttribution, referralCode) {
         if (!href) return href;
         var trimmedHref = href.trim();
-        if (!trimmedHref || !APPLY_HOST_PATTERN.test(trimmedHref)) return href;
+        if (!trimmedHref || !isApplyUrl(trimmedHref)) return href;
 
         try {
             var parsedUrl = new URL(trimmedHref, global.location.origin);
@@ -225,7 +234,7 @@
 
         global.document.querySelectorAll('a[href]').forEach(function (anchor) {
             var originalHref = anchor.getAttribute('href');
-            if (!originalHref || !APPLY_HOST_PATTERN.test(originalHref)) return;
+            if (!originalHref || !isApplyUrl(originalHref)) return;
             var updatedHref = withApplyAttribution(originalHref, formAttribution, referralCode);
             if (updatedHref && updatedHref !== originalHref) {
                 anchor.setAttribute('href', updatedHref);
@@ -244,7 +253,7 @@
                 : null;
             if (!anchor) return;
             var originalHref = anchor.getAttribute('href');
-            if (!originalHref || !APPLY_HOST_PATTERN.test(originalHref)) return;
+            if (!originalHref || !isApplyUrl(originalHref)) return;
             var updatedHref = withApplyAttribution(
                 originalHref,
                 getEffectiveFormAttribution(),
@@ -277,7 +286,9 @@
         init: init,
         buildApplyUrl: buildApplyUrl,
         decorateApplyLinks: decorateApplyLinks,
-        getEffectiveFormAttribution: getEffectiveFormAttribution
+        getEffectiveFormAttribution: getEffectiveFormAttribution,
+        getStoredReferralCode: getStoredReferralCode,
+        isApplyUrl: isApplyUrl
     };
 
     init();

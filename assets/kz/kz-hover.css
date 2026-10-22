@@ -1,0 +1,17 @@
+/* Hover effects are for pointer devices; touch gets press feedback in kz.css. */
+@media (hover:hover) and (pointer:fine){
+.h-020bf06:hover{background:#FBF7EF !important}
+.h-531f5af:hover{background:#4A6290 !important;color:#fff !important}
+.h-7229c1e:hover{border-color:#FDC469 !important}
+.h-7ea7dc2:hover{background:#4A6290 !important}
+.h-811b52a:hover{background:#FBF7EF !important;color:#18202F !important}
+.h-851773c:hover{transform:translateY(-6px) rotate(-.4deg) !important;box-shadow:0 18px 40px rgba(16,26,46,.14) !important;border-color:#FDC469 !important}
+.h-872e64e:hover{background:#17233B !important}
+.h-9559fe9:hover{transform:translateY(-6px) rotate(-.4deg) !important;box-shadow:0 18px 40px rgba(16,26,46,.14) !important;border-color:#FE7272 !important}
+.h-a65b77f:hover{color:#FDC469 !important}
+.h-b8c0120:hover{border-color:rgba(24,32,47,.35) !important}
+.h-d4131cb:hover{background:#18202F !important;color:#FBF7EF !important}
+.h-e970d1f:hover{transform:translateY(-6px) rotate(-.4deg) !important;box-shadow:0 18px 40px rgba(16,26,46,.14) !important;border-color:#4A6290 !important}
+.h-f309ca3:hover{color:#4A6290 !important}
+.h-fb33942:hover{border-color:#18202F !important;transform:translateY(-3px) !important;box-shadow:0 14px 30px rgba(16,26,46,.12) !important}
+}

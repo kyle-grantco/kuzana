@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow">
+<!-- kz:head-tracking -->
+    <!-- Google Tag Manager (primary container; configure ad pixels inside GTM) -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TZS5FPT8');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (GA4 gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FB5N4P252E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FB5N4P252E');
+    </script>
+    <!-- Microsoft Clarity -->
+    <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xudn3i0jbj");
+    </script>
+<!-- /kz:head-tracking -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decentralized Library of Kuzana | Search & Borrow Books</title>
     <meta name="description" content="Explore the Decentralized Library of Kuzana. Search, browse, and check out books by entering your LinkedIn URL or email. Easy borrowing with book selection.">
-    <link rel="canonical" href="https://kuzana.co/library/" />
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kuzana.co/library/">
     <meta property="og:site_name" content="Kuzana">
-    <meta property="og:url" content="https://kuzana.co/">
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
     <meta property="og:type" content="website">
-    <meta property="og:image" content="/images/kuzana-logo.png">
-    <!-- Website Schema -->
+    <meta property="og:url" content="https://kuzana.co/library/">
+    <meta property="og:title" content="Decentralized Library of Kuzana | Search & Borrow Books">
+    <meta property="og:description" content="Search, browse, and check out books from the Decentralized Library of Kuzana, or lend one of yours.">
+    <meta property="og:image" content="https://kuzana.co/images/kuzana-logo.png">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
@@ -28,8 +51,6 @@
         }
     }
     </script>
-
-    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -43,246 +64,165 @@
         ]
     }
     </script>
-    <!--
-      Kuzana Library Page
-      - Top bar with: Search Books, Borrow Books, Lend Books
-      - Borrow form: URL (LinkedIn or other), Book (populated from Google Sheet)
-      - Lend form: URL (LinkedIn), Book Name (free text)
-      - Success messaging on submission
-    -->
-              <!-- Clarity tracking code for https://kuzana.co/ -->
-        <script>
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "xudn3i0jbj");
-        </script>
+<!-- kz:head-assets -->
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/kz/kz.css?v=1e1d201a66">
+    <link rel="stylesheet" href="/assets/kz/kz-hover.css?v=bf6f4bc2eb">
+    <link rel="stylesheet" href="/assets/kz/kz-updates.css">
+<!-- /kz:head-assets -->
+<style>
+@media (max-width:560px){
+  .kz-libmeta{align-items:flex-start !important}
+  #libGrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+  #libGrid .kz-book-cover{padding:14px 12px 14px 20px !important}
+  #libGrid .kz-book-title{font-size:17px !important}
+}
+</style>
 </head>
-    <!-- header html -->
-    <header class="header">
-        <div class="container header-container">
-
-          <!-- Logo -->
-          <div class="logo">
-            <a href="https://kuzana.co/">
-              <img src="../assets/images/logo.png" alt="Kuzana Logo">
-            </a>
-          </div>
-
-          <!-- Hamburger -->
-          <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <!-- Navigation -->
-          <nav class="nav" id="navMenu">
-
-            <a href="https://kuzana.co/portfolio/">Portfolio</a>
-
-            <a href="https://kuzana.co/how-it-works/">How It Works</a>
-
-            <a href="https://kuzana.co/class/">Class</a>
-
-            <!-- About Dropdown -->
-            <div class="dropdown">
-              <a href="javascript:void(0);" class="dropdown-toggle">
-                About <img src="../assets/images/dropdown-arrow.png" alt="arrow">
-              </a>
-
-              <div class="dropdown-menu">
-                <a href="https://kuzana.co/about/">About Us</a>
-                <a href="https://kuzana.co/founder/">Founder</a>
-                <a href="https://kuzana.co/#team">Team</a>
-              </div>
-            </div>
-
-            <!-- Resources Dropdown -->
-            <div class="dropdown">
-              <a href="https://kuzana.co/resources/" class="dropdown-toggle">
-                Resources <img src="../assets/images/dropdown-arrow.png" alt="arrow"> </a>
-
-              <div class="dropdown-menu">
-                <a href="https://blog.kuzana.co/">Blog</a>
-                <a href="https://kuzana.co/library/">Library</a>
-                <a href="https://kuzana.co/faq/">FAQ</a>
-                <a href="https://kuzana.co/cofounders/">Cofounders</a>
-                <a href="https://kuzana.co/referral/">Referral</a>
-              </div>
-            </div>
-
-            <a href="https://form.kuzana.co/apply" class="apply-btn">
-              Apply Now
-            </a>
-
-          </nav>
-
-        </div>
-      </header>
-
 <body>
-    <a class="skip-link" href="#library-main">Skip to content</a>
+<!-- kz:gtm-noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZS5FPT8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="kz-skip" href="#main">Skip to content</a>
+<!-- /kz:gtm-noscript -->
+<!-- kz:header -->
+<header style="position:sticky;top:0;z-index:40;background:#FBF7EF;color:#18202F;border-bottom:1px solid rgba(24,32,47,.12)">
+<div class="kz-header-inner" style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<a href="/" style="display:flex;align-items:center" aria-label="Kuzana home"><img src="/assets/kz/kuzana-logo.png" alt="Kuzana" width="106" height="32" style="height:32px;width:auto;display:block"></a>
+<div class="kz-desk">
+<nav class="kz-nav" aria-label="Main" style="display:flex;gap:clamp(18px,2.4vw,36px);font-size:16px;font-weight:500">
+<a class="kz-h-ink" data-nav="pf" href="/portfolio/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Portfolio</a>
+<details class="kz-resources" data-kz-resources>
+<summary class="kz-h-ink">Resources <svg class="kz-resources-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="kz-resources-panel">
+<a href="/resources/">All resources <span aria-hidden="true">↗</span></a>
+<a href="https://blog.kuzana.co/">Blog <span aria-hidden="true">↗</span></a>
+<a href="/library/">Library <span aria-hidden="true">↗</span></a>
+<a href="/faq/">FAQ <span aria-hidden="true">↗</span></a>
+<a href="/cofounders/">Cofounders <span aria-hidden="true">↗</span></a>
+<a href="/referral/">Referral <span aria-hidden="true">↗</span></a>
+</div>
+</details>
+<a class="kz-h-ink" data-nav="ab" href="/about/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">About</a>
+<a class="kz-h-ink" data-nav="inv" href="/invest/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Investors</a>
+<a class="kz-h-ink" data-nav="ref" href="/referral/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Referral</a>
+</nav>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<a class="kz-h-applyhdr" href="/apply/" style="display:flex;gap:10px;align-items:center;background:#FE7272;color:#18202F;padding:11px 18px;font-size:16px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply</span><span aria-hidden="true">↗</span></a>
+<div class="kz-mob">
+<button type="button" data-kz-menu-toggle aria-controls="kz-mobile-menu" aria-label="Open menu" aria-expanded="false" style="width:44px;height:44px;border:1px solid #18202F;background:transparent;color:#18202F;border-radius:3px;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;cursor:pointer"><span style="width:18px;height:1.5px;background:#18202F"></span><span style="width:18px;height:1.5px;background:#18202F"></span></button>
+</div>
+</div>
+</div>
+</header>
+<div id="kz-mobile-menu" class="kz-menu" style="position:fixed;inset:68px 0 0 0;z-index:39;background:#101A2E;color:#FBF7EF;padding:28px 20px;flex-direction:column;gap:28px;overflow:auto">
+<nav aria-label="Mobile" style="display:flex;flex-direction:column;font-size:30px;font-weight:600;letter-spacing:-.02em">
+<a href="/portfolio/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Portfolio</a>
+<details class="kz-resources kz-resources-mobile" data-kz-resources>
+<summary>Resources <svg class="kz-resources-chevron" width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="kz-resources-panel">
+<a href="/resources/">All resources <span aria-hidden="true">↗</span></a>
+<a href="https://blog.kuzana.co/">Blog <span aria-hidden="true">↗</span></a>
+<a href="/library/">Library <span aria-hidden="true">↗</span></a>
+<a href="/faq/">FAQ <span aria-hidden="true">↗</span></a>
+<a href="/cofounders/">Cofounders <span aria-hidden="true">↗</span></a>
+<a href="/referral/">Referral <span aria-hidden="true">↗</span></a>
+</div>
+</details>
+<a href="/about/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">About</a>
+<a href="/invest/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Investors</a>
+<a href="/referral/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Referral</a>
+<a href="/faq/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">FAQ</a>
+</nav>
+<div style="display:flex;flex-direction:column;gap:10px">
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="display:flex;justify-content:space-between;border:1px solid #FBF7EF;color:#FBF7EF;padding:16px 18px;font-size:17px;text-decoration:none;border-radius:3px"><span>Join the WhatsApp community</span><span aria-hidden="true">↗</span></a>
+<a href="/tea/" style="display:flex;justify-content:space-between;border:1px solid rgba(251,247,239,.4);color:#FBF7EF;padding:16px 18px;font-size:17px;text-decoration:none;border-radius:3px"><span>Book a tea meeting</span><span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<!-- /kz:header -->
+<main id="main">
+<section data-screen-label="Library" style="background:#101A2E;color:#FBF7EF;overflow:hidden">
+<div style="max-width:1360px;margin:0 auto;padding:clamp(56px,9vh,120px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#AEB8CC;display:flex;gap:10px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#FDC469;flex:none"></span>Library</div>
+<h1 style="margin:0;font-size:clamp(44px,6vw,96px);line-height:.94;font-weight:600;letter-spacing:-.05em;text-wrap:balance">Decentralized Library of Kuzana</h1>
+<p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#C9D0DE;max-width:680px;text-wrap:pretty">Borrowers: paste your LinkedIn or email and select a book.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="h-811b52a" href="#lib-cat" style="display:flex;gap:16px;align-items:center;justify-content:space-between;background:#FDC469;color:#18202F;padding:17px 24px;font-size:18px;font-weight:700;text-decoration:none;border-radius:3px"><span>Search Books</span><span>↓</span></a><a class="h-811b52a" href="#lib-lend" style="display:flex;gap:14px;align-items:center;justify-content:space-between;border:1px solid #FBF7EF;color:#FBF7EF;padding:16px 22px;font-size:17px;text-decoration:none;border-radius:3px"><span>Lend a book</span><span>↓</span></a></div>
+</div>
+<div data-reveal="" data-delay="120" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end;height:clamp(220px,28vw,380px)">
+<a class="h-811b52a" href="#lib-borrow" style="background:#FE7272;color:#18202F;border-radius:6px 6px 0 0;height:62%;padding:18px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Borrow</span><span style="font-size:clamp(20px,2vw,28px);font-weight:700;letter-spacing:-.03em;line-height:1.05">Pick a book ↓</span></a>
+<a class="h-811b52a" href="#lib-lend" style="background:#4A6290;color:#fff;border-radius:6px 6px 0 0;height:82%;padding:18px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Lend</span><span style="font-size:clamp(20px,2vw,28px);font-weight:700;letter-spacing:-.03em;line-height:1.05">Add a book ↓</span></a>
+<div style="background:#FDC469;color:#18202F;border-radius:6px 6px 0 0;height:100%;padding:18px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">Books on the list</span><span data-lib-total style="font-size:clamp(40px,4.4vw,68px);font-weight:700;letter-spacing:-.05em;line-height:.85">…</span></div>
+</div>
+</div>
 
-    <main id="library-main" class="main-content" style="max-width: 900px; margin: 100px auto;">
-        <h1>Decentralized Library of Kuzana</h1>
-
-        <!-- Section Tabs -->
-        <nav aria-label="Library actions" style="width: 100%; margin: 1rem 0 1.5rem;">
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a id="searchBooksLink" class="cta-button" href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?gid=0#gid=0" target="_blank" rel="noopener">Search Books</a>
-
-            </div>
-        </nav>
-
-        <!-- Info note -->
-        <p class="highlight" style="width: 100%;">Borrowers: paste your LinkedIn or email and select a book.</p>
-
-        <!-- Borrow Form -->
-        <section id="borrow" aria-labelledby="borrow-title">
-            <form id="borrowForm" novalidate style="display: grid; gap: 0.75rem;">
-                <label for="borrowerUrl"><strong>How to reach you</strong></label>
-                <input
-                    id="borrowerUrl"
-                    name="borrowerUrl"
-                    type="text"
-                    placeholder="LinkedIn URL or email (e.g., https://linkedin.com/in/you or you@email.com)"
-                    inputmode="email"
-                    required
-                    title="Please enter a valid LinkedIn URL or email address"
-                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
-                    aria-describedby="borrowerUrlHelp"
-                />
-
-                <label for="bookSelect"><strong>Book</strong></label>
-                <select
-                    id="bookSelect"
-                    name="book"
-                    required
-                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
-                    aria-describedby="bookHelp"
-                >
-                    <option value="">Loading books…</option>
-                </select>
-
-                <button id="borrowSubmitBtn" type="submit" class="cta-button" style="align-self: flex-start;">Check Out Book</button>
-
-                <div id="borrowSuccess" role="status" aria-live="polite" style="display:none; color: #1a7f37; font-weight: 700;">✅ Book successfully checked out</div>
-                <div id="borrowError" role="alert" style="display:none; color: #b00020; font-weight: 700;"></div>
-            </form>
-        </section>
-
-        <!-- Divider -->
-        <hr style="width: 100%; border: none; border-top: 1px solid #eee; margin: 2rem 0;" />
-
-        <!-- Lend Form -->
-        <section id="lend" aria-labelledby="lend-title">
-            <h2 id="lend-title">Lend Books</h2>
-            <form id="lendForm" novalidate style="display: grid; gap: 0.75rem;">
-                <label for="lenderUrl"><strong>How to reach you</strong></label>
-                <input
-                    id="lenderUrl"
-                    name="lenderUrl"
-                    type="text"
-                    placeholder="LinkedIn URL or email (e.g., https://linkedin.com/in/you or you@email.com)"
-                    inputmode="email"
-                    required
-                    title="Please enter a valid LinkedIn URL or email address"
-                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
-                />
-
-                <input
-                    id="lendBookName"
-                    name="bookName"
-                    type="text"
-                    placeholder="Book Name e.g., Creative Capital by Jane Doe"
-                    required
-                    minlength="2"
-                    style="padding: 0.65rem; border: 1px solid #ddd; border-radius: 6px;"
-                />
-
-                <button id="lendSubmitBtn" type="submit" class="cta-button" style="align-self: flex-start;">Offer to Lend</button>
-
-                <div id="lendSuccess" role="status" aria-live="polite" style="display:none; color: #1a7f37; font-weight: 700;">✅ Thanks! Book offering recorded</div>
-                <div id="lendError" role="alert" style="display:none; color: #b00020; font-weight: 700;"></div>
-            </form>
-        </section>
-
-        <!-- Fallback links -->
-        <section aria-label="Helpful links" style="margin-top: 2rem;">
-            <p>Having trouble? You can <a href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?gid=0#gid=0" target="_blank" rel="noopener">view the Library list</a> directly.</p>
-        </section>
-    </main>
-  <footer class="footer-section">
-    <div class="container footer-container">
-
-      <div class="footer-column brand-column">
-        <div class="footer-logo">
-          <a href="https://kuzana.co/">
-           <img src="../assets/images/footer-logo.png" alt="KUZANA Logo">
-          </a>
-        </div>
-        <p class="brand-description">
-          The Kuzana investment program is built for Kenya's most ambitious founders-12 months of entrepreneur
-          workshops, real capital, and the kind of support no other investment company in Kenya offers. </p>
-        <div class="social-media-wrapper">
-          <h3>Social Media</h3>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/kuzana" class="social-icon"><img src="../assets/images/facebook.png" alt="KUZANA Logo"></a>
-            <a href="https://x.com/kuzana_co" class="social-icon"><img src="../assets/images/twiter.png" alt="KUZANA Logo"></a>
-            <a href="https://www.linkedin.com/company/kuzana" class="social-icon"><img src="../assets/images/linkdin.png" alt="KUZANA Logo"></a>
-            <a href="https://www.instagram.com/kuzana.co/" class="social-icon"><img src="../assets/images/insagram.png" alt="KUZANA Logo"></a>
-            <a href="https://www.tiktok.com/@kuzana.co" class="social-icon"><img src="../assets/images/tiktok.png" alt="KUZANA Logo"></a>
-            <a href="mailto:info+website@kuzana.co" class="social-icon"><img src="../assets/images/email.png" alt="KUZANA Logo"></a>
-            <a href="https://blog.kuzana.co/" class="social-icon"><img src="../assets/images/substack.png" alt="KUZANA Logo"></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-column links-column">
-        <h3 class="column-title">Program</h3>
-        <ul class="footer-links">
-          <li><a href="https://form.kuzana.co/apply">Apply Now</a></li>
-          <li><a href="/faq/">FAQ</a></li>
-          <li><a href="/portfolio/">Portfolio</a></li>
-          <li><a href="/cofounders/">Co-Founders</a></li>
-          <li><a href="/referral/">Referral</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column links-column">
-        <h3 class="column-title">Resources</h3>
-        <ul class="footer-links">
-          <li><a href="/library/">Library</a></li>
-          <li><a href="https://blog.kuzana.co/">Blogs</a></li>
-          <li><a href="/resources/">Resources</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column newsletter-column">
-        <h3 class="column-title newsletter-heading">Subscribe to Our Newsletter</h3>
-        <p class="newsletter-sub">Building the YCombinator for African SMEs</p>
-
-        <iframe title="Kuzana newsletter" loading="lazy" src="https://kuzana.substack.com/embed" style="background:transparent;" frameborder="0" scrolling="no"></iframe>
-
-        <p class="privacy-notice">
-          By subscribing you agree to Substack's <a href="/terms.html">Terms of Use</a>, Our <a href="/privacypolicy/">Privacy Policy</a> and
-          our <a href="#">Information collection notice</a>
-        </p>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <p>Kuzana | © 2026 | <a href="/privacypolicy/">Privacy Policy</a></p>
-    </div>
-  </footer>
-    <script>
+</section>
+<section id="lib-cat" data-screen-label="Catalogue" style="scroll-margin-top:68px"><div style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,104px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap"><div style="display:flex;flex-direction:column;gap:14px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">The shelf</div><h2 style="margin:0;font-size:clamp(36px,4.8vw,72px);line-height:.98;font-weight:600;letter-spacing:-.045em">Pick a book.</h2></div><div class="kz-libmeta" style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><span id="libCount" aria-live="polite" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#586073">Loading books…</span><a id="searchBooksLink" href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?gid=0#gid=0" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#4A6290">Search Books in the sheet ↗</a></div></div>
+<div style="position:sticky;top:68px;z-index:5;background:#FBF7EF;padding:14px 0;border-bottom:1px solid rgba(24,32,47,.12);display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><input id="libSearch" type="search" placeholder="Search titles" aria-label="Search books" autocomplete="off" style="flex:1 1 280px;min-width:0;padding:14px 16px;border:1px solid rgba(24,32,47,.25);border-radius:3px;background:#fff;font:inherit;font-size:16px;color:#18202F"></div>
+</div>
+<p id="libGridStatus" style="margin:0;font-size:17px;line-height:1.55;color:#3F4657">Loading books…</p>
+<div id="libGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:16px"></div>
+<div id="libEmpty" hidden style="padding:48px 0;display:flex;flex-direction:column;gap:14px;align-items:flex-start"><span style="font-size:24px;font-weight:600">No books match.</span><button id="libReset" type="button" style="padding:12px 18px;border:1px solid #18202F;border-radius:3px;background:transparent;font:inherit;font-size:15px;cursor:pointer">Clear search</button></div>
+<span style="font-size:15px;color:#586073">Books travel reader to reader. Pick one, leave your LinkedIn or email, and we'll connect you.</span>
+</div></section>
+<section id="lib-borrow" data-screen-label="Borrow and lend" style="background:#F2EBDD;scroll-margin-top:68px"><div style="max-width:1360px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;align-items:start">
+<div id="borrow" aria-labelledby="borrow-title" data-reveal="" style="background:#fff;border:1px solid rgba(24,32,47,.12);border-radius:6px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:22px;border-top:4px solid #FDC469">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">Borrow</div><div style="font-size:clamp(28px,2.8vw,40px);font-weight:600;letter-spacing:-.035em;line-height:1" id="borrow-title">Check Out Book</div>
+<form id="borrowForm" novalidate style="display:flex;flex-direction:column;gap:18px"><div style="display:flex;flex-direction:column;gap:8px"><label for="borrowerUrl" style="font-size:16px;font-weight:600">How to reach you <span style="color:#C2410C" aria-hidden="true">*</span></label><input id="borrowerUrl" name="borrowerUrl" type="text" placeholder="LinkedIn URL or email (e.g., https://linkedin.com/in/you or you@email.com)" inputmode="email" required title="Please enter a valid LinkedIn URL or email address" autocomplete="email" style="width:100%;padding:14px 16px;border:1px solid rgba(24,32,47,.25);border-radius:3px;background:#fff;font:inherit;font-size:16px;color:#18202F;outline-color:#4A6290"></div><div style="display:flex;flex-direction:column;gap:8px"><label for="bookSelect" style="font-size:16px;font-weight:600">Book <span style="color:#C2410C" aria-hidden="true">*</span></label><select id="bookSelect" name="book" required style="width:100%;padding:14px 16px;border:1px solid rgba(24,32,47,.25);border-radius:3px;background:#fff;font:inherit;font-size:16px;color:#18202F;outline-color:#4A6290;appearance:auto"><option value="">Loading books…</option></select></div><button id="borrowSubmitBtn" class="h-d4131cb" type="submit" style="display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;background:#FDC469;color:#18202F;border:0;padding:17px 22px;font:inherit;font-size:18px;font-weight:700;border-radius:3px;cursor:pointer">Check Out Book</button><div id="borrowSuccess" role="status" aria-live="polite" style="display:none;background:#E5F2EA;border:1px solid #2F7A4D;color:#1B4D30;border-radius:6px;padding:16px 18px;font-size:17px;font-weight:600;line-height:1.5">✅ Book successfully checked out</div><div id="borrowError" role="alert" style="display:none;color:#B83232;font-size:16px;font-weight:600;line-height:1.5"></div></form>
+</div>
+<div id="lib-lend" aria-labelledby="lend-title" data-reveal="" data-delay="100" style="scroll-margin-top:84px;background:#fff;border:1px solid rgba(24,32,47,.12);border-radius:6px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:22px;border-top:4px solid #4A6290">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#586073">Lend</div><div style="font-size:clamp(28px,2.8vw,40px);font-weight:600;letter-spacing:-.035em;line-height:1" id="lend-title">Lend Books</div>
+<form id="lendForm" novalidate style="display:flex;flex-direction:column;gap:18px"><div style="display:flex;flex-direction:column;gap:8px"><label for="lenderUrl" style="font-size:16px;font-weight:600">How to reach you <span style="color:#C2410C" aria-hidden="true">*</span></label><input id="lenderUrl" name="lenderUrl" type="text" placeholder="LinkedIn URL or email (e.g., https://linkedin.com/in/you or you@email.com)" inputmode="email" required title="Please enter a valid LinkedIn URL or email address" autocomplete="email" style="width:100%;padding:14px 16px;border:1px solid rgba(24,32,47,.25);border-radius:3px;background:#fff;font:inherit;font-size:16px;color:#18202F;outline-color:#4A6290"></div><div style="display:flex;flex-direction:column;gap:8px"><label for="lendBookName" style="font-size:16px;font-weight:600">Book <span style="color:#C2410C" aria-hidden="true">*</span></label><input id="lendBookName" name="bookName" type="text" placeholder="Book Name e.g., Creative Capital by Jane Doe" required minlength="2" style="width:100%;padding:14px 16px;border:1px solid rgba(24,32,47,.25);border-radius:3px;background:#fff;font:inherit;font-size:16px;color:#18202F;outline-color:#4A6290"></div><button id="lendSubmitBtn" class="h-d4131cb" type="submit" style="display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;background:#FDC469;color:#18202F;border:0;padding:17px 22px;font:inherit;font-size:18px;font-weight:700;border-radius:3px;cursor:pointer">Offer to Lend</button><div id="lendSuccess" role="status" aria-live="polite" style="display:none;background:#E5F2EA;border:1px solid #2F7A4D;color:#1B4D30;border-radius:6px;padding:16px 18px;font-size:17px;font-weight:600;line-height:1.5">✅ Thanks! Book offering recorded</div><div id="lendError" role="alert" style="display:none;color:#B83232;font-size:16px;font-weight:600;line-height:1.5"></div></form>
+</div>
+<div style="grid-column:1/-1;font-size:16px;line-height:1.5;color:#3F4657">Having trouble? You can <a href="https://docs.google.com/spreadsheets/d/13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE/edit?gid=0#gid=0" target="_blank" rel="noopener" style="color:#4A6290">view the Library list</a> directly.</div>
+</div></section>
+</main>
+<!-- kz:footer -->
+<footer style="background:#101A2E;color:#FBF7EF;overflow:hidden">
+<div style="max-width:1360px;margin:0 auto;padding:clamp(64px,7vw,104px) clamp(20px,4vw,56px) 0;display:flex;flex-direction:column;gap:56px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px;max-width:420px">
+<a href="/" style="align-self:flex-start" aria-label="Kuzana home"><img src="/assets/kz/kuzana-logo-reversed.png" alt="Kuzana" width="132" height="40" style="height:40px;width:auto;display:block"></a>
+<div style="font-size:22px;line-height:1.25;font-weight:500;letter-spacing:-.02em">Building the YCombinator for African SMEs.</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#AEB8CC">Mint 1,000 more millionaire$ by 2040.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<label for="kz-foot-email" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC">Substack newsletter</label>
+<form data-substack-form action="https://kuzana.substack.com/subscribe" method="get" target="_blank" rel="noopener" style="display:flex;border:1px solid rgba(251,247,239,.35);border-radius:3px;overflow:hidden"><input id="kz-foot-email" type="email" name="email" required placeholder="Your email" autocomplete="email" style="flex:1;min-width:0;background:transparent;border:0;color:#FBF7EF;padding:15px 16px;font:inherit;font-size:16px;outline:none"><button type="submit" style="background:#FBF7EF;color:#18202F;border:0;padding:0 20px;font:inherit;font-size:16px;font-weight:700;cursor:pointer">Subscribe</button></form>
+<div data-substack-done hidden style="display:flex;gap:12px;align-items:center;border:1px solid #FDC469;border-radius:3px;padding:14px 16px;font-size:16px;line-height:1.45;color:#FBF7EF"><span style="color:#FDC469;font-size:18px">✓</span><span>Almost done. Confirm your subscription on Substack. <a data-substack-continue href="https://kuzana.substack.com/subscribe" target="_blank" rel="noopener" style="color:#FDC469;text-underline-offset:4px">Continue to Substack ↗</a></span></div>
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="display:flex;justify-content:space-between;align-items:center;background:#FDC469;color:#18202F;padding:15px 18px;font-size:16px;font-weight:700;text-decoration:none;border-radius:3px"><span>Join the WhatsApp community</span><span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px;padding-top:40px;border-top:1px solid rgba(251,247,239,.14);font-size:15px;line-height:2">
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Founders</span><a href="/apply/" style="color:#FBF7EF;text-decoration:none">Apply</a><a href="/#how" style="color:#FBF7EF;text-decoration:none">How it works</a><a href="/startup-accelerator-kenya/" style="color:#FBF7EF;text-decoration:none">Startup accelerator Kenya</a><a href="/faq/" style="color:#FBF7EF;text-decoration:none">FAQ</a><a href="/quiz" style="color:#FBF7EF;text-decoration:none">Readiness quiz</a><a href="/referral/" style="color:#FBF7EF;text-decoration:none">Referral</a><a href="/cofounders/" style="color:#FBF7EF;text-decoration:none">Cofounders</a><a href="/talent/" style="color:#FBF7EF;text-decoration:none">Talent</a><a href="/fellowship/" style="color:#FBF7EF;text-decoration:none">Fellowship</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Resources</span><a href="/resources/" style="color:#FBF7EF;text-decoration:none">Resources</a><a href="/library/" style="color:#FBF7EF;text-decoration:none">Library</a><a href="https://blog.kuzana.co/" style="color:#FBF7EF;text-decoration:none">Blog</a><a href="/40things/" style="color:#FBF7EF;text-decoration:none">40 things before the deck</a><a href="/sales/" style="color:#FBF7EF;text-decoration:none">Sales</a><a href="/bottleneck" style="color:#FBF7EF;text-decoration:none">Find your bottleneck</a><a href="/class/" style="color:#FBF7EF;text-decoration:none">Finance for Founders</a><a href="/deck/" style="color:#FBF7EF;text-decoration:none">Deck</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">About</span><a href="/about/" style="color:#FBF7EF;text-decoration:none">About Kuzana</a><a href="/founder/" style="color:#FBF7EF;text-decoration:none">Our founder</a><a href="/about/#team" style="color:#FBF7EF;text-decoration:none">Team</a><a href="/portfolio/" style="color:#FBF7EF;text-decoration:none">Portfolio</a><a href="/tea/" style="color:#FBF7EF;text-decoration:none">Tea with Kyle</a><a href="/bizisafari/" style="color:#FBF7EF;text-decoration:none">Bizi Safari</a><a href="/batch2final/" style="color:#FBF7EF;text-decoration:none">Batch 2 final</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Investors</span><a href="/invest/" style="color:#FBF7EF;text-decoration:none">Invest in Kuzana</a><a href="https://kuzana.substack.com/" style="color:#FBF7EF;text-decoration:none">Substack</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Follow</span><a href="https://www.instagram.com/kuzana.co/" style="color:#FBF7EF;text-decoration:none">Instagram</a><a href="https://www.tiktok.com/@kuzana.co" style="color:#FBF7EF;text-decoration:none">TikTok</a><a href="https://www.linkedin.com/company/kuzana" style="color:#FBF7EF;text-decoration:none">LinkedIn</a><a href="https://www.facebook.com/kuzana" style="color:#FBF7EF;text-decoration:none">Facebook</a><a href="https://x.com/kuzana_co" style="color:#FBF7EF;text-decoration:none">X</a></div>
+</div>
+<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC"><span>Kuzana © 2026 · <a href="mailto:info+website@kuzana.co" style="color:#AEB8CC">info@kuzana.co</a></span><span style="display:flex;gap:20px"><a href="/privacypolicy/" style="color:#AEB8CC">Privacy policy</a><a href="/terms.html" style="color:#AEB8CC">Terms</a></span></div>
+<div style="height:24px"></div>
+</div>
+</footer>
+<div class="kz-bar" style="position:fixed;left:0;right:0;bottom:0;z-index:45;background:#FBF7EF;border-top:1px solid rgba(24,32,47,.16);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:8px">
+<a href="/apply/" style="flex:1;display:flex;justify-content:space-between;align-items:center;background:#FDC469;color:#18202F;padding:14px 18px;font-size:17px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply · 5-min form</span><span aria-hidden="true">↗</span></a>
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="flex:none;display:flex;align-items:center;justify-content:center;padding:0 16px;border:1px solid #18202F;color:#18202F;font-size:15px;font-weight:600;text-decoration:none;border-radius:3px">WhatsApp</a>
+</div>
+<!-- /kz:footer -->
+<!-- kz:scripts -->
+<script src="/attribution.js?v=ae22ebda8b"></script>
+<script src="/metricool.js" defer></script>
+<script src="/assets/kz/kz.js?v=dc975f8e20" defer></script>
+<!-- /kz:scripts -->
+<script>
     (function() {
         /**
-         * Constants: Replace APPS_SCRIPT_* with your deployed Web App URLs.
-         * SHEET_ID is the Google Sheet ID for the Library.
+         * Constants: Apps Script Web App URL and the Google Sheet holding the Library.
          */
         var SHEET_ID = '13qeTLyxRiL53bA-z8DVo6Vft8ie2Jla9uzLGIk9jVBE';
         var PUBLISHED_E_ID = '2PACX-1vTzSB5ePznlprqm2jmEH6xAfs8rjU9jb4TQiKwJY6jFoZU2dWWizxxT5b9wXjuV_d-yQ0uhIleD07bd'; // from publish-to-web URL
@@ -303,10 +243,6 @@
         var APPS_SCRIPT_BORROW_URL = 'https://script.google.com/macros/s/AKfycbyqFoz324taaWy9_0wYmdjAP2xiSaO0HtaQ9Dc2b5XfVSksCvt6Zz3-wafkDpc_7MieTw/exec';
         var APPS_SCRIPT_LEND_URL = 'https://script.google.com/macros/s/AKfycbyqFoz324taaWy9_0wYmdjAP2xiSaO0HtaQ9Dc2b5XfVSksCvt6Zz3-wafkDpc_7MieTw/exec';
 
-        /**
-         * isValidUrl: robust URL validation using the URL constructor.
-         * Returns true only when the URL has a valid protocol and hostname.
-         */
         function isValidUrl(value) {
             try {
                 var u = new URL(value);
@@ -324,15 +260,106 @@
         }
 
         /**
-         * parseCsvRows: very simple CSV parsing for rows/columns.
-         * Assumes minimal commas within fields. For titles containing commas,
-         * consider switching to Apps Script JSON endpoint instead.
+         * parseCsvRows: very simple CSV parsing for rows/columns (same as before the redesign).
          */
         function parseCsvRows(csv) {
             return csv
                 .split(/\r?\n/)
                 .filter(function(line) { return line.trim().length > 0; })
                 .map(function(line) { return line.split(','); });
+        }
+
+        /* ---------- Catalogue cards, rendered from the same live book list ---------- */
+        var INK = [['#FDC469', '#18202F'], ['#FE7272', '#18202F'], ['#4A6290', '#FFFFFF'], ['#101A2E', '#FBF7EF']];
+        var cards = [];
+
+        function pickBook(title) {
+            var select = document.getElementById('bookSelect');
+            if (select) {
+                select.value = title;
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            var target = document.getElementById('borrow') || document.getElementById('lib-borrow');
+            if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 88, behavior: 'smooth' });
+            var input = document.getElementById('borrowerUrl');
+            if (input && !input.value) setTimeout(function() { try { input.focus({ preventScroll: true }); } catch (e) {} }, 400);
+        }
+
+        function updateCount(shown) {
+            var count = document.getElementById('libCount');
+            if (!count) return;
+            var total = cards.length;
+            count.textContent = shown === total ? total + ' books' : shown + ' of ' + total + ' books';
+        }
+
+        function applySearch() {
+            var input = document.getElementById('libSearch');
+            var q = (input && input.value || '').trim().toLowerCase();
+            var shown = 0;
+            cards.forEach(function(c) {
+                var on = !q || c.title.toLowerCase().indexOf(q) !== -1;
+                c.el.hidden = !on;
+                if (on) shown++;
+            });
+            var empty = document.getElementById('libEmpty');
+            if (empty) empty.hidden = shown !== 0 || !cards.length;
+            updateCount(shown);
+        }
+
+        function renderCatalogue(titles) {
+            var grid = document.getElementById('libGrid');
+            var status = document.getElementById('libGridStatus');
+            if (!grid) return;
+            // Placeholder rows such as "(trying to track down what this one was)" stay in the dropdown but get no card.
+            var list = titles.filter(function(t) { return t.charAt(0) !== '('; });
+            grid.innerHTML = '';
+            cards = list.map(function(title, i) {
+                var c = INK[i % 4];
+                var art = document.createElement('article');
+                art.className = 'h-b8c0120';
+                art.style.cssText = 'display:flex;flex-direction:column;background:#fff;border:1px solid rgba(24,32,47,.1);border-radius:6px;overflow:hidden';
+                var cover = document.createElement('div');
+                cover.className = 'kz-book-cover';
+                cover.style.cssText = 'position:relative;aspect-ratio:3/3.2;background:' + c[0] + ';color:' + c[1] + ';padding:18px 18px 18px 26px;display:flex;flex-direction:column;justify-content:space-between';
+                cover.innerHTML = '<span style="position:absolute;left:0;top:0;bottom:0;width:8px;background:rgba(0,0,0,.14)"></span>' +
+                    '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:12px">Book</span>';
+                var name = document.createElement('span');
+                name.className = 'kz-book-title';
+                name.style.cssText = 'font-size:clamp(20px,1.7vw,24px);font-weight:700;letter-spacing:-.025em;line-height:1.05;text-wrap:balance;overflow-wrap:anywhere';
+                name.textContent = title;
+                cover.appendChild(name);
+                var foot = document.createElement('span');
+                foot.style.cssText = 'font-family:\'IBM Plex Mono\',monospace;font-size:12px';
+                foot.textContent = 'Kuzana Library';
+                cover.appendChild(foot);
+                var body = document.createElement('div');
+                body.style.cssText = 'padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1';
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'h-d4131cb';
+                btn.setAttribute('aria-label', 'Borrow ' + title);
+                btn.style.cssText = 'margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border:1px solid #18202F;border-radius:3px;background:transparent;color:#18202F;font:inherit;font-size:15px;font-weight:600;cursor:pointer';
+                btn.innerHTML = '<span>Borrow</span><span aria-hidden="true">→</span>';
+                btn.addEventListener('click', function() { pickBook(title); });
+                body.appendChild(btn);
+                art.appendChild(cover);
+                art.appendChild(body);
+                grid.appendChild(art);
+                return { title: title, el: art };
+            });
+            if (status) status.hidden = true;
+            document.querySelectorAll('[data-lib-total]').forEach(function(el) { el.textContent = String(cards.length); });
+            applySearch();
+        }
+
+        function catalogueFailed() {
+            var status = document.getElementById('libGridStatus');
+            var count = document.getElementById('libCount');
+            if (count) count.textContent = '';
+            document.querySelectorAll('[data-lib-total]').forEach(function(el) { el.textContent = '—'; });
+            if (status) {
+                status.innerHTML = 'Could not load the shelf right now. <a href="https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit?gid=0#gid=0" target="_blank" rel="noopener" style="color:#4A6290">View the Library list</a> directly.';
+            }
         }
 
         /**
@@ -367,10 +394,12 @@
                       opt.textContent = b;
                       select.appendChild(opt);
                   });
+                  renderCatalogue(options);
               })
               .catch(function(err) {
                   console.error(err);
                   select.innerHTML = '<option value=\"\">Unable to load books</option>';
+                  catalogueFailed();
                   var errBox = document.getElementById('borrowError');
                   if (errBox) {
                       errBox.style.display = 'block';
@@ -400,9 +429,6 @@
             });
         }
 
-        /**
-         * Button loading helpers
-         */
         function setButtonWorking(btn) {
             if (!btn) return;
             if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent;
@@ -421,9 +447,9 @@
             btn.style.opacity = '';
             btn.style.cursor = '';
         }
+
         /**
          * handleBorrowSubmit: validates inputs and POSTs to Apps Script.
-         * On success, clears the form and shows success message.
          */
         function handleBorrowSubmit(e) {
             e.preventDefault();
@@ -445,10 +471,6 @@
             if (!book) {
                 if (error) { error.style.display = 'block'; error.textContent = 'Please select a book.'; }
                 if (bookSelect) bookSelect.focus();
-                return;
-            }
-            if (/REPLACE_BORROW_DEPLOY_ID/.test(APPS_SCRIPT_BORROW_URL)) {
-                if (error) { error.style.display = 'block'; error.textContent = 'Borrow endpoint not configured. Replace APPS_SCRIPT_BORROW_URL with your Apps Script Web App URL.'; }
                 return;
             }
 
@@ -498,10 +520,6 @@
                 if (bookInput) bookInput.focus();
                 return;
             }
-            if (/REPLACE_LEND_DEPLOY_ID/.test(APPS_SCRIPT_LEND_URL)) {
-                if (error) { error.style.display = 'block'; error.textContent = 'Lend endpoint not configured. Replace APPS_SCRIPT_LEND_URL with your Apps Script Web App URL.'; }
-                return;
-            }
 
             setButtonWorking(submitBtn);
             var payload = { action: 'lend', lenderUrl: lenderUrl, bookName: bookName };
@@ -524,16 +542,19 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        function init() {
             populateBooks();
             var borrowForm = document.getElementById('borrowForm');
             var lendForm = document.getElementById('lendForm');
             if (borrowForm) borrowForm.addEventListener('submit', handleBorrowSubmit);
             if (lendForm) lendForm.addEventListener('submit', handleLendSubmit);
-        });
+            var search = document.getElementById('libSearch');
+            if (search) search.addEventListener('input', applySearch);
+            var reset = document.getElementById('libReset');
+            if (reset) reset.addEventListener('click', function() { if (search) search.value = ''; applySearch(); });
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
     })();
-    </script>
-    <script src="../assets/js/custom.js"></script>
-  <script src="../script.js"></script>
+</script>
 </body>
 </html>

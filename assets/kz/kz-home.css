@@ -1,0 +1,10 @@
+/* The homepage introduces the programme, then shows its founders and results. */
+.kz-hero-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
+.kz-hero-replay{display:inline-flex;align-items:center;gap:10px;min-height:44px;max-width:100%;padding:6px 0;color:#FBF7EF;font-size:16px;line-height:1.4;text-decoration:none}
+.kz-hero-replay>span:nth-child(2){text-decoration:underline;text-decoration-color:rgba(253,196,105,.65);text-underline-offset:6px}
+.kz-hero-replay__play{display:flex;align-items:center;justify-content:center;flex:none;width:30px;height:30px;border:1px solid rgba(253,196,105,.6);border-radius:50%;color:#FDC469;transition:background-color .2s ease,color .2s ease}
+.kz-hero-replay>span:last-child{color:#FDC469}
+.kz-hero-replay:focus-visible .kz-hero-replay__play{background:#FDC469;color:#101A2E}
+.kz-home-finale{scroll-margin-top:140px}
+@media(hover:hover) and (pointer:fine){.kz-hero-replay:hover{color:#FDC469}.kz-hero-replay:hover .kz-hero-replay__play{background:#FDC469;color:#101A2E}}
+@media(prefers-reduced-motion:reduce){.kz-hero-replay__play{transition:none}}

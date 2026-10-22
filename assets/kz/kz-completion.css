@@ -1,0 +1,105 @@
+/* Payment, waitlist and confirmation pages share the Kuzana visual system. */
+.kz-utility-wrap{width:100%;max-width:1360px;margin-inline:auto;padding-inline:clamp(20px,4vw,56px)}
+.kz-utility-hero{position:relative;isolation:isolate;overflow:hidden;background:#101A2E;color:#FBF7EF}
+.kz-utility-intro{position:relative;z-index:1;padding-block:clamp(44px,7vw,88px);max-width:940px;display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.kz-utility-eyebrow{display:flex;align-items:center;gap:10px;margin:0;color:#AEB8CC;font:12px/1.6 'IBM Plex Mono',monospace;letter-spacing:.04em}
+.kz-utility-eyebrow::before{content:'';width:8px;height:8px;flex:none;border-radius:50%;background:#FDC469}
+.kz-utility-title{margin:0;font-size:clamp(44px,6.4vw,96px);font-weight:600;line-height:.98;letter-spacing:-.045em;text-wrap:balance;overflow-wrap:break-word}
+.kz-utility-title>span{color:#FDC469}
+.kz-utility-lead{max-width:640px;margin:0;color:#C9D0DE;font-size:clamp(17px,1.5vw,21px);line-height:1.6;text-wrap:pretty}
+.kz-utility-curves{position:absolute;right:-1px;bottom:-1px;z-index:0;width:min(45%,580px);height:100%;pointer-events:none}
+.kz-utility-body{padding-block:clamp(36px,6vw,80px)}
+.kz-utility-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:start;gap:clamp(24px,4vw,56px)}
+.kz-utility-card{min-width:0;background:#F2EBDD;border:1px solid rgba(24,32,47,.12);border-radius:6px;padding:clamp(24px,3.5vw,44px)}
+.kz-utility-card h2{margin:0;font-size:clamp(28px,3vw,42px);font-weight:600;line-height:1.08;letter-spacing:-.035em}
+.kz-utility-card p{margin:0;font-size:17px;line-height:1.6}
+.kz-utility-stack{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.kz-utility-card--navy{background:#101A2E;color:#FBF7EF;border-color:#101A2E}
+.kz-utility-card--navy p{color:#C9D0DE}
+.kz-utility-kicker{margin:0;font:12px/1.6 'IBM Plex Mono',monospace;color:#586073;letter-spacing:.04em}
+.kz-utility-card--navy .kz-utility-kicker{color:#AEB8CC}
+.kz-utility-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.kz-utility-actions .kz-action{max-width:100%;text-align:left}
+.kz-utility-secondary{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 0;color:inherit;font-size:16px;line-height:1.4;text-underline-offset:5px;text-decoration-color:#FE7272}
+.kz-utility-secondary:hover{color:#FDC469}
+.kz-utility-outline{background:transparent;border-color:rgba(251,247,239,.5);color:#FBF7EF;font-weight:500}
+.kz-utility-actions svg{width:20px;height:20px;flex:none}
+.kz-utility-contact{padding-top:24px;margin:0;color:#586073;font-size:15px;line-height:1.6}
+.kz-utility-contact a{color:#4A6290;text-underline-offset:4px}
+
+/* A clear confirmation and a single primary next step. */
+.kz-confirm-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:clamp(36px,7vw,96px);padding-block:clamp(48px,8vw,104px)}
+.kz-confirm-copy{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.kz-confirm-copy .kz-utility-title{max-width:750px}
+.kz-confirm-card{position:relative;background:#FBF7EF;color:#18202F;border-radius:6px;padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;align-items:flex-start;gap:24px;border-top:4px solid #FDC469}
+.kz-confirm-symbol{width:60px;height:60px;display:grid;place-items:center;border-radius:50%;background:#101A2E;color:#FDC469}
+.kz-confirm-symbol svg{width:28px;height:28px}
+.kz-confirm-card h2{margin:0;font-size:clamp(28px,3vw,42px);line-height:1.05;font-weight:600;letter-spacing:-.035em}
+.kz-confirm-card p{margin:0;font-size:17px;line-height:1.6;color:#4C5668}
+.kz-confirm-card .kz-confirm-note{padding-top:20px;border-top:1px solid rgba(24,32,47,.16);width:100%;font:12px/1.7 'IBM Plex Mono',monospace;color:#586073}
+.kz-confirm-card .kz-action:hover{background:#18202F;color:#FBF7EF}
+.kz-confirm-steps{display:flex;align-items:center;flex-wrap:wrap;gap:12px;color:#AEB8CC;font:12px/1.6 'IBM Plex Mono',monospace}
+.kz-confirm-steps .is-complete{color:#FDC469}
+.kz-confirm-steps svg{width:24px;height:12px;flex:none}
+.kz-prepare-list{list-style:none;margin:0;padding:0;width:100%;counter-reset:prepare}
+.kz-prepare-list li{counter-increment:prepare;display:flex;align-items:baseline;gap:16px;padding:15px 0;border-top:1px solid rgba(24,32,47,.15);font-size:17px;line-height:1.5}
+.kz-prepare-list li::before{content:'0' counter(prepare);flex:none;color:#4A6290;font:12px/1.5 'IBM Plex Mono',monospace}
+.kz-ama-time{font-size:clamp(24px,2.5vw,34px)!important;font-weight:600;line-height:1.2!important;letter-spacing:-.025em;color:#FBF7EF!important}
+
+/* Existing waitlist fields and handler, with matching form controls. */
+.kz-waitlist-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(32px,6vw,88px);padding-block:clamp(40px,7vw,96px)}
+.kz-waitlist-copy{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.kz-waitlist-copy .kz-utility-title{max-width:640px}
+.kz-waitlist-copy .kz-utility-curves{position:static;width:100%;max-width:380px;height:150px;align-self:flex-start;margin-top:12px}
+.kz-waitlist-card{background:#FBF7EF;color:#18202F;padding:clamp(20px,3vw,40px);border-radius:6px;min-width:0}
+.kz-waitlist-card h2{margin:0 0 26px;font-size:28px;line-height:1.1;font-weight:600;letter-spacing:-.03em}
+.kz-waitlist-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
+.kz-waitlist-form .field{min-width:0}
+.kz-waitlist-form label{display:block;margin-bottom:8px;font-size:14px;font-weight:600;line-height:1.4}
+.kz-waitlist-form input,.kz-waitlist-form select{width:100%;min-width:0;min-height:52px;padding:13px 14px;background:#fff;border:1px solid rgba(24,32,47,.3);border-radius:3px;color:#18202F;font:400 16px/1.4 'Bricolage Grotesque',system-ui,sans-serif}
+.kz-waitlist-form input::placeholder{color:#667080;opacity:1}
+.kz-waitlist-form input:focus-visible,.kz-waitlist-form select:focus-visible{outline:2px solid #4A6290;outline-offset:2px;border-color:#4A6290}
+.kz-waitlist-form button{grid-column:1/-1;width:100%;justify-content:space-between;margin-top:4px}
+.kz-waitlist-form button:hover{background:#18202F;color:#FBF7EF}
+.kz-waitlist-form button:disabled{opacity:.65;cursor:wait}
+.kz-waitlist-card .msg{display:none;margin:20px 0 0;padding:14px 16px;border-radius:3px;font-size:15px;line-height:1.6}
+.kz-waitlist-card .error{color:#922F35;background:#FBE9E5;border-left:3px solid #B43B43}
+.kz-waitlist-card .success{color:#205C39;background:#E5F2EA;border-left:3px solid #2F7A4D}
+.kz-waitlist-disclaimer{margin:24px 0 0;padding-top:20px;border-top:1px solid rgba(24,32,47,.16);font-size:14px;line-height:1.6;color:#4C5668}
+.kz-waitlist-disclaimer strong{color:#18202F}
+.kz-waitlist-note{margin:12px 0 0;font:12px/1.6 'IBM Plex Mono',monospace;color:#667080}
+
+/* Payment instructions remain selectable text, with every original value intact. */
+.kz-payment-methods{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 0}
+.kz-payment-methods span{padding:7px 12px;border:1px solid rgba(251,247,239,.3);border-radius:3px;font:12px/1.5 'IBM Plex Mono',monospace;color:#C9D0DE}
+.kz-payment-bank{background:#fff;border:1px solid rgba(24,32,47,.14);border-radius:6px;padding:clamp(24px,3.5vw,44px);min-width:0}
+.kz-payment-bank h2{margin:0 0 28px;font-size:clamp(28px,3vw,42px);font-weight:600;line-height:1.1;letter-spacing:-.035em}
+.kz-payment-bank h3{margin:30px 0 14px;padding-top:24px;border-top:1px solid rgba(24,32,47,.18);font-size:20px;font-weight:600;letter-spacing:-.02em}
+.kz-payment-bank h3:first-of-type{margin-top:0;padding-top:0;border-top:0}
+.kz-payment-details{margin:0;display:flex;flex-direction:column;gap:16px}
+.kz-payment-details>div{display:grid;grid-template-columns:minmax(110px,.8fr) minmax(0,1.2fr);gap:12px 24px;align-items:baseline}
+.kz-payment-details dt{color:#586073;font-size:14px;line-height:1.6}
+.kz-payment-details dd{margin:0;min-width:0;overflow-wrap:anywhere;font-size:16px;line-height:1.6}
+.kz-payment-details .kz-payment-number{font:500 15px/1.6 'IBM Plex Mono',monospace}
+.kz-payment-notice{margin:28px 0 0;padding:20px 22px;background:#F2EBDD;border-left:3px solid #FDC469;font-size:15px;line-height:1.7;color:#3F4657}
+.kz-payment-wallet{color:#FDC469;font:500 clamp(28px,3.2vw,44px)/1.2 'IBM Plex Mono',monospace;letter-spacing:-.04em;overflow-wrap:anywhere}
+.kz-payment-terms{margin:28px 0 0;max-width:900px;font-size:15px;line-height:1.7;color:#586073}
+.kz-embedded-newsletter{display:block;width:100%;height:320px;border:0;border-radius:3px;background:#FBF7EF}
+.kz-embedded-newsletter-notice{margin:0;color:#AEB8CC;font-size:12px;line-height:1.6}
+.kz-embedded-newsletter-notice a{color:inherit;text-underline-offset:3px}
+
+@media(max-width:879.98px){
+ .kz-confirm-grid,.kz-waitlist-grid,.kz-utility-grid{grid-template-columns:minmax(0,1fr)}
+ .kz-utility-curves{width:44%;opacity:.45}
+ .kz-confirm-copy,.kz-waitlist-copy{gap:22px}
+ .kz-confirm-grid{gap:32px}
+ .kz-waitlist-copy .kz-utility-curves{display:none}
+}
+@media(max-width:600px){
+ .kz-waitlist-form{grid-template-columns:minmax(0,1fr);gap:18px}
+ .kz-payment-details>div{grid-template-columns:minmax(0,1fr);gap:3px}
+ .kz-utility-curves{width:38%;opacity:.3}
+ .kz-utility-title{font-size:clamp(40px,10vw,60px)}
+ .kz-utility-actions{align-items:stretch;flex-direction:column;width:100%}
+ .kz-utility-actions .kz-action{width:100%}
+}

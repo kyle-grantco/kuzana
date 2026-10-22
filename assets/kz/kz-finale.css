@@ -1,0 +1,93 @@
+/* Batch 4 event page. Existing ticket and stream behaviors retain their hooks. */
+.kz-finale{background:#FBF7EF;color:#18202F;padding-bottom:0}
+.kz-finale main{width:100%;margin:0;padding:0}
+.kz-finale main h1,.kz-finale main h2{margin:0;font-weight:600;letter-spacing:-.04em;text-wrap:balance}
+.kz-finale main h1{font-size:clamp(40px,5.4vw,76px);line-height:1.01;max-width:14ch}
+.kz-finale main h2{font-size:clamp(30px,3.6vw,52px);line-height:1.05}
+.kz-finale-hero{position:relative;overflow:hidden;background:#101A2E;color:#FBF7EF}
+.kz-finale-hero__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(36px,6vw,88px)}
+.kz-finale .eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 22px;color:#AEB8CC;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6}
+.kz-finale .eyebrow::before{content:'';flex:none;width:8px;height:8px;background:#FDC469;border-radius:50%}
+.kz-finale .sub{margin:24px 0;color:#C9D0DE;font-size:clamp(17px,1.5vw,19px);line-height:1.6}
+.kz-finale .sub strong{color:#FBF7EF;font-weight:500}
+.kz-finale .btn-tickets{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:18px 22px;border-radius:3px;background:#FDC469;color:#18202F;text-decoration:none;font-size:19px;font-weight:700;line-height:1.3;transition:background .2s}
+.kz-finale .btn-tickets small{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:400}
+.kz-finale .btn-tickets:hover{background:#FE7272;color:#18202F}
+.kz-finale .pay-note,.kz-finale .countdown{margin:12px 0;color:#AEB8CC;font-size:13px;line-height:1.5}
+.kz-finale .countdown:empty{display:none}
+.kz-finale .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;margin:24px 0 0;padding:0;list-style:none}
+.kz-finale .facts li{display:flex;flex-direction:column;gap:7px;padding:15px 0;border-top:1px solid rgba(251,247,239,.2);font-size:16px;line-height:1.4}
+.kz-finale .facts span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#AEB8CC}
+.kz-finale .facts a{color:#FBF7EF;text-underline-offset:4px}
+.kz-finale .photo{position:relative;margin:0;align-self:stretch;min-height:480px;display:flex;flex-direction:column}
+.kz-finale .photo img{width:100%;height:100%;min-height:440px;max-height:740px;object-fit:cover;border-radius:6px}
+.kz-finale .photo figcaption{padding-top:12px;color:#AEB8CC;font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.6}
+.kz-finale-curve{display:block;width:100%;height:56px;margin-top:-32px;pointer-events:none}
+.kz-finale main>section:not(.kz-finale-hero):not(.kz-finale-close){max-width:1120px;margin-inline:auto;padding:clamp(40px,5vw,72px) clamp(20px,4vw,56px);border-bottom:1px solid rgba(24,32,47,.16);scroll-margin-top:90px}
+.kz-finale .section-lead,.kz-finale .apply-note{max-width:740px;margin:20px 0 0;color:#4C5668;font-size:18px;line-height:1.65}
+.kz-finale .source{margin:18px 0 0;color:#586073;font-size:12px;line-height:1.5}
+.kz-finale .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:32px 0 0;padding:0}
+.kz-finale .stats li{display:flex;flex-direction:column;gap:14px;padding:24px;background:#F2EBDD;border-radius:4px}
+.kz-finale .stats li:nth-child(2){background:#FDC469}
+.kz-finale .stats li:nth-child(3){background:#FE7272}
+.kz-finale .stats strong{font-size:clamp(32px,4vw,56px);font-weight:600;letter-spacing:-.05em;line-height:1}
+.kz-finale .stats span{font-size:14px;line-height:1.5}
+.kz-finale .companies{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;list-style:none;margin:32px 0 0;padding:0}
+.kz-finale .companies li{display:flex;align-items:center;gap:16px;min-width:0;padding:22px;border:1px solid rgba(24,32,47,.18);border-radius:4px}
+.kz-finale .companies img{flex:none;width:54px;height:54px;object-fit:contain}
+.kz-finale .companies strong,.kz-finale .companies span{display:block}
+.kz-finale .companies strong{font-size:18px;line-height:1.3}
+.kz-finale .companies span{margin-top:5px;color:#586073;font-size:14px;line-height:1.45}
+.kz-finale .keynote{display:flex;align-items:center;gap:clamp(20px,4vw,48px);margin-top:28px;padding:clamp(20px,4vw,40px);background:#101A2E;color:#FBF7EF;border-radius:6px}
+.kz-finale .keynote img{width:clamp(96px,18vw,200px);height:clamp(96px,18vw,200px);object-fit:cover;border-radius:3px}
+.kz-finale .keynote .name{margin:0;font-size:clamp(24px,3vw,42px);font-weight:600;letter-spacing:-.03em}
+.kz-finale .keynote .role{margin:10px 0 0;color:#FDC469;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6}
+.kz-finale .timeline{margin:28px 0 0;padding:0;list-style:none}
+.kz-finale .timeline li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:24px;padding:24px 0;border-top:1px solid rgba(24,32,47,.16)}
+.kz-finale .timeline time{font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6;color:#4A6290}
+.kz-finale .timeline strong{font-size:20px;font-weight:600}
+.kz-finale .timeline p{margin:8px 0 0;color:#586073;font-size:17px;line-height:1.6}
+.kz-finale .who,.kz-finale .stack{margin:24px 0;padding-left:22px;font-size:18px;line-height:1.7}
+.kz-finale .who li,.kz-finale .stack li{padding:8px 0}
+.kz-finale .tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;margin-top:28px}
+.kz-finale .ticket{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;padding:26px;border:1px solid rgba(24,32,47,.25);border-radius:6px;color:#18202F;text-decoration:none;transition:border-color .2s,background .2s}
+.kz-finale .ticket:hover{border-color:#4A6290;background:#F2EBDD}
+.kz-finale .ticket .t-name{font-size:20px;font-weight:600}
+.kz-finale .ticket .t-price{font-size:20px;font-weight:700;white-space:nowrap}
+.kz-finale .ticket .t-desc,.kz-finale .ticket .t-go,.kz-finale .ticket .t-flag{grid-column:1/-1;line-height:1.5}
+.kz-finale .ticket .t-desc{color:#586073;font-size:15px}
+.kz-finale .ticket .t-go{margin-top:8px;padding:14px 16px;background:#FE7272;border-radius:3px;font-size:16px;font-weight:700}
+.kz-finale .ticket.alt .t-go{background:#FDC469}
+.kz-finale .eb-banner{padding:14px 18px;background:#FDC469;color:#18202F;border-radius:3px;line-height:1.5}
+.kz-finale .t-flag{color:#4A6290;font-family:'IBM Plex Mono',monospace;font-size:12px}
+.kz-finale .faq{margin-top:28px}
+.kz-finale .faq details{padding:24px 0;border-top:1px solid rgba(24,32,47,.18)}
+.kz-finale .faq summary{cursor:pointer;font-size:20px;font-weight:600;line-height:1.4;list-style:none}
+.kz-finale .faq summary::after{content:'+';float:right;margin-left:16px;color:#4A6290}
+.kz-finale .faq details[open] summary::after{content:'−'}
+.kz-finale .faq p{max-width:760px;margin:18px 0 0;color:#586073;font-size:17px;line-height:1.65}
+.kz-finale-close{margin:0;padding-block:clamp(48px,7vw,96px);background:#18202F;color:#FBF7EF}
+.kz-finale-close>.kz-wrap{max-width:880px}
+.kz-finale .closing{margin-bottom:28px}
+.kz-finale .closing p{margin:18px 0 0;color:#C9D0DE;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6}
+.kz-finale .abroad{margin-top:40px;padding-top:32px;border-top:1px solid rgba(251,247,239,.2);scroll-margin-top:90px}
+.kz-finale .abroad-label{margin:0 0 16px;color:#C9D0DE;font-size:18px}
+.kz-finale .btn-stream{min-height:48px;padding:13px 20px;border:1px solid #FBF7EF;border-radius:3px;background:transparent;color:#FBF7EF;font:600 17px/1.3 'Bricolage Grotesque',sans-serif;cursor:pointer}
+.kz-finale .btn-stream:hover{background:#FBF7EF;color:#18202F}
+.kz-finale .stream-form.is-open{display:grid;gap:20px;margin-top:28px}
+.kz-finale .stream-form label{display:grid;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px}
+.kz-finale .stream-form input{width:100%;min-width:0;min-height:52px;padding:14px 16px;border:1px solid rgba(251,247,239,.4);border-radius:3px;background:#101A2E;color:#FBF7EF;font:17px 'Bricolage Grotesque',sans-serif}
+.kz-finale .stream-form button[type=submit]{min-height:52px;padding:16px 20px;border:0;border-radius:3px;background:#FDC469;color:#18202F;font:700 17px 'Bricolage Grotesque',sans-serif;cursor:pointer}
+.kz-finale .stream-form button:disabled{opacity:.6;cursor:wait}
+.kz-finale .msg{display:none;margin:0;padding:12px 16px;border:1px solid currentColor;font-size:16px;line-height:1.5}
+.kz-finale .error{color:#FE7272}
+.kz-finale .success{color:#FDC469}
+.kz-finale .note{margin:0;color:#AEB8CC;font-size:12px;line-height:1.6}
+.kz-finale .sticky{position:fixed;inset:auto 0 0;z-index:45;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(20px,calc((100vw - 1248px)/2)) calc(12px + env(safe-area-inset-bottom));border-top:1px solid rgba(24,32,47,.18);background:#FBF7EF;color:#18202F;transform:translateY(110%);visibility:hidden;transition:transform .2s,visibility .2s}
+.kz-finale .sticky.is-visible{transform:translateY(0);visibility:visible}
+.kz-finale .sticky p{margin:0;font-size:12px;line-height:1.5}
+.kz-finale .sticky strong{display:block;font-size:16px}
+.kz-finale .sticky a{flex:none;padding:14px 20px;border-radius:3px;background:#FDC469;color:#18202F;font-size:16px;font-weight:700;text-decoration:none}
+@media(max-width:879.98px){.kz-finale-hero__grid{grid-template-columns:minmax(0,1fr)}.kz-finale .photo{min-height:0}.kz-finale .photo img{height:auto;min-height:0;max-height:480px;aspect-ratio:4/3}.kz-finale .stats{gap:10px}.kz-finale .stats li{padding:18px 12px}.kz-finale-curve{height:32px;margin-top:0}.kz-finale .keynote{gap:20px}}
+@media(max-width:479px){.kz-finale .stats{grid-template-columns:minmax(0,1fr)}.kz-finale .stats li{display:grid;grid-template-columns:90px minmax(0,1fr);align-items:center;gap:16px;padding:20px}.kz-finale .timeline li{grid-template-columns:80px minmax(0,1fr);gap:16px}.kz-finale .ticket{padding:22px 18px}.kz-finale .sticky p{max-width:175px}}
+@media(prefers-reduced-motion:reduce){.kz-finale .sticky,.kz-finale .ticket,.kz-finale .btn-tickets{transition:none}}

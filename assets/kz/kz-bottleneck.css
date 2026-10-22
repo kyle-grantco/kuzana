@@ -1,0 +1,61 @@
+/* Bottleneck registration: the introduction and the live Tally form share a screen. */
+.kz-bottleneck{background:#101A2E;color:#FBF7EF}
+.kz-bottleneck-layout{max-width:1360px;margin:0 auto;padding:64px clamp(20px,4vw,56px) 80px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,5vw,72px);align-items:start}
+.kz-bottleneck-intro{min-width:0;padding-top:14px}
+.kz-bottleneck-eyebrow{margin:0 0 28px;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#AEB8CC}
+.kz-bottleneck-eyebrow::before{content:'';width:8px;height:8px;background:#FDC469;border-radius:50%;flex:none}
+.kz-bottleneck h1{font-size:clamp(48px,5.1vw,72px);font-weight:600;line-height:1;letter-spacing:-.05em;margin:0 0 24px;text-wrap:balance}
+.kz-bottleneck h1 span{color:#FDC469}
+.kz-bottleneck-lead{font-size:20px;line-height:1.5;color:#C7CEDB;margin:0;max-width:440px}
+.kz-bottleneck-session{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;padding:25px 0;margin:30px 0;border-top:1px solid #3A4456;border-bottom:1px solid #3A4456}
+.kz-bottleneck-session div{display:flex;flex-direction:column;gap:8px}
+.kz-bottleneck-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;color:#AEB8CC}
+.kz-bottleneck-session strong{font-size:18px;font-weight:500;line-height:1.4}
+.kz-bottleneck-session small{font-size:14px;color:#AEB8CC;line-height:1.4}
+.kz-bottleneck-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.kz-bottleneck-jump{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 20px;background:#FDC469;color:#18202F;font-size:17px;font-weight:700;text-decoration:none;border-radius:3px}
+.kz-bottleneck-jump:hover{background:#FBF7EF;color:#18202F}
+.kz-bottleneck-tea{display:flex;align-items:center;gap:12px;padding:16px 0;color:#FBF7EF;font-size:16px;text-underline-offset:5px}
+.kz-bottleneck-tea:hover{color:#FDC469}
+.kz-bottleneck-guidance{margin-top:36px}
+.kz-bottleneck-guidance h2{font-size:24px;font-weight:500;letter-spacing:-.025em;margin:0 0 12px}
+.kz-bottleneck-guidance>p{margin:0;font-size:17px;line-height:1.6;color:#C7CEDB}
+.kz-bottleneck-example{margin:20px 0 0;padding:4px 0 4px 18px;border-left:2px solid #FDC469}
+.kz-bottleneck-example span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#FDC469;letter-spacing:.04em}
+.kz-bottleneck-example p{margin:10px 0 0;font-size:19px;line-height:1.5;letter-spacing:-.01em}
+.kz-bottleneck-curves{display:block;width:210px;height:92px;margin:32px 0 24px}
+.kz-bottleneck-recording{font-size:14px;line-height:1.6;color:#AEB8CC;max-width:430px;margin:0}
+.kz-bottleneck-card{min-width:0;background:#FBF7EF;color:#18202F;border:1px solid #E8DFD0;border-radius:6px;scroll-margin-top:92px;overflow:hidden}
+.kz-bottleneck-card-head{padding:30px 28px 22px;border-bottom:1px solid #E5DDD0}
+.kz-bottleneck-card-head .kz-bottleneck-label{color:#586073}
+.kz-bottleneck-card h2{margin:12px 0;font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1.1}
+.kz-bottleneck-card-head p{font-size:16px;line-height:1.5;margin:0;color:#586073}
+.kz-bottleneck-embed{padding:12px 24px 0}
+.kz-bottleneck-embed iframe{display:block;width:100%;border:0}
+.kz-bottleneck-fallback{margin:0;padding:18px 28px 24px;font-size:14px;line-height:1.6;color:#586073;border-top:1px solid #E5DDD0}
+.kz-bottleneck-fallback a{color:#18202F;text-underline-offset:4px;text-decoration-thickness:1px}
+.kz-bottleneck-fallback a:hover{color:#4A6290}
+@media(max-width:959.98px){
+  .kz-bottleneck-layout{grid-template-columns:1fr;gap:28px;padding-top:40px;padding-bottom:48px;max-width:720px}
+  .kz-bottleneck-intro{display:contents}
+  .kz-bottleneck-card{order:1}
+  .kz-bottleneck h1{font-size:clamp(48px,8vw,68px);max-width:520px}
+  .kz-bottleneck-lead{max-width:100%}
+  .kz-bottleneck-eyebrow{margin-bottom:24px}
+  .kz-bottleneck-session{margin:24px 0}
+  .kz-bottleneck-jump{flex:1 1 100%}
+  .kz-bottleneck-guidance{order:2;margin-top:0}
+  .kz-bottleneck-curves{display:none}
+  .kz-bottleneck-recording{order:3;margin-top:0;max-width:100%}
+}
+@media(max-width:479.98px){
+  .kz-bottleneck-layout{padding-left:20px;padding-right:20px}
+  .kz-bottleneck-lead{font-size:18px}
+  .kz-bottleneck-card-head{padding:24px 18px 20px}
+  .kz-bottleneck-card h2{font-size:30px}
+  .kz-bottleneck-embed{padding:8px 12px 0}
+  .kz-bottleneck-fallback{padding:18px}
+  .kz-bottleneck-session{gap:12px}
+  .kz-bottleneck-session strong{font-size:16px}
+  .kz-bottleneck-guidance h2{font-size:22px}
+}

@@ -21,8 +21,11 @@
     head.appendChild(script);
   }
 
+  var initialized = false;
   loadScript(function () {
+    if (initialized) return;
     if (typeof beTracker !== 'undefined' && beTracker.t) {
+      initialized = true;
       beTracker.t({ hash: '25353a8459e6cfc3b520d4ffdacd578b' });
     }
   });

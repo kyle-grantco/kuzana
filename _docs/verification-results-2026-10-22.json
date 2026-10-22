@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-22",
+  "scope": "Local redesign compared with signed-out live public website; no deployment and no real submissions.",
+  "live_routes": 44,
+  "live_http_200": 44,
+  "live_matches_fetched_upstream": 44,
+  "live_redesigned_pages": 0,
+  "local_route_statuses": {
+    "consolidated_into_homepage": 1,
+    "external_form_redirection": 1,
+    "legacy_design": 0,
+    "redesigned": 32,
+    "utility_redirect": 10
+  },
+  "outbound_urls": 97,
+  "outbound_statuses": {
+    "0": 1,
+    "200": 77,
+    "301": 1,
+    "403": 3,
+    "404": 2,
+    "999": 13
+  },
+  "chrome_browser_sweep": {
+    "routes": 32,
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "initial_checks": 128,
+    "note": "Initial issues were followed by targeted fixes/rechecks. Original observations retained under /private/tmp/kuzana-verification-2026-10-22."
+  },
+  "webkit_browser_sweep": {
+    "routes": 32,
+    "widths": [
+      390,
+      1440
+    ],
+    "checks": 64,
+    "failures": 0
+  },
+  "interaction_scenarios": {
+    "chromium": {
+      "passed": 19,
+      "total": 19
+    },
+    "webkit": {
+      "passed": 19,
+      "total": 19
+    }
+  },
+  "redirect_cases": 14,
+  "local_images": {
+    "unique": 88,
+    "initial_chrome_decodes": 87,
+    "successful_independent_logo_retry": true,
+    "pillow_full_decode_all_rasters": true,
+    "unresolved": 0
+  },
+  "mobile_motion": {
+    "engine": "WebKit",
+    "redesigned_pages": 27,
+    "passed": true,
+    "physical_phone_tested": false
+  },
+  "backend": "In-memory Apps Script routing/email fixtures passed. Live Library deployment returns deprecated-Rhino error; production writes and email delivery untested.",
+  "no_live_submissions": true,
+  "deployed": false,
+  "artifacts": "/private/tmp/kuzana-verification-2026-10-22",
+  "verdict": "Production sign-off blocked; local browser/intercepted-flow checks passed after repairs.",
+  "remaining": {
+    "library_production_runtime": "HTTP 200 error HTML: Rhino runtime deprecated; local V8 manifest prepared, existing web app needs updated deployment.",
+    "screening_full_application": "Tally Gx6Og2 returns HTTP 404.",
+    "legacy_design_routes": [],
+    "closed_event_form": "/event/ \u2192 LZXzvj reports closed/full (preserved existing state).",
+    "old_class_alias": "/c/ \u2192 yPv7v0; /class/ \u2192 BE4OpA (existing alias preserved).",
+    "resource_domain": "esha.ai does not resolve.",
+    "bizi_article": "Original African Accelerationism article returns HTTP 404.",
+    "automated_access": "LinkedIn 999, three bot challenges, cookie-free Doola redirect loop.",
+    "real_delivery": "No live production records, applications, emails, memberships, purchases or subscriptions created."
+  },
+  "design_followup": {
+    "date": "2026-10-22",
+    "restyled_routes": [
+      "/application-success.html",
+      "/bottleneck/confirmation/",
+      "/payment/",
+      "/screening-success.html",
+      "/waitlist/"
+    ],
+    "redesigned_pages_now": 32,
+    "chrome_layout_checks": 20,
+    "webkit_layout_checks": 10,
+    "layout_result": "No clipped text, horizontal overflow, unlabeled fields, unnamed buttons, JavaScript exceptions or missing local resources. One transient Chrome footer-logo decode was independently rechecked successfully on all five pages in both engines.",
+    "touch_motion_navigation_checks": {
+      "chromium": 5,
+      "webkit": 5,
+      "passed": true
+    },
+    "no_javascript_readability_checks": {
+      "chromium": 5,
+      "webkit": 5,
+      "passed": true
+    },
+    "waitlist_intercepted_scenarios": {
+      "chromium": 2,
+      "webkit": 2,
+      "passed": true,
+      "coverage": "Required fields, email prefill, original payload/endpoint, sendBeacon and fetch fallback, success feedback."
+    },
+    "calendar_rollover_cases": 5,
+    "payment_substack_real_embed": {
+      "provider_redirect": "https://blog.kuzana.co/embed",
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "controls_visible": true,
+      "submitted": false
+    },
+    "preservation": "All payment values and legal notices, Waitlist schema and inline handler, calendar script, original Meet/Tally/home destinations, existing analytics configuration and Payment Substack iframe retained. Connect and b4slides byte-identical to fetched upstream.",
+    "structure_checks": {
+      "redesigned_pages": 32,
+      "inline_scripts_parsed": 99,
+      "issues": 0,
+      "partial_sync_idempotent": true
+    },
+    "artifacts": "/private/tmp/kuzana-legacy-restyle-2026-10-22",
+    "physical_phone_tested": false,
+    "deployed": false,
+    "note": "Earlier broad verification counts above describe the pre-follow-up snapshot; production issues remain unchanged. Current route statuses reflect the completed styling follow-up."
+  }
+}

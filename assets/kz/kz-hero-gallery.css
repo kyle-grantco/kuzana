@@ -1,0 +1,5 @@
+.kz-hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .65s ease;pointer-events:none}
+.kz-hero-slide.is-active{opacity:1}
+.kz-gallery-playing .kz-hero-slide.is-active{animation:kz-hero-photo-drift 3.6s ease-out both}
+@keyframes kz-hero-photo-drift{from{transform:scale(1.04)}to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.kz-hero-slide{transition:none;animation:none!important;transform:none!important}}

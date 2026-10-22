@@ -12,186 +12,106 @@
     <meta property="og:title" content="You're in – The Bottleneck Show">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://kuzana.co/bottleneck/confirmation">
-        <script src="/attribution.js"></script>
-<link rel="icon" href="/images/favicon.png" type="image/png">
-    <style>
-        :root {
-            --text: #1f2937;
-            --muted: #4b5563;
-            --primary: #0f172a;
-            --accent: #ff6f74;
-            --accent-hover: #e85f64;
-            --card: #ffffff;
-            --border: #e5e7eb;
-            --bg: #fafafa;
-        }
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            color: var(--text);
-            background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
-            line-height: 1.55;
-        }
-        .wrap {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 32px 20px 56px;
-        }
-        .logo-link {
-            display: inline-block;
-            margin-bottom: 28px;
-        }
-        .logo-link img {
-            height: 36px;
-            width: auto;
-            display: block;
-        }
-        .bottle-wrap {
-            margin: 0 0 24px;
-            text-align: center;
-        }
-        .bottle-wrap img {
-            width: min(420px, 92vw);
-            height: auto;
-            display: inline-block;
-            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
-        }
-        h1 {
-            margin: 0 0 12px;
-            font-size: clamp(2rem, 6vw, 2.5rem);
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-        }
-        .lead {
-            font-size: 1.125rem;
-            color: var(--muted);
-            margin: 0 0 28px;
-        }
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px 22px;
-            margin-bottom: 18px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-        }
-        .card h2 {
-            margin: 0 0 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        ul {
-            margin: 0;
-            padding-left: 1.25rem;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        li:last-child { margin-bottom: 0; }
-        .stream-time {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin: 0 0 16px;
-        }
-        .btn-google {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 18px;
-            border-radius: 8px;
-            background: #fff;
-            border: 1px solid var(--border);
-            color: var(--primary);
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-            transition: box-shadow 0.15s ease, border-color 0.15s ease;
-        }
-        .btn-google:hover {
-            border-color: #cbd5e1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        .btn-google svg {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-        }
-        .btn-stream {
-            display: inline-block;
-            margin-bottom: 14px;
-            padding: 12px 18px;
-            border-radius: 8px;
-            background: var(--accent);
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .btn-stream:hover {
-            background: var(--accent-hover);
-        }
-        .calendar-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0;
-        }
-        .topics {
-            list-style: none;
-            padding: 0;
-        }
-        .topics li {
-            position: relative;
-            padding-left: 1.1rem;
-            margin-bottom: 10px;
-        }
-        .topics li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .footer-note {
-            margin-top: 28px;
-            font-size: 0.9rem;
-            color: var(--muted);
-            text-align: center;
-        }
-        .footer-note a {
-            color: var(--accent);
-        }
-    </style>
+<!-- kz:head-assets -->
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/kz/kz.css?v=1e1d201a66">
+    <link rel="stylesheet" href="/assets/kz/kz-hover.css?v=bf6f4bc2eb">
+    <link rel="stylesheet" href="/assets/kz/kz-updates.css">
+<!-- /kz:head-assets -->
+<link rel="stylesheet" href="/assets/kz/kz-completion.css?v=7f08b7d123">
 </head>
-<body>
-    <div class="wrap">
-        <a class="logo-link" href="/" aria-label="Kuzana home">
-            <img src="/images/logo.png" alt="Kuzana" width="120" height="36" loading="eager" decoding="async">
-        </a>
-
-        <h1>You're in.</h1>
-
-        <section class="card" aria-labelledby="prepare-heading">
-            <h2 id="prepare-heading">What to prepare:</h2>
-            <ul>
+<body class="kz-nobar">
+<a class="kz-skip" href="#main">Skip to content</a>
+<!-- kz:header -->
+<header style="position:sticky;top:0;z-index:40;background:#FBF7EF;color:#18202F;border-bottom:1px solid rgba(24,32,47,.12)">
+<div class="kz-header-inner" style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+<a href="/" style="display:flex;align-items:center" aria-label="Kuzana home"><img src="/assets/kz/kuzana-logo.png" alt="Kuzana" width="106" height="32" style="height:32px;width:auto;display:block"></a>
+<div class="kz-desk">
+<nav class="kz-nav" aria-label="Main" style="display:flex;gap:clamp(18px,2.4vw,36px);font-size:16px;font-weight:500">
+<a class="kz-h-ink" data-nav="pf" href="/portfolio/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Portfolio</a>
+<details class="kz-resources" data-kz-resources>
+<summary class="kz-h-ink">Resources <svg class="kz-resources-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="kz-resources-panel">
+<a href="/resources/">All resources <span aria-hidden="true">↗</span></a>
+<a href="https://blog.kuzana.co/">Blog <span aria-hidden="true">↗</span></a>
+<a href="/library/">Library <span aria-hidden="true">↗</span></a>
+<a href="/faq/">FAQ <span aria-hidden="true">↗</span></a>
+<a href="/cofounders/">Cofounders <span aria-hidden="true">↗</span></a>
+<a href="/referral/">Referral <span aria-hidden="true">↗</span></a>
+</div>
+</details>
+<a class="kz-h-ink" data-nav="ab" href="/about/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">About</a>
+<a class="kz-h-ink" data-nav="inv" href="/invest/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Investors</a>
+<a class="kz-h-ink" data-nav="ref" href="/referral/" style="color:#18202F;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px">Referral</a>
+</nav>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<a class="kz-h-applyhdr" href="/apply/" style="display:flex;gap:10px;align-items:center;background:#FE7272;color:#18202F;padding:11px 18px;font-size:16px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply</span><span aria-hidden="true">↗</span></a>
+<div class="kz-mob">
+<button type="button" data-kz-menu-toggle aria-controls="kz-mobile-menu" aria-label="Open menu" aria-expanded="false" style="width:44px;height:44px;border:1px solid #18202F;background:transparent;color:#18202F;border-radius:3px;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;cursor:pointer"><span style="width:18px;height:1.5px;background:#18202F"></span><span style="width:18px;height:1.5px;background:#18202F"></span></button>
+</div>
+</div>
+</div>
+</header>
+<div id="kz-mobile-menu" class="kz-menu" style="position:fixed;inset:68px 0 0 0;z-index:39;background:#101A2E;color:#FBF7EF;padding:28px 20px;flex-direction:column;gap:28px;overflow:auto">
+<nav aria-label="Mobile" style="display:flex;flex-direction:column;font-size:30px;font-weight:600;letter-spacing:-.02em">
+<a href="/portfolio/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Portfolio</a>
+<details class="kz-resources kz-resources-mobile" data-kz-resources>
+<summary>Resources <svg class="kz-resources-chevron" width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+<div class="kz-resources-panel">
+<a href="/resources/">All resources <span aria-hidden="true">↗</span></a>
+<a href="https://blog.kuzana.co/">Blog <span aria-hidden="true">↗</span></a>
+<a href="/library/">Library <span aria-hidden="true">↗</span></a>
+<a href="/faq/">FAQ <span aria-hidden="true">↗</span></a>
+<a href="/cofounders/">Cofounders <span aria-hidden="true">↗</span></a>
+<a href="/referral/">Referral <span aria-hidden="true">↗</span></a>
+</div>
+</details>
+<a href="/about/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">About</a>
+<a href="/invest/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Investors</a>
+<a href="/referral/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">Referral</a>
+<a href="/faq/" style="color:#FBF7EF;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(251,247,239,.14)">FAQ</a>
+</nav>
+<div style="display:flex;flex-direction:column;gap:10px">
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="display:flex;justify-content:space-between;border:1px solid #FBF7EF;color:#FBF7EF;padding:16px 18px;font-size:17px;text-decoration:none;border-radius:3px"><span>Join the WhatsApp community</span><span aria-hidden="true">↗</span></a>
+<a href="/tea/" style="display:flex;justify-content:space-between;border:1px solid rgba(251,247,239,.4);color:#FBF7EF;padding:16px 18px;font-size:17px;text-decoration:none;border-radius:3px"><span>Book a tea meeting</span><span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<!-- /kz:header -->
+<main id="main">
+<section class="kz-utility-hero" aria-labelledby="bottleneck-complete-title">
+<svg class="kz-utility-curves" viewBox="0 0 480 300" preserveAspectRatio="none" aria-hidden="true">
+<path data-draw d="M0 298 C220 292 380 226 480 138" fill="none" stroke="#FDC469" stroke-width="5" vector-effect="non-scaling-stroke"/>
+<path data-draw data-delay="140" d="M0 298 C230 284 380 190 470 50" fill="none" stroke="#FE7272" stroke-width="5" vector-effect="non-scaling-stroke"/>
+<path data-draw data-delay="280" d="M0 298 C240 272 360 144 400 0" fill="none" stroke="#8FA3CC" stroke-width="5" vector-effect="non-scaling-stroke"/>
+</svg>
+<div class="kz-utility-wrap"><div class="kz-utility-intro" data-reveal>
+<p class="kz-utility-eyebrow">The Bottleneck Show · Registration confirmed</p>
+<h1 id="bottleneck-complete-title" class="kz-utility-title">You're <span>in.</span></h1>
+</div></div>
+</section>
+<div class="kz-utility-wrap kz-utility-body">
+<div class="kz-utility-grid">
+<section class="kz-utility-card kz-utility-stack" aria-labelledby="prepare-heading" data-reveal>
+<p class="kz-utility-kicker">Come ready</p>
+<h2 id="prepare-heading">What to prepare:</h2>
+<ul class="kz-prepare-list">
                 <li>Your biggest blocker</li>
                 <li>Revenue numbers (rough is fine)</li>
                 <li>What you've already tried</li>
                 <li>One question you want answered</li>
             </ul>
-        </section>
-
-        <section class="card" aria-labelledby="stream-heading">
-            <h2 id="stream-heading">Join the AMA</h2>
-            <p class="stream-time">Wednesdays · 5PM East Africa Time</p>
-            <div class="calendar-actions">
-            <a class="btn-stream" href="https://meet.google.com/odn-zgog-kpd" target="_blank" rel="noopener noreferrer">Join on Google Meet</a>
-            <a id="google-calendar-link" class="btn-google" href="#" target="_blank" rel="noopener noreferrer">
+</section>
+<section class="kz-utility-card kz-utility-card--navy kz-utility-stack" aria-labelledby="stream-heading" data-reveal data-delay="120">
+<p class="kz-utility-kicker">Your weekly AMA</p>
+<h2 id="stream-heading">Join the AMA</h2>
+<p class="kz-ama-time">Wednesdays · 5PM East Africa Time</p>
+<div class="kz-utility-actions">
+<a class="kz-action" href="https://meet.google.com/odn-zgog-kpd" target="_blank" rel="noopener noreferrer">Join on Google Meet <span aria-hidden="true">↗</span></a>
+<a id="google-calendar-link" class="kz-action kz-utility-outline" href="#" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -200,12 +120,45 @@
                 </svg>
                 Add to Google Calendar
             </a>
-            </div>
-        </section>
-
-        <p class="footer-note">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
-    </div>
-    <script>
+</div>
+</section>
+</div>
+<p class="kz-utility-contact">Questions? <a href="mailto:info+website@kuzana.co">info@kuzana.co</a></p>
+</div>
+</main>
+<!-- kz:footer -->
+<footer style="background:#101A2E;color:#FBF7EF;overflow:hidden">
+<div style="max-width:1360px;margin:0 auto;padding:clamp(64px,7vw,104px) clamp(20px,4vw,56px) 0;display:flex;flex-direction:column;gap:56px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px;max-width:420px">
+<a href="/" style="align-self:flex-start" aria-label="Kuzana home"><img src="/assets/kz/kuzana-logo-reversed.png" alt="Kuzana" width="132" height="40" style="height:40px;width:auto;display:block"></a>
+<div style="font-size:22px;line-height:1.25;font-weight:500;letter-spacing:-.02em">Building the YCombinator for African SMEs.</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#AEB8CC">Mint 1,000 more millionaire$ by 2040.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<label for="kz-foot-email" style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC">Substack newsletter</label>
+<form data-substack-form action="https://kuzana.substack.com/subscribe" method="get" target="_blank" rel="noopener" style="display:flex;border:1px solid rgba(251,247,239,.35);border-radius:3px;overflow:hidden"><input id="kz-foot-email" type="email" name="email" required placeholder="Your email" autocomplete="email" style="flex:1;min-width:0;background:transparent;border:0;color:#FBF7EF;padding:15px 16px;font:inherit;font-size:16px;outline:none"><button type="submit" style="background:#FBF7EF;color:#18202F;border:0;padding:0 20px;font:inherit;font-size:16px;font-weight:700;cursor:pointer">Subscribe</button></form>
+<div data-substack-done hidden style="display:flex;gap:12px;align-items:center;border:1px solid #FDC469;border-radius:3px;padding:14px 16px;font-size:16px;line-height:1.45;color:#FBF7EF"><span style="color:#FDC469;font-size:18px">✓</span><span>Almost done. Confirm your subscription on Substack. <a data-substack-continue href="https://kuzana.substack.com/subscribe" target="_blank" rel="noopener" style="color:#FDC469;text-underline-offset:4px">Continue to Substack ↗</a></span></div>
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="display:flex;justify-content:space-between;align-items:center;background:#FDC469;color:#18202F;padding:15px 18px;font-size:16px;font-weight:700;text-decoration:none;border-radius:3px"><span>Join the WhatsApp community</span><span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px;padding-top:40px;border-top:1px solid rgba(251,247,239,.14);font-size:15px;line-height:2">
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Founders</span><a href="/apply/" style="color:#FBF7EF;text-decoration:none">Apply</a><a href="/#how" style="color:#FBF7EF;text-decoration:none">How it works</a><a href="/startup-accelerator-kenya/" style="color:#FBF7EF;text-decoration:none">Startup accelerator Kenya</a><a href="/faq/" style="color:#FBF7EF;text-decoration:none">FAQ</a><a href="/quiz" style="color:#FBF7EF;text-decoration:none">Readiness quiz</a><a href="/referral/" style="color:#FBF7EF;text-decoration:none">Referral</a><a href="/cofounders/" style="color:#FBF7EF;text-decoration:none">Cofounders</a><a href="/talent/" style="color:#FBF7EF;text-decoration:none">Talent</a><a href="/fellowship/" style="color:#FBF7EF;text-decoration:none">Fellowship</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Resources</span><a href="/resources/" style="color:#FBF7EF;text-decoration:none">Resources</a><a href="/library/" style="color:#FBF7EF;text-decoration:none">Library</a><a href="https://blog.kuzana.co/" style="color:#FBF7EF;text-decoration:none">Blog</a><a href="/40things/" style="color:#FBF7EF;text-decoration:none">40 things before the deck</a><a href="/sales/" style="color:#FBF7EF;text-decoration:none">Sales</a><a href="/bottleneck" style="color:#FBF7EF;text-decoration:none">Find your bottleneck</a><a href="/class/" style="color:#FBF7EF;text-decoration:none">Finance for Founders</a><a href="/deck/" style="color:#FBF7EF;text-decoration:none">Deck</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">About</span><a href="/about/" style="color:#FBF7EF;text-decoration:none">About Kuzana</a><a href="/founder/" style="color:#FBF7EF;text-decoration:none">Our founder</a><a href="/about/#team" style="color:#FBF7EF;text-decoration:none">Team</a><a href="/portfolio/" style="color:#FBF7EF;text-decoration:none">Portfolio</a><a href="/tea/" style="color:#FBF7EF;text-decoration:none">Tea with Kyle</a><a href="/bizisafari/" style="color:#FBF7EF;text-decoration:none">Bizi Safari</a><a href="/batch2final/" style="color:#FBF7EF;text-decoration:none">Batch 2 final</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Investors</span><a href="/invest/" style="color:#FBF7EF;text-decoration:none">Invest in Kuzana</a><a href="https://kuzana.substack.com/" style="color:#FBF7EF;text-decoration:none">Substack</a></div>
+<div style="display:flex;flex-direction:column"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#FDC469;margin-bottom:8px">Follow</span><a href="https://www.instagram.com/kuzana.co/" style="color:#FBF7EF;text-decoration:none">Instagram</a><a href="https://www.tiktok.com/@kuzana.co" style="color:#FBF7EF;text-decoration:none">TikTok</a><a href="https://www.linkedin.com/company/kuzana" style="color:#FBF7EF;text-decoration:none">LinkedIn</a><a href="https://www.facebook.com/kuzana" style="color:#FBF7EF;text-decoration:none">Facebook</a><a href="https://x.com/kuzana_co" style="color:#FBF7EF;text-decoration:none">X</a></div>
+</div>
+<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC"><span>Kuzana © 2026 · <a href="mailto:info+website@kuzana.co" style="color:#AEB8CC">info@kuzana.co</a></span><span style="display:flex;gap:20px"><a href="/privacypolicy/" style="color:#AEB8CC">Privacy policy</a><a href="/terms.html" style="color:#AEB8CC">Terms</a></span></div>
+<div style="height:24px"></div>
+</div>
+</footer>
+<div class="kz-bar" style="position:fixed;left:0;right:0;bottom:0;z-index:45;background:#FBF7EF;border-top:1px solid rgba(24,32,47,.16);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:8px">
+<a href="/apply/" style="flex:1;display:flex;justify-content:space-between;align-items:center;background:#FDC469;color:#18202F;padding:14px 18px;font-size:17px;font-weight:700;text-decoration:none;border-radius:3px"><span>Apply · 5-min form</span><span aria-hidden="true">↗</span></a>
+<a href="https://chat.whatsapp.com/BOIjYho65SB93f5C442o04" style="flex:none;display:flex;align-items:center;justify-content:center;padding:0 16px;border:1px solid #18202F;color:#18202F;font-size:15px;font-weight:600;text-decoration:none;border-radius:3px">WhatsApp</a>
+</div>
+<!-- /kz:footer -->
+<script>
     (function () {
         var TZ = 'Africa/Nairobi';
         var MEET_URL = 'https://meet.google.com/odn-zgog-kpd';
@@ -327,6 +280,10 @@
         link.href = buildGoogleCalendarUrl(startUtc, endUtc);
     })();
     </script>
-  <script src="/metricool.js" defer></script>
+<!-- kz:scripts -->
+<script src="/attribution.js?v=ae22ebda8b"></script>
+<script src="/metricool.js" defer></script>
+<script src="/assets/kz/kz.js?v=dc975f8e20" defer></script>
+<!-- /kz:scripts -->
 </body>
 </html>

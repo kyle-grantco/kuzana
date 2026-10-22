@@ -1,0 +1,106 @@
+/* Kuzana 2026 design system — base styles shared by every redesigned page.
+   Page markup carries the design's inline styles; this file adds the base
+   reset, responsive switches and interaction states the prototype did in JS. */
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#FBF7EF;color:#18202F;font-family:'Bricolage Grotesque',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+img{max-width:100%}
+a{color:#4A6290}
+a:hover{color:#18202F}
+::selection{background:#FDC469;color:#18202F}
+summary::-webkit-details-marker{display:none}
+details[open] > summary .kz-plus{transform:rotate(45deg)}
+.kz-plus{display:inline-block;transition:transform .25s ease}
+:focus-visible{outline:2px solid #FE7272;outline-offset:3px}
+.kz-skip{position:absolute;left:-9999px;top:0;z-index:100;background:#18202F;color:#FBF7EF;padding:10px 16px}
+.kz-skip:focus{left:12px;top:12px}
+
+@media (max-width:720px){
+  [data-mfull]{grid-column:1/-1 !important}
+  footer a{padding-top:7px;padding-bottom:7px}
+  summary{padding-top:10px;padding-bottom:10px;margin-top:-10px;margin-bottom:-10px}
+  input,select,textarea{font-size:16px !important}
+}
+
+/* Breakpoint switches (prototype: mobile < 880px, split hero >= 1180px). */
+.kz-desk,.kz-split{display:contents}
+.kz-mob,.kz-stack{display:none}
+@media (max-width:879.98px){.kz-desk{display:none}.kz-mob{display:contents}}
+@media (max-width:1179.98px){.kz-split{display:none}.kz-stack{display:contents}}
+
+/* Header: active nav item. */
+.kz-nav a{text-decoration-color:transparent !important}
+body[data-nav="pf"] .kz-nav a[data-nav="pf"],
+body[data-nav="res"] .kz-nav a[data-nav="res"],
+body[data-nav="ab"] .kz-nav a[data-nav="ab"],
+body[data-nav="inv"] .kz-nav a[data-nav="inv"],
+body[data-nav="ref"] .kz-nav a[data-nav="ref"]{text-decoration-color:#FE7272 !important}
+
+/* Resources disclosure: native click/keyboard support, enhanced hover on desktop. */
+.kz-resources{position:relative}
+.kz-resources>summary{display:flex;align-items:center;gap:7px;list-style:none;cursor:pointer}
+.kz-nav .kz-resources>summary{text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:2px;text-decoration-color:transparent}
+body[data-nav="res"] .kz-nav .kz-resources>summary,.kz-nav .kz-resources[open]>summary{text-decoration-color:#FE7272}
+.kz-resources-chevron{flex:none;transition:transform .2s ease}
+.kz-resources[open]>summary .kz-resources-chevron{transform:rotate(180deg)}
+.kz-resources-panel{position:absolute;top:calc(100% + 22px);left:-20px;width:250px;padding:8px;background:#FBF7EF;color:#18202F;border:1px solid rgba(24,32,47,.15);border-top:3px solid #FE7272;border-radius:3px;box-shadow:0 16px 36px rgba(16,26,46,.12)}
+.kz-resources-panel::before{content:"";position:absolute;left:0;right:0;top:-25px;height:24px}
+.kz-resources-panel a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px;font-size:16px;font-weight:500;letter-spacing:0;line-height:1.3;color:inherit;text-decoration:none;transition:background-color .18s ease,color .18s ease}
+.kz-resources-panel a:first-child{border-bottom:1px solid rgba(24,32,47,.12);margin-bottom:4px;font-weight:600}
+.kz-resources-panel a span{color:#4A6290}
+.kz-resources-panel a:focus-visible{background:#F2EBDD;outline-offset:-2px}
+.kz-resources[open]>.kz-resources-panel{animation:kz-resources-in .2s cubic-bezier(.2,.7,.1,1)}
+@keyframes kz-resources-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.kz-resources-mobile{border-bottom:1px solid rgba(251,247,239,.14)}
+.kz-resources-mobile>summary{justify-content:space-between;padding:12px 0;margin:0}
+.kz-resources-mobile .kz-resources-panel{position:static;width:auto;margin:0 0 12px;padding:4px 12px;background:rgba(251,247,239,.05);color:#FBF7EF;border:0;border-left:2px solid #FDC469;border-radius:0;box-shadow:none}
+.kz-resources-mobile .kz-resources-panel::before{display:none}
+.kz-resources-mobile .kz-resources-panel a{min-height:44px;font-size:19px}
+.kz-resources-mobile .kz-resources-panel a:first-child{border-bottom-color:rgba(251,247,239,.14)}
+.kz-resources-mobile .kz-resources-panel a span{color:#FDC469}
+.kz-resources-mobile .kz-resources-panel a:focus-visible{background:rgba(251,247,239,.1)}
+@media(hover:hover) and (pointer:fine){.kz-resources-panel a:hover{background:#F2EBDD;color:#18202F}}
+@media(prefers-reduced-motion:reduce){.kz-resources-chevron,.kz-resources-panel a{transition:none}.kz-resources[open]>.kz-resources-panel{animation:none}}
+
+/* Mobile menu + sticky Apply bar (toggled by kz.js). */
+.kz-menu{display:none}
+body.kz-menu-open .kz-menu{display:flex}
+body.kz-menu-open{overflow:hidden}
+.kz-bar{display:none}
+@media (max-width:879.98px){body.kz-scrolled:not(.kz-menu-open):not(.kz-nobar) .kz-bar{display:flex}}
+
+/* Section scroll-spy underline (homepage sticky in-page nav). */
+[data-spy-link]{border-bottom-color:transparent !important}
+[data-spy-link].is-active{border-bottom-color:#FE7272 !important}
+
+/* Generic hidden helper for JS-toggled states. */
+[hidden]{display:none !important}
+
+/* Mobile fix for the design's "Why Kuzana" grid overflow at 390px. */
+@media (max-width:640px){.kz-why-grid{grid-template-columns:1fr !important}.kz-why-grid > *{padding-right:0 !important}}
+
+/* Horizontal scrollers hide their scrollbar like the prototype. */
+.kz-noscroll::-webkit-scrollbar{display:none}
+
+/* Shared hover states for header/footer partials. */
+.kz-h-ink:hover{color:#4A6290 !important}
+.kz-h-applyhdr:hover{background:#18202F !important;color:#FBF7EF !important}
+
+/* Hero text column: full width when stacked, half the split hero otherwise. */
+.kz-herotext{max-width:680px}
+@media (min-width:1180px){.kz-herotext{max-width:min(600px, calc(50vw - max(0px, (100vw - 1360px) / 2) - clamp(20px, 4vw, 56px) - 48px))}}
+
+/* Interaction motion works with clicks, keyboard activation and touch. */
+.kz-tab-panels{position:relative;min-width:0;overflow:hidden}
+.kz-tab-panels>[data-panel]{width:100%}
+[data-tab],[data-filter-key],[data-check],[data-check-box],[data-spy-link],
+button,a[class*="h-"],.kz-action{transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .25s ease,opacity .25s ease,transform .2s ease}
+[data-jstep],[data-jdot]{transition:opacity .3s ease,transform .3s ease,background-color .3s ease}
+button:not(:disabled):active,.kz-action:active,a[class*="h-"]:active{transform:scale(.98)}
+@media(prefers-reduced-motion:reduce){
+  button,a[class*="h-"],.kz-action,[data-tab],[data-filter-key],[data-check],
+  [data-check-box],[data-spy-link],[data-jstep],[data-jdot],.kz-plus{transition:none!important}
+  button:not(:disabled):active,.kz-action:active,a[class*="h-"]:active{transform:none}
+}
