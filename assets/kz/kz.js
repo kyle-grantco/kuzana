@@ -203,6 +203,53 @@
     tabList.setAttribute('role', 'tablist');
     tabList.setAttribute('aria-label', 'Founder testimonials');
     var selected = null, animations = [], version = 0;
+    // [data-tabs-auto="ms"]: advance on a timer drawn as a bar along the active tab.
+    // The bar's animation is the timer, so pausing it (off screen, hidden tab,
+    // mouse over the quotes, keyboard focus inside) pauses the rotation.
+    var autoMs = parseInt(root.getAttribute('data-tabs-auto'), 10) || 0;
+    var timer = null, hold = { visible: false, hovered: false, focused: false };
+    function holdTimer() {
+      if (!timer) return;
+      if (hold.visible && !hold.hovered && !hold.focused && !document.hidden) timer.play();
+      else timer.pause();
+    }
+    function startTimer(tab) {
+      if (timer) timer.cancel();
+      timer = null;
+      var bar = tab.querySelector('.kz-tab-progress');
+      if (!bar) return;
+      var current = timer = motion(bar, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: autoMs, easing: 'linear' });
+      if (!current) { tab.style.borderTopColor = onColor; return; }
+      holdTimer();
+      current.finished.then(function () {
+        if (current !== timer) return;
+        if (reduced) { tab.style.borderTopColor = onColor; return; }
+        var index = Array.prototype.indexOf.call(tabs, tab);
+        pick(tabs[(index + 1) % tabs.length].getAttribute('data-tab'));
+      }, function () {});
+    }
+    if (autoMs && tabs.length > 1 && 'IntersectionObserver' in window) {
+      tabs.forEach(function (tab) {
+        var bar = document.createElement('span');
+        bar.className = 'kz-tab-progress';
+        bar.setAttribute('aria-hidden', 'true');
+        bar.style.cssText = 'position:absolute;left:0;right:0;top:-2px;height:2px;background:' + onColor + ';transform:scaleX(0);transform-origin:left;pointer-events:none';
+        tab.style.position = 'relative';
+        tab.appendChild(bar);
+      });
+      new IntersectionObserver(function (entries) {
+        hold.visible = entries[entries.length - 1].isIntersecting;
+        holdTimer();
+      }, { threshold: 0.35 }).observe(root);
+      root.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hold.hovered = true; holdTimer(); } });
+      root.addEventListener('pointerleave', function () { hold.hovered = false; holdTimer(); });
+      root.addEventListener('focusin', function (e) {
+        try { hold.focused = e.target.matches(':focus-visible'); } catch (err) { hold.focused = false; }
+        holdTimer();
+      });
+      root.addEventListener('focusout', function (e) { if (!root.contains(e.relatedTarget)) { hold.focused = false; holdTimer(); } });
+      document.addEventListener('visibilitychange', holdTimer);
+    }
     tabs.forEach(function (tab, index) {
       var panel = Array.prototype.find.call(panels, function (p) { return p.getAttribute('data-panel') === tab.getAttribute('data-tab'); });
       if (!panel) return;
@@ -227,6 +274,11 @@
         t.style.borderTopColor = on ? onColor : offColor;
         t.style.opacity = on ? '1' : '0.6';
       });
+      var active = Array.prototype.find.call(tabs, function (t) { return t.getAttribute('data-tab') === i; });
+      if (active && active.querySelector('.kz-tab-progress')) {
+        active.style.borderTopColor = offColor;
+        startTimer(active);
+      }
       panels.forEach(function (p) {
         p.hidden = p !== next;
         p.inert = p !== next;

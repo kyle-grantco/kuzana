@@ -20,7 +20,6 @@
   <url><loc>https://kuzana.co/bizisafari/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://kuzana.co/class/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://kuzana.co/deck/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://kuzana.co/invest/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://kuzana.co/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://kuzana.co/founder/</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://kuzana.co/startup-accelerator-kenya/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -38,7 +37,6 @@
   <!-- Individual HTML pages -->
   <url><loc>https://kuzana.co/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://kuzana.co/application-success.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://kuzana.co/screening-success.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
   <url><loc>https://kuzana.co/referral/terms.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>
 

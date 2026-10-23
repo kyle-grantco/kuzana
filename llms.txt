@@ -18,7 +18,6 @@ The core value proposition lies in providing a comprehensive support system that
 ## Program Details & Resources
 
 - [Kuzana Portfolio](https://kuzana.co/portfolio/): Explore the companies and startups that are part of the Kuzana portfolio.
-- [Invest with Kuzana](https://kuzana.co/invest/): Information for potential investors interested in Kuzana's investment opportunities.
 - [Kuzana Resources](https://kuzana.co/resources/): Access valuable resources curated for entrepreneurs by Kuzana.
 - [Kuzana Library](https://kuzana.co/library/): Browse the Kuzana library for educational content and insights.
 - [About Kuzana](https://kuzana.co/about/): The team, mission and story behind Kuzana.
@@ -31,7 +30,7 @@ The core value proposition lies in providing a comprehensive support system that
 
 - [Kuzana Referral Program](https://kuzana.co/referral/): Learn how to refer new entrepreneurs to the Kuzana program.
 - [Kuzana FAQ](https://kuzana.co/faq/): Find answers to frequently asked questions about Kuzana's program.
-- [Share Kuzana via WhatsApp](https://wa.me/?text=Hey%2C+I+saw+Kuzana+Investment+Firm+and+thought+you+might+like+to+raise+capital+from+them.+Check+kuzana.co): Share Kuzana's website and investment opportunity via WhatsApp.
+- [Share Kuzana via WhatsApp](https://wa.me/?text=Hey%2C+I+saw+Kuzana+Investment+Firm+and+thought+you+might+like+to+raise+capital+from+them.+Check+kuzana.co): Share Kuzana with a founder via WhatsApp.
 - [Kuzana TikTok](https://www.tiktok.com/@kuzana.co): Follow Kuzana's official TikTok account for updates and content.
 
 ## Legal & Policies
@@ -43,7 +42,6 @@ The core value proposition lies in providing a comprehensive support system that
 ## Application Status
 
 - [Kuzana Application Success](https://kuzana.co/application-success.html): Confirmation page for a successfully submitted Kuzana application.
-- [Kuzana Screening Success](https://kuzana.co/screening-success.html): Notification page indicating successful completion of application screening.
 
 ---
 
