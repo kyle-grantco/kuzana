@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Tea landing page for LinkedIn URL validation and user redirect. -->
+    <!-- Tea landing page: instant redirect to the Tally form with lead source tagging. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tea with Kuzana</title>
@@ -12,12 +12,37 @@
     <meta property="og:description" content="Kuzana has helped 15 Kenyan companies grow 2x in 12 weeks with systems thinking and investment.">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://kuzana.co/tea">
-    <meta http-equiv="refresh" content="2; url=https://form.kuzana.co/tea?utm_source=linkedin&utm_medium=social&utm_campaign=tea">
     <script>
-        // Delay redirect briefly so bots and validators can parse visible page content.
-        setTimeout(function () {
-            window.location.replace("https://form.kuzana.co/tea?utm_source=linkedin&utm_medium=social&utm_campaign=tea");
-        }, 1500);
+        // Redirect instantly to the Tally form, tagging the lead's source.
+        // Tally stores hidden fields `source` and `campaign`; utm_* are passed through too.
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var source = params.get('source') || params.get('utm_source');
+            if (!source) {
+                var clickIds = { fbclid: 'facebook', ttclid: 'tiktok', gclid: 'google', li_fat_id: 'linkedin', twclid: 'x' };
+                for (var id in clickIds) {
+                    if (params.get(id)) { source = clickIds[id]; break; }
+                }
+            }
+            if (!source && document.referrer) {
+                try {
+                    var host = new URL(document.referrer).hostname.replace(/^(www|m|l|lm)\./, '');
+                    var hosts = { 'facebook.com': 'facebook', 'instagram.com': 'instagram', 'linkedin.com': 'linkedin', 'lnkd.in': 'linkedin', 'tiktok.com': 'tiktok', 't.co': 'x', 'x.com': 'x', 'twitter.com': 'x', 'wa.me': 'whatsapp', 'whatsapp.com': 'whatsapp', 'youtube.com': 'youtube' };
+                    source = hosts[host] || (host.indexOf('google.') !== -1 ? 'google' : host);
+                } catch (error) {
+                    // ignore malformed referrer
+                }
+            }
+            source = source || 'direct';
+            var campaign = params.get('campaign') || params.get('utm_campaign') || 'tea';
+            params.set('source', source);
+            params.set('campaign', campaign);
+            if (!params.get('utm_source')) params.set('utm_source', source);
+            if (!params.get('utm_campaign')) params.set('utm_campaign', campaign);
+            var target = 'https://form.kuzana.co/tea?' + params.toString();
+            window.__teaTarget = target;
+            window.location.replace(target);
+        })();
     </script>
     <style>
         body {
@@ -68,7 +93,10 @@
             <li>Construction</li>
             <li>Fintech</li>
         </ul>
-        <p class="redirect-note">Redirecting to the form... If it does not open automatically, <a href="https://form.kuzana.co/tea?utm_source=linkedin&utm_medium=social&utm_campaign=tea">continue here</a>.</p>
+        <p class="redirect-note">Redirecting to the form... If it does not open automatically, <a id="tea-continue" href="https://form.kuzana.co/tea?source=direct&campaign=tea">continue here</a>.</p>
+        <script>
+            if (window.__teaTarget) document.getElementById('tea-continue').href = window.__teaTarget;
+        </script>
     </main>
 </body>
 </html>
