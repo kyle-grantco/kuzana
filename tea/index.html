@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://kuzana.co/tea">
     <script>
         // Redirect instantly to the Tally form, tagging the lead's source.
-        // Tally stores hidden fields `source` and `campaign`; utm_* are passed through too.
+        // Tally stores hidden fields `source`, `campaign` and `referrer`; utm_* are passed through too.
         (function () {
             var params = new URLSearchParams(window.location.search);
             var source = params.get('source') || params.get('utm_source');
@@ -37,6 +37,7 @@
             var campaign = params.get('campaign') || params.get('utm_campaign') || 'tea';
             params.set('source', source);
             params.set('campaign', campaign);
+            if (!params.get('referrer') && document.referrer) params.set('referrer', document.referrer);
             if (!params.get('utm_source')) params.set('utm_source', source);
             if (!params.get('utm_campaign')) params.set('utm_campaign', campaign);
             var target = 'https://form.kuzana.co/tea?' + params.toString();
