@@ -12,6 +12,7 @@
     <meta property="og:description" content="Kuzana has helped 15 Kenyan companies grow 2x in 12 weeks with systems thinking and investment.">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://kuzana.co/tea">
+    <meta http-equiv="refresh" content="2;url=https://form.kuzana.co/tea?source=direct&campaign=tea">
     <script>
         // Redirect instantly to the Tally form, tagging the lead's source.
         // Tally stores hidden fields `source`, `campaign` and `referrer`; utm_* are passed through too.
@@ -42,6 +43,8 @@
             if (!params.get('utm_campaign')) params.set('utm_campaign', campaign);
             var target = 'https://form.kuzana.co/tea?' + params.toString();
             window.__teaTarget = target;
+            var meta = document.querySelector('meta[http-equiv="refresh"]');
+            if (meta) meta.setAttribute('content', '2;url=' + target);
             window.location.replace(target);
         })();
     </script>
@@ -77,6 +80,17 @@
             margin-top: 20px;
             font-size: 0.95rem;
         }
+        .cta-btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 16px 32px;
+            background: #0f766e;
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -94,9 +108,10 @@
             <li>Construction</li>
             <li>Fintech</li>
         </ul>
-        <p class="redirect-note">Redirecting to the form... If it does not open automatically, <a id="tea-continue" href="https://form.kuzana.co/tea?source=direct&campaign=tea">continue here</a>.</p>
+        <a id="tea-cta" class="cta-btn" href="https://form.kuzana.co/tea?source=direct&campaign=tea">Book your tea →</a>
+        <p class="redirect-note">Redirecting to the form... If it does not open automatically, tap the button above.</p>
         <script>
-            if (window.__teaTarget) document.getElementById('tea-continue').href = window.__teaTarget;
+            if (window.__teaTarget) document.getElementById('tea-cta').href = window.__teaTarget;
         </script>
     </main>
 </body>
