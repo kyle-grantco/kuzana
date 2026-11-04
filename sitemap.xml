@@ -26,18 +26,15 @@
   <url><loc>https://kuzana.co/cofounders/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://kuzana.co/talent/</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://kuzana.co/fellowship/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://kuzana.co/quiz</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kuzana.co/tea/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kuzana.co/quiz/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://kuzana.co/40things/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://kuzana.co/sales/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://kuzana.co/bottleneck</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://kuzana.co/bottleneck/</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://kuzana.co/finale/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://kuzana.co/waitlist/</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://kuzana.co/privacypolicy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
   <!-- Individual HTML pages -->
   <url><loc>https://kuzana.co/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://kuzana.co/application-success.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
-  <url><loc>https://kuzana.co/referral/terms.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>
-
-
