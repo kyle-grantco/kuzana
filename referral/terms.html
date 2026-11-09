@@ -67,6 +67,7 @@
     <link rel="stylesheet" href="/assets/kz/kz.css?v=1e1d201a66">
     <link rel="stylesheet" href="/assets/kz/kz-hover.css?v=bf6f4bc2eb">
     <link rel="stylesheet" href="/assets/kz/kz-updates.css">
+    <link rel="stylesheet" href="/assets/kz/kz-countdown.css">
 <!-- /kz:head-assets -->
 </head>
 <body data-nav="ref">
@@ -121,6 +122,23 @@
 </nav>
 </div>
 <!-- /kz:header -->
+<!-- kz:countdown -->
+<div class="kz-cd-bar" id="kz-cd" data-deadline="2026-11-30T23:59:59+03:00" role="timer" aria-label="Application deadline countdown">
+  <div class="kz-cd-bar__inner">
+    <span class="kz-cd-bar__label">Applications close in</span>
+    <div class="kz-cd-bar__timer">
+      <span data-cd="d">--</span><small>d</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="h">--</span><small>h</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="m">--</span><small>m</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="s">--</span><small>s</small>
+    </div>
+    <a class="kz-cd-bar__cta" href="/apply/"><span>Apply Now</span> <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<!-- /kz:countdown -->
 <main id="main">
 <section data-screen-label="Kuzana Referral Terms and Conditions" style="background:#101A2E;color:#FBF7EF"><div style="max-width:1100px;margin:0 auto;padding:clamp(56px,8vh,104px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:20px"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;color:#AEB8CC;display:flex;gap:10px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#FDC469"></span>Referral</div><h1 style="margin:0;font-size:clamp(44px,6vw,88px);line-height:.94;font-weight:600;letter-spacing:-.05em">Kuzana Referral Terms and Conditions</h1></div></section><section data-screen-label="Terms body"><div style="max-width:1100px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:24px">
 <div data-reveal="" style="background:#101A2E;color:#FBF7EF;border-radius:6px;padding:clamp(28px,3.4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;align-items:center"><span data-count="100000" data-pre="Ksh" style="font-size:clamp(52px,6vw,96px);font-weight:700;letter-spacing:-.055em;line-height:.85;color:#FDC469">Ksh100,000</span><span style="font-size:18px;line-height:1.55;color:#E6EBF4">The maximum referral bonus is <strong style="color:#FBF7EF">Ksh100,000</strong> per company that receives investment from Kuzana. The bonus is split into half cash and half stock options of the referred company, paid upon the investee’s successful completion of the acceleration program.</span></div>
@@ -165,5 +183,6 @@
 <script src="/metricool.js" defer></script>
 <script src="/assets/kz/kz.js?v=cb59cbfff7" defer></script>
 <!-- /kz:scripts -->
+<script src="/assets/kz/kz-countdown.js" defer></script>
 </body>
 </html>

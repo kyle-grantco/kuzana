@@ -362,6 +362,7 @@
     <link rel="stylesheet" href="/assets/kz/kz.css?v=1e1d201a66">
     <link rel="stylesheet" href="/assets/kz/kz-hover.css?v=bf6f4bc2eb">
     <link rel="stylesheet" href="/assets/kz/kz-updates.css">
+    <link rel="stylesheet" href="/assets/kz/kz-countdown.css">
 <!-- /kz:head-assets -->
 </head>
 <body>
@@ -416,6 +417,23 @@
 </nav>
 </div>
 <!-- /kz:header -->
+<!-- kz:countdown -->
+<div class="kz-cd-bar" id="kz-cd" data-deadline="2026-11-30T23:59:59+03:00" role="timer" aria-label="Application deadline countdown">
+  <div class="kz-cd-bar__inner">
+    <span class="kz-cd-bar__label">Applications close in</span>
+    <div class="kz-cd-bar__timer">
+      <span data-cd="d">--</span><small>d</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="h">--</span><small>h</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="m">--</span><small>m</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="s">--</span><small>s</small>
+    </div>
+    <a class="kz-cd-bar__cta" href="/apply/"><span>Apply Now</span> <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<!-- /kz:countdown -->
 <main id="main">
 <section data-screen-label="Applicant FAQ" style="position:relative;background:#101A2E;color:#FBF7EF;overflow:hidden">
 <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;top:0;bottom:0;right:0;width:min(34%,460px);height:100%;pointer-events:none;opacity:.9" aria-hidden="true"><g data-rise=""><path d="M0 104 C 50 100, 86 80, 104 30" style="fill:none;stroke:#FDC469;stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round"></path><path d="M0 104 C 44 98, 80 66, 98 -4" style="fill:none;stroke:#FE7272;stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round"></path><path d="M0 104 C 38 96, 66 52, 76 -4" style="fill:none;stroke:#6F86B6;stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round"></path></g></svg>
@@ -536,5 +554,6 @@
 <script src="/metricool.js" defer></script>
 <script src="/assets/kz/kz.js?v=cb59cbfff7" defer></script>
 <!-- /kz:scripts -->
+<script src="/assets/kz/kz-countdown.js" defer></script>
 </body>
 </html>

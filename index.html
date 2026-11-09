@@ -71,6 +71,7 @@
     <link rel="stylesheet" href="/assets/kz/kz.css?v=1e1d201a66">
     <link rel="stylesheet" href="/assets/kz/kz-hover.css?v=bf6f4bc2eb">
     <link rel="stylesheet" href="/assets/kz/kz-updates.css">
+    <link rel="stylesheet" href="/assets/kz/kz-countdown.css">
 <!-- /kz:head-assets -->
 <link rel="stylesheet" href="/assets/kz/kz-hero-gallery.css?v=4c7e7cee4f">
 </head>
@@ -126,6 +127,23 @@
 </nav>
 </div>
 <!-- /kz:header -->
+<!-- kz:countdown -->
+<div class="kz-cd-bar" id="kz-cd" data-deadline="2026-11-30T23:59:59+03:00" role="timer" aria-label="Application deadline countdown">
+  <div class="kz-cd-bar__inner">
+    <span class="kz-cd-bar__label">Applications close in</span>
+    <div class="kz-cd-bar__timer">
+      <span data-cd="d">--</span><small>d</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="h">--</span><small>h</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="m">--</span><small>m</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="s">--</span><small>s</small>
+    </div>
+    <a class="kz-cd-bar__cta" href="/apply/"><span>Apply Now</span> <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<!-- /kz:countdown -->
 <main id="main">
 
 <section data-screen-label="Hero" style="position:relative;background:#101A2E;color:#FBF7EF;overflow:hidden;min-height:calc(100svh - 68px);display:flex;flex-direction:column">
@@ -380,5 +398,6 @@
 <script src="/assets/kz/kz.js?v=cb59cbfff7" defer></script>
 <!-- /kz:scripts -->
 <script src="/assets/kz/kz-hero-gallery.js?v=dca3277b8d" defer></script>
+<script src="/assets/kz/kz-countdown.js" defer></script>
 </body>
 </html>

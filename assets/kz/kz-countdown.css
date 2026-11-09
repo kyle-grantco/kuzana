@@ -1,0 +1,17 @@
+/* ── Sitewide countdown bar ── */
+.kz-cd-bar{position:sticky;top:68px;z-index:35;background:#0D1524;border-bottom:1px solid rgba(253,196,105,.15);color:#FBF7EF}
+.kz-cd-bar__inner{max-width:1360px;margin:0 auto;padding:10px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:center;gap:clamp(12px,2vw,24px)}
+.kz-cd-bar__label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#AEB8CC;letter-spacing:.02em;white-space:nowrap}
+.kz-cd-bar__timer{display:flex;align-items:baseline;gap:2px}
+.kz-cd-bar__timer [data-cd]{font-size:clamp(18px,2vw,22px);font-weight:700;color:#FDC469;min-width:26px;text-align:center;font-variant-numeric:tabular-nums}
+.kz-cd-bar__timer small{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#AEB8CC;margin-right:4px}
+.kz-cd-bar__sep{color:rgba(253,196,105,.35);font-size:18px;font-weight:600}
+.kz-cd-bar__cta{display:inline-flex;align-items:center;gap:8px;background:#FDC469;color:#18202F;padding:8px 18px;font-size:14px;font-weight:700;text-decoration:none;border-radius:3px;white-space:nowrap}
+.kz-cd-bar__cta:hover{background:#fdd07e}
+.kz-cd-bar[data-expired] .kz-cd-bar__timer{display:none}
+.kz-cd-bar[data-expired] .kz-cd-bar__label{color:#FE7272;font-size:13px}
+.kz-cd-bar[data-expired] .kz-cd-bar__cta{display:none}
+@media(max-width:479.98px){
+  .kz-cd-bar__inner{gap:8px}
+  .kz-cd-bar__timer [data-cd]{font-size:16px;min-width:22px}
+}
