@@ -39,6 +39,12 @@
                 } catch (e) {}
             }
             source = source || 'direct';
+            var tag = params.get('tag') || params.get('utm_content') || '';
+            if (!tag) {
+                var reserved = { source:1, utm_source:1, campaign:1, utm_campaign:1, tag:1, utm_content:1, fbclid:1, ttclid:1, gclid:1, li_fat_id:1, twclid:1 };
+                params.forEach(function(v, k) { if (!reserved[k] && !tag) tag = k; });
+            }
+            if (tag) source = source + '-' + tag;
             var campaign = params.get('campaign') || params.get('utm_campaign') || 'class';
             var tallySrc = 'https://tally.so/r/BE4OpA?transparentBackground=1&formEventsForwarding=1'
                 + '&s=' + encodeURIComponent(source)
