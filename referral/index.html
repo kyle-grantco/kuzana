@@ -67,6 +67,7 @@
     <link rel="stylesheet" href="/assets/kz/kz.css?v=1e1d201a66">
     <link rel="stylesheet" href="/assets/kz/kz-hover.css?v=bf6f4bc2eb">
     <link rel="stylesheet" href="/assets/kz/kz-updates.css">
+    <link rel="stylesheet" href="/assets/kz/kz-countdown.css">
 <!-- /kz:head-assets -->
 <style>
 .kz-ref-input:focus{border-color:#4A6290 !important;box-shadow:0 0 0 3px rgba(74,98,144,.18)}
@@ -124,6 +125,23 @@
 </nav>
 </div>
 <!-- /kz:header -->
+<!-- kz:countdown -->
+<div class="kz-cd-bar" id="kz-cd" data-deadline="2026-11-30T23:59:59+03:00" role="timer" aria-label="Application deadline countdown">
+  <div class="kz-cd-bar__inner">
+    <span class="kz-cd-bar__label">Applications close in</span>
+    <div class="kz-cd-bar__timer">
+      <span data-cd="d">--</span><small>d</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="h">--</span><small>h</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="m">--</span><small>m</small>
+      <span class="kz-cd-bar__sep">:</span>
+      <span data-cd="s">--</span><small>s</small>
+    </div>
+    <a class="kz-cd-bar__cta" href="/apply/"><span>Apply Now</span> <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<!-- /kz:countdown -->
 <main id="main">
 <section data-screen-label="Referral" style="position:relative;background:#101A2E;color:#FBF7EF;overflow:hidden;min-height:calc(100svh - 68px);display:flex">
 <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" aria-hidden="true"><g data-rise=""><path d="M-2 102 C 40 100, 74 86, 104 38" style="fill:none;stroke:#FDC469;stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round;opacity:.85"></path><path d="M-2 102 C 38 98, 70 72, 96 -4" style="fill:none;stroke:#FE7272;stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round;opacity:.85"></path><path d="M-2 102 C 36 96, 62 56, 80 -4" style="fill:none;stroke:#6F86B6;stroke-width:6;vector-effect:non-scaling-stroke;stroke-linecap:round;opacity:.85"></path></g></svg>
@@ -279,5 +297,6 @@
     document.getElementById("email").addEventListener("input", function () { document.getElementById("refErr").hidden = true; });
     document.getElementById("copyBtn").addEventListener("click", copyLink);
 </script>
+<script src="/assets/kz/kz-countdown.js" defer></script>
 </body>
 </html>
