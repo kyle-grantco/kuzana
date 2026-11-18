@@ -106,6 +106,10 @@
     var qualified = revenue !== null && revenue >= THRESHOLD;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: qualified ? 'kz_qualified_application' : 'kz_application_submitted', kz_last_month_revenue: revenue });
+    // Every finished application (reached the end and submitted, video included).
+    try {
+      ensurePixel().track('CompleteRegistration', { content_name: 'Batch 5 completed application' }, { event_id: 'kzc_' + id });
+    } catch (err) { /* tracking must never break the page */ }
     if (!qualified) return;
     try {
       ensurePixel().track('SubmitApplication', {
