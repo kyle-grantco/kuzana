@@ -110,6 +110,13 @@
     try {
       ensurePixel().track('CompleteRegistration', { content_name: 'Batch 5 completed application' }, { event_id: 'kzc_' + id });
     } catch (err) { /* tracking must never break the page */ }
+    // Meta pixel: every finished application, and qualified ones separately.
+    try {
+      if (window.fbq) {
+        window.fbq('track', 'CompleteRegistration', { content_name: 'Batch 5 completed application' }, { eventID: 'kzc_' + id });
+        if (qualified) window.fbq('track', 'SubmitApplication', { value: revenue, currency: 'KES' }, { eventID: 'kzq_' + id });
+      }
+    } catch (err) { /* tracking must never break the page */ }
     if (!qualified) return;
     try {
       ensurePixel().track('SubmitApplication', {
